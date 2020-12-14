@@ -1,0 +1,11 @@
+VAR
+	AssemblyState : TrBaseAsmStateEnum;
+	fbAsmReadStatus : MC_BR_AsmReadStatus_AcpTrak;
+	fbAsmReadInfo : MC_BR_AsmReadInfo_AcpTrak;
+	fbAsmPowerOn : MC_BR_AsmPowerOn_AcpTrak;
+	fbAsmPowerOff : MC_BR_AsmPowerOff_AcpTrak;
+	fbAsmReset : MC_BR_AsmReset_AcpTrak;
+	fbTrakModule : MpPackMLModule;
+	parTrakModule : MpPackMLModuleParType;
+	TrakInterface : TrakInterfaceType;
+END_VAR

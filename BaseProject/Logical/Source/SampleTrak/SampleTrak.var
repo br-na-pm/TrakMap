@@ -1,0 +1,4 @@
+VAR
+	gTrakSystem : TrakType;
+	gSampleTrakMon : McAcpTrakAssemblyMonData;
+END_VAR

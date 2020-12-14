@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package SubType="ApplicationModule" PackageType="ApplicationModule" xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File" Description="Software configuration">EM3.sw</Object>
+    <Object Type="File" Description="Variable mapping">EM3.vvm</Object>
+    <Object Type="File" Description="I/O mapping">EM3.iom</Object>
+  </Objects>
+</Package>

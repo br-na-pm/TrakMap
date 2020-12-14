@@ -1,0 +1,7 @@
+VAR
+	MpAlarmX : MpComIdentType;
+	ModuleName : STRING[30];
+	StartValue : INT;
+	Counter : INT;
+	MpLink : REFERENCE TO MpComIdentType;
+END_VAR

@@ -1,0 +1,6 @@
+(*Shuttle initialization variables*)
+VAR
+	ShInit : SubroutineSequenceType;
+	ShInitState : USINT;
+	ShuttleUserData : ShuttleUserDataType;
+END_VAR

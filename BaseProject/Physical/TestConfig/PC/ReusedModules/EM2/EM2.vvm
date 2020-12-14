@@ -1,0 +1,3 @@
+VAR_CONFIG
+	Cyclic#1.::gMainModule AT %Q.EM2::ModuleInterface.MainPml; (*Insert your comment here...*)
+END_VAR

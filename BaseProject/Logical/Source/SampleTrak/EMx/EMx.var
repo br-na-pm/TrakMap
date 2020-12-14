@@ -1,0 +1,3 @@
+VAR
+	ModuleInterface : ModuleInterfaceType;
+END_VAR

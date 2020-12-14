@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File" Private="true">Source.var</Object>
+    <Object Type="File" Private="true">Source.typ</Object>
+    <Object Type="Program" Language="IEC">Operation</Object>
+    <Object Type="Program" Language="IEC">Recovery</Object>
+    <Object Type="Program" Language="IEC">Config</Object>
+    <Object Type="Program" Language="IEC">BarrierCtrl</Object>
+  </Objects>
+</Package>

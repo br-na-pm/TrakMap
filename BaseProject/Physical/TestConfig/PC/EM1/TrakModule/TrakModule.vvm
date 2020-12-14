@@ -1,0 +1,4 @@
+VAR_CONFIG
+	Cyclic#1.::gTrakModule AT %Q.TrakModule::AsmSampleT:TrakInterface.ModulePml; (*Insert your comment here...*)
+	Cyclic#1.::gSampleTrak AT %Q.TrakModule::AsmSampleT:TrakInterface.SampleTrak; (*Insert your comment here...*)
+END_VAR
