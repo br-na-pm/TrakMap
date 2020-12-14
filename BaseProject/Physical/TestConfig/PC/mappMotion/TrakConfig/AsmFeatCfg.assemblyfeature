@@ -4,7 +4,7 @@
   <Element ID="SampleTrak_AutoAttach" Type="assemblyfeature">
     <Selector ID="Type" Value="ShtSectorAutoAttach">
       <Group ID="Priority[1]">
-        <Property ID="SectorRef" Value="SampleTrak_SectorTrackA" />
+        <Property ID="SectorRef" Value="gSampleTrak_SectorTrackA" />
         <Property ID="Orientation" Value="KeepSegment" />
       </Group>
     </Selector>
@@ -13,7 +13,7 @@
     <Selector ID="Type" Value="LocalLimits">
       <Group ID="LocalLimit[1]">
         <Selector ID="Location">
-          <Property ID="SectorRef" Value="SampleTrak_SectorTrackA" />
+          <Property ID="SectorRef" Value="gSampleTrak_SectorTrackA" />
         </Selector>
         <Group ID="MotionLimits">
           <Selector ID="Velocity" Value="Basic">
@@ -29,7 +29,7 @@
   <Element ID="SampleTrak_SimShuttle" Type="assemblyfeature">
     <Selector ID="Type" Value="InitShuttleSim">
       <Group ID="InitShuttleSim[1]">
-        <Property ID="SectorRef" Value="SampleTrak_SectorTrackA" />
+        <Property ID="SectorRef" Value="gSampleTrak_SectorTrackA" />
         <Property ID="Orientation" Value="Positive" />
         <Selector ID="ShuttleDefinition" Value="ShuttleSetDefinition">
           <Property ID="StartPosition" Value="0.0" />
@@ -42,16 +42,16 @@
   <Element ID="SampleTrak_AsmPwr_STO1" Type="assemblyfeature">
     <Selector ID="Type" Value="ExcludeFromAssembly">
       <Selector ID="Exclusion" Value="AsmPowerOn">
-        <Property ID="SegmentRef[1]" Value="::Seg_A_1" />
-        <Property ID="SegmentRef[2]" Value="::Seg_A_2" />
+        <Property ID="SegmentRef[1]" Value="::gSeg_A_1" />
+        <Property ID="SegmentRef[2]" Value="::gSeg_A_2" />
       </Selector>
     </Selector>
   </Element>
   <Element ID="SampleTrak_AsmPwr_STO2" Type="assemblyfeature">
     <Selector ID="Type" Value="ExcludeFromAssembly">
       <Selector ID="Exclusion" Value="AsmPowerOn">
-        <Property ID="SegmentRef[1]" Value="::Seg_A_3" />
-        <Property ID="SegmentRef[2]" Value="::Seg_A_4" />
+        <Property ID="SegmentRef[1]" Value="::gSeg_A_3" />
+        <Property ID="SegmentRef[2]" Value="::gSeg_A_4" />
       </Selector>
     </Selector>
   </Element>

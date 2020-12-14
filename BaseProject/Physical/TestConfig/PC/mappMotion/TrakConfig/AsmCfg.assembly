@@ -6,21 +6,21 @@
       <Property ID="TrackSeparation" Value="0.030" />
       <Group ID="Track[1]">
         <Group ID="Segments">
-          <Property ID="SegmentRef[1]" Value="::Seg_A_1" />
-          <Property ID="SegmentRef[2]" Value="::Seg_A_2" />
-          <Property ID="SegmentRef[3]" Value="::Seg_A_3" />
-          <Property ID="SegmentRef[4]" Value="::Seg_A_4" />
-          <Property ID="SegmentRef[5]" Value="::Seg_A_5" />
-          <Property ID="SegmentRef[6]" Value="::Seg_A_6" />
-          <Property ID="SegmentRef[7]" Value="::Seg_A_7" />
-          <Property ID="SegmentRef[8]" Value="::Seg_A_8" />
-          <Property ID="SegmentRef[9]" Value="::Seg_A_9" />
-          <Property ID="SegmentRef[10]" Value="::Seg_A_10" />
-          <Property ID="SegmentRef[11]" Value="::Seg_A_11" />
-          <Property ID="SegmentRef[12]" Value="::Seg_A_12" />
+          <Property ID="SegmentRef[1]" Value="::gSeg_A_1" />
+          <Property ID="SegmentRef[2]" Value="::gSeg_A_2" />
+          <Property ID="SegmentRef[3]" Value="::gSeg_A_3" />
+          <Property ID="SegmentRef[4]" Value="::gSeg_A_4" />
+          <Property ID="SegmentRef[5]" Value="::gSeg_A_5" />
+          <Property ID="SegmentRef[6]" Value="::gSeg_A_6" />
+          <Property ID="SegmentRef[7]" Value="::gSeg_A_7" />
+          <Property ID="SegmentRef[8]" Value="::gSeg_A_8" />
+          <Property ID="SegmentRef[9]" Value="::gSeg_A_9" />
+          <Property ID="SegmentRef[10]" Value="::gSeg_A_10" />
+          <Property ID="SegmentRef[11]" Value="::gSeg_A_11" />
+          <Property ID="SegmentRef[12]" Value="::gSeg_A_12" />
         </Group>
         <Selector ID="Position" Value="Absolute">
-          <Property ID="SegmentRef" Value="::Seg_A_1" />
+          <Property ID="SegmentRef" Value="::gSeg_A_1" />
           <Property ID="SegmentCountDirection" Value="RightToLeft" />
           <Group ID="Translation">
             <Property ID="X" Value="0.0" />
@@ -74,7 +74,7 @@
         <Property ID="ErrorStop" Value="0.006" />
       </Group>
       <Group ID="ShuttleStereotypes">
-        <Property ID="ShuttleStRef[1]" Value="SampleShuttle" />
+        <Property ID="ShuttleStRef[1]" Value="gSampleShuttle" />
       </Group>
       <Group ID="MagnetPlateConfigurations">
         <Selector ID="ShuttleType[1]" Value="8F1SA.100.xxxxxx-x" />
@@ -96,6 +96,8 @@
       <Property ID="AssemblyFeatureRef[1]" Value="SampleTrak_AutoAttach" />
       <Property ID="AssemblyFeatureRef[2]" Value="SampleTrak_LocalLimits" />
       <Property ID="AssemblyFeatureRef[3]" Value="SampleTrak_SimShuttle" />
+      <Property ID="AssemblyFeatureRef[4]" Value="SampleTrak_AsmPwr_STO1" />
+      <Property ID="AssemblyFeatureRef[5]" Value="SampleTrak_AsmPwr_STO2" />
     </Group>
     <Group ID="Visualization">
       <Property ID="MonitoringPv" Value="gSampleTrakMon" />

@@ -6,7 +6,7 @@
       <Property ID="Name" Value="TrakAssembly" />
       <Selector ID="Parent">
         <Property ID="Parent" Value="gMainModule" />
-        <Selector ID="Activation" Value="0" />
+        <Selector ID="Activation" Value="1" />
       </Selector>
     </Group>
   </Element>

@@ -36,7 +36,7 @@
     </Connection>
     <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
     <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
-    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="Seg_A_1" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="gSeg_A_1" />
     <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
     <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
   </Module>
@@ -49,7 +49,7 @@
     </Connection>
     <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
     <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
-    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="Seg_A_7" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="gSeg_A_7" />
     <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
     <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
   </Module>
@@ -62,7 +62,7 @@
     </Connection>
     <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
     <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT105_TO_CIRCULAR" />
-    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="Seg_A_2" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="gSeg_A_2" />
     <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
     <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
   </Module>
@@ -75,7 +75,7 @@
     </Connection>
     <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
     <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT105_TO_CIRCULAR" />
-    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="Seg_A_8" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="gSeg_A_8" />
     <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
     <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
   </Module>
@@ -85,7 +85,7 @@
     </Connection>
     <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
     <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR_TO_STRAIGHT105" />
-    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="Seg_A_12" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="gSeg_A_12" />
     <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
     <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
   </Module>
@@ -98,7 +98,7 @@
     </Connection>
     <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
     <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR_TO_STRAIGHT105" />
-    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="Seg_A_6" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="gSeg_A_6" />
     <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
     <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
   </Module>
@@ -111,7 +111,7 @@
     </Connection>
     <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
     <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
-    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="Seg_A_10" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="gSeg_A_10" />
     <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
     <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
   </Module>
@@ -124,7 +124,7 @@
     </Connection>
     <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
     <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
-    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="Seg_A_11" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="gSeg_A_11" />
     <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
     <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
   </Module>
@@ -137,7 +137,7 @@
     </Connection>
     <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
     <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
-    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="Seg_A_3" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="gSeg_A_3" />
     <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
     <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
   </Module>
@@ -150,7 +150,7 @@
     </Connection>
     <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
     <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
-    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="Seg_A_4" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="gSeg_A_4" />
     <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
     <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
   </Module>
@@ -163,7 +163,7 @@
     </Connection>
     <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
     <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
-    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="Seg_A_5" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="gSeg_A_5" />
     <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
     <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
   </Module>
@@ -176,7 +176,7 @@
     </Connection>
     <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
     <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
-    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="Seg_A_9" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="gSeg_A_9" />
     <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
     <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
   </Module>
