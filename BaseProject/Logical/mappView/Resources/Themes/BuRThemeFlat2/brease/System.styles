@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Styles id="BuRThemeFlat2systemStyles" xmlns="http://www.br-automation.com/iat2015/styles/engineering/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+
+	<Style id="default" xsi:type="system.brease.Page" />
+	
+	<Style id="default" xsi:type="system.brease.Dialog" 
+		fontSize="20px" 
+		textColor="#646464" 
+		cornerRadius="0px 0px 0px 0px" 
+		headerBorderWidth="0px" 
+		borderWidth="0px" 
+		borderColor="#A899A0 #5F5F5F #5F5F5F #A899A0" />
+	
+	<Style id="default" xsi:type="system.brease.MessageBox"
+		backColor="#ccc"
+		headerBackColor="#808080"
+		headerBold="false"
+		headerFontSize="22px"
+		headerBorderStyle="solid"
+		headerBorderWidth="0 0 0 0"
+		fontSize="20px"
+		textColor="#444"
+		cornerRadius="0px"
+		borderWidth="0px"
+		buttonBorderStyle="none"
+		buttonBackColor="#ccc"
+		mouseDownButtonBackColor="#ff9900"
+		buttonTextColor="#444"
+		buttonFontSize="14px"
+		mouseDownButtonTextColor="#ffffff"
+	/>
+	
+	<Style id="default" xsi:type="system.brease.Area" 
+		backColor="#222" />
+	
+	<Style id="transparent" xsi:type="system.brease.Area" 
+		backColor="transparent" />
+	
+	<Style id="default" xsi:type="system.brease.Scrollbar"
+		backColor="rgba(100,100,100,0.5)"
+		borderColor="rgba(255,255,255,0.9)"
+	/> 
+	
+	<Style id="default" xsi:type="system.brease.Tooltip" 
+		showArrow="true"
+		fontSize="14px"
+		backColor="#ccc"
+		textColor="#444"
+		cornerRadius="0px"
+		borderStyle="none" />
+</Styles>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gAlarmXCore_TrakModule" Type="mpalarmxcore">
+    <Group ID="mapp.AlarmX.Core">
+      <Group ID="Mapping">
+        <Group ID="[0]">
+          <Property ID="Alarm" Value="TrakAlarm" />
+          <Selector ID="[0]" Value="Aggregate">
+            <Property ID="Name" Value="Trak*" />
+          </Selector>
+        </Group>
+      </Group>
+      <Group ID="Default">
+        <Selector ID="[0]" Value="Remain" />
+      </Group>
+    </Group>
+    <Group ID="mapp.AlarmX.Core.Configuration">
+      <Group ID="[0]">
+        <Property ID="Name" Value="TrakErrorStop" />
+        <Property ID="Message" Value="{$Assembly/Alarm/TrakErrorStop}" />
+        <Property ID="Code" Value="1000" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="TrakModule::AsmSampleT:fbAsmReadStatus.AssemblyErrorStop" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="[1]">
+        <Property ID="Name" Value="TrakPowerOn" />
+        <Property ID="Message" Value="{$Assembly/Alarm/TrakPowerOn}" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="TrakModule::AsmSampleT:fbAsmReadInfo.AssemblyInfo.PowerOn" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="[2]">
+        <Property ID="Name" Value="TrakTestAlarm" />
+        <Property ID="Message" Value="Just a Test" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="TrakModule::Alarm:TriggerTestAlarm" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+    </Group>
+    <Group ID="mapp.AlarmX.Core.Categories">
+      <Group ID="[0]">
+        <Property ID="Name" Value="Information" />
+        <Selector ID="SourceProperty">
+          <Property ID="Severity" Value="0..99" />
+        </Selector>
+      </Group>
+      <Group ID="[1]">
+        <Property ID="Name" Value="Warning" />
+        <Selector ID="SourceProperty">
+          <Property ID="Severity" Value="100..199" />
+        </Selector>
+      </Group>
+      <Group ID="[2]">
+        <Property ID="Name" Value="Alarm" />
+        <Selector ID="SourceProperty">
+          <Property ID="Severity" Value="1000..1199" />
+        </Selector>
+      </Group>
+    </Group>
+  </Element>
+</Configuration>

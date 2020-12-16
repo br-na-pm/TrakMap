@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="welder2ReturnContent" height="675" width="900" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox1" top="60" left="5" width="890" height="200" zIndex="0" text="STO 10 Return" textAlign="left">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox2" top="9" left="5" width="588" zIndex="0" text="TGA" backColor="rgba(240, 230, 140, 1)" headerBackColor="rgba(255, 250, 205, 1)" textAlign="left">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton12" top="44" left="5" width="120" zIndex="0" breakWord="true" mouseDownText="PowerOn" multiLine="true" text="PowerOn" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton11" top="79" left="5" width="120" zIndex="1" breakWord="true" mouseDownText="Automatic" multiLine="true" text="Automatic" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+          </Widgets>
+        </Widget>
+        <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox3" top="9" left="600" width="285" zIndex="1" text="B&amp;R" backColor="rgba(255, 215, 0, 1)" headerBackColor="rgba(255, 165, 0, 1)" textAlign="left">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton1" top="51" left="95" height="15" zIndex="0" breakWord="true" mouseDownText="C-O-P" multiLine="true" text="C-O-P" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" rotation="270deg" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton2" top="44" left="5" width="130" zIndex="1" breakWord="true" mouseDownText="Power Is On" multiLine="true" text="Power Is On" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton3" top="79" left="5" width="130" zIndex="2" breakWord="true" mouseDownText="Auto Active" multiLine="true" text="Auto Active" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton4" top="9" left="5" width="130" zIndex="3" breakWord="true" mouseDownText="Rdy Pwr On" multiLine="true" text="Rdy Pwr On" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+          </Widgets>
+        </Widget>
+      </Widgets>
+    </Widget>
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton22" top="5" left="545" width="170" height="50" zIndex="1" breakWord="true" mouseDownText="ASM ErrorStop" multiLine="true" text="ASM ErrorStop" mouseDownBackColor="rgba(255, 0, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(255, 0, 0, 1)" disabledCheckedBackColor="rgba(255, 0, 0, 1)" enable="false" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton23" top="5" left="185" width="170" height="50" zIndex="2" breakWord="true" mouseDownText="ASM Ready" multiLine="true" text="ASM Ready" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton24" top="5" left="5" width="170" height="50" zIndex="3" breakWord="true" mouseDownText="ReadyToPowerOn" multiLine="true" text="ReadyToPowerOn" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton25" top="5" left="365" width="170" height="50" zIndex="4" breakWord="true" mouseDownText="ASM Disabled" multiLine="true" text="ASM Disabled" mouseDownBackColor="rgba(255, 128, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(255, 128, 0, 1)" enable="false" />
+    <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox4" top="265" left="5" width="890" height="200" zIndex="5" text="STO 10 Laser" textAlign="left">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox5" top="9" left="5" width="588" zIndex="0" text="TGA" backColor="rgba(240, 230, 140, 1)" headerBackColor="rgba(255, 250, 205, 1)" textAlign="left">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton13" top="44" left="5" width="120" zIndex="0" breakWord="true" mouseDownText="PowerOn" multiLine="true" text="PowerOn" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton14" top="79" left="5" width="120" zIndex="1" breakWord="true" mouseDownText="Automatic" multiLine="true" text="Automatic" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+          </Widgets>
+        </Widget>
+        <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox6" top="9" left="600" width="285" zIndex="1" text="B&amp;R" backColor="rgba(255, 215, 0, 1)" headerBackColor="rgba(255, 165, 0, 1)" textAlign="left">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton5" top="51" left="95" height="15" zIndex="0" breakWord="true" mouseDownText="C-O-P" multiLine="true" text="C-O-P" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" rotation="270deg" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton6" top="44" left="5" width="130" zIndex="1" breakWord="true" mouseDownText="Power Is On" multiLine="true" text="Power Is On" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton7" top="79" left="5" width="130" zIndex="2" breakWord="true" mouseDownText="Auto Active" multiLine="true" text="Auto Active" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton8" top="9" left="5" width="130" zIndex="3" breakWord="true" mouseDownText="Rdy Pwr On" multiLine="true" text="Rdy Pwr On" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+          </Widgets>
+        </Widget>
+      </Widgets>
+    </Widget>
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton26" top="5" left="725" width="170" height="50" zIndex="6" breakWord="true" mouseDownText="ASM PowerOn" multiLine="true" text="ASM PowerOn" mouseDownBackColor="rgba(255, 0, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(255, 0, 0, 1)" disabledCheckedBackColor="rgba(255, 0, 0, 1)" enable="false" />
+  </Widgets>
+</Content>

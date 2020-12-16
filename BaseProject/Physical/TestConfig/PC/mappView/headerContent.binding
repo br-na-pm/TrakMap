@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="headerContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+<Binding mode="twoWay">
+<Source xsi:type="session" refId="headerText" attribute="value" />
+<Target xsi:type="brease" contentRefId="headerContent" widgetRefId="TextOutput1" attribute="value" />
+</Binding>
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" serverAlias="Welder2" refId="::AsGlobalPV:MachineLastRevisionDate" attribute="value" />
+<Target xsi:type="brease" contentRefId="headerContent" widgetRefId="DateTimeOutput4" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" serverAlias="Welder1" refId="::AsGlobalPV:MachineLastRevisionDate" attribute="value" />
+<Target xsi:type="brease" contentRefId="headerContent" widgetRefId="DateTimeOutput3" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" serverAlias="Laser" refId="::AsGlobalPV:MachineLastRevisionDate" attribute="value" />
+<Target xsi:type="brease" contentRefId="headerContent" widgetRefId="DateTimeOutput2" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" serverAlias="Welder2" refId="::AsGlobalPV:MachineSoftwareVersion" attribute="value" />
+<Target xsi:type="brease" contentRefId="headerContent" widgetRefId="TextOutput5" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" serverAlias="Laser" refId="::AsGlobalPV:MachineSoftwareVersion" attribute="value" />
+<Target xsi:type="brease" contentRefId="headerContent" widgetRefId="TextOutput3" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" serverAlias="Welder1" refId="::AsGlobalPV:MachineSoftwareVersion" attribute="value" />
+<Target xsi:type="brease" contentRefId="headerContent" widgetRefId="TextOutput4" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:MachineSoftwareVersion" attribute="value" />
+<Target xsi:type="brease" contentRefId="headerContent" widgetRefId="TextOutput2" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:MachineLastRevisionDate" attribute="value" />
+<Target xsi:type="brease" contentRefId="headerContent" widgetRefId="DateTimeOutput1" attribute="value" />
+</Binding>
+</Bindings>
+</BindingsSet>

@@ -21,5 +21,7 @@
     <Object Type="Library" Language="binary" Description="[mapp Motion] ACOPOS axis library">McAcpAx</Object>
     <Object Type="Library" Language="IEC" Description="AddOn Trak library for types and variable definitions">TrBase</Object>
     <Object Type="Library" Language="Binary" Description="OMAC PackML">MpPackML</Object>
+    <Object Type="Library" Language="Binary" Description="mapp components diagnosis,hierarchy and unit handling">MpCom</Object>
+    <Object Type="Library" Language="Binary" Description="Communication library for mappView widgets">MpServer</Object>
   </Objects>
 </Package>

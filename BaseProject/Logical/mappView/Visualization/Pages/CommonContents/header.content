@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="headerContent" height="100" width="1080" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.TextOutput" id="TextOutput1" top="5" left="5" width="915" height="90" zIndex="0" value="$IAT/ActiveAlarm" fontSize="72px" />
+    <Widget xsi:type="widgets.brease.Image" id="Image1" top="5" left="920" width="145" height="90" zIndex="1" image="Media/Roadrunner.png" />
+    <Widget xsi:type="widgets.brease.FlyOut" id="FlyOut1" top="0" left="0" width="500" height="100" zIndex="2" autoClose="true" buttonStyle="transparent" docking="right" text="FlyOut1" buttonHeight="100" buttonWidth="5" buttonBorderStyle="none" buttonBackColor="rgba(153, 153, 153, 0)" borderStyle="none">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.Label" id="Label5" top="0" left="5" height="20" zIndex="0" text="APC" borderWidth="0px 1px 1px 0px" borderStyle="solid" fontSize="12px" padding="10px" margin="5px 0px 5px 0px" />
+        <Widget xsi:type="widgets.brease.Label" id="Label6" top="0" left="85" width="150" height="20" zIndex="1" text="Version Date" borderWidth="0px 1px 1px 0px" borderStyle="solid" fontSize="12px" padding="10px" margin="5px 0px 5px 0px" />
+        <Widget xsi:type="widgets.brease.Label" id="Label7" top="0" left="235" width="260" height="20" zIndex="2" text="Version - Additional Commits - Last Commit" borderWidth="0px 1px 1px 0px" borderStyle="solid" fontSize="12px" padding="10px" margin="5px 0px 5px 0px" />
+        <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox1" top="25" left="5" width="490" height="70" zIndex="3" childPositioning="relative" style="transparent">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.Label" id="Label1" top="0" left="0" height="20" zIndex="0" text="Winder" fontSize="12px" padding="10px" margin="5px 0px 5px 0px" />
+            <Widget xsi:type="widgets.brease.DateTimeOutput" id="DateTimeOutput1" top="0" left="0" width="140" height="20" zIndex="1" format="MMMM. dd. yyyy HH:mm" fontSize="12px" padding="10px" margin="5px 0px 5px 0px" />
+            <Widget xsi:type="widgets.brease.TextOutput" id="TextOutput2" top="0" left="0" width="220" height="20" zIndex="2" value="'1.1.0-18-5c7bab5'" textAlign="center" fontSize="12px" padding="10px" margin="5px 0px 5px 20px" />
+            <Widget xsi:type="widgets.brease.Label" id="Label2" top="0" left="0" height="20" zIndex="3" text="Laser" fontSize="12px" padding="10px" margin="5px 0px 5px 0px" />
+            <Widget xsi:type="widgets.brease.DateTimeOutput" id="DateTimeOutput2" top="0" left="0" width="140" height="20" zIndex="4" format="MMMM. dd. yyyy HH:mm" fontSize="12px" padding="10px" margin="5px 0px 5px 0px" />
+            <Widget xsi:type="widgets.brease.TextOutput" id="TextOutput3" top="0" left="0" width="220" height="20" zIndex="5" value="'1.1.0-18-5c7bab5'" textAlign="center" fontSize="12px" padding="10px" margin="5px 0px 5px 20px" />
+            <Widget xsi:type="widgets.brease.Label" id="Label3" top="0" left="0" height="20" zIndex="6" text="Welder 1" fontSize="12px" padding="10px" margin="5px 0px 5px 0px" />
+            <Widget xsi:type="widgets.brease.DateTimeOutput" id="DateTimeOutput3" top="0" left="0" width="140" height="20" zIndex="7" format="MMMM. dd. yyyy HH:mm" fontSize="12px" padding="10px" margin="5px 0px 5px 0px" />
+            <Widget xsi:type="widgets.brease.TextOutput" id="TextOutput4" top="0" left="0" width="220" height="20" zIndex="8" value="'1.1.0-18-5c7bab5'" textAlign="center" fontSize="12px" padding="10px" margin="5px 0px 5px 20px" />
+            <Widget xsi:type="widgets.brease.Label" id="Label4" top="0" left="0" height="20" zIndex="9" text="Welder 2" fontSize="12px" padding="10px" margin="5px 0px 5px 0px" />
+            <Widget xsi:type="widgets.brease.DateTimeOutput" id="DateTimeOutput4" top="0" left="0" width="140" height="20" zIndex="10" format="MMMM. dd. yyyy HH:mm" fontSize="12px" padding="10px" margin="5px 0px 5px 0px" />
+            <Widget xsi:type="widgets.brease.TextOutput" id="TextOutput5" top="0" left="0" width="220" height="20" zIndex="11" value="'1.1.0-18-5c7bab5'" textAlign="center" fontSize="12px" padding="10px" margin="5px 0px 5px 20px" />
+          </Widgets>
+        </Widget>
+      </Widgets>
+    </Widget>
+  </Widgets>
+</Content>

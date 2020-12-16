@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="winderContent" height="675" width="900" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox2" top="60" left="5" width="890" height="380" zIndex="0" text="STO 10" backColor="rgba(255, 255, 255, 1)" borderColor="rgba(214, 214, 214, 1)" textAlign="left">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.Label" id="State" top="184" left="440" width="120" zIndex="0" text="State:" textAlign="right bottom" />
+        <Widget xsi:type="widgets.brease.TextOutput" id="TrakCmdEnumOutput" top="184" left="575" width="310" zIndex="1" />
+        <Widget xsi:type="widgets.brease.TextOutput" id="SeqStepEnumOutput" top="234" left="575" width="310" zIndex="2" />
+        <Widget xsi:type="widgets.brease.TextOutput" id="AutoInitStepEnumOutput" top="284" left="575" width="310" zIndex="3" />
+        <Widget xsi:type="widgets.brease.Label" id="State1" top="234" left="440" width="120" zIndex="4" text="Process Step:" textAlign="right" />
+        <Widget xsi:type="widgets.brease.Label" id="State2" top="284" left="440" width="120" zIndex="5" text="Automatic Start Step:" textAlign="right" />
+        <Widget xsi:type="widgets.brease.Label" id="State3" top="184" left="20" width="120" zIndex="6" text="Shuttles in System" />
+        <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput1" top="184" left="155" zIndex="7" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" />
+        <Widget xsi:type="widgets.brease.Label" id="State4" top="234" left="20" width="120" zIndex="8" text="Error Location:" textAlign="right bottom" />
+        <Widget xsi:type="widgets.brease.Label" id="State5" top="284" left="20" width="120" zIndex="9" text="Error Nbr:" textAlign="right bottom" />
+        <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput3" top="284" left="155" zIndex="10" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" />
+        <Widget xsi:type="widgets.brease.TextOutput" id="ErrLocEnumOutput" top="234" left="155" width="305" zIndex="11" />
+        <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox6" top="4" left="5" width="435" zIndex="12" text="TGA" backColor="rgba(240, 230, 140, 1)" headerBackColor="rgba(255, 250, 205, 1)" textAlign="left">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton20" top="44" left="5" width="120" zIndex="0" breakWord="true" mouseDownText="PowerOn" multiLine="true" text="PowerOn" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton21" top="79" left="5" width="120" zIndex="1" breakWord="true" mouseDownText="Automatic" multiLine="true" text="Automatic" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+          </Widgets>
+        </Widget>
+        <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox7" top="4" left="450" width="435" zIndex="13" text="B&amp;R" backColor="rgba(255, 215, 0, 1)" headerBackColor="rgba(255, 165, 0, 1)" textAlign="left">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton22" top="51" left="95" height="15" zIndex="0" breakWord="true" mouseDownText="C-O-P" multiLine="true" text="C-O-P" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" rotation="270deg" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton23" top="44" left="5" width="130" zIndex="1" breakWord="true" mouseDownText="Power Is On" multiLine="true" text="Power Is On" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton24" top="79" left="5" width="130" zIndex="2" breakWord="true" mouseDownText="Auto Active" multiLine="true" text="Auto Active" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+            <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton25" top="9" left="5" width="130" zIndex="3" breakWord="true" mouseDownText="Rdy Pwr On" multiLine="true" text="Rdy Pwr On" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+          </Widgets>
+        </Widget>
+      </Widgets>
+    </Widget>
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton5" top="5" left="5" width="170" height="50" zIndex="1" breakWord="true" mouseDownText="Ready to PowerOn" multiLine="true" text="Ready to PowerOn" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton7" top="5" left="185" width="170" height="50" zIndex="2" breakWord="true" mouseDownText="ASM Ready" multiLine="true" text="ASM Ready" mouseDownBackColor="rgba(0, 192, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 192, 0, 1)" enable="false" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton8" top="5" left="365" width="170" height="50" zIndex="3" breakWord="true" mouseDownText="ASM Disabled" multiLine="true" text="ASM Disabled" mouseDownBackColor="rgba(255, 128, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(255, 128, 0, 1)" enable="false" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton9" top="5" left="545" width="170" height="50" zIndex="4" breakWord="true" mouseDownText="ASM ErrorStop" multiLine="true" text="ASM ErrorStop" mouseDownBackColor="rgba(255, 0, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(255, 0, 0, 1)" enable="false" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton10" top="5" left="725" width="170" height="50" zIndex="5" breakWord="true" mouseDownText="ASM PowerOn" multiLine="true" text="ASM PowerOn" mouseDownBackColor="rgba(0, 255, 0, 1)" mouseDownTextColor="rgba(0, 0, 0, 1)" checkedBackColor="rgba(0, 192, 0, 1)" disabledCheckedBackColor="rgba(0, 255, 0, 1)" enable="false" />
+  </Widgets>
+</Content>

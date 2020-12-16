@@ -8,5 +8,6 @@
     <Object Type="Program" Language="IEC">Recovery</Object>
     <Object Type="Program" Language="IEC">Config</Object>
     <Object Type="Program" Language="IEC">BarrierCtrl</Object>
+    <Object Type="File">Reusable.tmx</Object>
   </Objects>
 </Package>

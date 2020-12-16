@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="7" ArVersion="C4.90">
+  <Aliases>
+    <ACLAliases />
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases />
+  </Aliases>
+  <DefaultView>
+    <Module Name="TrakModule">
+      <Task Name="AsmSampleT">
+        <Variable Name="AssemblyState" />
+        <Variable Name="fbAsmReadStatus">
+          <Variable Name="AssemblyDisabled" />
+          <Variable Name="AssemblyReady" />
+          <Variable Name="AssemblyHoming" />
+          <Variable Name="AssemblyStopping" />
+          <Variable Name="AssemblyErrorStop" />
+        </Variable>
+        <Variable Name="fbAsmReadInfo">
+          <Variable Name="AssemblyInfo">
+            <Variable Name="CommunicationReady" />
+            <Variable Name="ReadyForPowerOn" />
+            <Variable Name="PowerOn" />
+            <Variable Name="StartupCount" />
+            <Variable Name="ShuttlesCount" />
+            <Variable Name="ShuttlesInStandstillCount" />
+            <Variable Name="ShuttlesInDisabledCount" />
+            <Variable Name="ShuttlesInStoppingCount" />
+            <Variable Name="ShuttlesInErrorStopCount" />
+          </Variable>
+        </Variable>
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>

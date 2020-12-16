@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="winderContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+	
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:gWinder.Data.CommandStep" attribute="value" />
+<Target xsi:type="snippet" refId="TrakCmdEnum" attribute="value" />
+</Binding>
+
+<Binding mode="oneWay">
+<Source xsi:type="snippet" refId="TrakCmdEnum" attribute="value" />
+<Target xsi:type="brease" widgetRefId="TrakCmdEnumOutput" contentRefId="winderContent" attribute="value" />
+</Binding>
+
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:gWiPr.Data.SequStep" attribute="value" />
+<Target xsi:type="snippet" refId="SeqStepEnum" attribute="value" />
+</Binding>
+
+<Binding mode="oneWay">
+<Source xsi:type="snippet" refId="SeqStepEnum" attribute="value" />
+<Target xsi:type="brease" widgetRefId="SeqStepEnumOutput" contentRefId="winderContent" attribute="value" />
+</Binding>
+
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:gWinder.Data.StartStep" attribute="value" />
+<Target xsi:type="snippet" refId="AutoInitStepEnum" attribute="value" />
+</Binding>
+
+<Binding mode="oneWay">
+<Source xsi:type="snippet" refId="AutoInitStepEnum" attribute="value" />
+<Target xsi:type="brease" widgetRefId="AutoInitStepEnumOutput" contentRefId="winderContent" attribute="value" />
+</Binding>
+
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:gWinderProcessCommunication.General.toPLC.ErrorLocation" attribute="value" />
+<Target xsi:type="snippet" refId="ErrLocEnum" attribute="value" />
+</Binding>
+
+<Binding mode="oneWay">
+<Source xsi:type="snippet" refId="ErrLocEnum" attribute="value" />
+<Target xsi:type="brease" widgetRefId="ErrLocEnumOutput" contentRefId="winderContent" attribute="value" />
+</Binding>		
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:gWinder.Data.ShuttleInSystem" attribute="value" />
+<Target xsi:type="brease" contentRefId="winderContent" widgetRefId="NumericOutput1" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="session" refId="winderAsmPowerOn" attribute="value" />
+<Target xsi:type="brease" contentRefId="winderContent" widgetRefId="ToggleButton10" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="session" refId="winderAsmRdyToPwrOn" attribute="value" />
+<Target xsi:type="brease" contentRefId="winderContent" widgetRefId="ToggleButton5" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="session" refId="winderAsmDisabled" attribute="value" />
+<Target xsi:type="brease" contentRefId="winderContent" widgetRefId="ToggleButton8" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="session" refId="winderAsmReady" attribute="value" />
+<Target xsi:type="brease" contentRefId="winderContent" widgetRefId="ToggleButton7" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:gWinderProcessCommunication.General.toPLC.ErrorNbr" attribute="value" />
+<Target xsi:type="brease" contentRefId="winderContent" widgetRefId="NumericOutput3" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:gWinderProcessCommunication.STO_WinderLoop.fromPLC.StartAutomatic" attribute="value" />
+<Target xsi:type="brease" contentRefId="winderContent" widgetRefId="ToggleButton21" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:gWinderProcessCommunication.STO_WinderLoop.fromPLC.PowerOn" attribute="value" />
+<Target xsi:type="brease" contentRefId="winderContent" widgetRefId="ToggleButton20" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:gWinderProcessCommunication.STO_WinderLoop.toPLC.PowerIsOn" attribute="value" />
+<Target xsi:type="brease" contentRefId="winderContent" widgetRefId="ToggleButton23" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:gWinderProcessCommunication.STO_WinderLoop.toPLC.AutomaticActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="winderContent" widgetRefId="ToggleButton24" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="session" refId="winderAsmRdyToPwrOn" attribute="value" />
+<Target xsi:type="brease" contentRefId="winderContent" widgetRefId="ToggleButton25" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:gWinderProcessCommunication.STO_WinderLoop.toPLC.CoverOpenPermission" attribute="value" />
+<Target xsi:type="brease" contentRefId="winderContent" widgetRefId="ToggleButton22" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="session" refId="winderAsmErrorStop" attribute="value" />
+<Target xsi:type="brease" contentRefId="winderContent" widgetRefId="ToggleButton9" attribute="value" />
+</Binding>
+</Bindings>
+</BindingsSet>

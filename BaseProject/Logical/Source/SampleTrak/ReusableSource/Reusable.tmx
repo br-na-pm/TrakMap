@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" 
+          creationtoolversion="4.2" 
+          datatype="unknown" segtype="sentence" 
+          adminlang="en-US" srclang="en" o-tmf="TMX">
+    <note>
+      Change the empty value of the following prop-element to the namespace where this text module should
+      be located within the logical structure of your texts (e.g.: MyTexts/Alarms)
+    </note>
+    <prop type="x-BR-TS:Namespace">Default-Namespace</prop>
+  </header>
+  <body>
+    <tu tuid="Samples.HELLO_WORLD">
+      <tuv xml:lang="en">
+        <seg>Hello world!</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Servus Welt!</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Bonjour tout le monde!</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

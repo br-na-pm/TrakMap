@@ -9,5 +9,10 @@
         <Property ID="TargetLanguage[1]" Value="en" />
       </Group>
     </Group>
+    <Group ID="TargetFiles">
+      <Property ID="TargetFile[1]" Value="Source.SampleTrak.Assembly.Assembly.tmx" />
+      <Property ID="TargetFile[2]" Value="Source.SampleTrak.ReusableSource.Reusable.tmx" />
+      <Property ID="TargetFile[3]" Value="mappView.Resources.Texts.Header.tmx" />
+    </Group>
   </Element>
 </Configuration>

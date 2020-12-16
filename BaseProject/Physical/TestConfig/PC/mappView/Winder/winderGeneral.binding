@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="winderGeneral_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+  
+  	<Binding mode="twoWay">
+	<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:gWinder.Data.Asm_PowerOn" attribute="value" />
+	<Target xsi:type="session" refId="winderAsmPowerOn" attribute="value" />
+	</Binding>
+	<Binding mode="twoWay">
+	<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:gWinder.Data.Asm_ErrorStop" attribute="value" />
+	<Target xsi:type="session" refId="winderAsmErrorStop" attribute="value" />
+	</Binding>
+	<Binding mode="twoWay">
+	<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:gWinder.Data.Asm_Disabled" attribute="value" />
+	<Target xsi:type="session" refId="winderAsmDisabled" attribute="value" />
+	</Binding>
+	<Binding mode="twoWay">
+	<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:gWinder.Data.Asm_Ready" attribute="value" />
+	<Target xsi:type="session" refId="winderAsmReady" attribute="value" />
+	</Binding>
+	<Binding mode="twoWay">
+	<Source xsi:type="opcUa" serverAlias="Winder" refId="::AsGlobalPV:gWinder.Data.Asm_ReadyToPowerOn" attribute="value" />
+	<Target xsi:type="session" refId="winderAsmRdyToPwrOn" attribute="value" />
+	</Binding>
+  
+  </Bindings>
+</BindingsSet>

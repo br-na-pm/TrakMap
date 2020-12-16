@@ -17,6 +17,8 @@
     <Object Type="Package">mappView</Object>
     <Object Type="Package">mappVision</Object>
     <Object Type="Package">mappCockpit</Object>
+    <Object Type="Package">TrakModule</Object>
+    <Object Type="Package">EM12</Object>
     <Object Type="Package">EM1</Object>
     <Object Type="Package">ReusedModules</Object>
   </Objects>

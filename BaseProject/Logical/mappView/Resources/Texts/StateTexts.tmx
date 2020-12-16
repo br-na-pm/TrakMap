@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">IAT</prop>
+  </header>
+  <body>
+    <tu tuid="AsmState.0">
+      <tuv xml:lang="en">
+        <seg>ASM_INIT</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AsmState.10">
+      <tuv xml:lang="en">
+        <seg>ASM_DISABLED</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AsmState.20">
+      <tuv xml:lang="en">
+        <seg>ASM_HOMING</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AsmState.30">
+      <tuv xml:lang="en">
+        <seg>ASM_STOPPING</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AsmState.99">
+      <tuv xml:lang="en">
+        <seg>ASM_ERROR_STOP</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AsmState.100">
+      <tuv xml:lang="en">
+        <seg>ASM_READY</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SeqStep.0">
+      <tuv xml:lang="en">
+        <seg>WAIT_FOR_START</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SeqStep.10">
+      <tuv xml:lang="en">
+        <seg>CONTROLLER_ON</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SeqStep.20">
+      <tuv xml:lang="en">
+        <seg>W_CONTROLLER_ON</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SeqStep.100">
+      <tuv xml:lang="en">
+        <seg>WAIT_FOR_COMMAND</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SeqStep.200">
+      <tuv xml:lang="en">
+        <seg>AUTO_START_INIT</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SeqStep.210">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_SHUTTLES</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SeqStep.220">
+      <tuv xml:lang="en">
+        <seg>AUTO_START_WINDER</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SeqStep.240">
+      <tuv xml:lang="en">
+        <seg>AUTO_START_PROCESS</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SeqStep.250">
+      <tuv xml:lang="en">
+        <seg>AUTO_ACTIVE</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SeqStep.280">
+      <tuv xml:lang="en">
+        <seg>W_WINDER</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SeqStep.300">
+      <tuv xml:lang="en">
+        <seg>AUTO_HALT</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SeqStep.900">
+      <tuv xml:lang="en">
+        <seg>ERROR_STOP</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.0">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_WAIT</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.10">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_CROSS_LANE</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.15">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_W_CROSS_LANE</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.20">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_CROSS_OUT</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.25">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_W_CROSS_OUT</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.30">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_CROSS_IN</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.35">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_W_CROSS_IN</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.56">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_VULCANO_SEC2</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.50">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_VULCANO_SEC1_START</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.60">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_VULCANO_SEC1_TOP</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.70">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_EXIT</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.100">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_CROSS_DIS</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.105">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_W_CROSS_DIS</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.150">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_WAY_BACK</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.160">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_ON_WAY</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.170">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_ASM_CHANGE</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.175">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_DESTINATION1</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.180">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_DESTINATION</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.200">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_VULCANO_EMPTY</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.500">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_W_READY</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoInitStep.999">
+      <tuv xml:lang="en">
+        <seg>AUTO_INIT_W_SERVICE</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

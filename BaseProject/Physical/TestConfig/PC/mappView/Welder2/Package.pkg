@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">welder2General.binding</Object>
+    <Object Type="File">welder2TAContent.binding</Object>
+    <Object Type="File">welder2TBContent.binding</Object>
+    <Object Type="File">welder2ReturnContent.binding</Object>
+  </Objects>
+</Package>

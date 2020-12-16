@@ -7,5 +7,6 @@
     <Object Type="File">Project.language</Object>
     <Object Type="Package" Description="Global libraries">Libraries</Object>
     <Object Type="Package">Source</Object>
+    <Object Type="Package">mappView</Object>
   </Objects>
 </Package>

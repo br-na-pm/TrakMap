@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="loadContentBinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="loadAlarm">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadAlarmPage" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="mainAlarmContent" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/ActiveAlarm" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadHistory">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadAlarmHistory" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="alarmHistoryContent" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/AlarmHistory" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadAudit">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadAudit" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="auditContent" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/Audit" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadWinder">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadWinder" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="winderContent" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/WinderLoop" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadWelder1TrackA">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadWelder1TrackA" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="welder1TAContent" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/Welder1TA" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadWelder1TrackB">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadWelder1TrackB" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="welder1TBContent" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/Welder1TB" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadWelder1Return">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadWelder1Return" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="welder1ReturnContent" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/Welder1Return" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadWelder2TrackA">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadWelder2TrackA" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="welder2TAContent" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/Welder2TA" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadWelder2TrackB">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadWelder2TrackB" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="welder2TBContent" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/Welder2TB" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadWelder2Return">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadWelder2Return" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="welder2ReturnContent" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/Welder2Return" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadLaser">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadLaser" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="laserContent" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/LaserLoop" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadLogbookWinder">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadLogbookWinder" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="winderLogContent" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/LogbookWinder" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadWinderTrak">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadWinderTrak" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="winderTrakContent" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/WinderLoopTrak" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadLaserTrak">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadLaserTrak" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="laserTrakContent" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/LaserLoopTrak" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadWelder1Trak">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadWelder1Trak" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="welder1TrakContent" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/Welder1LoopTrak" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadWelder2Trak">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadWelder2Trak" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="welder2TrakContent" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/Welder2LoopTrak" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="OpcUaEnableWinder">
+      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <EventHandler condition="contentId = &quot;winderTrakContent&quot;">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::WidgetData:OpcUaCommunication_Winder.Enable">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="contentId &lt;&gt; &quot;winderTrakContent&quot;">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::WidgetData:OpcUaCommunication_Winder.Enable">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="false" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="OpcUaEnableLaser">
+      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <EventHandler condition="contentId = &quot;laserTrakContent&quot;">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::WidgetData:OpcUaCommunication_Laser.Enable">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="contentId &lt;&gt; &quot;laserTrakContent&quot;">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::WidgetData:OpcUaCommunication_Laser.Enable">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="false" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="OpcUaEnableWelder1">
+      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <EventHandler condition="contentId = &quot;welder1TrakContent&quot;">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::WidgetData:OpcUaCommunication_Welder1.Enable">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="contentId &lt;&gt; &quot;welder1TrakContent&quot;">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::WidgetData:OpcUaCommunication_Welder1.Enable">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="false" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="OpcUaEnableWelder2">
+      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <EventHandler condition="contentId = &quot;welder2TrakContent&quot;">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::WidgetData:OpcUaCommunication_Welder2.Enable">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="contentId &lt;&gt; &quot;welder2TrakContent&quot;">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::WidgetData:OpcUaCommunication_Welder2.Enable">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="false" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadTrakAlarm">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadTrakAlarmPage" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="trakAlarmContent" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/ActiveTrakAlarm" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>

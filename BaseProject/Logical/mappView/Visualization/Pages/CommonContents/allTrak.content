@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="allTrakContent" height="1200" width="3120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.FlyOut" id="FlyOut1" top="0" left="0" width="3020" height="1200" zIndex="0" autoClose="true" docking="right" text="Traks" buttonHeight="830" buttonWidth="100" backColor="rgba(255, 255, 255, 1)" textRotation="vertical">
+      <Widgets />
+    </Widget>
+    <Widget xsi:type="widgets.brease.WebViewer" id="WebViewer3" top="714" left="2028" width="735" height="247" zIndex="5" path="BRVisu/Media/AnimWidgetWelder1.html" port="81" backColor="rgba(255, 255, 255, 0)" borderStyle="none" />
+    <Widget xsi:type="widgets.brease.WebViewer" id="WebViewer1" top="468" left="219" width="1772" height="160" zIndex="6" path="BRVisu/Media/AnimWidgetWinder.html" port="81" borderStyle="none" />
+    <Widget xsi:type="widgets.brease.WebViewer" id="WebViewer2" top="112" left="1888" width="200" height="893" zIndex="7" path="BRVisu/Media/AnimWidgetLaser.html" port="81" borderStyle="none" />
+    <Widget xsi:type="widgets.brease.WebViewer" id="WebViewer4" top="110" left="2029" width="735" height="247" zIndex="8" path="BRVisu/Media/AnimWidgetWelder2.html" port="81" borderStyle="none" />
+    <Widget xsi:type="widgets.brease.Image" id="WinderBackground" top="468" left="219" width="1772" height="160" zIndex="4" image="Media/SVG/Winder.svg" borderWidth="0px" visible="false" />
+    <Widget xsi:type="widgets.brease.Image" id="LaserBackground" top="112" left="1888" width="200" height="893" zIndex="3" image="Media/SVG/Laser.svg" visible="false" />
+    <Widget xsi:type="widgets.brease.Image" id="Image3" top="110" left="2028" width="735" height="247" zIndex="1" image="Media/SVG/Welder1.svg" visible="false" />
+    <Widget xsi:type="widgets.brease.Image" id="Image4" top="714" left="2029" width="735" height="247" zIndex="2" image="Media/SVG/Welder1.svg" visible="false" />
+  </Widgets>
+</Content>

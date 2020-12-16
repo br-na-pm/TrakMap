@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package SubType="PagesPackage" PackageType="PagesPackage" xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="Package" Description="AreaContents">CommonContents</Object>
+    <Object Type="Package">WinderContent</Object>
+    <Object Type="Package">LaserContent</Object>
+    <Object Type="Package">Welder1Content</Object>
+    <Object Type="Package">Welder2Content</Object>
+    <Object Type="Package">Main</Object>
+  </Objects>
+</Package>

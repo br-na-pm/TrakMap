@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package SubType="MediaPackage" PackageType="MediaPackage" xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="Package">SymbolLib</Object>
+    <Object Type="File">Roadrunner.jpg</Object>
+    <Object Type="File">Roadrunner.png</Object>
+    <Object Type="File">AnimWidgetWinder.html</Object>
+    <Object Type="File">AnimWidgetLaser.html</Object>
+    <Object Type="File">AnimWidgetWelder1.html</Object>
+    <Object Type="File">AnimWidgetWelder2.html</Object>
+    <Object Type="Package">SVG</Object>
+    <Object Type="Package">Logbook</Object>
+  </Objects>
+</Package>

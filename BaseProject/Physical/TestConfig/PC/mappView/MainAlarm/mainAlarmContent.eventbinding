@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="mainAlarmContentBinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="mainAlarmContent.AcknButton.Click.1">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="mainAlarmContent" widgetRefId="AcknButton" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="mainAlarmContent" widgetRefId="AlarmList1">
+            <Method xsi:type="widgets.brease.AlarmList.Action.Acknowledge" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="mainAlarmContent.AcknAllButton.Click.2">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="mainAlarmContent" widgetRefId="AcknAllButton" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="mainAlarmContent" widgetRefId="AlarmList1">
+            <Method xsi:type="widgets.brease.AlarmList.Action.AcknowledgeAll" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="mainAlarmContent.MpAlarmXHistoryExport.Click.2">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="alarmHistoryContent" widgetRefId="MpAlarmXHistoryExport" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::Alarm:MpAlarmXHistory_0.Export">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="mainAlarmContent.SortDialog.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="mainAlarmContent" widgetRefId="SortDialog" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="mainAlarmContent" widgetRefId="AlarmList1">
+            <Method xsi:type="widgets.brease.AlarmList.Action.OpenConfiguration" type="Sorting" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="mainAlarmContent.FilterDialog.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="mainAlarmContent" widgetRefId="FilterDialog" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="mainAlarmContent" widgetRefId="AlarmList1">
+            <Method xsi:type="widgets.brease.AlarmList.Action.OpenConfiguration" type="Filtering" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="mainAlarmContent.SortDialog1.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="alarmHistoryContent" widgetRefId="SortDialog" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AlarmHistory.Action" contentRefId="alarmHistoryContent" widgetRefId="AlarmHistory1">
+            <Method xsi:type="widgets.brease.AlarmHistory.Action.OpenConfiguration" type="Sorting" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="mainAlarmContent.FilterDialog1.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="alarmHistoryContent" widgetRefId="FilterDialog" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AlarmHistory.Action" contentRefId="alarmHistoryContent" widgetRefId="AlarmHistory1">
+            <Method xsi:type="widgets.brease.AlarmHistory.Action.OpenConfiguration" type="Filtering" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>

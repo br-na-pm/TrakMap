@@ -1,0 +1,8 @@
+VAR
+	fbAlarmTrakModule : MpAlarmXCore;
+	FilterConfiguration : STRING[1000] := '';
+	SortConfiguration : STRING[1000] := '';
+	HistoryFilter : STRING[2000] := '';
+	HistorySort : STRING[2000] := '';
+	TriggerTestAlarm : BOOL;
+END_VAR

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="winderLogContent2" height="810" width="1080" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.LogbookWidgetLibrary.LogbookTable" id="LogbookTable1" top="230" left="0" zIndex="0" />
+    <Widget xsi:type="widgets.LogbookWidgetLibrary.LogbookSettings" id="LogbookSettings1" top="0" left="0" zIndex="1" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="btnRefresh" top="735" left="20" width="160" height="70" zIndex="2" mouseDownText="Abort" text="Refresh" cornerRadius="5px" fontSize="26px" />
+    <Widget xsi:type="widgets.brease.Button" id="btnResetError" top="735" left="545" width="160" height="70" zIndex="3" text="Reset Error" cornerRadius="5px" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Button" id="btnUpdate" top="735" left="195" width="160" height="70" zIndex="4" text="Update" cornerRadius="5px" fontSize="26px" enable="false" />
+    <Widget xsi:type="widgets.brease.Button" id="btnNew" top="735" left="370" width="160" height="70" zIndex="5" text="New" cornerRadius="5px" fontSize="26px" enable="false" />
+    <Widget xsi:type="widgets.brease.FlyOut" id="flyNewEntry" top="0" left="10" width="800" zIndex="6" autoClose="true" docking="bottom" text="FlyOut1" buttonHeight="0" buttonWidth="0" buttonBorderStyle="ridge" buttonCornerRadius="3px" borderStyle="solid" borderWidth="2px" backColor="rgba(255, 255, 255, 1)">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.Label" id="Label18" top="20" left="14" width="81" height="20" zIndex="0" text="Error No" textAlign="right" bold="true" />
+        <Widget xsi:type="widgets.brease.NumericInput" id="numCreateErrorNo" top="15" left="100" width="160" zIndex="1" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" maxValue="10000000000" useDigitGrouping="false" padding="0px 5px 0px 5px" />
+        <Widget xsi:type="widgets.brease.Label" id="Label49" top="63" left="13" width="81" height="20" zIndex="2" text="Error Text" textAlign="right" bold="true" />
+        <Widget xsi:type="widgets.brease.TextInput" id="txtCreateErrorText" top="55" left="100" width="680" zIndex="3" />
+        <Widget xsi:type="widgets.brease.Label" id="Label50" top="100" left="10" width="81" height="20" zIndex="4" text="Severity" textAlign="right" bold="true" />
+        <Widget xsi:type="widgets.brease.DropDownBox" id="ddbSeverity" top="95" left="100" width="165" zIndex="5" dataProvider="[{'value':'0','text':'Notification'},{'value':'1','text':'Information'},{'value':'2','text':'Warning'},{'value':'3','text':'Error'}]" listPosition="top" selectedValue="0" textAlign="right" />
+        <Widget xsi:type="widgets.brease.Button" id="btnCreate" top="108" left="618" width="160" height="70" zIndex="6" text="Create" cornerRadius="5px" fontSize="26px" />
+      </Widgets>
+    </Widget>
+  </Widgets>
+</Content>

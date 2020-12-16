@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">IAT/Header</prop>
+  </header>
+  <body>
+    <tu tuid="ActiveAlarm">
+      <tuv xml:lang="en">
+        <seg>Active Alarm</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AlarmHistory">
+      <tuv xml:lang="en">
+        <seg>Alarm History</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Audit">
+      <tuv xml:lang="en">
+        <seg>Audit</seg>
+      </tuv>
+    </tu>
+    <tu tuid="LaserLoop">
+      <tuv xml:lang="en">
+        <seg>Laser Loop</seg>
+      </tuv>
+    </tu>
+    <tu tuid="WinderLoop">
+      <tuv xml:lang="en">
+        <seg>Winder Loop</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Volcanos">
+      <tuv xml:lang="en">
+        <seg>Volcano 1 - 12</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Welder1TA">
+      <tuv xml:lang="en">
+        <seg>Welder 1 Track A</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Welder1TB">
+      <tuv xml:lang="en">
+        <seg>Welder 1 Track B</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Welder1Return">
+      <tuv xml:lang="en">
+        <seg>Welder 1 Return &amp; Laser</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Welder2TA">
+      <tuv xml:lang="en">
+        <seg>Welder 2 Track A</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Welder2TB">
+      <tuv xml:lang="en">
+        <seg>Welder 2 Track B</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Welder2Return">
+      <tuv xml:lang="en">
+        <seg>Welder 2 Return &amp; Laser</seg>
+      </tuv>
+    </tu>
+    <tu tuid="WinderLoopTrak">
+      <tuv xml:lang="en">
+        <seg>Winder Loop Trak</seg>
+      </tuv>
+    </tu>
+    <tu tuid="LaserLoopTrak">
+      <tuv xml:lang="en">
+        <seg>Laser Loop Trak</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Welder2LoopTrak">
+      <tuv xml:lang="en">
+        <seg>Welder 2 Loop Trak</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Welder1LoopTrak">
+      <tuv xml:lang="en">
+        <seg>Welder 1 Loop Trak</seg>
+      </tuv>
+    </tu>
+    <tu tuid="LogbookWinder">
+      <tuv xml:lang="en">
+        <seg>Logbook Winder</seg>
+      </tuv>
+    </tu>
+    <tu tuid="LogbookLaser">
+      <tuv xml:lang="en">
+        <seg>Logbook Laser</seg>
+      </tuv>
+    </tu>
+    <tu tuid="LogbookWelder1">
+      <tuv xml:lang="en">
+        <seg>Logbook Welder 1</seg>
+      </tuv>
+    </tu>
+    <tu tuid="LogbookWelder2">
+      <tuv xml:lang="en">
+        <seg>Logbook Welder 2</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

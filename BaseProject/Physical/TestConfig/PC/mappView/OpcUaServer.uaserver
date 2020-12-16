@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="OpcUaServerConnections" Type="UASERVER">
+    <Group ID="DefaultOpcUaServer">
+      <Property ID="Alias" />
+      <Property ID="Hostname" />
+      <Property ID="IPAddress" Value="127.0.0.1" />
+      <Property ID="Port" Value="4840" />
+      <Property ID="EndpointUrl" />
+      <Property ID="DefaultNamespace" Value="http://br-automation.com/OpcUa/PLC/PV/" />
+      <Selector ID="ConnectionPolicy" Value="1" />
+      <Selector ID="SecurityPolicy" Value="None" />
+      <Selector ID="MessageSecurityMode" Value="1" />
+      <Property ID="SSLConfiguration" />
+    </Group>
+    <Group ID="OpcUaServer[1]">
+      <Property ID="Alias" Value="Winder" />
+      <Property ID="Hostname" />
+      <Property ID="IPAddress" Value="127.0.0.1" />
+      <Property ID="Port" Value="4840" />
+      <Property ID="EndpointUrl" />
+      <Property ID="DefaultNamespace" Value="http://br-automation.com/OpcUa/PLC/PV/" />
+      <Selector ID="ConnectionPolicy" Value="1" />
+      <Selector ID="SecurityPolicy" Value="None" />
+      <Selector ID="MessageSecurityMode" Value="1" />
+      <Property ID="SSLConfiguration" />
+    </Group>
+    <Group ID="OpcUaServer[2]">
+      <Property ID="Alias" Value="Welder1" />
+      <Property ID="Hostname" />
+      <Property ID="IPAddress" Value="127.0.0.1" />
+      <Property ID="Port" Value="4840" />
+      <Property ID="EndpointUrl" />
+      <Property ID="DefaultNamespace" Value="http://br-automation.com/OpcUa/PLC/PV/" />
+      <Selector ID="ConnectionPolicy" Value="1" />
+      <Selector ID="SecurityPolicy" Value="None" />
+      <Selector ID="MessageSecurityMode" Value="1" />
+      <Property ID="SSLConfiguration" />
+    </Group>
+    <Group ID="OpcUaServer[3]">
+      <Property ID="Alias" Value="Welder2" />
+      <Property ID="Hostname" />
+      <Property ID="IPAddress" Value="127.0.0.1" />
+      <Property ID="Port" Value="4840" />
+      <Property ID="EndpointUrl" />
+      <Property ID="DefaultNamespace" Value="http://br-automation.com/OpcUa/PLC/PV/" />
+      <Selector ID="ConnectionPolicy" Value="1" />
+      <Selector ID="SecurityPolicy" Value="None" />
+      <Selector ID="MessageSecurityMode" Value="1" />
+      <Property ID="SSLConfiguration" />
+    </Group>
+    <Group ID="OpcUaServer[4]">
+      <Property ID="Alias" Value="Laser" />
+      <Property ID="Hostname" />
+      <Property ID="IPAddress" Value="127.0.0.1" />
+      <Property ID="Port" Value="4840" />
+      <Property ID="EndpointUrl" />
+      <Property ID="DefaultNamespace" Value="http://br-automation.com/OpcUa/PLC/PV/" />
+      <Selector ID="ConnectionPolicy" Value="1" />
+      <Selector ID="SecurityPolicy" Value="None" />
+      <Selector ID="MessageSecurityMode" Value="1" />
+      <Property ID="SSLConfiguration" />
+    </Group>
+  </Element>
+</Configuration>

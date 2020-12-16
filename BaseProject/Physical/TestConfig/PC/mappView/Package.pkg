@@ -1,5 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
 <Package SubType="mappViewControl" PackageType="mappViewControl" xmlns="http://br-automation.co.at/AS/Package">
-  <Objects />
+  <Objects>
+    <Object Type="File">Config.mappviewcfg</Object>
+    <Object Type="File">OpcUaServer.uaserver</Object>
+    <Object Type="File">Visualizat.vis</Object>
+    <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">MainAlarm</Object>
+    <Object Type="File">loadContent.eventbinding</Object>
+    <Object Type="File">headerContent.eventbinding</Object>
+    <Object Type="File">headerContent.binding</Object>
+    <Object Type="Package">Winder</Object>
+    <Object Type="Package">Laser</Object>
+    <Object Type="Package">Welder1</Object>
+    <Object Type="Package">Welder2</Object>
+    <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">TrakAlarm</Object>
+  </Objects>
 </Package>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package SubType="AreaContentsPackage" PackageType="AreaContentsPackage" xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">header.content</Object>
+    <Object Type="File">navigation.content</Object>
+    <Object Type="File">currentMainAlarm.content</Object>
+    <Object Type="File">historyAlarm.content</Object>
+    <Object Type="File">audit.content</Object>
+    <Object Type="File">allTrak.content</Object>
+    <Object Type="File">Content.content</Object>
+    <Object Type="File">Content1.content</Object>
+  </Objects>
+</Package>

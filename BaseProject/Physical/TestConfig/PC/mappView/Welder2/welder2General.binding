@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="welder2General_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+  
+   	<Binding mode="twoWay">
+	<Source xsi:type="opcUa" serverAlias="Welder2" refId="::AsGlobalPV:gWelder.Data.Asm_PowerOn" attribute="value" />
+	<Target xsi:type="session" refId="welder2AsmPowerOn" attribute="value" />
+	</Binding>
+	<Binding mode="twoWay">
+	<Source xsi:type="opcUa" serverAlias="Welder2" refId="::AsGlobalPV:gWelder.Data.Asm_ErrorStop" attribute="value" />
+	<Target xsi:type="session" refId="welder2AsmErrorStop" attribute="value" />
+	</Binding>
+	<Binding mode="twoWay">
+	<Source xsi:type="opcUa" serverAlias="Welder2" refId="::AsGlobalPV:gWelder.Data.Asm_Disabled" attribute="value" />
+	<Target xsi:type="session" refId="welder2AsmDisabled" attribute="value" />
+	</Binding>
+	<Binding mode="twoWay">
+	<Source xsi:type="opcUa" serverAlias="Welder2" refId="::AsGlobalPV:gWelder.Data.Asm_Ready" attribute="value" />
+	<Target xsi:type="session" refId="welder2AsmReady" attribute="value" />
+	</Binding>
+	<Binding mode="twoWay">
+	<Source xsi:type="opcUa" serverAlias="Welder2" refId="::AsGlobalPV:gWelder.Data.Asm_ReadyToPowerOn" attribute="value" />
+	<Target xsi:type="session" refId="welder2AsmRdyToPwrOn" attribute="value" />
+	</Binding>
+  
+  </Bindings>
+</BindingsSet>
