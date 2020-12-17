@@ -6,7 +6,9 @@
     <Object Type="File" Private="true">Assembly.typ</Object>
     <Object Type="Program" Language="IEC">AsmSampleTrak</Object>
     <Object Type="Package">SubModule1</Object>
-    <Object Type="File">Assembly.tmx</Object>
+    <Object Type="File">AssemblyInfo.tmx</Object>
+    <Object Type="File">AssemblyWarning.tmx</Object>
+    <Object Type="File">AssemblyAlarm.tmx</Object>
     <Object Type="Program" Language="IEC">Alarm</Object>
   </Objects>
 </Package>

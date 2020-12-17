@@ -1,6 +1,6 @@
 
 PROGRAM _INIT
-	(* Insert code here *)
+	(* Call global variables until they are use somewhere else *)
 	gSampleTrakMon;
 	gSampleTrak;
 	gTrakModule;

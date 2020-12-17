@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="MappMotionConfiguration" Type="mappmotioncfg">
+    <Group ID="Logger">
+      <Selector ID="SelectiveLogging" Value="Used">
+        <Selector ID="AdministrativeCommands" Value="Selective" />
+        <Selector ID="MovementCommands" Value="Selective" />
+        <Selector ID="InformationalCommands" Value="Selective" />
+      </Selector>
+    </Group>
+  </Element>
+</Configuration>

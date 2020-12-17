@@ -2,6 +2,11 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
   <Element ID="gAlarmXCore" Type="mpalarmxcore">
+    <Group ID="mapp.AlarmX.Core">
+      <Group ID="Mapping">
+        <Group ID="[0]" />
+      </Group>
+    </Group>
     <Group ID="mapp.AlarmX.Core.Configuration">
       <Group ID="[0]">
         <Property ID="Name" Value="MainTestAlarm" />
@@ -14,6 +19,10 @@
             </Group>
           </Group>
         </Selector>
+      </Group>
+      <Group ID="[1]">
+        <Property ID="Name" Value="TrakModuleAlarm" />
+        <Property ID="Message" Value="This is an alarm from the trak module" />
       </Group>
     </Group>
   </Element>

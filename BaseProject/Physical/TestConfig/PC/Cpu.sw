@@ -4,11 +4,13 @@
   <TaskClass Name="Cyclic#1">
     <Task Name="TSM" Source="Source.SampleTrak.TSM.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
-  <TaskClass Name="Cyclic#2" />
-  <TaskClass Name="Cyclic#3" />
-  <TaskClass Name="Cyclic#4">
-    <Task Name="Alarm1" Source="Source.SampleTrak.Alarm.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+  <TaskClass Name="Cyclic#2">
+    <Task Name="Main" Source="Source.SampleTrak.Main.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
+  <TaskClass Name="Cyclic#3">
+    <Task Name="TSMAlarm" Source="Source.SampleTrak.Alarm.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+  </TaskClass>
+  <TaskClass Name="Cyclic#4" />
   <TaskClass Name="Cyclic#5" />
   <TaskClass Name="Cyclic#6" />
   <TaskClass Name="Cyclic#7" />
@@ -48,7 +50,6 @@
     <BinaryObject Name="User" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="ShuttleCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="AsmFeatCfg" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="Main" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="CoreCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Config" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="em2_sm2" Source="" Memory="UserROM" Language="Binary" />

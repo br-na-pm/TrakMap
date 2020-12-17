@@ -2,23 +2,23 @@
 <tmx version="1.4">
   <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
     <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
-    <prop type="x-BR-TS:Namespace">Assembly/Alarm</prop>
+    <prop type="x-BR-TS:Namespace">Assembly/Warning</prop>
   </header>
   <body>
-    <tu tuid="TrakErrorStop">
+    <tu tuid="TrakModuleWarning">
       <tuv xml:lang="de">
-        <seg>Trak in ErrorStop</seg>
+        <seg>Warning im Trak Modul</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Trak in ErrorStop</seg>
+        <seg>Warning in Trak Module</seg>
       </tuv>
     </tu>
-    <tu tuid="TrakPowerOn">
+    <tu tuid="LocalTrakModuleWarning">
       <tuv xml:lang="de">
-        <seg>Trak Powered On</seg>
+        <seg>Lokale Warnung im Trak Modul</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Trak Powered On</seg>
+        <seg>Local Warning in Trak Module</seg>
       </tuv>
     </tu>
   </body>

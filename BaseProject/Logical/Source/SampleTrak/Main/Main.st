@@ -1,18 +1,14 @@
 
 PROGRAM _INIT
-	(* Insert code here *)
+	(* Call version control variables so they can be updated during every project build *)
+	 MachineLastRevisionDate;
+	 MachineSoftwareVersion;
 	 
 END_PROGRAM
 
 PROGRAM _CYCLIC
-	(* Insert code here *)
-	
-	fbMainTsm(MpLink := ADR(gMainModule), 
-						Enable := TRUE, 
-						Parameters := ADR(parMainTsm));
-	 
-						
-	MpPackMLStateIsActive(gMainModule,mpPACKML_STATE_EXECUTE,1);					
+	(*  Insert code here *)
+
 	
 END_PROGRAM
 

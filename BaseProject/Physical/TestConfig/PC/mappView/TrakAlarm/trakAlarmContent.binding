@@ -3,7 +3,7 @@
 	<Bindings>		
 		
 <Binding mode="twoWay">
-<Source xsi:type="mapp" refId="gAlarmXCore_TrakModule" attribute="link" />
+<Source xsi:type="mapp" refId="TrakModule::gAlarmXCore_TrakModule" attribute="link" />
 <Target xsi:type="brease" contentRefId="trakAlarmContent" widgetRefId="AlarmList1" attribute="mpLink" />
 </Binding>
 <Binding mode="twoWay">

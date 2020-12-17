@@ -3,5 +3,6 @@
 <Package SubType="mappMotion" PackageType="mappMotion" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="Package">TrakConfig</Object>
+    <Object Type="File">LoggerCFG.mappmotioncfg</Object>
   </Objects>
 </Package>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">Assembly/Info</prop>
+  </header>
+  <body>
+    <tu tuid="TrakPowerOn">
+      <tuv xml:lang="de">
+        <seg>Trak Powered On</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Trak Powered On</seg>
+      </tuv>
+    </tu>
+    <tu tuid="TrakModuleInfo">
+      <tuv xml:lang="de">
+        <seg>Info im Trak Modul</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Info in Trak Module</seg>
+      </tuv>
+    </tu>
+    <tu tuid="LocalTrakModuleInfo">
+      <tuv xml:lang="de">
+        <seg>Lokale Info im Trak Modul</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Local Info in Trak Module</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

@@ -5,6 +5,11 @@
     <prop type="x-BR-TS:Namespace">IAT/Header</prop>
   </header>
   <body>
+    <tu tuid="ActiveTrakAlarm">
+      <tuv xml:lang="en">
+        <seg>Active Trak Module Alarm</seg>
+      </tuv>
+    </tu>
     <tu tuid="ActiveAlarm">
       <tuv xml:lang="en">
         <seg>Active Alarm</seg>
