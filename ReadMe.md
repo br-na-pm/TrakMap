@@ -1,10 +1,11 @@
-# <Project Name>
+# Trak Framework Project
 **Date created**: *2020-12-14*  
 **Created by**: Marcel Voigt
 
 ---
 ## About
-<Description of the Automation Studio project>
+This project is a framework for any trak project with a modular structure based on Application Modules.
+Each Application Module defines OpcUa variables and mappServices like MpAlarmX, MpReceipe etc.
 
 ## Automation Studio
 Version 4.9.2.46 
