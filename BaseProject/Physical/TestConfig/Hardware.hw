@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio Version=4.9.2.46 FileVersion="4.9"?>
 <Hardware xmlns="http://br-automation.co.at/AS/Hardware">
   <Module Name="5LS189.6-1" Type="5LS189.6-1" Version="1.4.1.0">
@@ -9,6 +9,7 @@
   </Module>
   <Module Name="PC" Type="PC_any" Version="1.1.1.0" OrderNumber="PC">
     <Parameter ID="ConfigurationID" Value="BaseProject_TestConfig" />
+    <Parameter ID="ConfigVersion" Value="1.0.1" />
     <Parameter ID="SystemTick" Value="800" />
     <Parameter ID="Cyclic1Duration" Value="800" />
     <Parameter ID="Cyclic1Tolerance" Value="0" />

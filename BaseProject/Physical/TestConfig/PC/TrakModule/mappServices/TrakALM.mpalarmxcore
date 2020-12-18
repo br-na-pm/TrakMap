@@ -62,7 +62,7 @@
         <Property ID="Severity" Value="0" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
-            <Property ID="MonitoredPV" Value="TrakModule::Alarm:TriggerTestAlarm" />
+            <Property ID="MonitoredPV" Value="TrakModule::AsmAlarm:TriggerTestInformation" />
             <Group ID="TriggerValues">
               <Property ID="[0]" Value="TRUE" />
             </Group>
@@ -76,7 +76,7 @@
         <Property ID="Severity" Value="50" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
-            <Property ID="MonitoredPV" Value="TrakModule::Alarm:TriggerTestAlarm" />
+            <Property ID="MonitoredPV" Value="TrakModule::AsmAlarm:TriggerTestWarning" />
             <Group ID="TriggerValues">
               <Property ID="[0]" Value="TRUE" />
             </Group>
@@ -90,7 +90,7 @@
         <Property ID="Severity" Value="100" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
-            <Property ID="MonitoredPV" Value="TrakModule::Alarm:TriggerTestAlarm" />
+            <Property ID="MonitoredPV" Value="TrakModule::AsmAlarm:TriggerTestAlarm" />
             <Group ID="TriggerValues">
               <Property ID="[0]" Value="TRUE" />
             </Group>

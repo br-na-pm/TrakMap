@@ -7,7 +7,7 @@
   </TaskClass>
   <TaskClass Name="Cyclic#2" />
   <TaskClass Name="Cyclic#3">
-    <Task Name="Alarm" Source="Source.SampleTrak.Assembly.Alarm.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="AsmAlarm" Source="Source.SampleTrak.Assembly.AsmAlarm.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#4" />
   <TaskClass Name="Cyclic#5" />

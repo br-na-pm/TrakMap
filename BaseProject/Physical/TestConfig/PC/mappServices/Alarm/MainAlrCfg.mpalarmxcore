@@ -13,16 +13,12 @@
         <Property ID="Message" Value="This is just a test for main" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
-            <Property ID="MonitoredPV" Value="::Alarm1:TriggerTestAlarm" />
+            <Property ID="MonitoredPV" Value="::TSMAlarm:TriggerTestAlarm" />
             <Group ID="TriggerValues">
               <Property ID="[0]" Value="TRUE" />
             </Group>
           </Group>
         </Selector>
-      </Group>
-      <Group ID="[1]">
-        <Property ID="Name" Value="TrakModuleAlarm" />
-        <Property ID="Message" Value="This is an alarm from the trak module" />
       </Group>
     </Group>
   </Element>

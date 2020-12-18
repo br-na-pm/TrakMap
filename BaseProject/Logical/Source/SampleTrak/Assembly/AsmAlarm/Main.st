@@ -13,7 +13,9 @@ PROGRAM _CYCLIC
 	 
 	fbAlarmTrakModule(MpLink := ADR(gAlarmXCore_TrakModule), Enable := TRUE);
 	
-	TriggerTestAlarm;	
+	TriggerTestAlarm;
+	TriggerTestInformation;
+	TriggerTestWarning;	
 	
 	
 END_PROGRAM

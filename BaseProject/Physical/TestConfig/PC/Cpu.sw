@@ -5,10 +5,10 @@
     <Task Name="TSM" Source="Source.SampleTrak.TSM.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2">
-    <Task Name="Main" Source="Source.SampleTrak.Main.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="TSMMain" Source="Source.SampleTrak.TSMMain.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#3">
-    <Task Name="TSMAlarm" Source="Source.SampleTrak.Alarm.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="TSMAlarm" Source="Source.SampleTrak.TSMAlarm.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#4" />
   <TaskClass Name="Cyclic#5" />
@@ -51,6 +51,8 @@
     <BinaryObject Name="ShuttleCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="AsmFeatCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="CoreCfg" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="LoggerCFG" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Main" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Config" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="em2_sm2" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="em2_sm1" Source="" Memory="UserROM" Language="Binary" />
@@ -75,6 +77,7 @@
     <LibraryObject Name="TrBase" Source="Libraries.TrBase.lby" Memory="UserROM" Language="IEC" Debugging="true" />
     <LibraryObject Name="MpPackML" Source="Libraries.MpPackML.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="MpCom" Source="Libraries.MpCom.lby" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="MpServer" Source="Libraries.MpServer.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="powerlnk" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asieccon" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asbrstr" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
@@ -82,6 +85,6 @@
     <LibraryObject Name="asusb" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="dataobj" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="arssl" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="MpServer" Source="Libraries.MpServer.lby" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="aruser" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
   </Libraries>
 </SwConfiguration>

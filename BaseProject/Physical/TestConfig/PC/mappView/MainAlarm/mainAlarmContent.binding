@@ -6,18 +6,16 @@
 <Source xsi:type="mapp" refId="gAlarmXCore" attribute="link" />
 <Target xsi:type="brease" contentRefId="mainAlarmContent" widgetRefId="AlarmList1" attribute="mpLink" />
 </Binding>
-
-
 <Binding mode="twoWay">
 <Source xsi:type="mapp" refId="gAuditTrail" attribute="link" />
 <Target xsi:type="brease" contentRefId="auditContent" widgetRefId="AuditList1" attribute="mpLink" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::Alarm1:FilterConfiguration" attribute="value" />
+<Source xsi:type="opcUa" serverAlias="Winder" refId="::TSMAlarm:FilterConfiguration" attribute="value" />
 <Target xsi:type="brease" contentRefId="mainAlarmContent" widgetRefId="AlarmList1" attribute="filterConfiguration" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" serverAlias="Winder" refId="::Alarm1:SortConfiguration" attribute="value" />
+<Source xsi:type="opcUa" serverAlias="Winder" refId="::TSMAlarm:SortConfiguration" attribute="value" />
 <Target xsi:type="brease" contentRefId="mainAlarmContent" widgetRefId="AlarmList1" attribute="sortConfiguration" />
 </Binding>
 </Bindings>

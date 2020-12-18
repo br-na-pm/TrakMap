@@ -5,8 +5,8 @@
     <Object Type="File" Private="true">SampleTrak.var</Object>
     <Object Type="File" Private="true">SampleTrak.typ</Object>
     <Object Type="Program" Language="IEC">TSM</Object>
-    <Object Type="Program" Language="IEC">Main</Object>
-    <Object Type="Program" Language="IEC">Alarm</Object>
+    <Object Type="Program" Language="IEC">TSMMain</Object>
+    <Object Type="Program" Language="IEC">TSMAlarm</Object>
     <Object Type="Package" Description="EquipmentModule1">Assembly</Object>
     <Object Type="Package" Description="EquipmentModuleSource">ReusableSource</Object>
     <Object Type="Package" Description="EquipmentModule2">EMx</Object>

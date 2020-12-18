@@ -11,11 +11,11 @@
       </Group>
     </Group>
     <Group ID="TargetFiles">
-      <Property ID="TargetFile[1]" Value="Source.SampleTrak.Assembly.AssemblyInfo.tmx" />
-      <Property ID="TargetFile[2]" Value="Source.SampleTrak.ReusableSource.Reusable.tmx" />
-      <Property ID="TargetFile[3]" Value="mappView.Resources.Texts.Header.tmx" />
-      <Property ID="TargetFile[4]" Value="Source.SampleTrak.Assembly.AssemblyWarning.tmx" />
-      <Property ID="TargetFile[5]" Value="Source.SampleTrak.Assembly.AssemblyAlarm.tmx" />
+      <Property ID="TargetFile[1]" Value="Source.SampleTrak.Assembly.AsmInfo.tmx" />
+      <Property ID="TargetFile[2]" Value="Source.SampleTrak.Assembly.AsmWarning.tmx" />
+      <Property ID="TargetFile[3]" Value="Source.SampleTrak.Assembly.AsmAlarm.tmx" />
+      <Property ID="TargetFile[4]" Value="Source.SampleTrak.ReusableSource.Reusable.tmx" />
+      <Property ID="TargetFile[5]" Value="mappView.Resources.Texts.Header.tmx" />
       <Property ID="TargetFile[6]" Value="mappView.Resources.Texts.StateTexts.tmx" />
       <Property ID="TargetFile[7]" Value="mappView.Resources.Texts.ErrorLocations.tmx" />
     </Group>

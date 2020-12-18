@@ -9,11 +9,12 @@
   </Aliases>
   <DefaultView>
     <Module Name="&lt;Default&gt;">
-      <Task Name="Alarm1">
+      <Task Name="TSMAlarm">
         <Variable Name="FilterConfiguration" />
         <Variable Name="HistoryFilter" />
         <Variable Name="HistorySort" />
         <Variable Name="SortConfiguration" />
+        <Variable Name="TriggerTestAlarm" />
       </Task>
     </Module>
   </DefaultView>
