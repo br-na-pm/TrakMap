@@ -1,0 +1,38 @@
+WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=EM2::Alarm2 
+Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=100 Scope=60 Force=60 Index=2 ASCIIString=0
+                                    name                                     type force                                                            value level type len format place expand specs
+                           fbAlarmModule                             MpAlarmXCore    0 "                                                               *"    0   24    1    0    1    1         
+                                  MpLink                                    UDINT    0 "                                                       130963744"    1    7    1   10    0    0         
+                                  Enable                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                              ErrorReset                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                  Active                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                   Error                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                StatusID                                     DINT    0 "                                                               0"    1    4    1   10    0    0         
+                            ActiveAlarms                                    UDINT    0 "                                                               0"    1    7    1   10    0    0         
+                           PendingAlarms                                    UDINT    0 "                                                               0"    1    7    1   10    0    0         
+                                    Info                         MpAlarmXInfoType    0 "                                                               *"    1   24    1    0    0    1         
+                                    Diag                         MpAlarmXDiagType    0 "                                                               *"    2   24    1    0    0    1         
+                                StatusID                     MpAlarmXStatusIDType    0 "                                                               *"    3   24    1    0    0    1         
+                                      ID                                     DINT    0 "                                                               0"    4    4    1   10    0    0 e,0,mpAL
+
+                                Severity                                     DINT    0 "                                                               0"    4    4    1   10    0    0 e,0,mpCO
+
+                                    Code                                     UINT    0 "                                                               0"    4    6    1   10    0    0         
+                                Internal                    MpComInternalDataType    0 "                                                               *"    1   24    1    0    0    1         
+                                 pObject                                    UDINT    0 "                                                               0"    2    7    1   10    0    0         
+                                   State                                    UDINT    0 "                                                               0"    2    7    1   10    0    0         
+                         ModuleInterface                      ModuleInterfaceType    0 "                                                               *"    0   24    1    0    0    1         
+                              SampleTrak                           McAssemblyType    0 "                                                               *"    1   24    1    0    0    1         
+                               controlif                                    UDINT    0 "                                                               0"    2    7    1   10    0    0         
+                                 MainPml                           MpComIdentType    0 "                                                               *"    1   24    1    0    0    1         
+                                Internal                              UDINT[0..1]    0 "                                                               *"    2    7    2    0    0    1         
+                             Internal[0]                                    UDINT    0 "                                                       145315600"    3    7    1   10    0    0         
+                             Internal[1]                                    UDINT    0 "                                                      2751533853"    3    7    1   10    0    0         
+                               ModulePml                           MpComIdentType    0 "                                                               *"    1   24    1    0    0    1         
+                                Internal                              UDINT[0..1]    0 "                                                               *"    2    7    2    0    0    1         
+                             Internal[0]                                    UDINT    0 "                                                               0"    3    7    1   10    0    0         
+                             Internal[1]                                    UDINT    0 "                                                               0"    3    7    1   10    0    0         
+                               AlarmCore                           MpComIdentType    0 "                                                               *"    1   24    1    0    0    1         
+                                Internal                              UDINT[0..1]    0 "                                                               *"    2    7    2    0    0    1         
+                             Internal[0]                                    UDINT    0 "                                                       145390392"    3    7    1   10    0    0         
+                             Internal[1]                                    UDINT    0 "                                                      2751610677"    3    7    1   10    0    0         

@@ -24,5 +24,7 @@
     <Widget xsi:type="widgets.brease.Button" id="loadWelder2Trak" top="80" left="940" width="60" height="60" zIndex="20" breakWord="true" mouseDownText="Trak" multiLine="true" text="Live Trak" imageHeight="30" imageWidth="50" textColor="rgba(0, 0, 0, 1)" textAlign="center" rotation="0deg" />
     <Widget xsi:type="widgets.brease.Button" id="loadLogbookWinder" top="10" left="285" width="60" height="60" zIndex="21" breakWord="true" image="Media/SymbolLib/Symbols/LogBook.svg" mouseDownImage="Media/SymbolLib/Symbols/LogBook.svg" multiLine="true" imageHeight="50" imageWidth="50" textColor="rgba(0, 0, 0, 1)" textAlign="center" rotation="0deg" />
     <Widget xsi:type="widgets.brease.Button" id="loadTrakAlarmPage" top="10" left="355" width="60" height="60" zIndex="22" image="Media/SymbolLib/Alarm/Alarm.svg" mouseDownImage="Media/SymbolLib/Alarm/Alarm.svg" imageHeight="50" imageWidth="50" />
+    <Widget xsi:type="widgets.brease.Button" id="loadEM2AlarmPage" top="10" left="525" width="60" height="60" zIndex="23" image="Media/SymbolLib/Alarm/Alarm.svg" mouseDownImage="Media/SymbolLib/Alarm/Alarm.svg" imageHeight="50" imageWidth="50" />
+    <Widget xsi:type="widgets.brease.Button" id="loadEM3AlarmPage" top="10" left="770" width="60" height="60" zIndex="24" image="Media/SymbolLib/Alarm/Alarm.svg" mouseDownImage="Media/SymbolLib/Alarm/Alarm.svg" imageHeight="50" imageWidth="50" />
   </Widgets>
 </Content>

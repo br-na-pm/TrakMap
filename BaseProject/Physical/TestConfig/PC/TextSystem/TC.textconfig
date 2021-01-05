@@ -14,10 +14,12 @@
       <Property ID="TargetFile[1]" Value="Source.SampleTrak.Assembly.AsmInfo.tmx" />
       <Property ID="TargetFile[2]" Value="Source.SampleTrak.Assembly.AsmWarning.tmx" />
       <Property ID="TargetFile[3]" Value="Source.SampleTrak.Assembly.AsmAlarm.tmx" />
-      <Property ID="TargetFile[4]" Value="Source.SampleTrak.ReusableSource.Reusable.tmx" />
-      <Property ID="TargetFile[5]" Value="mappView.Resources.Texts.Header.tmx" />
-      <Property ID="TargetFile[6]" Value="mappView.Resources.Texts.StateTexts.tmx" />
-      <Property ID="TargetFile[7]" Value="mappView.Resources.Texts.ErrorLocations.tmx" />
+      <Property ID="TargetFile[4]" Value="Source.SampleTrak.ReusableSource.ReusableInfo.tmx" />
+      <Property ID="TargetFile[5]" Value="Source.SampleTrak.ReusableSource.ReusableWarning.tmx" />
+      <Property ID="TargetFile[6]" Value="Source.SampleTrak.ReusableSource.ReusableAlarm.tmx" />
+      <Property ID="TargetFile[7]" Value="mappView.Resources.Texts.Header.tmx" />
+      <Property ID="TargetFile[8]" Value="mappView.Resources.Texts.StateTexts.tmx" />
+      <Property ID="TargetFile[9]" Value="mappView.Resources.Texts.ErrorLocations.tmx" />
     </Group>
   </Element>
 </Configuration>

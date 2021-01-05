@@ -10,7 +10,9 @@
   <TaskClass Name="Cyclic#3">
     <Task Name="TSMAlarm" Source="Source.SampleTrak.TSMAlarm.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
-  <TaskClass Name="Cyclic#4" />
+  <TaskClass Name="Cyclic#4">
+    <Task Name="Alarm" Source="Source.SampleTrak.ReusableSource.Alarm.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+  </TaskClass>
   <TaskClass Name="Cyclic#5" />
   <TaskClass Name="Cyclic#6" />
   <TaskClass Name="Cyclic#7" />

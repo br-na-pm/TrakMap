@@ -1,0 +1,7 @@
+WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=TrakModule::AsmAlarm 
+Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=100 Scope=60 Force=60 Index=0 ASCIIString=0
+                                    name                                     type force                                                            value level type len format place expand specs
+                  gAlarmXCore_TrakModule                           MpComIdentType    0 "                                                               *"    0   24    1    0    0    1         
+                                Internal                              UDINT[0..1]    0 "                                                               *"    1    7    2    0    0    1         
+                             Internal[0]                                    UDINT    0 "                                                       146380888"    2    7    1   10    0    0         
+                             Internal[1]                                    UDINT    0 "                                                      2752633941"    2    7    1   10    0    0         

@@ -1,3 +1,4 @@
 VAR_CONFIG
+	Cyclic#1.EM2::gAlarmXCore_EM2 AT %Q.EM2::ModuleInterface.AlarmCore; (*Insert your comment here...*)
 	Cyclic#1.::gMainModule AT %Q.EM2::ModuleInterface.MainPml; (*Insert your comment here...*)
 END_VAR

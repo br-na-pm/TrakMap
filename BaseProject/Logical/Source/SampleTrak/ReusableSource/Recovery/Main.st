@@ -6,6 +6,9 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 	(* Insert code here *)
+	RecoveryAlarm;
+	RecoveryWarning;
+	RecoveryInformation;
 	 
 END_PROGRAM
 

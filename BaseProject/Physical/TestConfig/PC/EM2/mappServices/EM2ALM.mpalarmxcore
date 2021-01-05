@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gAlarmXCore_EM2" Type="mpalarmxcore">
+    <Group ID="mapp.AlarmX.Core">
+      <Group ID="Mapping">
+        <Group ID="[0]">
+          <Property ID="Alarm" Value="Inf*" />
+          <Selector ID="[0]" Value="Aggregate">
+            <Property ID="Name" Value="ModuleInfo" />
+          </Selector>
+        </Group>
+        <Group ID="[1]">
+          <Property ID="Alarm" Value="Warn*" />
+          <Selector ID="[0]" Value="Aggregate">
+            <Property ID="Name" Value="ModuleWarning" />
+          </Selector>
+          <Selector ID="[1]" />
+        </Group>
+        <Group ID="[2]">
+          <Property ID="Alarm" Value="Alrm*" />
+          <Selector ID="[0]" Value="Aggregate">
+            <Property ID="Name" Value="ModuleAlarm" />
+          </Selector>
+        </Group>
+      </Group>
+      <Group ID="Default">
+        <Selector ID="[0]" Value="Remain" />
+      </Group>
+    </Group>
+    <Group ID="mapp.AlarmX.Core.Configuration">
+      <Group ID="[0]">
+        <Property ID="Name" Value="Inf_ModuleOperation" />
+        <Property ID="Message" Value="{$AppModule/Operation.Info}" />
+        <Property ID="Severity" Value="0" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="EM2::OperationInformation" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="[1]">
+        <Property ID="Name" Value="Warn_ModuleOperation" />
+        <Property ID="Message" Value="{$AppModule/Operation.Warning}" />
+        <Property ID="Severity" Value="0" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="EM2::OperationWarning" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="[2]">
+        <Property ID="Name" Value="Alrm_ModuleOperation" />
+        <Property ID="Message" Value="{$AppModule/Operation.Alarm}" />
+        <Property ID="Severity" Value="0" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="EM2::OperationAlarm" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="[3]">
+        <Property ID="Name" Value="Inf_ModuleConfig" />
+        <Property ID="Message" Value="{$AppModule/Configuration.Info}" />
+        <Property ID="Severity" Value="0" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="EM2::ConfigInformation" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="[4]">
+        <Property ID="Name" Value="Warn_ModuleConfig" />
+        <Property ID="Message" Value="{$AppModule/Configuration.Warning}" />
+        <Property ID="Severity" Value="0" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="EM2::ConfigurationWarning" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="[5]">
+        <Property ID="Name" Value="Alrm_ModuleConfig" />
+        <Property ID="Message" Value="{$AppModule/Configuration.Alarm}" />
+        <Property ID="Severity" Value="0" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="EM2::ConfigurationAlarm" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="[6]">
+        <Property ID="Name" Value="Inf_ModuleRecovery" />
+        <Property ID="Message" Value="{$AppModule/Recovery.Info}" />
+        <Property ID="Severity" Value="0" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="EM2::RecoveryInformation" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="[7]">
+        <Property ID="Name" Value="Warn_ModuleRecovery" />
+        <Property ID="Message" Value="{$AppModule/Recovery.Warning}" />
+        <Property ID="Severity" Value="0" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="EM2::RecoveryWarning" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="[8]">
+        <Property ID="Name" Value="Alrm_ModuleRecovery" />
+        <Property ID="Message" Value="{$AppModule/Recovery.Alarm}" />
+        <Property ID="Severity" Value="0" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="EM2::RecoveryAlarm" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="[9]">
+        <Property ID="Name" Value="ModuleInfo" />
+        <Property ID="Message" Value="{$AppModule/Module.Info}" />
+      </Group>
+      <Group ID="[10]">
+        <Property ID="Name" Value="ModuleWarning" />
+        <Property ID="Message" Value="{$AppModule/Module.Warning}" />
+      </Group>
+      <Group ID="[11]">
+        <Property ID="Name" Value="ModuleAlarm" />
+        <Property ID="Message" Value="{$AppModule/Module.Alarm}" />
+        <Property ID="Code" Value="1000" />
+      </Group>
+    </Group>
+    <Group ID="mapp.AlarmX.Core.Snippets">
+      <Group ID="[0]">
+        <Property ID="Key" Value="ModuleName" />
+        <Selector ID="Value">
+          <Property ID="PV" Value="EM2::ModuleName" />
+        </Selector>
+      </Group>
+    </Group>
+    <Group ID="mapp.AlarmX.Core.Categories">
+      <Group ID="[0]">
+        <Property ID="Name" Value="Information" />
+        <Selector ID="SourceProperty">
+          <Property ID="Severity" Value="0..99" />
+        </Selector>
+      </Group>
+      <Group ID="[1]">
+        <Property ID="Name" Value="Warning" />
+        <Selector ID="SourceProperty">
+          <Property ID="Severity" Value="100..199" />
+        </Selector>
+      </Group>
+      <Group ID="[2]">
+        <Property ID="Name" Value="Alarm" />
+        <Selector ID="SourceProperty">
+          <Property ID="Severity" Value="1000..1199" />
+        </Selector>
+      </Group>
+    </Group>
+  </Element>
+</Configuration>

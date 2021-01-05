@@ -3,6 +3,6 @@
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="File">trakAlarmContent.binding</Object>
-    <Object Type="File">mainAlarmContent.eventbinding</Object>
+    <Object Type="File">trakAlarmContent.eventbinding</Object>
   </Objects>
 </Package>

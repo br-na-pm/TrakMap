@@ -7,5 +7,6 @@
     <Object Type="File">welder1Return.content</Object>
     <Object Type="File">welder1Trak.content</Object>
     <Object Type="File">welder1Logbook.content</Object>
+    <Object Type="File">currentAlarmEM3.content</Object>
   </Objects>
 </Package>

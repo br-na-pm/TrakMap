@@ -14,5 +14,7 @@
     <Object Type="Package">Welder1</Object>
     <Object Type="Package">Welder2</Object>
     <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">TrakAlarm</Object>
+    <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EM2Alarm</Object>
+    <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EM3Alarm</Object>
   </Objects>
 </Package>

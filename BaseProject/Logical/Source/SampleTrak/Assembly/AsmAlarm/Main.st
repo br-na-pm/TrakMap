@@ -18,6 +18,9 @@ PROGRAM _CYCLIC
 	TriggerTestWarning;	
 	
 	
+	gAlarmXCore_EM2;
+	gAlarmXCore_EM3;
+	
 END_PROGRAM
 
 PROGRAM _EXIT

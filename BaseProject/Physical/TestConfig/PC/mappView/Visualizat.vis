@@ -25,12 +25,16 @@
 	<BindingsSet refId="welder2ReturnContent_binding" />-->
 	<!--<BindingsSet refId="winderLogContent_binding" />
 	<BindingsSet refId="laserLogContent_binding" />-->
-	<BindingsSet refId="alarmTrakContent_binding" />		
+	<BindingsSet refId="alarmTrakContent_binding" />
+	<BindingsSet refId="alarmEM2Content_binding" />
+	<BindingsSet refId="alarmEM3Content_binding" />		
 	
   </BindingsSets>
   <EventBindingsSets>
     <EventBindingsSet refId="mainAlarmContentBinding" />
 	<EventBindingsSet refId="trakAlarmContentBinding" />
+	<EventBindingsSet refId="alarmEM2ContentBinding" />
+	<EventBindingsSet refId="alarmEM3ContentBinding" />
 	<EventBindingsSet refId="loadContentBinding" />	
 	<EventBindingsSet refId="headerContent_eventbinding" />
 	<!--<EventBindingsSet refId="winderLogContent_eventbinding" />-->
@@ -60,6 +64,9 @@
 	<Content refId="winderLogContent" />
 	<Content refId="laserLogContent" />
 	<Content refId="allTrakContent" />
+	<Content refId="alarmEM2Content" />
+	<Content refId="alarmEM3Content" />
+	
   </Contents>
   <SnippetsSets>
     <SnippetsSet refId="snippetsForStates"/>

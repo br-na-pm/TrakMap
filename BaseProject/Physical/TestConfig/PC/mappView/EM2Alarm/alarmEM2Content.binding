@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="alarmEM2Content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Bindings>			
+	
+		<Binding mode="twoWay">
+			<Source xsi:type="mapp" refId="EM2::gAlarmXCore_EM2" attribute="link" />
+			<Target xsi:type="brease" contentRefId="alarmEM2Content" widgetRefId="AlarmList1" attribute="mpLink" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" serverAlias="Winder" refId="::Alarm2:SortConfiguration" attribute="value" />
+			<Target xsi:type="brease" contentRefId="alarmEM2Content" widgetRefId="AlarmList1" attribute="sortConfiguration" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" serverAlias="Winder" refId="::Alarm2:FilterConfiguration" attribute="value" />
+			<Target xsi:type="brease" contentRefId="alarmEM2Content" widgetRefId="AlarmList1" attribute="filterConfiguration" />
+		</Binding>
+	</Bindings>
+</BindingsSet>

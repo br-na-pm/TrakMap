@@ -1,17 +1,26 @@
 WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=EM3::Operation3 
-Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=100 Scope=60 Force=60 Index=13 ASCIIString=0
+Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=100 Scope=60 Force=60 Index=23 ASCIIString=0
                                     name                                     type force                                                            value level type len format place expand specs
-                                 Counter                                      INT    0 "                                                           11976"    0    3    1   10    0    0         
+                                 Counter                                      INT    0 "                                                           10000"    0    3    1   10    0    0         
                          ModuleInterface                      ModuleInterfaceType    0 "                                                               *"    0   24    1    0    0    1         
                               SampleTrak                           McAssemblyType    0 "                                                               *"    1   24    1    0    0    1         
                                controlif                                    UDINT    0 "                                                               0"    2    7    1   10    0    0         
                                  MainPml                           MpComIdentType    0 "                                                               *"    1   24    1    0    0    1         
                                 Internal                              UDINT[0..1]    0 "                                                               *"    2    7    2    0    0    1         
-                             Internal[0]                                    UDINT    0 "                                                       129020696"    3    7    1   10    0    0         
-                             Internal[1]                                    UDINT    0 "                                                      2870540053"    3    7    1   10    0    0         
+                             Internal[0]                                    UDINT    0 "                                                       145315600"    3    7    1   10    0    0         
+                             Internal[1]                                    UDINT    0 "                                                      2751533853"    3    7    1   10    0    0         
                                ModulePml                           MpComIdentType    0 "                                                               *"    1   24    1    0    0    1         
                                 Internal                              UDINT[0..1]    0 "                                                               *"    2    7    2    0    0    1         
                              Internal[0]                                    UDINT    0 "                                                               0"    3    7    1   10    0    0         
                              Internal[1]                                    UDINT    0 "                                                               0"    3    7    1   10    0    0         
-                              ModuleName                               STRING[40]    0 "                                               'EM3::Operation3'"    0    9   41    1    0    0         
-                              StartValue                                      INT    0 "                                                           10000"    0    3    1   10    0    0         
+                          OperationAlarm                                     BOOL    0 "                                                           FALSE"    0    1    1    2    0    0         
+                    OperationInformation                                     BOOL    0 "                                                           FALSE"    0    1    1    2    0    0         
+                        OperationWarning                                     BOOL    0 "                                                           FALSE"    0    1    1    2    0    0         
+                         gAlarmXCore_EM2                           MpComIdentType    0 "                                                               *"    0   24    1    0    0    1         
+                                Internal                              UDINT[0..1]    0 "                                                               *"    1    7    2    0    0    1         
+                             Internal[0]                                    UDINT    0 "                                                               0"    2    7    1   10    0    0         
+                             Internal[1]                                    UDINT    0 "                                                               0"    2    7    1   10    0    0         
+                         gAlarmXCore_EM3                           MpComIdentType    0 "                                                               *"    0   24    1    0    0    1         
+                                Internal                              UDINT[0..1]    0 "                                                               *"    1    7    2    0    0    1         
+                             Internal[0]                                    UDINT    0 "                                                               0"    2    7    1   10    0    0         
+                             Internal[1]                                    UDINT    0 "                                                               0"    2    7    1   10    0    0         

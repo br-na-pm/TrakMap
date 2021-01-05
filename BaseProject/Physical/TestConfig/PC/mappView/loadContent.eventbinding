@@ -426,5 +426,47 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="loadEM2Alarm">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadEM2AlarmPage" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="alarmEM2Content" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/ActiveEM2Alarm" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadEM3Alarm">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadEM3AlarmPage" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="alarmEM3Content" pageId="MainPage" areaId="AreaContent" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="headerText">
+                <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/ActiveEM3Alarm" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>

@@ -4,10 +4,13 @@
   <Objects>
     <Object Type="File" Private="true">Source.var</Object>
     <Object Type="File" Private="true">Source.typ</Object>
+    <Object Type="Program" Language="IEC">Config</Object>
     <Object Type="Program" Language="IEC">Operation</Object>
     <Object Type="Program" Language="IEC">Recovery</Object>
-    <Object Type="Program" Language="IEC">Config</Object>
     <Object Type="Program" Language="IEC">BarrierCtrl</Object>
-    <Object Type="File">Reusable.tmx</Object>
+    <Object Type="Program" Language="IEC">Alarm</Object>
+    <Object Type="File">ReusableInfo.tmx</Object>
+    <Object Type="File">ReusableWarning.tmx</Object>
+    <Object Type="File">ReusableAlarm.tmx</Object>
   </Objects>
 </Package>

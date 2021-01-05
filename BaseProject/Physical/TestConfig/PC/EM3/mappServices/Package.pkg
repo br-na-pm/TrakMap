@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package SubType="mappServices" PackageType="mappServices" xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">EM3ALM.mpalarmxcore</Object>
+    <Object Type="File">EM3PML.mppackmlmodule</Object>
+    <Object Type="File">EM3CFG.mprecipexml</Object>
+  </Objects>
+</Package>
