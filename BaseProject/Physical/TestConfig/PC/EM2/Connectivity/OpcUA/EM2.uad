@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="7" ArVersion="C4.90">
+  <Aliases>
+    <ACLAliases>
+      <ACL Id="1">
+        <ACE RoleId="3" RoleName="HMI" Access="0x005F" />
+        <ACE RoleId="2" RoleName="Everyone" Access="0x005F" />
+        <ACE RoleId="1" RoleName="Administrators" Access="0x017F" />
+      </ACL>
+      <ACL Id="2">
+        <ACE RoleId="3" RoleName="HMI" Access="0x005F" />
+        <ACE RoleId="1" RoleName="Administrators" Access="0x017F" />
+        <ACE RoleId="2" RoleName="Everyone" Access="0x007F" />
+      </ACL>
+    </ACLAliases>
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases />
+  </Aliases>
+  <DefaultView AclId="2">
+    <Module Name="EM2">
+      <GlobalVariables Name="Global Variables">
+        <Variable Name="ConfigAlarm" />
+        <Variable Name="ConfigInformation" />
+        <Variable Name="ConfigWarning" />
+        <Variable Name="FilterConfiguration" />
+        <Variable Name="HistoryFilter" />
+        <Variable Name="HistorySort" />
+        <Variable Name="ModuleName" />
+        <Variable Name="OperationAlarm" />
+        <Variable Name="OperationInformation" />
+        <Variable Name="OperationWarning" />
+        <Variable Name="RecoveryAlarm" />
+        <Variable Name="RecoveryInformation" />
+        <Variable Name="RecoveryWarning" />
+        <Variable Name="SortConfiguration" />
+      </GlobalVariables>
+    </Module>
+  </DefaultView>
+</OpcUaSource>

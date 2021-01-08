@@ -22,4 +22,8 @@ VAR
 	OperationAlarm : BOOL;
 	OperationWarning : BOOL;
 	OperationInformation : BOOL;
+	fbModuleConfig : MpRecipeXml;
+	ConfigCategory : STRING[50];
+	ConfigHeader : MpRecipeXmlHeaderType;
+	fbConfigRegPar : MpRecipeRegPar;
 END_VAR

@@ -7,11 +7,11 @@
 			<Target xsi:type="brease" contentRefId="alarmEM2Content" widgetRefId="AlarmList1" attribute="mpLink" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" serverAlias="Winder" refId="::Alarm2:SortConfiguration" attribute="value" />
+			<Source xsi:type="opcUa" serverAlias="EM2" refId="EM2::AsGlobalPV:SortConfiguration" attribute="value" />
 			<Target xsi:type="brease" contentRefId="alarmEM2Content" widgetRefId="AlarmList1" attribute="sortConfiguration" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" serverAlias="Winder" refId="::Alarm2:FilterConfiguration" attribute="value" />
+			<Source xsi:type="opcUa" serverAlias="EM2" refId="EM2::AsGlobalPV:FilterConfiguration" attribute="value" />
 			<Target xsi:type="brease" contentRefId="alarmEM2Content" widgetRefId="AlarmList1" attribute="filterConfiguration" />
 		</Binding>
 	</Bindings>

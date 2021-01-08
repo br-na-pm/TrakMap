@@ -16,5 +16,6 @@
     <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">TrakAlarm</Object>
     <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EM2Alarm</Object>
     <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EM3Alarm</Object>
+    <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EMxAlarm</Object>
   </Objects>
 </Package>

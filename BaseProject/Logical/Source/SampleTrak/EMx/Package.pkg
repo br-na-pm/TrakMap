@@ -4,6 +4,11 @@
   <Objects>
     <Object Type="File" Private="true">EMx.var</Object>
     <Object Type="File" Private="true">EMx.typ</Object>
+    <Object Type="Program" Language="IEC">Config</Object>
+    <Object Type="Program" Language="IEC">Alarm</Object>
     <Object Type="Program" Language="IEC">Process</Object>
+    <Object Type="File">EMxInfo.tmx</Object>
+    <Object Type="File">EMxWarning.tmx</Object>
+    <Object Type="File">EMxAlarm.tmx</Object>
   </Objects>
 </Package>

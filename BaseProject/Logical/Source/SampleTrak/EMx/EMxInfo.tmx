@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">AppModuleEMx</prop>
+  </header>
+  <body>
+    <tu tuid="Process.Info">
+      <tuv xml:lang="en">
+        <seg>Example info message from process</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Module.Info">
+      <note>Text for aggregated and escalated alarms</note>
+      <tuv xml:lang="en">
+        <seg>Aggregated info from {&amp;ModuleName} </seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

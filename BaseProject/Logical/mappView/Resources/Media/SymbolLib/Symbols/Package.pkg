@@ -55,5 +55,6 @@
     <Object Type="File">Distribute.svg</Object>
     <Object Type="File">Roadrunner.svg</Object>
     <Object Type="File">LogBook.svg</Object>
+    <Object Type="File">ReturnArrow1.svg</Object>
   </Objects>
 </Package>

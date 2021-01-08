@@ -62,5 +62,53 @@
       <Selector ID="MessageSecurityMode" Value="1" />
       <Property ID="SSLConfiguration" />
     </Group>
+    <Group ID="OpcUaServer[5]">
+      <Property ID="Alias" Value="EMx" />
+      <Property ID="Hostname" />
+      <Property ID="IPAddress" Value="127.0.0.1" />
+      <Property ID="Port" Value="4840" />
+      <Property ID="EndpointUrl" />
+      <Property ID="DefaultNamespace" Value="http://br-automation.com/OpcUa/PLC/PV/EMx/" />
+      <Selector ID="ConnectionPolicy" Value="1" />
+      <Selector ID="SecurityPolicy" Value="None" />
+      <Selector ID="MessageSecurityMode" Value="1" />
+      <Property ID="SSLConfiguration" />
+    </Group>
+    <Group ID="OpcUaServer[6]">
+      <Property ID="Alias" Value="EM2" />
+      <Property ID="Hostname" />
+      <Property ID="IPAddress" Value="127.0.0.1" />
+      <Property ID="Port" Value="4840" />
+      <Property ID="EndpointUrl" />
+      <Property ID="DefaultNamespace" Value="http://br-automation.com/OpcUa/PLC/PV/EM2/" />
+      <Selector ID="ConnectionPolicy" Value="1" />
+      <Selector ID="SecurityPolicy" Value="None" />
+      <Selector ID="MessageSecurityMode" Value="1" />
+      <Property ID="SSLConfiguration" />
+    </Group>
+    <Group ID="OpcUaServer[7]">
+      <Property ID="Alias" Value="EM3" />
+      <Property ID="Hostname" />
+      <Property ID="IPAddress" Value="127.0.0.1" />
+      <Property ID="Port" Value="4840" />
+      <Property ID="EndpointUrl" />
+      <Property ID="DefaultNamespace" Value="http://br-automation.com/OpcUa/PLC/PV/EM3/" />
+      <Selector ID="ConnectionPolicy" Value="1" />
+      <Selector ID="SecurityPolicy" Value="None" />
+      <Selector ID="MessageSecurityMode" Value="1" />
+      <Property ID="SSLConfiguration" />
+    </Group>
+    <Group ID="OpcUaServer[8]">
+      <Property ID="Alias" Value="TrakModule" />
+      <Property ID="Hostname" />
+      <Property ID="IPAddress" Value="127.0.0.1" />
+      <Property ID="Port" Value="4840" />
+      <Property ID="EndpointUrl" />
+      <Property ID="DefaultNamespace" Value="http://br-automation.com/OpcUa/PLC/PV/TrakModule/" />
+      <Selector ID="ConnectionPolicy" Value="1" />
+      <Selector ID="SecurityPolicy" Value="None" />
+      <Selector ID="MessageSecurityMode" Value="1" />
+      <Property ID="SSLConfiguration" />
+    </Group>
   </Element>
 </Configuration>

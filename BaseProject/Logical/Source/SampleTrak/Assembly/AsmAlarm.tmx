@@ -2,7 +2,7 @@
 <tmx version="1.4">
   <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
     <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
-    <prop type="x-BR-TS:Namespace">Assembly/Alarm</prop>
+    <prop type="x-BR-TS:Namespace">TrakAssembly</prop>
   </header>
   <body>
     <tu tuid="TrakErrorStop">
@@ -21,12 +21,10 @@
         <seg>Local Alarm in Trak Module</seg>
       </tuv>
     </tu>
-    <tu tuid="TrakModuleAlarm">
-      <tuv xml:lang="de">
-        <seg>Alarm im Trak Modul</seg>
-      </tuv>
+    <tu tuid="Module.Alarm">
+      <note>Text for aggregated and escalated alarms</note>
       <tuv xml:lang="en">
-        <seg>Alarm in Trak Module</seg>
+        <seg>Aggregated alarm from {&amp;ModuleName} </seg>
       </tuv>
     </tu>
   </body>

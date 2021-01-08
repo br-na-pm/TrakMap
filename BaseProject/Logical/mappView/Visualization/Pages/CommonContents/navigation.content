@@ -8,7 +8,7 @@
     <Widget xsi:type="widgets.brease.Button" id="loadWinder" top="10" left="215" width="60" height="60" zIndex="4" image="Media/SymbolLib/Symbols/Winder.svg" mouseDownImage="Media/SymbolLib/Symbols/Winder.svg" imageHeight="50" imageWidth="50" />
     <Widget xsi:type="widgets.brease.Button" id="loadWelder1TrackB" top="10" left="700" width="60" height="60" zIndex="5" image="Media/SymbolLib/Symbols/TrakB.svg" mouseDownImage="Media/SymbolLib/Symbols/TrakB.svg" imageHeight="50" imageWidth="50" textAlign="center" />
     <Widget xsi:type="widgets.brease.Button" id="loadWelder1TrackA" top="10" left="630" width="60" height="60" zIndex="6" image="Media/SymbolLib/Symbols/TrakA.svg" mouseDownImage="Media/SymbolLib/Symbols/TrakA.svg" imageHeight="50" imageWidth="50" />
-    <Widget xsi:type="widgets.brease.Button" id="loadWelder1Return" top="80" left="630" width="60" height="60" zIndex="7" image="Media/SymbolLib/Symbols/ReturnArrow.svg" mouseDownImage="Media/SymbolLib/Symbols/ReturnArrow.svg" imageHeight="50" imageWidth="50" />
+    <Widget xsi:type="widgets.brease.Button" id="loadWelder1Return" top="80" left="630" width="60" height="60" zIndex="7" image="Media/SymbolLib/Symbols/ReturnArrow.svg" mouseDownImage="Media/SymbolLib/Symbols/ReturnArrow1.svg" imageHeight="50" imageWidth="50" />
     <Widget xsi:type="widgets.brease.Label" id="Label1" top="60" left="545" width="130" zIndex="8" text="Welder 1" borderWidth="5px 0px 0px 0px" backColor="rgba(128, 128, 128, 1)" borderColor="rgba(180, 180, 180, 1)" borderStyle="solid" rotation="270deg" />
     <Widget xsi:type="widgets.brease.Label" id="Label2" top="60" left="130" width="130" zIndex="9" text="Trak" borderWidth="5px 0px 0px 0px" backColor="rgba(128, 128, 128, 1)" borderColor="rgba(180, 180, 180, 1)" borderStyle="solid" rotation="270deg" />
     <Widget xsi:type="widgets.brease.Button" id="loadWelder2TrackB" top="10" left="940" width="60" height="60" zIndex="10" image="Media/SymbolLib/Symbols/TrakB.svg" mouseDownImage="Media/SymbolLib/Symbols/TrakB.svg" imageHeight="50" imageWidth="50" textAlign="center" />
@@ -26,5 +26,6 @@
     <Widget xsi:type="widgets.brease.Button" id="loadTrakAlarmPage" top="10" left="355" width="60" height="60" zIndex="22" image="Media/SymbolLib/Alarm/Alarm.svg" mouseDownImage="Media/SymbolLib/Alarm/Alarm.svg" imageHeight="50" imageWidth="50" />
     <Widget xsi:type="widgets.brease.Button" id="loadEM2AlarmPage" top="10" left="525" width="60" height="60" zIndex="23" image="Media/SymbolLib/Alarm/Alarm.svg" mouseDownImage="Media/SymbolLib/Alarm/Alarm.svg" imageHeight="50" imageWidth="50" />
     <Widget xsi:type="widgets.brease.Button" id="loadEM3AlarmPage" top="10" left="770" width="60" height="60" zIndex="24" image="Media/SymbolLib/Alarm/Alarm.svg" mouseDownImage="Media/SymbolLib/Alarm/Alarm.svg" imageHeight="50" imageWidth="50" />
+    <Widget xsi:type="widgets.brease.Button" id="loadEMxAlarmPage" top="10" left="1010" width="60" height="60" zIndex="25" image="Media/SymbolLib/Alarm/Alarm.svg" mouseDownImage="Media/SymbolLib/Alarm/Alarm.svg" imageHeight="50" imageWidth="50" />
   </Widgets>
 </Content>

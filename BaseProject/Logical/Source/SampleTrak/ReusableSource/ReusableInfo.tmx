@@ -26,6 +26,7 @@
       </tuv>
     </tu>
     <tu tuid="Module.Info">
+      <note>Text for aggregated and escalated alarms</note>
       <tuv xml:lang="en">
         <seg>Aggregated info from {&amp;ModuleName} </seg>
       </tuv>

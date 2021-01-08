@@ -4,6 +4,7 @@
   <TaskClass Name="Cyclic#1">
     <Task Name="ShuttleIni" Source="Source.SampleTrak.Assembly.SubModule1.ShuttleInit.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AsmSampleT" Source="Source.SampleTrak.Assembly.AsmSampleTrak.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="AsmConfig" Source="Source.SampleTrak.Assembly.AsmConfig.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2" />
   <TaskClass Name="Cyclic#3">

@@ -6,5 +6,6 @@
     <Object Type="File" Description="Variable mapping">EM2.vvm</Object>
     <Object Type="File" Description="I/O mapping">EM2.iom</Object>
     <Object Type="Package">mappServices</Object>
+    <Object Type="Package">Connectivity</Object>
   </Objects>
 </Package>

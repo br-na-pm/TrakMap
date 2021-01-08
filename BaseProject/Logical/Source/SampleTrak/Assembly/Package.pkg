@@ -4,9 +4,10 @@
   <Objects>
     <Object Type="File" Private="true">Assembly.var</Object>
     <Object Type="File" Private="true">Assembly.typ</Object>
+    <Object Type="Program" Language="IEC">AsmConfig</Object>
+    <Object Type="Program" Language="IEC">AsmAlarm</Object>
     <Object Type="Program" Language="IEC">AsmSampleTrak</Object>
     <Object Type="Package">SubModule1</Object>
-    <Object Type="Program" Language="IEC">AsmAlarm</Object>
     <Object Type="File">AsmInfo.tmx</Object>
     <Object Type="File">AsmWarning.tmx</Object>
     <Object Type="File">AsmAlarm.tmx</Object>

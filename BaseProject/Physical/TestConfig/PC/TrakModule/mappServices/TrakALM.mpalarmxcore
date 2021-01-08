@@ -33,7 +33,7 @@
     <Group ID="mapp.AlarmX.Core.Configuration">
       <Group ID="[0]">
         <Property ID="Name" Value="Alrm_ErrorStop" />
-        <Property ID="Message" Value="{$Assembly/Alarm/TrakErrorStop}" />
+        <Property ID="Message" Value="{$TrakAssembly/TrakErrorStop}" />
         <Property ID="Code" Value="1000" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
@@ -58,7 +58,7 @@
       </Group>
       <Group ID="[2]">
         <Property ID="Name" Value="Inf_ModuleTest" />
-        <Property ID="Message" Value="{$Assembly/Info/LocalTrakModuleInfo}" />
+        <Property ID="Message" Value="{$TrakAssembly/LocalTrakModuleInfo}" />
         <Property ID="Severity" Value="0" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
@@ -71,7 +71,7 @@
       </Group>
       <Group ID="[3]">
         <Property ID="Name" Value="Warn_ModuleTest" />
-        <Property ID="Message" Value="{$Assembly/Warning/LocalTrakModuleWarning}" />
+        <Property ID="Message" Value="{$TrakAssembly/LocalTrakModuleWarning}" />
         <Property ID="Code" Value="100" />
         <Property ID="Severity" Value="50" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
@@ -85,7 +85,7 @@
       </Group>
       <Group ID="[4]">
         <Property ID="Name" Value="Alrm_ModuleTest" />
-        <Property ID="Message" Value="{$Assembly/Alarm/LocalTrakModuleAlarm}" />
+        <Property ID="Message" Value="{$TrakAssembly/LocalTrakModuleAlarm}" />
         <Property ID="Code" Value="1000" />
         <Property ID="Severity" Value="100" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
@@ -99,16 +99,28 @@
       </Group>
       <Group ID="[5]">
         <Property ID="Name" Value="TrakModuleInfo" />
-        <Property ID="Message" Value="{$Assembly/Info/TrakModuleInfo}" />
+        <Property ID="Message" Value="{$TrakAssembly/Module.Info}" />
+        <Property ID="AdditionalInformation1" Value="trakAlarmContent" />
       </Group>
       <Group ID="[6]">
         <Property ID="Name" Value="TrakModuleWarning" />
-        <Property ID="Message" Value="{$Assembly/Warning/TrakModuleWarning}" />
+        <Property ID="Message" Value="{$TrakAssembly/Module.Warning}" />
+        <Property ID="Code" Value="100" />
+        <Property ID="AdditionalInformation1" Value="trakAlarmContent" />
       </Group>
       <Group ID="[7]">
         <Property ID="Name" Value="TrakModuleAlarm" />
-        <Property ID="Message" Value="{$Assembly/Alarm/TrakModuleAlarm}" />
+        <Property ID="Message" Value="{$TrakAssembly/Module.Alarm}" />
         <Property ID="Code" Value="1000" />
+        <Property ID="AdditionalInformation1" Value="trakAlarmContent" />
+      </Group>
+    </Group>
+    <Group ID="mapp.AlarmX.Core.Snippets">
+      <Group ID="[0]">
+        <Property ID="Key" Value="ModuleName" />
+        <Selector ID="Value">
+          <Property ID="PV" Value="TrakModule::ModuleName" />
+        </Selector>
       </Group>
     </Group>
     <Group ID="mapp.AlarmX.Core.Categories">

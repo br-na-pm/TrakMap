@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="alarmHistoryContent" height="675" width="900" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.AlarmHistory" id="AlarmHistory1" top="5" left="5" width="805" height="665" zIndex="0">
+    <Widget xsi:type="widgets.brease.AlarmHistory" id="AlarmHistory1" top="5" left="5" width="805" height="665" zIndex="0" headerHeight="60">
       <Widgets>
-        <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistoryItem1" width="260" zIndex="0" columnType="timestamp" text="Timestamp" />
-        <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistoryItem2" width="315" zIndex="1" text="Message" />
-        <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistoryItem3" width="115" zIndex="2" columnType="new state" text="New State" />
-        <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistoryItem4" width="115" zIndex="3" columnType="old state" text="Old State" />
+        <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistoryItem1" width="295" zIndex="0" columnType="timestamp" text="Timestamp" />
+        <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistoryItem2" width="345" zIndex="1" text="Message" />
+        <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistoryItem3" width="80" zIndex="2" columnType="new state" text="New State" />
+        <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistoryItem4" width="80" zIndex="3" columnType="old state" text="Old State" />
       </Widgets>
     </Widget>
     <Widget xsi:type="widgets.brease.PushButton" id="MpAlarmXHistoryExport" top="590" left="815" width="80" height="80" zIndex="1" text="Export" fontSize="20px" />

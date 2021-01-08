@@ -86,7 +86,7 @@
         <Property ID="Severity" Value="0" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
-            <Property ID="MonitoredPV" Value="EM3::ConfigurationWarning" />
+            <Property ID="MonitoredPV" Value="EM3::ConfigWarning" />
             <Group ID="TriggerValues">
               <Property ID="[0]" Value="TRUE" />
             </Group>
@@ -99,7 +99,7 @@
         <Property ID="Severity" Value="0" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
-            <Property ID="MonitoredPV" Value="EM3::ConfigurationAlarm" />
+            <Property ID="MonitoredPV" Value="EM3::ConfigAlarm" />
             <Group ID="TriggerValues">
               <Property ID="[0]" Value="TRUE" />
             </Group>
@@ -148,15 +148,18 @@
       <Group ID="[9]">
         <Property ID="Name" Value="ModuleInfo" />
         <Property ID="Message" Value="{$AppModule/Module.Info}" />
+        <Property ID="AdditionalInformation1" Value="alarmEM3Content" />
       </Group>
       <Group ID="[10]">
         <Property ID="Name" Value="ModuleWarning" />
         <Property ID="Message" Value="{$AppModule/Module.Warning}" />
+        <Property ID="AdditionalInformation1" Value="alarmEM3Content" />
       </Group>
       <Group ID="[11]">
         <Property ID="Name" Value="ModuleAlarm" />
         <Property ID="Message" Value="{$AppModule/Module.Alarm}" />
         <Property ID="Code" Value="1000" />
+        <Property ID="AdditionalInformation1" Value="alarmEM3Content" />
       </Group>
     </Group>
     <Group ID="mapp.AlarmX.Core.Snippets">

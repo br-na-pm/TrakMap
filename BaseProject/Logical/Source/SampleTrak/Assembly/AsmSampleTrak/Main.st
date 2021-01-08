@@ -13,7 +13,7 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 
-	fbTrakModule(MpLink := ADR(gTrakModule), 
+	fbTrakModule(MpLink := ADR(TrakInterface.ModulePml), 
 					Enable := TRUE, 
 					Parameters := ADR(parTrakModule));
 	
@@ -97,7 +97,7 @@ PROGRAM _CYCLIC
 			ELSIF gTrakSystem.Asm.Cmd.Power AND gTrakSystem.Asm.Cmd.Stop = FALSE // Read input commands
 			  AND gTrakSystem.Asm.Status.Disabled AND gTrakSystem.Asm.Status.ReadyForPowerOn // Check assembly statuses
 			  AND fbAsmPowerOff.Execute = FALSE AND fbAsmReset.Execute = FALSE 
-			  AND MpPackMLStateIsActive(gTrakModule,mpPACKML_STATE_EXECUTE,1)
+			  AND MpPackMLStateIsActive(TrakInterface.ModulePml,mpPACKML_STATE_EXECUTE,1)
 			  	THEN // Check other function block execution
 				// Power on the assembly
 				fbAsmPowerOn.Execute := TRUE;

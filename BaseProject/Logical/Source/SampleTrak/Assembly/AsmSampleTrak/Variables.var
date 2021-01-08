@@ -7,5 +7,4 @@ VAR
 	fbAsmReset : MC_BR_AsmReset_AcpTrak;
 	fbTrakModule : MpPackMLModule;
 	parTrakModule : MpPackMLModuleParType;
-	TrakInterface : TrakInterfaceType;
 END_VAR

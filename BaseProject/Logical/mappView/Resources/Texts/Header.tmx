@@ -5,6 +5,11 @@
     <prop type="x-BR-TS:Namespace">IAT/Header</prop>
   </header>
   <body>
+    <tu tuid="ActiveEMxAlarm">
+      <tuv xml:lang="en">
+        <seg>Active Module X Alarm</seg>
+      </tuv>
+    </tu>
     <tu tuid="ActiveEM3Alarm">
       <tuv xml:lang="en">
         <seg>Active Module 3 Alarm</seg>

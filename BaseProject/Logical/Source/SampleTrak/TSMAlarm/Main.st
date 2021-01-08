@@ -12,6 +12,10 @@ PROGRAM _CYCLIC
 	fbAlarmMainTSM(MpLink := ADR(gAlarmXCore), Enable := TRUE);
 	fbAlarmHistMainTSM(MpLink := ADR(gAlarmXHistory), Enable := TRUE, DeviceName := ADR('User'));
 	
+	MpAlarmXListUI_0(MpLink := ADR(gAlarmXCore), Enable := TRUE,UIConnect := ADR(UIConnect));
+	
+	
+	
 	TriggerTestAlarm;
 	
 	

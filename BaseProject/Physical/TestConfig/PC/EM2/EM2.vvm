@@ -1,4 +1,6 @@
 VAR_CONFIG
-	Cyclic#1.EM2::gAlarmXCore_EM2 AT %Q.EM2::ModuleInterface.AlarmCore; (*Insert your comment here...*)
 	Cyclic#1.::gMainModule AT %Q.EM2::ModuleInterface.MainPml; (*Insert your comment here...*)
+	Cyclic#1.EM2::gAlarmXCore_EM2 AT %Q.EM2::ModuleInterface.AlarmCore; (*Insert your comment here...*)
+	EM2::gRecipeXml_EM2 AT %Q.EM2::ModuleInterface.RecipeCore; (*Insert your comment here...*)
+	EM2::gPackMLModule_EM2 AT %Q.EM2::ModuleInterface.ModulePml; (*Insert your comment here...*)
 END_VAR

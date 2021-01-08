@@ -21,3 +21,15 @@ TYPE
 		RecoveryVelocity : REAL;
 	END_STRUCT;
 END_TYPE
+
+(*Interface for variable mapping*)
+
+TYPE
+	ModuleInterfaceType : 	STRUCT 
+		SampleTrak : McAssemblyType;
+		MainPml : MpComIdentType;
+		ModulePml : MpComIdentType;
+		AlarmCore : MpComIdentType;
+		RecipeCore : MpComIdentType;
+	END_STRUCT;
+END_TYPE
