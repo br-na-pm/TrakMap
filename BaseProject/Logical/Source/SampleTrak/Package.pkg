@@ -7,6 +7,7 @@
     <Object Type="Program" Language="IEC">TSM</Object>
     <Object Type="Program" Language="IEC">TSMMain</Object>
     <Object Type="Program" Language="IEC">TSMAlarm</Object>
+    <Object Type="Package">Diagnostic</Object>
     <Object Type="Package" Description="EquipmentModule1">Assembly</Object>
     <Object Type="Package" Description="EquipmentModuleSource">ReusableSource</Object>
     <Object Type="Package" Description="EquipmentModule2">EMx</Object>

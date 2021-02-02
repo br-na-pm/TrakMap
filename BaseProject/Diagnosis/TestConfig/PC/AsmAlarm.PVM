@@ -1,26 +1,29 @@
 WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=TrakModule::AsmAlarm 
-Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=100 Scope=60 Force=60 Index=19 ASCIIString=0
+Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=100 Scope=60 Force=60 Index=25 ASCIIString=0
                                     name                                     type force                                                            value level type len format place expand specs
                            TrakInterface                      ModuleInterfaceType    0 "                                                               *"    0   24    1    0    0    1         
                               SampleTrak                           McAssemblyType    0 "                                                               *"    1   24    1    0    0    1         
-                               controlif                                    UDINT    0 "                                                       147201024"    2    7    1   10    0    0         
+                               controlif                                    UDINT    0 "                                                       147201176"    2    7    1   10    0    0         
                                  MainPml                           MpComIdentType    0 "                                                               *"    1   24    1    0    0    1         
                                 Internal                              UDINT[0..1]    0 "                                                               *"    2    7    2    0    0    1         
                              Internal[0]                                    UDINT    0 "                                                               0"    3    7    1   10    0    0         
                              Internal[1]                                    UDINT    0 "                                                               0"    3    7    1   10    0    0         
                                ModulePml                           MpComIdentType    0 "                                                               *"    1   24    1    0    0    1         
                                 Internal                              UDINT[0..1]    0 "                                                               *"    2    7    2    0    0    1         
-                             Internal[0]                                    UDINT    0 "                                                       145869832"    3    7    1   10    0    0         
-                             Internal[1]                                    UDINT    0 "                                                      2753136645"    3    7    1   10    0    0         
+                             Internal[0]                                    UDINT    0 "                                                       145845728"    3    7    1   10    0    0         
+                             Internal[1]                                    UDINT    0 "                                                      2753112557"    3    7    1   10    0    0         
                                AlarmCore                           MpComIdentType    0 "                                                               *"    1   24    1    0    0    1         
                                 Internal                              UDINT[0..1]    0 "                                                               *"    2    7    2    0    0    1         
-                             Internal[0]                                    UDINT    0 "                                                       145905752"    3    7    1   10    0    0         
-                             Internal[1]                                    UDINT    0 "                                                      2753174613"    3    7    1   10    0    0         
+                             Internal[0]                                    UDINT    0 "                                                       146038184"    3    7    1   10    0    0         
+                             Internal[1]                                    UDINT    0 "                                                      2753304997"    3    7    1   10    0    0         
                               RecipeCore                           MpComIdentType    0 "                                                               *"    1   24    1    0    0    1         
                                 Internal                              UDINT[0..1]    0 "                                                               *"    2    7    2    0    0    1         
-                             Internal[0]                                    UDINT    0 "                                                               0"    3    7    1   10    0    0         
-                             Internal[1]                                    UDINT    0 "                                                               0"    3    7    1   10    0    0         
+                             Internal[0]                                    UDINT    0 "                                                       146040912"    3    7    1   10    0    0         
+                             Internal[1]                                    UDINT    0 "                                                      2753309789"    3    7    1   10    0    0         
                   gAlarmXCore_TrakModule                           MpComIdentType    0 "                                                               *"    0   24    1    0    0    1         
                                 Internal                              UDINT[0..1]    0 "                                                               *"    1    7    2    0    0    1         
-                             Internal[0]                                    UDINT    0 "                                                       145905752"    2    7    1   10    0    0         
-                             Internal[1]                                    UDINT    0 "                                                      2753174613"    2    7    1   10    0    0         
+                             Internal[0]                                    UDINT    0 "                                                       146038184"    2    7    1   10    0    0         
+                             Internal[1]                                    UDINT    0 "                                                      2753304997"    2    7    1   10    0    0         
+                        TriggerTestAlarm                                     BOOL    0 "                                                           FALSE"    0    1    1    2    1    0         
+                  TriggerTestInformation                                     BOOL    0 "                                                           FALSE"    0    1    1    2    1    0         
+                      TriggerTestWarning                                     BOOL    0 "                                                           FALSE"    0    1    1    2    1    0         

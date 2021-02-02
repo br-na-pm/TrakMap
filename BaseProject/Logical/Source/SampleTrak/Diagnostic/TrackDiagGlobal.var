@@ -1,0 +1,20 @@
+VAR CONSTANT
+	NUM_SEG : USINT := 100;
+	NUM_HUBS : USINT := 5;
+	NUM_PS : USINT := 5;
+END_VAR
+VAR
+	TrackDiag : DiagStatus_typ;
+	ErroredSegments : ARRAY[0..NUM_SEG] OF ErrorSegInfo_typ;
+	paperOptions : tpCoreOptionsTyp;
+END_VAR
+(*LogBook variables*)
+VAR
+	gLogbook : logbookMAIN; (*Logbook main structure*)
+END_VAR
+VAR CONSTANT
+	LOGBOOK_EXECUTIONS : USINT := 10; (*Executions per cycle*)
+	LOGBOOK_ENTRIES_MAX : UINT := 100; (*Total number of entries*)
+	LOGBOOK_BOOKS_MAX : USINT := 13; (*Total number of facilities*)
+	LOGBOOK_TEXT_LEN : UINT := 200; (*Error text length*)
+END_VAR

@@ -6,6 +6,4 @@ VAR
 	HistorySort : STRING[2000] := '';
 	fbAlarmHistMainTSM : MpAlarmXHistory;
 	TriggerTestAlarm : BOOL;
-	MpAlarmXListUI_0 : MpAlarmXListUI;
-	UIConnect : MpAlarmXListUIConnectType;
 END_VAR

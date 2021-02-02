@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CompoundWidget id="SegFailDetails" width="500" height="40" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+ 	 <Widget xsi:type="widgets.brease.GroupBox" id="Wrapper" top="0" left="0" width="500" height="30" zIndex="0" childPositioning="relative" borderWidth="0px" backColor="rgba(30, 30, 35, 0)" borderColor="rgba(40, 40, 45, 0)" margin="5px 0px 5px 0px">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.TextOutput" id="txtSegName" top="0" left="0" width="150" zIndex="0" margin="0px 5px 0px 5px" visible="true"/>
+            <Widget xsi:type="widgets.brease.CheckBox" id="BalCheckBox" top="0" left="0" width="30" zIndex="1" checkedBoxImage="Media/SymbolLib/Alarm/Alarm.svg" imageAlign="top" uncheckedBoxImage="Media/SymbolLib/Alarm/Alarm.svg" margin="0px 40px 0px 40px" uncheckedBoxImageColor="rgba(30, 30, 35, 1)" checkedBoxImageColor="rgba(192, 192, 192, 1)" />
+            <Widget xsi:type="widgets.brease.CheckBox" id="UdcActCheckBox" top="0" left="0" width="30" zIndex="2" checkedBoxImage="Media/SymbolLib/Alarm/Alarm.svg" imageAlign="top" uncheckedBoxImage="Media/SymbolLib/Alarm/Alarm.svg" margin="0px 40px 0px 40px" uncheckedBoxImageColor="rgba(30, 30, 35, 1)" checkedBoxImageColor="rgba(192, 192, 192, 1)" />
+            <Widget xsi:type="widgets.brease.CheckBox" id="UdcMidActCheckBox" top="0" left="0" width="30" zIndex="3" checkedBoxImage="Media/SymbolLib/Alarm/Alarm.svg" imageAlign="top" uncheckedBoxImage="Media/SymbolLib/Alarm/Alarm.svg" margin="0px 40px 0px 40px" uncheckedBoxImageColor="rgba(30, 30, 35, 1)" checkedBoxImageColor="rgba(192, 192, 192, 1)" />
+          </Widgets>
+      </Widget>
+  </Widgets>
+  <Properties>
+    <!-- 
+    Simple non bindable property:
+    Property Attributes
+    xsi:type: NonBindableProperty
+    name: name of the property (not allowed: width, height, top, left, id, enable, visible, zindex, margin, premissionview, permissionoperate, description)
+    <Property xsi:type="NonBindableProperty" name="" type="" defaultValue="" required="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" property=""/>
+        <Mapping widget="" property=""/>
+      </Mappings>
+    </Property>
+    
+    Simple bindable property:
+    <Property xsi:type="BindableProperty" name="" type="" defaultValue="" readOnly="" category="" localizable="" typeRefId="" nodeRefId="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" property="" mode=""/>
+        <Mapping widget="" property="" mode=""/>
+      </Mappings>
+    </Property>
+
+
+    Structure bindable property:
+	
+	-->
+		<Property xsi:type="StructureBindableProperty" name="value" type="segTraceFailTyp" category="data" readOnly="true" required="false">
+			<Description>Map to SegTraceFail </Description>
+			<Mappings>
+				<Mapping widget="txtSegName" type="String" property="value" mode="oneWay" memberPath="SegName" mapToNode="false"/>
+				<Mapping widget="BalCheckBox" type="Boolean" property="value" mode="oneWay" memberPath="BalancerFail" mapToNode="false"/>
+				<Mapping widget="UdcActCheckBox" type="Boolean" property="value" mode="oneWay" memberPath="UDCActFail" mapToNode="false"/>
+				<Mapping widget="UdcMidActCheckBox" type="Boolean" property="value" mode="oneWay" memberPath="UDCMiddleActFail" mapToNode="false"/>
+			</Mappings>
+		</Property>
+    
+  </Properties>
+
+  <Events>
+    <!--
+    <Event name="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" event="" />
+      </Mappings>
+    </Event>
+    -->
+  </Events>
+
+  <Actions>
+    <!--
+    <Action name="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" action="" />
+      </Mappings>
+    </Action>
+    -->
+  </Actions>
+
+  <EventBindings>
+    <!-- source and target can only be widgets within the compound widget. -->
+    <EventBinding id="TextOutputVisibility_1">
+      <Source xsi:type="widget.Event" widgetRefId="BalCheckBox" event="ValueChanged" />
+      <EventHandler condition="">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtSegName">
+            <Method name="SetVisible" value="=newValue" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+	
+    <EventBinding id="TextOutputVisibility_2">
+      <Source xsi:type="widget.Event" widgetRefId="UdcActCheckBox" event="ValueChanged" />
+      <EventHandler condition="">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtSegName">
+            <Method name="SetVisible" value="=newValue" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+	
+    <EventBinding id="TextOutputVisibility_3">
+      <Source xsi:type="widget.Event" widgetRefId="UdcMidActCheckBox" event="ValueChanged" />
+      <EventHandler condition="">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtSegName">
+            <Method name="SetVisible" value="=newValue" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>   
+  </EventBindings>
+
+</CompoundWidget>

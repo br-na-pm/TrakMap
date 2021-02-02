@@ -36,7 +36,6 @@
         <Variable Name="HistorySort" />
         <Variable Name="SortConfiguration" />
         <Variable Name="TriggerTestAlarm" />
-        <Variable Name="UIConnect" AutomaticEnable="True" />
       </Task>
     </Module>
   </DefaultView>

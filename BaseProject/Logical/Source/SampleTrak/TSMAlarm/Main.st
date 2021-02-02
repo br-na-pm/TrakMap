@@ -12,9 +12,10 @@ PROGRAM _CYCLIC
 	fbAlarmMainTSM(MpLink := ADR(gAlarmXCore), Enable := TRUE);
 	fbAlarmHistMainTSM(MpLink := ADR(gAlarmXHistory), Enable := TRUE, DeviceName := ADR('User'));
 	
-	MpAlarmXListUI_0(MpLink := ADR(gAlarmXCore), Enable := TRUE,UIConnect := ADR(UIConnect));
-	
-	
+	// Reset the Export cmd from mappView when export is done
+	IF fbAlarmHistMainTSM.Export AND fbAlarmHistMainTSM.CommandDone THEN
+		fbAlarmHistMainTSM.Export := FALSE;
+	END_IF	
 	
 	TriggerTestAlarm;
 	

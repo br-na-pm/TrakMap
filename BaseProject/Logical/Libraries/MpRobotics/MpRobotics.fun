@@ -1,0 +1,321 @@
+
+FUNCTION_BLOCK MpDelta3Axis
+	VAR_INPUT
+		MpLink : REFERENCE TO McAxesGroupType; (*The axis group reference establishes the connection between the function block and the axis group.*) (* *) (*#PAR#;*)
+		Enable : BOOL; (*The function block is active as long as this input is set.*) (* *) (*#PAR#;*)
+		ErrorReset : BOOL; (*Used to reset errors*) (* *) (*#PAR#;*)
+		Parameters : REFERENCE TO MpDelta3AxisParType; (*Parameters of the function block*) (* *) (*#PAR#;*)
+		Update : BOOL; (*Updates the parameters*) (* *) (*#PAR#;*)
+		Override : REAL; (*Velocity override*) (* *) (*#CYC#OPT#;*)
+		Power : BOOL; (*Level-sensitive command for turning an axis on/off. In the event of an error, a new rising edge is required to restart the axis.*) (* *) (*#CMD#;*)
+		Home : BOOL; (*Command for homing the axis*) (* *) (*#CMD#;*)
+		MoveProgram : BOOL; (*Start a robot's program*) (* *) (*#CMD#;*)
+		Interrupt : BOOL; (*Interrupts a robot's program*) (* *) (*#CMD#;*)
+		Continue : BOOL; (*Resumes a robot's program*) (* *) (*#CMD#;*)
+		Stop : BOOL; (*Stops the axis*) (* *) (*#CMD#;*)
+		Jog : BOOL; (*Jogs the robot axes in the positive direction*) (* *) (*#CMD#OPT#;*)
+		MoveDirect : BOOL; (*Executes a point-to-point movement*) (* *) (*#CMD#OPT#;*)
+		MoveLinear : BOOL; (*Executes a linear movement*) (* *) (*#CMD#OPT#;*)
+		SingleStep : BOOL; (*Controls the robot in single-step mode*) (* *) (*#CMD#OPT#;*)
+	END_VAR
+	VAR_OUTPUT
+		Active : BOOL; (*Indicates whether the function block is active*) (* *) (*#PAR#;*)
+		Error : BOOL; (*Error occurred during operation*) (* *) (*#PAR#;*)
+		StatusID : DINT; (*Status information about the function block*) (* *) (*#PAR#;*)
+		UpdateDone : BOOL; (*Parameter update completed*) (* *) (*#PAR#;*)
+		X : LREAL; (*Current X position [measurement units]*) (* *) (*#CYC#;*)
+		Y : LREAL; (*Current Y position [measurement units]*) (* *) (*#CYC#;*)
+		Z : LREAL; (*Current Z position [measurement units]*) (* *) (*#CYC#;*)
+		PathVelocity : REAL; (*Current path velocity [measurement units/s]*) (* *) (*#CYC#;*)
+		CommandBusy : BOOL; (*Function block currently executing a command*) (* *) (*#CMD#OPT#;*)
+		CommandAborted : BOOL; (*Function block interrupted while executing a command*) (* *) (*#CMD#OPT#;*)
+		PowerOn : BOOL; (*Robot axes switched on.*) (* *) (*#CMD#;*)
+		IsHomed : BOOL; (*Robot axes homed.*) (* *) (*#CMD#;*)
+		MoveActive : BOOL; (*Robot movement active.*) (* *) (*#CMD#;*)
+		MoveInterrupted : BOOL; (*Robot movement interrupted.*) (* *) (*#CMD#;*)
+		MoveDone : BOOL; (*Robot movement completed.*) (* *) (*#CMD#;*)
+		Stopped : BOOL; (*Axis stopped*) (* *) (*#CMD#;*)
+		InMotion : BOOL; (*At least one of the robot's axes is performing a movement.*) (* *) (*#CMD#;*)
+		SingleStepActive : BOOL; (*Single-step mode active*) (* *) (*#CMD#OPT#;*)
+		Info : MpDelta3AxisInfoType; (*Additional information*) (* *) (*#CMD#;*)
+	END_VAR
+	VAR
+		Internal : {REDUND_UNREPLICABLE} MpComInternalDataType; (*Internal data*)
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MpDelta4Axis
+	VAR_INPUT
+		MpLink : REFERENCE TO McAxesGroupType; (*The axis group reference establishes the connection between the function block and the axis group.*) (* *) (*#PAR#;*)
+		Enable : BOOL; (*The function block is active as long as this input is set.*) (* *) (*#PAR#;*)
+		ErrorReset : BOOL; (*Used to reset errors*) (* *) (*#PAR#;*)
+		Parameters : REFERENCE TO MpDelta4AxisParType; (*Parameters of the function block*) (* *) (*#PAR#;*)
+		Update : BOOL; (*Updates the parameters*) (* *) (*#PAR#;*)
+		Override : REAL; (*Velocity override*) (* *) (*#CYC#OPT#;*)
+		Power : BOOL; (*Level-sensitive command for turning an axis on/off. In the event of an error, a new rising edge is required to restart the axis.*) (* *) (*#CMD#;*)
+		Home : BOOL; (*Command for homing the axis*) (* *) (*#CMD#;*)
+		MoveProgram : BOOL; (*Start a robot's program*) (* *) (*#CMD#;*)
+		Interrupt : BOOL; (*Interrupts a robot's program*) (* *) (*#CMD#;*)
+		Continue : BOOL; (*Resumes a robot's program*) (* *) (*#CMD#;*)
+		Stop : BOOL; (*Stops the axis*) (* *) (*#CMD#;*)
+		Jog : BOOL; (*Jogs the robot axes in the positive direction*) (* *) (*#CMD#OPT#;*)
+		MoveDirect : BOOL; (*Executes a point-to-point movement*) (* *) (*#CMD#OPT#;*)
+		MoveLinear : BOOL; (*Executes a linear movement*) (* *) (*#CMD#OPT#;*)
+		SingleStep : BOOL; (*Controls the robot in single-step mode*) (* *) (*#CMD#OPT#;*)
+	END_VAR
+	VAR_OUTPUT
+		Active : BOOL; (*Indicates whether the function block is active*) (* *) (*#PAR#;*)
+		Error : BOOL; (*Error occurred during operation*) (* *) (*#PAR#;*)
+		StatusID : DINT; (*Status information about the function block*) (* *) (*#PAR#;*)
+		UpdateDone : BOOL; (*Parameter update completed*) (* *) (*#PAR#;*)
+		X : LREAL; (*Current X position [measurement units]*) (* *) (*#CYC#;*)
+		Y : LREAL; (*Current Y position [measurement units]*) (* *) (*#CYC#;*)
+		Z : LREAL; (*Current Z position [measurement units]*) (* *) (*#CYC#;*)
+		C : LREAL; (*Current C position [measurement units]*) (* *) (*#CYC#;*)
+		PathVelocity : REAL; (*Current path velocity [measurement units/s]*) (* *) (*#CYC#;*)
+		CommandBusy : BOOL; (*Function block currently executing a command*) (* *) (*#CMD#OPT#;*)
+		CommandAborted : BOOL; (*Function block interrupted while executing a command*) (* *) (*#CMD#OPT#;*)
+		PowerOn : BOOL; (*Robot axes switched on.*) (* *) (*#CMD#;*)
+		IsHomed : BOOL; (*Robot axes homed.*) (* *) (*#CMD#;*)
+		MoveActive : BOOL; (*Robot movement active.*) (* *) (*#CMD#;*)
+		MoveInterrupted : BOOL; (*Robot movement interrupted.*) (* *) (*#CMD#;*)
+		MoveDone : BOOL; (*Robot movement completed.*) (* *) (*#CMD#;*)
+		Stopped : BOOL; (*Axis stopped*) (* *) (*#CMD#;*)
+		InMotion : BOOL; (*At least one of the robot's axes is performing a movement.*) (* *) (*#CMD#;*)
+		SingleStepActive : BOOL; (*Single-step mode active*) (* *) (*#CMD#OPT#;*)
+		Info : MpDelta4AxisInfoType; (*Additional information*) (* *) (*#CMD#;*)
+	END_VAR
+	VAR
+		Internal : {REDUND_UNREPLICABLE} MpComInternalDataType; (*Internal data*)
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MpRoboticsFlex
+	VAR_INPUT
+		MpLink : REFERENCE TO McAxesGroupType; (*The axis group reference establishes the connection between the function block and the axis group.*) (* *) (*#PAR#;*)
+		Enable : BOOL; (*The function block is active as long as this input is set.*) (* *) (*#PAR#;*)
+		ErrorReset : BOOL; (*Used to reset errors*) (* *) (*#PAR#;*)
+		Parameters : REFERENCE TO MpRoboticsFlexParType; (*Parameters of the function block*) (* *) (*#PAR#;*)
+		Update : BOOL; (*Updates the parameters*) (* *) (*#PAR#;*)
+		Override : REAL; (*Velocity override*) (* *) (*#CYC#OPT#;*)
+		Power : BOOL; (*Level-sensitive command for turning an axis on/off. In the event of an error, a new rising edge is required to restart the axis.*) (* *) (*#CMD#;*)
+		Home : BOOL; (*Command for homing the axis*) (* *) (*#CMD#;*)
+		MoveProgram : BOOL; (*Start a robot's program*) (* *) (*#CMD#;*)
+		Interrupt : BOOL; (*Interrupts a robot's program*) (* *) (*#CMD#;*)
+		Continue : BOOL; (*Resumes a robot's program*) (* *) (*#CMD#;*)
+		Stop : BOOL; (*Stops the axis*) (* *) (*#CMD#;*)
+		Jog : BOOL; (*Jogs the robot axes in the positive direction*) (* *) (*#CMD#OPT#;*)
+		MoveDirect : BOOL; (*Executes a point-to-point movement*) (* *) (*#CMD#OPT#;*)
+		MoveLinear : BOOL; (*Executes a linear movement*) (* *) (*#CMD#OPT#;*)
+		SingleStep : BOOL; (*Controls the robot in single-step mode*) (* *) (*#CMD#OPT#;*)
+	END_VAR
+	VAR_OUTPUT
+		Active : BOOL; (*Indicates whether the function block is active*) (* *) (*#PAR#;*)
+		Error : BOOL; (*Error occurred during operation*) (* *) (*#PAR#;*)
+		StatusID : DINT; (*Status information about the function block*) (* *) (*#PAR#;*)
+		UpdateDone : BOOL; (*Parameter update completed*) (* *) (*#PAR#;*)
+		Position : ARRAY[0..14] OF LREAL; (*Current position [measurement units]*) (* *) (*#CYC#;*)
+		PathVelocity : REAL; (*Current path velocity [measurement units/s]*) (* *) (*#CYC#;*)
+		CommandBusy : BOOL; (*Function block currently executing a command*) (* *) (*#CMD#OPT#;*)
+		CommandAborted : BOOL; (*Function block interrupted while executing a command*) (* *) (*#CMD#OPT#;*)
+		PowerOn : BOOL; (*Robot axes switched on.*) (* *) (*#CMD#;*)
+		IsHomed : BOOL; (*Robot axes homed.*) (* *) (*#CMD#;*)
+		MoveActive : BOOL; (*Robot movement active.*) (* *) (*#CMD#;*)
+		MoveInterrupted : BOOL; (*Robot movement interrupted.*) (* *) (*#CMD#;*)
+		MoveDone : BOOL; (*Robot movement completed.*) (* *) (*#CMD#;*)
+		Stopped : BOOL; (*Axis stopped*) (* *) (*#CMD#;*)
+		InMotion : BOOL; (*At least one of the robot's axes is performing a movement.*) (* *) (*#CMD#;*)
+		SingleStepActive : BOOL; (*Single-step mode active*) (* *) (*#CMD#OPT#;*)
+		Info : MpRoboticsFlexInfoType; (*Additional information*) (* *) (*#CMD#;*)
+	END_VAR
+	VAR
+		Internal : {REDUND_UNREPLICABLE} MpComInternalDataType; (*Internal data*)
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MpRoboArm6Axis
+	VAR_INPUT
+		MpLink : REFERENCE TO McAxesGroupType; (*The axis group reference establishes the connection between the function block and the axis group.*) (* *) (*#PAR#;*)
+		Enable : BOOL; (*The function block is active as long as this input is set.*) (* *) (*#PAR#;*)
+		ErrorReset : BOOL; (*Used to reset errors*) (* *) (*#PAR#;*)
+		Parameters : REFERENCE TO MpRoboArm6AxisParType; (*Parameters of the function block*) (* *) (*#PAR#;*)
+		Update : BOOL; (*Updates the parameters*) (* *) (*#PAR#;*)
+		Override : REAL; (*Velocity override*) (* *) (*#CYC#OPT#;*)
+		Power : BOOL; (*Level-sensitive command for turning an axis on/off. In the event of an error, a new rising edge is required to restart the axis.*) (* *) (*#CMD#;*)
+		Home : BOOL; (*Command for homing the axis*) (* *) (*#CMD#;*)
+		MoveProgram : BOOL; (*Start a robot's program*) (* *) (*#CMD#;*)
+		Interrupt : BOOL; (*Interrupts a robot's program*) (* *) (*#CMD#;*)
+		Continue : BOOL; (*Resumes a robot's program*) (* *) (*#CMD#;*)
+		Stop : BOOL; (*Stops the axis*) (* *) (*#CMD#;*)
+		Jog : BOOL; (*Jogs the robot axes in the positive direction*) (* *) (*#CMD#OPT#;*)
+		MoveDirect : BOOL; (*Executes a point-to-point movement*) (* *) (*#CMD#OPT#;*)
+		MoveLinear : BOOL; (*Executes a linear movement*) (* *) (*#CMD#OPT#;*)
+		SingleStep : BOOL; (*Controls the robot in single-step mode*) (* *) (*#CMD#OPT#;*)
+	END_VAR
+	VAR_OUTPUT
+		Active : BOOL; (*Indicates whether the function block is active*) (* *) (*#PAR#;*)
+		Error : BOOL; (*Error occurred during operation*) (* *) (*#PAR#;*)
+		StatusID : DINT; (*Status information about the function block*) (* *) (*#PAR#;*)
+		UpdateDone : BOOL; (*Parameter update completed*) (* *) (*#PAR#;*)
+		X : LREAL; (*Current X position [measurement units]*) (* *) (*#CYC#;*)
+		Y : LREAL; (*Current Y position [measurement units]*) (* *) (*#CYC#;*)
+		Z : LREAL; (*Current Z position [measurement units]*) (* *) (*#CYC#;*)
+		A : LREAL; (*Current C position [measurement units]*) (* *) (*#CYC#;*)
+		B : LREAL; (*Current C position [measurement units]*) (* *) (*#CYC#;*)
+		C : LREAL; (*Current C position [measurement units]*) (* *) (*#CYC#;*)
+		PathVelocity : REAL; (*Current path velocity [measurement units/s]*) (* *) (*#CYC#;*)
+		CommandBusy : BOOL; (*Function block currently executing a command*) (* *) (*#CMD#OPT#;*)
+		CommandAborted : BOOL; (*Function block interrupted while executing a command*) (* *) (*#CMD#OPT#;*)
+		PowerOn : BOOL; (*Robot axes switched on.*) (* *) (*#CMD#;*)
+		IsHomed : BOOL; (*Robot axes homed.*) (* *) (*#CMD#;*)
+		MoveActive : BOOL; (*Robot movement active.*) (* *) (*#CMD#;*)
+		MoveInterrupted : BOOL; (*Robot movement interrupted.*) (* *) (*#CMD#;*)
+		MoveDone : BOOL; (*Robot movement completed.*) (* *) (*#CMD#;*)
+		Stopped : BOOL; (*Axis stopped*) (* *) (*#CMD#;*)
+		InMotion : BOOL; (*At least one of the robot's axes is performing a movement.*) (* *) (*#CMD#;*)
+		SingleStepActive : BOOL; (*Single-step mode active*) (* *) (*#CMD#OPT#;*)
+		Info : MpRoboArm6AxisInfoType; (*Additional information*) (* *) (*#CMD#;*)
+	END_VAR
+	VAR
+		Internal : MpComInternalDataType; (*Internal data*)
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MpRoboArm4Axis
+	VAR_INPUT
+		MpLink : REFERENCE TO McAxesGroupType; (*The axis group reference establishes the connection between the function block and the axis group.*) (* *) (*#PAR#;*)
+		Enable : BOOL; (*The function block is active as long as this input is set.*) (* *) (*#PAR#;*)
+		ErrorReset : BOOL; (*Used to reset errors*) (* *) (*#PAR#;*)
+		Parameters : REFERENCE TO MpRoboArm4AxisParType; (*Parameters of the function block*) (* *) (*#PAR#;*)
+		Update : BOOL; (*Updates the parameters*) (* *) (*#PAR#;*)
+		Override : REAL; (*Velocity override*) (* *) (*#CYC#OPT#;*)
+		Power : BOOL; (*Level-sensitive command for turning an axis on/off. In the event of an error, a new rising edge is required to restart the axis.*) (* *) (*#CMD#;*)
+		Home : BOOL; (*Command for homing the axis*) (* *) (*#CMD#;*)
+		MoveProgram : BOOL; (*Start a robot's program*) (* *) (*#CMD#;*)
+		Interrupt : BOOL; (*Interrupts a robot's program*) (* *) (*#CMD#;*)
+		Continue : BOOL; (*Resumes a robot's program*) (* *) (*#CMD#;*)
+		Stop : BOOL; (*Stops the axis*) (* *) (*#CMD#;*)
+		Jog : BOOL; (*Jogs the robot axes in the positive direction*) (* *) (*#CMD#OPT#;*)
+		MoveDirect : BOOL; (*Executes a point-to-point movement*) (* *) (*#CMD#OPT#;*)
+		MoveLinear : BOOL; (*Executes a linear movement*) (* *) (*#CMD#OPT#;*)
+		SingleStep : BOOL; (*Controls the robot in single-step mode*) (* *) (*#CMD#OPT#;*)
+	END_VAR
+	VAR_OUTPUT
+		Active : BOOL; (*Indicates whether the function block is active*) (* *) (*#PAR#;*)
+		Error : BOOL; (*Error occurred during operation*) (* *) (*#PAR#;*)
+		StatusID : DINT; (*Status information about the function block*) (* *) (*#PAR#;*)
+		UpdateDone : BOOL; (*Parameter update completed*) (* *) (*#PAR#;*)
+		X : LREAL; (*Current X position [measurement units]*) (* *) (*#CYC#;*)
+		Y : LREAL; (*Current Y position [measurement units]*) (* *) (*#CYC#;*)
+		Z : LREAL; (*Current Z position [measurement units]*) (* *) (*#CYC#;*)
+		C : LREAL; (*Current C position [measurement units]*) (* *) (*#CYC#;*)
+		PathVelocity : REAL; (*Current path velocity [measurement units/s]*) (* *) (*#CYC#;*)
+		CommandBusy : BOOL; (*Function block currently executing a command*) (* *) (*#CMD#OPT#;*)
+		CommandAborted : BOOL; (*Function block interrupted while executing a command*) (* *) (*#CMD#OPT#;*)
+		PowerOn : BOOL; (*Robot axes switched on.*) (* *) (*#CMD#;*)
+		IsHomed : BOOL; (*Robot axes homed.*) (* *) (*#CMD#;*)
+		MoveActive : BOOL; (*Robot movement active.*) (* *) (*#CMD#;*)
+		MoveInterrupted : BOOL; (*Robot movement interrupted.*) (* *) (*#CMD#;*)
+		MoveDone : BOOL; (*Robot movement completed.*) (* *) (*#CMD#;*)
+		Stopped : BOOL; (*Axis stopped*) (* *) (*#CMD#;*)
+		InMotion : BOOL; (*At least one of the robot's axes is performing a movement.*) (* *) (*#CMD#;*)
+		SingleStepActive : BOOL; (*Single-step mode active*) (* *) (*#CMD#OPT#;*)
+		Info : MpRoboArm4AxisInfoType; (*Additional information*) (* *) (*#CMD#;*)
+	END_VAR
+	VAR
+		Internal : MpComInternalDataType; (*Internal data*)
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MpScara4Axis
+	VAR_INPUT
+		MpLink : REFERENCE TO McAxesGroupType; (*The axis group reference establishes the connection between the function block and the axis group.*) (* *) (*#PAR#;*)
+		Enable : BOOL; (*The function block is active as long as this input is set.*) (* *) (*#PAR#;*)
+		ErrorReset : BOOL; (*Used to reset errors*) (* *) (*#PAR#;*)
+		Parameters : REFERENCE TO MpScara4AxisParType; (*Parameters of the function block*) (* *) (*#PAR#;*)
+		Update : BOOL; (*Updates the parameters*) (* *) (*#PAR#;*)
+		Override : REAL; (*Velocity override*) (* *) (*#CYC#OPT#;*)
+		Power : BOOL; (*Level-sensitive command for turning an axis on/off. In the event of an error, a new rising edge is required to restart the axis.*) (* *) (*#CMD#;*)
+		Home : BOOL; (*Command for homing the axis*) (* *) (*#CMD#;*)
+		MoveProgram : BOOL; (*Start a robot's program*) (* *) (*#CMD#;*)
+		Interrupt : BOOL; (*Interrupts a robot's program*) (* *) (*#CMD#;*)
+		Continue : BOOL; (*Resumes a robot's program*) (* *) (*#CMD#;*)
+		Stop : BOOL; (*Stops the axis*) (* *) (*#CMD#;*)
+		Jog : BOOL; (*Jogs the robot axes in the positive direction*) (* *) (*#CMD#OPT#;*)
+		MoveDirect : BOOL; (*Executes a point-to-point movement*) (* *) (*#CMD#OPT#;*)
+		MoveLinear : BOOL; (*Executes a linear movement*) (* *) (*#CMD#OPT#;*)
+		SingleStep : BOOL; (*Controls the robot in single-step mode*) (* *) (*#CMD#OPT#;*)
+	END_VAR
+	VAR_OUTPUT
+		Active : BOOL; (*Indicates whether the function block is active*) (* *) (*#PAR#;*)
+		Error : BOOL; (*Error occurred during operation*) (* *) (*#PAR#;*)
+		StatusID : DINT; (*Status information about the function block*) (* *) (*#PAR#;*)
+		UpdateDone : BOOL; (*Parameter update completed*) (* *) (*#PAR#;*)
+		X : LREAL; (*Current X position [measurement units]*) (* *) (*#CYC#;*)
+		Y : LREAL; (*Current Y position [measurement units]*) (* *) (*#CYC#;*)
+		Z : LREAL; (*Current Z position [measurement units]*) (* *) (*#CYC#;*)
+		C : LREAL; (*Current C position [measurement units]*) (* *) (*#CYC#;*)
+		PathVelocity : REAL; (*Current path velocity [measurement units/s]*) (* *) (*#CYC#;*)
+		CommandBusy : BOOL; (*Function block currently executing a command*) (* *) (*#CMD#OPT#;*)
+		CommandAborted : BOOL; (*Function block interrupted while executing a command*) (* *) (*#CMD#OPT#;*)
+		PowerOn : BOOL; (*Robot axes switched on.*) (* *) (*#CMD#;*)
+		IsHomed : BOOL; (*Robot axes homed.*) (* *) (*#CMD#;*)
+		MoveActive : BOOL; (*Robot movement active.*) (* *) (*#CMD#;*)
+		MoveInterrupted : BOOL; (*Robot movement interrupted.*) (* *) (*#CMD#;*)
+		MoveDone : BOOL; (*Robot movement completed.*) (* *) (*#CMD#;*)
+		Stopped : BOOL; (*Axis stopped*) (* *) (*#CMD#;*)
+		InMotion : BOOL; (*At least one of the robot's axes is performing a movement.*) (* *) (*#CMD#;*)
+		SingleStepActive : BOOL; (*Single-step mode active*) (* *) (*#CMD#OPT#;*)
+		Info : MpScara4AxisInfoType; (*Additional information*) (* *) (*#CMD#;*)
+	END_VAR
+	VAR
+		Internal : {REDUND_UNREPLICABLE} MpComInternalDataType; (*Internal data*)
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MpRoboArm5Axis
+	VAR_INPUT
+		MpLink : REFERENCE TO McAxesGroupType; (*The axis group reference establishes the connection between the function block and the axis group.*) (* *) (*#PAR#;*)
+		Enable : BOOL; (*The function block is active as long as this input is set.*) (* *) (*#PAR#;*)
+		ErrorReset : BOOL; (*Used to reset errors*) (* *) (*#PAR#;*)
+		Parameters : REFERENCE TO MpRoboArm5AxisParType; (*Parameters of the function block*) (* *) (*#PAR#;*)
+		Update : BOOL; (*Updates the parameters*) (* *) (*#PAR#;*)
+		Override : REAL; (*Velocity override*) (* *) (*#CYC#OPT#;*)
+		Power : BOOL; (*Level-sensitive command for turning an axis on/off. In the event of an error, a new rising edge is required to restart the axis.*) (* *) (*#CMD#;*)
+		Home : BOOL; (*Command for homing the axis*) (* *) (*#CMD#;*)
+		MoveProgram : BOOL; (*Start a robot's program*) (* *) (*#CMD#;*)
+		Interrupt : BOOL; (*Interrupts a robot's program*) (* *) (*#CMD#;*)
+		Continue : BOOL; (*Resumes a robot's program*) (* *) (*#CMD#;*)
+		Stop : BOOL; (*Stops the axis*) (* *) (*#CMD#;*)
+		Jog : BOOL; (*Jogs the robot axes in the positive direction*) (* *) (*#CMD#OPT#;*)
+		MoveDirect : BOOL; (*Executes a point-to-point movement*) (* *) (*#CMD#OPT#;*)
+		MoveLinear : BOOL; (*Executes a linear movement*) (* *) (*#CMD#OPT#;*)
+		SingleStep : BOOL; (*Controls the robot in single-step mode*) (* *) (*#CMD#OPT#;*)
+	END_VAR
+	VAR_OUTPUT
+		Active : BOOL; (*Indicates whether the function block is active*) (* *) (*#PAR#;*)
+		Error : BOOL; (*Error occurred during operation*) (* *) (*#PAR#;*)
+		StatusID : DINT; (*Status information about the function block*) (* *) (*#PAR#;*)
+		UpdateDone : BOOL; (*Parameter update completed*) (* *) (*#PAR#;*)
+		X : LREAL; (*Current X position [measurement units]*) (* *) (*#CYC#;*)
+		Y : LREAL; (*Current Y position [measurement units]*) (* *) (*#CYC#;*)
+		Z : LREAL; (*Current Z position [measurement units]*) (* *) (*#CYC#;*)
+		B : LREAL; (*Current B position [measurement units]*) (* *) (*#CYC#;*)
+		C : LREAL; (*Current C position [measurement units]*) (* *) (*#CYC#;*)
+		PathVelocity : REAL; (*Current path velocity [measurement units/s]*) (* *) (*#CYC#;*)
+		CommandBusy : BOOL; (*Function block currently executing a command*) (* *) (*#CMD#OPT#;*)
+		CommandAborted : BOOL; (*Function block interrupted while executing a command*) (* *) (*#CMD#OPT#;*)
+		PowerOn : BOOL; (*Robot axes switched on.*) (* *) (*#CMD#;*)
+		IsHomed : BOOL; (*Robot axes homed.*) (* *) (*#CMD#;*)
+		MoveActive : BOOL; (*Robot movement active.*) (* *) (*#CMD#;*)
+		MoveInterrupted : BOOL; (*Robot movement interrupted.*) (* *) (*#CMD#;*)
+		MoveDone : BOOL; (*Robot movement completed.*) (* *) (*#CMD#;*)
+		Stopped : BOOL; (*Axis stopped*) (* *) (*#CMD#;*)
+		InMotion : BOOL; (*At least one of the robot's axes is performing a movement.*) (* *) (*#CMD#;*)
+		SingleStepActive : BOOL; (*Single-step mode active*) (* *) (*#CMD#OPT#;*)
+		Info : MpRoboArm5AxisInfoType; (*Additional information*) (* *) (*#CMD#;*)
+	END_VAR
+	VAR
+		Internal : MpComInternalDataType; (*Internal data*)
+	END_VAR
+END_FUNCTION_BLOCK
