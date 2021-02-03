@@ -11,35 +11,24 @@
 	<BindingsSet refId="alarmMainContent_binding" />
 	<BindingsSet refId="alarmHistoryContent_binding" />
 	<BindingsSet refId="headerContent_binding" />
-	<!--<BindingsSet refId="winderGeneral_binding" />
-	<BindingsSet refId="winderContent_binding" />-->
-	<!--<BindingsSet refId="laserGeneral_binding" />
-	<BindingsSet refId="laserContent_binding" />
-	<BindingsSet refId="welder1General_binding" />	
-	<BindingsSet refId="welder1TAContent_binding" />
-	<BindingsSet refId="welder1TBContent_binding" />
-	<BindingsSet refId="welder1ReturnContent_binding" />
-	<BindingsSet refId="welder2General_binding" />
-	<BindingsSet refId="welder2TAContent_binding" />
-	<BindingsSet refId="welder2TBContent_binding" />
-	<BindingsSet refId="welder2ReturnContent_binding" />-->
-	<!--<BindingsSet refId="winderLogContent_binding" />
-	<BindingsSet refId="laserLogContent_binding" />-->
-	<BindingsSet refId="alarmTrakContent_binding" />
-	<BindingsSet refId="alarmEM2Content_binding" />
-	<BindingsSet refId="alarmEM3Content_binding" />
-	<BindingsSet refId="alarmEMxContent_binding" />		
+	<BindingsSet refId="trackGeneral_binding" />
+	<BindingsSet refId="trackContent_binding" />
+	<BindingsSet refId="trackLogbookContent_binding" />
+	<BindingsSet refId="trackAlarmContent_binding" />
+	<BindingsSet refId="EM2AlarmContent_binding" />
+	<BindingsSet refId="EM3AlarmContent_binding" />
+	<BindingsSet refId="EMxAlarmContent_binding" />		
 	
   </BindingsSets>
   <EventBindingsSets>
     <EventBindingsSet refId="mainAlarmContentBinding" />
-	<EventBindingsSet refId="trakAlarmContentBinding" />
-	<EventBindingsSet refId="alarmEM2ContentBinding" />
-	<EventBindingsSet refId="alarmEM3ContentBinding" />
-	<EventBindingsSet refId="alarmEMxContentBinding" />
+	<EventBindingsSet refId="trackAlarmContentBinding" />
+	<EventBindingsSet refId="EM2AlarmContentBinding" />
+	<EventBindingsSet refId="EM3AlarmContentBinding" />
+	<EventBindingsSet refId="EMxAlarmContentBinding" />
 	<EventBindingsSet refId="loadContentBinding" />	
 	<EventBindingsSet refId="headerContent_eventbinding" />
-	<!--<EventBindingsSet refId="winderLogContent_eventbinding" />-->
+	<EventBindingsSet refId="trackLogbookContent_eventbinding" />
 	<!--<EventBindingsSet refId="laserLogContent_eventbinding" />-->
   </EventBindingsSets>
   <Dialogs>
@@ -50,25 +39,14 @@
 	<Content refId="mainAlarmContent" />
 	<Content refId="alarmHistoryContent" />
 	<Content refId="auditContent" />
-	<Content refId="trakAlarmContent" />
-	<Content refId="winderContent" />
-	<Content refId="laserContent" />
-	<Content refId="welder1TAContent" />
-	<Content refId="welder1TBContent" />
-	<Content refId="welder1ReturnContent" />
-	<Content refId="welder2TAContent" />
-	<Content refId="welder2TBContent" />
-	<Content refId="welder2ReturnContent" />
-	<Content refId="winderTrakContent" />
-	<Content refId="laserTrakContent" />
-	<Content refId="welder1TrakContent" />
-	<Content refId="welder2TrakContent" />
-	<Content refId="winderLogContent" />
-	<Content refId="laserLogContent" />
+	<Content refId="trackAlarmContent" />
+	<Content refId="trackMainContent" />
+	<Content refId="trackLogbookContent" />
+	<Content refId="trackMapContent" />
 	<Content refId="allTrakContent" />
-	<Content refId="alarmEM2Content" />
-	<Content refId="alarmEM3Content" />
-	<Content refId="alarmEMxContent" />
+	<Content refId="EM2AlarmContent" />
+	<Content refId="EM3AlarmContent" />
+	<Content refId="EMxAlarmContent" />
 	
   </Contents>
   <SnippetsSets>

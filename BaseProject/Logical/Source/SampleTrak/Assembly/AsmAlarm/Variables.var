@@ -1,5 +1,5 @@
 VAR
-	fbAlarmTrakModule : MpAlarmXCore;
+	fbAlarmTrackModule : MpAlarmXCore;
 	FilterConfiguration : STRING[1000] := '';
 	SortConfiguration : STRING[1000] := '';
 	HistoryFilter : STRING[2000] := '';

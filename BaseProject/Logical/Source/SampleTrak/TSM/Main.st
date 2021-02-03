@@ -3,7 +3,7 @@ PROGRAM _INIT
 	(* Call global variables until they are use somewhere else *)
 	gSampleTrakMon;
 	gSampleTrak;
-	gTrakModule;
+	gTrackModule;
 	gSeg_A_1;
 	gSeg_A_2;
 	gSeg_A_3;

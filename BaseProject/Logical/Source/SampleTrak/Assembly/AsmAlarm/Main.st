@@ -5,14 +5,14 @@ PROGRAM _INIT
 	SortConfiguration;
 	HistoryFilter;
 	HistorySort;
-	gAlarmXCore_TrakModule;
+	gAlarmXCore_TrackModule;
 	 
 END_PROGRAM
 
 PROGRAM _CYCLIC
 	(* Insert code here *)
 	 
-	fbAlarmTrakModule(MpLink := ADR(TrakInterface.AlarmCore), Enable := TRUE);
+	fbAlarmTrackModule(MpLink := ADR(TrackInterface.AlarmCore), Enable := TRUE);
 	
 	TriggerTestAlarm;
 	TriggerTestInformation;

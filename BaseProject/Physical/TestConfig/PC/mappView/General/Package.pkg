@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">loadContent.eventbinding</Object>
+    <Object Type="File">headerContent.eventbinding</Object>
+    <Object Type="File">headerContent.binding</Object>
+    <Object Type="File">mainAlarmContent.binding</Object>
+    <Object Type="File">alarmHistoryContent.binding</Object>
+    <Object Type="File">mainAlarmContent.eventbinding</Object>
+  </Objects>
+</Package>

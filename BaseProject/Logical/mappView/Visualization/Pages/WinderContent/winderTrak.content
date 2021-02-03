@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="winderTrakContent" height="675" width="1920" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Widgets>
-    <Widget xsi:type="widgets.brease.WebViewer" id="WebViewer1" top="270" left="0" width="1920" height="160" zIndex="0" path="BRVisu/Media/AnimWidgetWinder.html" port="81" borderStyle="none" />
-  </Widgets>
-</Content>

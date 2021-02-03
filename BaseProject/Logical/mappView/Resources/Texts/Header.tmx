@@ -5,24 +5,24 @@
     <prop type="x-BR-TS:Namespace">IAT/Header</prop>
   </header>
   <body>
-    <tu tuid="ActiveEMxAlarm">
+    <tu tuid="EMxActiveAlarm">
       <tuv xml:lang="en">
-        <seg>Active Module X Alarm</seg>
+        <seg>Module X Active Alarm</seg>
       </tuv>
     </tu>
-    <tu tuid="ActiveEM3Alarm">
+    <tu tuid="EM3ActiveAlarm">
       <tuv xml:lang="en">
-        <seg>Active Module 3 Alarm</seg>
+        <seg>Module 3 Active Alarm</seg>
       </tuv>
     </tu>
-    <tu tuid="ActiveEM2Alarm">
+    <tu tuid="EM2ActiveAlarm">
       <tuv xml:lang="en">
-        <seg>Active Module 2 Alarm</seg>
+        <seg>Module 2 Active Alarm</seg>
       </tuv>
     </tu>
-    <tu tuid="ActiveTrakAlarm">
+    <tu tuid="TrackActiveAlarm">
       <tuv xml:lang="en">
-        <seg>Active Trak Module Alarm</seg>
+        <seg>Trak Module Active Alarm</seg>
       </tuv>
     </tu>
     <tu tuid="ActiveAlarm">
@@ -40,89 +40,19 @@
         <seg>Audit</seg>
       </tuv>
     </tu>
-    <tu tuid="LaserLoop">
+    <tu tuid="TrackMap">
       <tuv xml:lang="en">
-        <seg>Laser Loop</seg>
+        <seg>Interactive Trackmap</seg>
       </tuv>
     </tu>
-    <tu tuid="WinderLoop">
+    <tu tuid="TrackStatus">
       <tuv xml:lang="en">
-        <seg>Winder Loop</seg>
+        <seg>Main Track Status</seg>
       </tuv>
     </tu>
-    <tu tuid="Volcanos">
+    <tu tuid="SystemLogbook">
       <tuv xml:lang="en">
-        <seg>Volcano 1 - 12</seg>
-      </tuv>
-    </tu>
-    <tu tuid="Welder1TA">
-      <tuv xml:lang="en">
-        <seg>Welder 1 Track A</seg>
-      </tuv>
-    </tu>
-    <tu tuid="Welder1TB">
-      <tuv xml:lang="en">
-        <seg>Welder 1 Track B</seg>
-      </tuv>
-    </tu>
-    <tu tuid="Welder1Return">
-      <tuv xml:lang="en">
-        <seg>Welder 1 Return &amp; Laser</seg>
-      </tuv>
-    </tu>
-    <tu tuid="Welder2TA">
-      <tuv xml:lang="en">
-        <seg>Welder 2 Track A</seg>
-      </tuv>
-    </tu>
-    <tu tuid="Welder2TB">
-      <tuv xml:lang="en">
-        <seg>Welder 2 Track B</seg>
-      </tuv>
-    </tu>
-    <tu tuid="Welder2Return">
-      <tuv xml:lang="en">
-        <seg>Welder 2 Return &amp; Laser</seg>
-      </tuv>
-    </tu>
-    <tu tuid="WinderLoopTrak">
-      <tuv xml:lang="en">
-        <seg>Winder Loop Trak</seg>
-      </tuv>
-    </tu>
-    <tu tuid="LaserLoopTrak">
-      <tuv xml:lang="en">
-        <seg>Laser Loop Trak</seg>
-      </tuv>
-    </tu>
-    <tu tuid="Welder2LoopTrak">
-      <tuv xml:lang="en">
-        <seg>Welder 2 Loop Trak</seg>
-      </tuv>
-    </tu>
-    <tu tuid="Welder1LoopTrak">
-      <tuv xml:lang="en">
-        <seg>Welder 1 Loop Trak</seg>
-      </tuv>
-    </tu>
-    <tu tuid="LogbookWinder">
-      <tuv xml:lang="en">
-        <seg>Logbook Winder</seg>
-      </tuv>
-    </tu>
-    <tu tuid="LogbookLaser">
-      <tuv xml:lang="en">
-        <seg>Logbook Laser</seg>
-      </tuv>
-    </tu>
-    <tu tuid="LogbookWelder1">
-      <tuv xml:lang="en">
-        <seg>Logbook Welder 1</seg>
-      </tuv>
-    </tu>
-    <tu tuid="LogbookWelder2">
-      <tuv xml:lang="en">
-        <seg>Logbook Welder 2</seg>
+        <seg>System Logbook</seg>
       </tuv>
     </tu>
   </body>

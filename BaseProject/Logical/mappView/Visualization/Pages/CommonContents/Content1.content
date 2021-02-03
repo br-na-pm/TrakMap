@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="winderLogContent" height="1200" width="3120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
-  <Widgets>
-    <Widget xsi:type="widgets.brease.ContentCarousel" id="ContentCarousel1" top="0" left="0" width="3120" height="1200" zIndex="0" contentList="['allTrakContent']" />
-  </Widgets>
-</Content>

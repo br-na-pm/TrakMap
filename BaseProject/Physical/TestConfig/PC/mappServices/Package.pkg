@@ -5,5 +5,6 @@
     <Object Type="Package">Alarm</Object>
     <Object Type="Package">MachineConfig</Object>
     <Object Type="Package">Operation</Object>
+    <Object Type="Package">Diagnostic</Object>
   </Objects>
 </Package>

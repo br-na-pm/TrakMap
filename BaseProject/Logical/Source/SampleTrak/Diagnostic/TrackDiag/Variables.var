@@ -41,4 +41,5 @@ VAR
 	Current : ARRAY[0..20] OF INT; (*Power Supply Current*)
 	Voltage : ARRAY[0..20] OF SINT; (*Power Supply Voltage*)
 	fbAuditTrail : MpAuditTrail;
+gSegResetActive : BOOL;
 END_VAR

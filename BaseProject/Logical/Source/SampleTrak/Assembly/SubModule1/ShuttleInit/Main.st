@@ -1,7 +1,7 @@
 
 PROGRAM _INIT
 	(* Insert code here *)
-	 TrakInterface;
+	 TrackInterface;
 END_PROGRAM
 
 PROGRAM _CYCLIC
@@ -44,7 +44,7 @@ PROGRAM _CYCLIC
 				BufferReturnIndex := TrBaseClearShBuffer(ADR(gTrakSystem.Buffer), SIZEOF(gTrakSystem.Buffer));
 				IF BufferReturnIndex = trBASE_NO_ERROR THEN
 					// Enable the assembly get shuttle function block
-					fbAsmGetShuttle.Assembly 	:= ADR(TrakInterface.SampleTrak);
+					fbAsmGetShuttle.Assembly 	:= ADR(TrackInterface.SampleTrak);
 					fbAsmGetShuttle.Enable 		:= TRUE;
 					
 					// Go to READ

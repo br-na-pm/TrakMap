@@ -3,10 +3,10 @@
 <Package SubType="PagesPackage" PackageType="PagesPackage" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="Package" Description="AreaContents">CommonContents</Object>
-    <Object Type="Package">WinderContent</Object>
-    <Object Type="Package">LaserContent</Object>
-    <Object Type="Package">Welder1Content</Object>
-    <Object Type="Package">Welder2Content</Object>
+    <Object Type="Package">TrackContent</Object>
+    <Object Type="Package">EM2Content</Object>
+    <Object Type="Package">EM3Content</Object>
+    <Object Type="Package">EMxContent</Object>
     <Object Type="Package">Main</Object>
   </Objects>
 </Package>

@@ -4,7 +4,7 @@ PROGRAM _INIT
 	ModuleName := 'TrakModule';
 	
 	gRecipeXml_TrackModule;
-	gTrakModule;
+	gTrackModule;
 	 
 END_PROGRAM
 

@@ -2,7 +2,7 @@
 <Content id="headerContent" height="100" width="1080" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
     <Widget xsi:type="widgets.brease.TextOutput" id="TextOutput1" top="5" left="5" width="915" height="90" zIndex="0" value="$IAT/ActiveAlarm" fontSize="72px" />
-    <Widget xsi:type="widgets.brease.Image" id="Image1" top="5" left="920" width="145" height="90" zIndex="1" image="Media/Roadrunner.png" />
+    <Widget xsi:type="widgets.brease.Image" id="Image1" top="5" left="980" width="90" height="90" zIndex="1" image="Media/Framework.svg" />
     <Widget xsi:type="widgets.brease.FlyOut" id="FlyOut1" top="0" left="0" width="500" height="100" zIndex="2" autoClose="true" buttonStyle="transparent" docking="right" text="FlyOut1" buttonHeight="100" buttonWidth="5" buttonBorderStyle="none" buttonBackColor="rgba(153, 153, 153, 0)" borderStyle="none">
       <Widgets>
         <Widget xsi:type="widgets.brease.Label" id="Label5" top="0" left="5" height="20" zIndex="0" text="APC" borderWidth="0px 1px 1px 0px" borderStyle="solid" fontSize="12px" padding="10px" margin="5px 0px 5px 0px" />

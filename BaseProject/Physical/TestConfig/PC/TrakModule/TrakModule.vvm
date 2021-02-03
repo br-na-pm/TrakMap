@@ -1,6 +1,0 @@
-VAR_CONFIG
-	Cyclic#1.::gSampleTrak AT %Q.TrakModule::TrakInterface.SampleTrak; (*Insert your comment here...*)
-	Cyclic#1.TrakModule::gTrakModule AT %Q.TrakModule::TrakInterface.ModulePml; (*Insert your comment here...*)
-	Cyclic#1.TrakModule::gAlarmXCore_TrakModule AT %Q.TrakModule::TrakInterface.AlarmCore; (*Insert your comment here...*)
-	Cyclic#1.TrakModule::gRecipeXml_TrackModule AT %Q.TrakModule::TrakInterface.RecipeCore; (*Insert your comment here...*)
-END_VAR

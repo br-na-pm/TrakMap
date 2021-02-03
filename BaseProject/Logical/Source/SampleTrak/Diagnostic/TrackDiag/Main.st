@@ -4,8 +4,8 @@ PROGRAM _INIT
     Current;
     Voltage;
 	
-	AsmReadStatus.Assembly := ADR(gMcAssembly01);
-	AsmReadInfo.Assembly 	:= ADR(gMcAssembly01);
+	AsmReadStatus.Assembly := ADR(gSampleTrak);
+	AsmReadInfo.Assembly 	:= ADR(gSampleTrak);
 	
 	#ifdef ASSEMBLY_STANDARD
 	(*All segment references must be included in the following segment array*)
@@ -212,7 +212,7 @@ PROGRAM _CYCLIC
 				TrackDiag.Seg[SegIndex].Status.CommunicationReady 	:= SegReadInfo[SegIndex].SegmentInfo.CommunicationReady;
 				TrackDiag.Seg[SegIndex].Status.ReadyForPowerOn		:= SegReadInfo[SegIndex].SegmentInfo.ReadyForPowerOn;
 				TrackDiag.Seg[SegIndex].Status.PowerOn				:= SegReadInfo[SegIndex].SegmentInfo.PowerOn;
-				TrackDiag.Seg[SegIndex].Status.StartupCount		:= SegReadInfo[SegIndex].SegmentInfo.StartupCount;
+				TrackDiag.Seg[SegIndex].Status.StartupCount			:= SegReadInfo[SegIndex].SegmentInfo.StartupCount;
 				TrackDiag.Seg[SegIndex].Status.CommunicationState	:= SegReadInfo[SegIndex].SegmentInfo.CommunicationState;
 				
 			END_IF
@@ -292,7 +292,7 @@ PROGRAM _CYCLIC
 		END_IF
 			
 		//Reset segment error
-		IF(gTrak.Cmd.ErrorReset) AND (ErrorCnt > 0)THEN
+		IF(gTrakSystem.Asm.Cmd.ErrorReset) AND (ErrorCnt > 0)THEN
 			
 			FOR SegIndex := 0 TO NUM_SEG DO
 				
@@ -314,7 +314,7 @@ PROGRAM _CYCLIC
 	ELSE
 			
 		//Reset segment error
-		IF(gTrak.Cmd.ErrorReset) AND NOT(gSegResetActive) AND (ErrorCnt > 0)THEN
+		IF(gTrakSystem.Asm.Cmd.ErrorReset) AND NOT(gSegResetActive) AND (ErrorCnt > 0)THEN
 			
 			gSegResetActive := TRUE;
 			

@@ -8,7 +8,5 @@
     <Object Type="File">historyAlarm.content</Object>
     <Object Type="File">audit.content</Object>
     <Object Type="File">allTrak.content</Object>
-    <Object Type="File">Content.content</Object>
-    <Object Type="File">Content1.content</Object>
   </Objects>
 </Package>

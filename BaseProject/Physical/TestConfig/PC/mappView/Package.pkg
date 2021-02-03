@@ -5,15 +5,8 @@
     <Object Type="File">Config.mappviewcfg</Object>
     <Object Type="File">OpcUaServer.uaserver</Object>
     <Object Type="File">Visualizat.vis</Object>
-    <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">MainAlarm</Object>
-    <Object Type="File">loadContent.eventbinding</Object>
-    <Object Type="File">headerContent.eventbinding</Object>
-    <Object Type="File">headerContent.binding</Object>
-    <Object Type="Package">Winder</Object>
-    <Object Type="Package">Laser</Object>
-    <Object Type="Package">Welder1</Object>
-    <Object Type="Package">Welder2</Object>
-    <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">TrakAlarm</Object>
+    <Object Type="Package">General</Object>
+    <Object Type="Package">Track</Object>
     <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EM2Alarm</Object>
     <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EM3Alarm</Object>
     <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EMxAlarm</Object>

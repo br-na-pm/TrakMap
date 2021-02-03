@@ -3,6 +3,6 @@ VAR
 	ShInit : SubroutineSequenceType;
 	ShInitState : USINT;
 	ShuttleUserData : ShuttleUserDataType;
-	TrakInterface : ModuleInterfaceType;
+	TrackInterface : ModuleInterfaceType;
 	ModuleName : STRING[40];
 END_VAR

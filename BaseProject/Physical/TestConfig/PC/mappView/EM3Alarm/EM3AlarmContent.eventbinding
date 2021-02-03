@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="EM3AlarmContentBinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="EM3AlarmContent.AcknButton.Click.1">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="EM3AlarmContent" widgetRefId="AcknButton" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="EM3AlarmContent" widgetRefId="AlarmList1">
+            <Method xsi:type="widgets.brease.AlarmList.Action.Acknowledge" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EM3AlarmContent.AcknAllButton.Click.2">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="EM3AlarmContent" widgetRefId="AcknAllButton" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="EM3AlarmContent" widgetRefId="AlarmList1">
+            <Method xsi:type="widgets.brease.AlarmList.Action.AcknowledgeAll" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EM3AlarmContent.SortDialog.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="EM3AlarmContent" widgetRefId="SortDialog" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="EM3AlarmContent" widgetRefId="AlarmList1">
+            <Method xsi:type="widgets.brease.AlarmList.Action.OpenConfiguration" type="Sorting" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EM3AlarmContent.FilterDialog.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="EM3AlarmContent" widgetRefId="FilterDialog" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="EM3AlarmContent" widgetRefId="AlarmList1">
+            <Method xsi:type="widgets.brease.AlarmList.Action.OpenConfiguration" type="Filtering" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>

@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="trackLogbookContent_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="trackLogbookContent.numFilterErrorNo.ValueChanged">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="trackLogbookContent" widgetRefId="numFilterErrorNo" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.txtFilterErrorText.ValueChanged">
+      <Source xsi:type="widgets.brease.TextInput.Event" contentRefId="trackLogbookContent" widgetRefId="txtFilterErrorText" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.dtDateStart.ValueChanged">
+      <Source xsi:type="widgets.brease.DateTimeInput.Event" contentRefId="trackLogbookContent" widgetRefId="dtDateStart" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.dtDateEnd.ValueChanged">
+      <Source xsi:type="widgets.brease.DateTimeInput.Event" contentRefId="trackLogbookContent" widgetRefId="dtDateEnd" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.EntiresTotal.Notification">
+      <Source xsi:type="opcUa.Event" refId="NS10|String|::AsGlobalPV:gLogbook.DAT.EntriesTotal" event="ValueChanged" />
+      <Operand datatype="ANY_INT" name="MAX_ENTRIES">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="NS10|String|::AsGlobalPV:gLogbook.PAR.EntriesMax" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="newValue=MAX_ENTRIES">
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Number of entries exceeds max. Use filter options." />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.btnRefresh.Click">
+      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="trackLogbookContent" widgetRefId="btnRefresh" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.btnUpdate.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="trackLogbookContent" widgetRefId="btnUpdate" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="NS10|String|::AsGlobalPV:gLogbook.CMD.Update">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.btnResetError.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="trackLogbookContent" widgetRefId="btnResetError" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="NS10|String|::AsGlobalPV:gLogbook.CMD.ResetError">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterNotification.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterNotification" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterInformation.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterInformation" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterWarning.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterWarning" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterError.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterError" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterSeverity.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterSeverity" event="ValueChanged" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterNotification">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterInformation">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterWarning">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="3">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterError">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="4">
+            <Action>
+              <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+                <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterAccSec.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterAccSec" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterCommissioning.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterCommissioning" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterConnectivity.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterConnectivity" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterFieldbus.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterFieldbus" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterFirewall.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterFirewall" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterMapp.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterMapp" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterMotion.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterMotion" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterSafety.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterSafety" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterSystem.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterSystem" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterTextSystem.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterTextSystem" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterUnitSystem.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterUnitSystem" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterUser.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterUser" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterVision.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterVision" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterVisualization.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterVisualization" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+            <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.chkFilterLogbook.ValueChanged">
+      <Source xsi:type="widgets.brease.CheckBox.Event" contentRefId="trackLogbookContent" widgetRefId="chkFilterLogbook" event="ValueChanged" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterAccSec">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterCommissioning">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterConnectivity">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="3">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterFieldbus">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="4">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterFirewall">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="5">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterMapp">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="6">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterMotion">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="7">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterSafety">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="8">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterSystem">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="9">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterTextSystem">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="10">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterUnitSystem">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="11">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterUser">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="12">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterVision">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="13">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkFilterVisualization">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetValueBool" value="=newValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="14">
+            <Action>
+              <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+                <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.btnDateToday.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="trackLogbookContent" widgetRefId="btnDateToday" event="Click" />
+      <Operand datatype="DATE_AND_TIME" name="DateNow">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="NS10|String|::AsGlobalPV:gLogbook.PAR.DateNow" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="widgets.brease.DateTimeInput.Action" contentRefId="trackLogbookContent" widgetRefId="dtDateStart">
+                <Method xsi:type="widgets.brease.DateTimeInput.Action.SetValue" value="=DateNow" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="widgets.brease.DateTimeInput.Action" contentRefId="trackLogbookContent" widgetRefId="dtDateEnd">
+                <Method xsi:type="widgets.brease.DateTimeInput.Action.SetValue" value="=DateNow" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+                <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.btnDateAll.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="trackLogbookContent" widgetRefId="btnDateAll" event="Click" />
+      <Operand datatype="DATE_AND_TIME" name="DateNow">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="NS10|String|::AsGlobalPV:gLogbook.PAR.DateNow" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="widgets.brease.DateTimeInput.Action" contentRefId="trackLogbookContent" widgetRefId="dtDateStart">
+                <Method xsi:type="widgets.brease.DateTimeInput.Action.SetValue" value="2000-01-01" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="widgets.brease.DateTimeInput.Action" contentRefId="trackLogbookContent" widgetRefId="dtDateEnd">
+                <Method xsi:type="widgets.brease.DateTimeInput.Action.SetValue" value="=DateNow" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="widgets.brease.Label.Action" contentRefId="trackLogbookContent" widgetRefId="labNotification">
+                <Method xsi:type="widgets.brease.Label.Action.SetText" text="Press refresh to update table" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.btnTimestampSorting.ValueChanged">
+      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="trackLogbookContent" widgetRefId="btnTimestampSorting" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="NS10|String|::AsGlobalPV:gLogbook.CMD.Refresh">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.btnNew">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="trackLogbookContent" widgetRefId="btnNew" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.FlyOut.Action" contentRefId="trackLogbookContent" widgetRefId="flyNewEntry">
+            <Method xsi:type="widgets.brease.FlyOut.Action.Open" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.btnCreate">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="trackLogbookContent" widgetRefId="btnCreate" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="NS10|String|::AsGlobalPV:gLogbook.CMD.Create">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.FlyOut.Action" contentRefId="trackLogbookContent" widgetRefId="flyNewEntry">
+            <Method xsi:type="widgets.brease.FlyOut.Action.Close" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="trackLogbookContent.EntriesTotal.SetEnable">
+      <Source xsi:type="opcUa.Event" refId="NS10|String|::AsGlobalPV:gLogbook.DAT.EntriesTotal" event="ValueChanged" />
+      <EventHandler condition="newValue &gt; 0">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="widgets.brease.Button.Action" contentRefId="trackLogbookContent" widgetRefId="btnUpdate">
+                <Method xsi:type="widgets.brease.Button.Action.SetEnable" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="widgets.brease.Button.Action" contentRefId="trackLogbookContent" widgetRefId="btnNew">
+                <Method xsi:type="widgets.brease.Button.Action.SetEnable" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="widgets.brease.CheckBox.Action" contentRefId="trackLogbookContent" widgetRefId="chkAutoUpdate">
+                <Method xsi:type="widgets.brease.CheckBox.Action.SetEnable" value="true" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>
