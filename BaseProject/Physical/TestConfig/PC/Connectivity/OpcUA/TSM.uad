@@ -62,6 +62,10 @@
       </Task>
       <Task Name="TrackMap">
         <Variable Name="clickedSegmentStatus" AutomaticEnable="True" />
+        <Variable Name="paperCore">
+          <Variable Name="SvgTransform" />
+          <Variable Name="SvgContent" />
+        </Variable>
       </Task>
     </Module>
   </DefaultView>

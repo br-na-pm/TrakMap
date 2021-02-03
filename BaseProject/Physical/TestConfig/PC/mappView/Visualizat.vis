@@ -1,79 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <vdef:Visualization id="Framework" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
-  <StartPage pageRefId="MainPage" />
-  <Pages>
-    <Page refId="MainPage"/>
-  </Pages>
-  <Navigations>
-    <!--<Navigation refId="" />-->
-  </Navigations>  
-  <BindingsSets>
-	<BindingsSet refId="alarmMainContent_binding" />
-	<BindingsSet refId="alarmHistoryContent_binding" />
-	<BindingsSet refId="headerContent_binding" />
-	<BindingsSet refId="trackGeneral_binding" />
-	<BindingsSet refId="trackContent_binding" />
-	<BindingsSet refId="trackLogbookContent_binding" />
-	<BindingsSet refId="trackAlarmContent_binding" />
-	<BindingsSet refId="EM2AlarmContent_binding" />
-	<BindingsSet refId="EM3AlarmContent_binding" />
-	<BindingsSet refId="EMxAlarmContent_binding" />		
+	<StartPage pageRefId="MainPage" />
+	<Pages>
+		<Page refId="MainPage"/>
+	</Pages>
+	<Navigations>
+		<!--<Navigation refId="" />-->
+	</Navigations>  
+	<BindingsSets>
+		<BindingsSet refId="alarmMainContent_binding" />
+		<BindingsSet refId="alarmHistoryContent_binding" />
+		<BindingsSet refId="headerContent_binding" />
+		<BindingsSet refId="trackGeneral_binding" />
+		<BindingsSet refId="trackContent_binding" />
+		<BindingsSet refId="trackLogbookContent_binding" />
+		<BindingsSet refId="trackMapContent_binding" />		
+		<BindingsSet refId="trackAlarmContent_binding" />
+		<BindingsSet refId="EM2AlarmContent_binding" />
+		<BindingsSet refId="EM3AlarmContent_binding" />
+		<BindingsSet refId="EMxAlarmContent_binding" />		
 	
-  </BindingsSets>
-  <EventBindingsSets>
-    <EventBindingsSet refId="mainAlarmContentBinding" />
-	<EventBindingsSet refId="trackAlarmContentBinding" />
-	<EventBindingsSet refId="EM2AlarmContentBinding" />
-	<EventBindingsSet refId="EM3AlarmContentBinding" />
-	<EventBindingsSet refId="EMxAlarmContentBinding" />
-	<EventBindingsSet refId="loadContentBinding" />	
-	<EventBindingsSet refId="headerContent_eventbinding" />
-	<EventBindingsSet refId="trackLogbookContent_eventbinding" />
-	<!--<EventBindingsSet refId="laserLogContent_eventbinding" />-->
-  </EventBindingsSets>
-  <Dialogs>
-    <!--<Dialog refId="" />-->
-  </Dialogs>
-  <Contents>
-    <Content refId="navigationContent" />
-	<Content refId="mainAlarmContent" />
-	<Content refId="alarmHistoryContent" />
-	<Content refId="auditContent" />
-	<Content refId="trackAlarmContent" />
-	<Content refId="trackMainContent" />
-	<Content refId="trackLogbookContent" />
-	<Content refId="trackMapContent" />
-	<Content refId="allTrakContent" />
-	<Content refId="EM2AlarmContent" />
-	<Content refId="EM3AlarmContent" />
-	<Content refId="EMxAlarmContent" />
+	</BindingsSets>
+	<EventBindingsSets>
+		<EventBindingsSet refId="mainAlarmContentBinding" />
+		<EventBindingsSet refId="trackAlarmContentBinding" />
+		<EventBindingsSet refId="EM2AlarmContentBinding" />
+		<EventBindingsSet refId="EM3AlarmContentBinding" />
+		<EventBindingsSet refId="EMxAlarmContentBinding" />
+		<EventBindingsSet refId="loadContentBinding" />	
+		<EventBindingsSet refId="headerContent_eventbinding" />
+		<EventBindingsSet refId="trackLogbookContent_eventbinding" />
+		<!--<EventBindingsSet refId="laserLogContent_eventbinding" />-->
+	</EventBindingsSets>
+	<Dialogs>
+		<!--<Dialog refId="" />-->
+	</Dialogs>
+	<Contents>
+		<Content refId="navigationContent" />
+		<Content refId="mainAlarmContent" />
+		<Content refId="alarmHistoryContent" />
+		<Content refId="auditContent" />
+		<Content refId="trackAlarmContent" />
+		<Content refId="trackMainContent" />
+		<Content refId="trackLogbookContent" />
+		<Content refId="trackMapContent" />
+		<Content refId="allTrakContent" />
+		<Content refId="EM2AlarmContent" />
+		<Content refId="EM3AlarmContent" />
+		<Content refId="EMxAlarmContent" />
 	
-  </Contents>
-  <SnippetsSets>
-    <SnippetsSet refId="snippetsForStates"/>
-  </SnippetsSets>
-  <ExpressionsSets>
-    <!--<ExpressionsSet refId=""/>-->
-  </ExpressionsSets>
-  <VariablesSets>
-    <VariablesSet refId="svar_0" />
-  </VariablesSets>
-  <StartTheme themeRefId="BuRThemeFlat2" />
-  <Themes>
-    <Theme refId="BuRThemeFlat2"/>
-  </Themes>
-  <Configurations>
-  	<Configuration key="zoom" value="true" />
-    <Configuration key="activityCount" value="false" />
-	<Configuration key="bootColor" value="#FFFFFF" />
-	<Configuration key="bootLogo" value="Media/Roadrunner.png" />
-	  <Gestures>
-		  <!--<SystemGesture1 touchPoints="2" />
-		  <SystemGesture2 touchPoints="2" />
-		  <SystemGesture3 touchPoints="2" />-->
-	  </Gestures>
-    <VirtualKeyboards>
-      <!--<InputProcessing onKeyDown="true" />-->
-    </VirtualKeyboards> 
-  </Configurations>
+	</Contents>
+	<SnippetsSets>
+		<SnippetsSet refId="snippetsForStates"/>
+	</SnippetsSets>
+	<ExpressionsSets>
+		<!--<ExpressionsSet refId=""/>-->
+	</ExpressionsSets>
+	<VariablesSets>
+		<VariablesSet refId="svar_0" />
+	</VariablesSets>
+	<StartTheme themeRefId="BuRThemeFlat2" />
+	<Themes>
+		<Theme refId="BuRThemeFlat2"/>
+	</Themes>
+	<Configurations>
+		<Configuration key="zoom" value="true" />
+		<Configuration key="activityCount" value="false" />
+		<Configuration key="bootColor" value="#FFFFFF" />
+		<Configuration key="bootLogo" value="Media/Roadrunner.png" />
+		<Gestures>
+			<!--<SystemGesture1 touchPoints="2" />
+			<SystemGesture2 touchPoints="2" />
+			<SystemGesture3 touchPoints="2" />-->
+		</Gestures>
+		<VirtualKeyboards>
+			<!--<InputProcessing onKeyDown="true" />-->
+		</VirtualKeyboards> 
+	</Configurations>
 </vdef:Visualization>
