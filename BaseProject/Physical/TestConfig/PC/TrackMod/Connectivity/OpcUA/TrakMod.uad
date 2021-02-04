@@ -24,6 +24,10 @@
         <Variable Name="TriggerTestAlarm" />
         <Variable Name="TriggerTestInformation" />
         <Variable Name="TriggerTestWarning" />
+        <Variable Name="FilterConfiguration" />
+        <Variable Name="HistoryFilter" />
+        <Variable Name="HistorySort" />
+        <Variable Name="SortConfiguration" />
       </Task>
     </Module>
   </DefaultView>
