@@ -52,6 +52,15 @@
           </Variable>
         </Variable>
         <Variable Name="gTrakSystem" AutomaticEnable="True" />
+        <Variable Name="gSegTraceIf" AutomaticEnable="True">
+          <Variable Name="Pars">
+            <Variable Name="Segments" EnableArrayElements="True" />
+            <Variable Name="ParIds" EnableArrayElements="True" />
+          </Variable>
+          <Variable Name="Status">
+            <Variable Name="Failures" EnableArrayElements="True" />
+          </Variable>
+        </Variable>
       </GlobalVariables>
       <Task Name="TSMAlarm">
         <Variable Name="FilterConfiguration" />
@@ -66,6 +75,7 @@
           <Variable Name="SvgTransform" />
           <Variable Name="SvgContent" />
         </Variable>
+        <Variable Name="clickId" />
       </Task>
     </Module>
   </DefaultView>

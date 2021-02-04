@@ -19,6 +19,8 @@
 		<BindingsSet refId="EM2AlarmContent_binding" />
 		<BindingsSet refId="EM3AlarmContent_binding" />
 		<BindingsSet refId="EMxAlarmContent_binding" />		
+		<BindingsSet refId="content_alarm_details_binding" />
+		<BindingsSet refId="content_seg_detail_binding" />
 	
 	</BindingsSets>
 	<EventBindingsSets>
@@ -30,10 +32,11 @@
 		<EventBindingsSet refId="loadContentBinding" />	
 		<EventBindingsSet refId="headerContent_eventbinding" />
 		<EventBindingsSet refId="trackLogbookContent_eventbinding" />
-		<!--<EventBindingsSet refId="laserLogContent_eventbinding" />-->
+		<EventBindingsSet refId="content_trackmap_eventbinding" />
 	</EventBindingsSets>
 	<Dialogs>
-		<!--<Dialog refId="" />-->
+		<Dialog refId="dialog_alarm_details" />
+		<Dialog refId="dialog_seg_details" />
 	</Dialogs>
 	<Contents>
 		<Content refId="navigationContent" />
@@ -52,6 +55,7 @@
   </Contents>
   <SnippetsSets>
     <SnippetsSet refId="snippetsForStates"/>
+	<SnippetsSet refId="IndexTextTrakInfo"/>
   </SnippetsSets>
   <ExpressionsSets>
     <!--<ExpressionsSet refId=""/>-->

@@ -8,5 +8,6 @@
     <Object Type="Program" Language="IEC">TrackMap</Object>
     <Object Type="Program" Language="IEC" Description="trak support: motion logger filter">TrakLogger</Object>
     <Object Type="Program" Language="IEC">Logbook</Object>
+    <Object Type="Program" Language="IEC">SegTrace</Object>
   </Objects>
 </Package>

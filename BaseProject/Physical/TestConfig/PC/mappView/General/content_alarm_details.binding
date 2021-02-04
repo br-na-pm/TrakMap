@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="content_alarm_details_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[0]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails1" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[1]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails2" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[2]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails3" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[3]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails4" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[4]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails5" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[5]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails6" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[6]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails7" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[7]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails8" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[8]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails9" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[9]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails10" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[10]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails11" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[11]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails12" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[12]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails13" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[13]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails14" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[14]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails15" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[15]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails16" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[16]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails17" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[17]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails18" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[18]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails19" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[19]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails20" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[20]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails21" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[21]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails22" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[22]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails23" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[23]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails24" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[24]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails25" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[25]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails26" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[26]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails27" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[27]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails28" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[28]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails29" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[29]" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails30" attribute="value" />
+</Binding>
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[0].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails1" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[1].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails2" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[2].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails3" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[3].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails4" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[4].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails5" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[5].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails6" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[6].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails7" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[7].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails8" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[8].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails9" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[9].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails10" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[10].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails11" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[11].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails12" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[12].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails13" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[13].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails14" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[14].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails15" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[15].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails16" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[16].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails17" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[17].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails18" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[18].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails19" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[19].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails20" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[20].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails21" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[21].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails22" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[22].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails23" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[23].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails24" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[24].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails25" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[25].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails26" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[26].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails27" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[27].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails28" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[28].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails29" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gSegTraceIf.Status.Failures[29].WarningActive" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_alarm_details" widgetRefId="SegFailDetails30" attribute="visible" />
+</Binding>
+
+</Bindings>
+</BindingsSet>

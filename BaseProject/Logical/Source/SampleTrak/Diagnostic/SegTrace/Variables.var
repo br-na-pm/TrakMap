@@ -1,0 +1,9 @@
+VAR
+	segTraceResults : ARRAY[0..MAX_SEGMENTS] OF segTraceResultsTyp;
+	ProcessParId : MC_BR_SegProcessParID_AcpTrak;
+	segIdx : USINT;
+	i : USINT;
+	state : segTraceStateEnum;
+	RecipeXml : MpRecipeXml;
+	RegPar : ARRAY[0..1] OF MpRecipeRegPar;
+END_VAR

@@ -8,5 +8,6 @@
     <Object Type="File">mainAlarmContent.binding</Object>
     <Object Type="File">alarmHistoryContent.binding</Object>
     <Object Type="File">mainAlarmContent.eventbinding</Object>
+    <Object Type="File">content_alarm_details.binding</Object>
   </Objects>
 </Package>

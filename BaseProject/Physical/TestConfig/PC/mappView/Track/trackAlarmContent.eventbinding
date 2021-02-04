@@ -41,5 +41,15 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="EventBinding_2">
+      <Source xsi:type="widgets.brease.AlarmList.Event" contentRefId="trackAlarmContent" widgetRefId="AlarmList1" event="ItemClick" />
+      <EventHandler condition="code = 7720400">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="dialog_alarm_details" autoClose="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>

@@ -18,3 +18,12 @@ VAR CONSTANT
 	LOGBOOK_BOOKS_MAX : USINT := 13; (*Total number of facilities*)
 	LOGBOOK_TEXT_LEN : UINT := 200; (*Error text length*)
 END_VAR
+(*Segment trace*)
+VAR CONSTANT
+	MAX_SEGMENTS : USINT := 86;
+	numPAR_IDS : USINT := 5;
+	numPAR_IDS_ARRAY : USINT := numPAR_IDS-1;
+END_VAR
+VAR
+	gSegTraceIf : segTraceIfTyp; (*Segment Diagnostic Trace interface*)
+END_VAR

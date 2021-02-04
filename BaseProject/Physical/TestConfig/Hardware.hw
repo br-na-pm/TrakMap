@@ -28,6 +28,12 @@
     <Group ID="FileDevice3" />
     <Parameter ID="FileDeviceName3" Value="Config" />
     <Parameter ID="FileDevicePath3" Value="F:\Config\" />
+    <Group ID="FileDevice4" />
+    <Parameter ID="FileDeviceName4" Value="SegTraceSim" />
+    <Parameter ID="FileDevicePath4" Value="../../../../Logical/UserData/SegTrace" />
+    <Group ID="FileDevice5" />
+    <Parameter ID="FileDeviceName5" Value="SegTrace" />
+    <Parameter ID="FileDevicePath5" Value="F:/SegTrace" />
     <Group ID="FtpUser1" />
     <Parameter ID="FtpUsername1" Value="FTP" />
     <Parameter ID="FtpUserPassword1" Value="T9zhCndb3U+RGv/CzHF4XnaM0UkBa3EbnmIr44HqX4c=" Description="ftpaccess" />

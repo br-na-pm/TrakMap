@@ -4,4 +4,5 @@
   <Element ID="gRecipeXml_TrackModule" Type="mprecipexml">
     <Selector ID="Alarms" Value="MpAlarmX" />
   </Element>
+  <Element ID="gMpRecipeDiagXml" Type="mprecipexml" />
 </Configuration>

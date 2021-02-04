@@ -197,3 +197,67 @@ TYPE
 		StatusText : STRING[80];
 	END_STRUCT;
 END_TYPE
+
+(*Segment Trace Diagnostic Structures*)
+
+TYPE
+	segTraceIfTyp : 	STRUCT  (*Segment trace interface typ*)
+		Cmds : segTraceIfCmdsTyp; (*Commands type*)
+		Pars : segTraceIfParsTyp; (*Segment Trace parameters type*)
+		Status : segTraceIfStatusTyp; (*Segmetn Trace status type*)
+	END_STRUCT;
+	segTraceIfCmdsTyp : 	STRUCT  (*Segment Trace Commands type*)
+		Capture : BOOL; (*Capture/Execute the segment trace*)
+		ErrorReset : BOOL; (*Error reset the segment trace*)
+		Export : BOOL; (*Export trace results command*)
+	END_STRUCT;
+	segTraceIfParsTyp : 	STRUCT  (*Segment Trace parameters type*)
+		Segments : {REDUND_UNREPLICABLE} ARRAY[0..MAX_SEGMENTS]OF UDINT; (*Array of references to segment variables*)
+		ParIds : ARRAY[0..numPAR_IDS_ARRAY]OF McAcpTrakSegProcessParIDType; (*Array of parIds to read*)
+		PS_UDC_Value : REAL; (*Configured DC bus voltage value for the power supplies*)
+		PowerFailDetectRatio : REAL; (*Powerfail Detect Ratio used to validate DC bus voltage*)
+		BalancerCurrentLimit : REAL; (*Set current limit for the calculation check*)
+		SegmentCount : USINT; (*Number Of segments*)
+		Export : segTraceIfExportParsTyp; (*Export parameters*)
+	END_STRUCT;
+	segTraceIfExportParsTyp : 	STRUCT  (*Export parameters*)
+		FileName : STRING[80]; (*File name used for exporting*)
+		FileDev : STRING[80]; (*File Device used for exporting*)
+	END_STRUCT;
+	segTraceIfStatusTyp : 	STRUCT  (*Segment Trace Status Type*)
+		Active : BOOL; (*Segment trace is currently Active*)
+		Done : BOOL; (*Segment Trace is Done*)
+		Error : BOOL; (*Segment Trace has an Error*)
+		Result : segTraceResultEnum; (*Segment Trace Result*)
+		FailCount : USINT; (*Number of failed segments*)
+		Failures : ARRAY[0..MAX_SEGMENTS]OF segTraceFailTyp; (*List of segments that failed the parID checks*)
+	END_STRUCT;
+	segTraceResultEnum : 
+		( (*Segment Trace Result Enumeration*)
+		segTraceUnknown, (*Unknown (test not run yet)*)
+		segTracePass, (*Test Passed*)
+		segTraceFail (*Test Failed*)
+		);
+	segTraceResultsValuesTyp : 	STRUCT  (*List of values read from the segment*)
+		BalCurrent_Act_1 : REAL; (*Balancer current actual value 1*)
+		BalCurrent_Act_2 : REAL; (*Balancer current actual value 2*)
+		BalCurrent_Act_3 : REAL; (*Balancer current actual value 3*)
+		UdcAct : REAL; (*Actual DC bus voltage on the segment*)
+		UdcMiddleAct : REAL; (*Actual middle point DC Bus voltage on the segment*)
+	END_STRUCT;
+	segTraceResultsTyp : 	STRUCT  (*Segment Trace Results type*)
+		SegmentName : STRING[32]; (*Segment Name*)
+		BalancerPass : BOOL; (*Balancer sumation test passed*)
+		UDCActPass : BOOL; (*DC bus voltage actual test passed*)
+		UDCMiddlePass : BOOL; (*DC middle voltage actual test passed*)
+		BalancerSum : REAL; (*Sum of balancer currents*)
+		Values : segTraceResultsValuesTyp; (*List of values read from the segment*)
+	END_STRUCT;
+	segTraceFailTyp : 	STRUCT  (*Failed Test segment type*)
+		SegName : STRING[32]; (*Segment Name*)
+		WarningActive : BOOL; (*Segment has a warning active from the check. (Aide in HMI visualization)*)
+		BalancerFail : BOOL; (*The balancer summation failed*)
+		UDCActFail : BOOL; (*The UDC Act check failed*)
+		UDCMiddleActFail : BOOL; (*The UDC Middle check failed*)
+	END_STRUCT;
+END_TYPE
