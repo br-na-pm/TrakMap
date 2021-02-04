@@ -14,5 +14,6 @@
     <Object Type="Package">Logbook</Object>
     <Object Type="File">TrackMap.svg</Object>
     <Object Type="File">Online.svg</Object>
+    <Object Type="File">SampleTrackMap.svg</Object>
   </Objects>
 </Package>
