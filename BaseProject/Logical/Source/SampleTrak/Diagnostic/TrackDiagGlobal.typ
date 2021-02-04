@@ -10,6 +10,7 @@ TYPE
 		Hub : ARRAY[0..NUM_HUBS]OF HubStatus_typ;
 		IO : IOStatus_typ;
 		CPU : CPUStatus_typ;
+		SegmentCount : USINT; (*Number Of segments*)
 	END_STRUCT;
 	SystemStatus_typ : 	STRUCT 
 		ConfigCheckComplete : BOOL;
@@ -90,7 +91,6 @@ TYPE
 	END_STRUCT;
 	ErrorSegInfo_typ : 	STRUCT 
 		Error : USINT;
-		SegName : STRING[80];
 	END_STRUCT;
 END_TYPE
 
@@ -212,7 +212,6 @@ TYPE
 		Export : BOOL; (*Export trace results command*)
 	END_STRUCT;
 	segTraceIfParsTyp : 	STRUCT  (*Segment Trace parameters type*)
-		Segments : {REDUND_UNREPLICABLE} ARRAY[0..MAX_SEGMENTS]OF UDINT; (*Array of references to segment variables*)
 		ParIds : ARRAY[0..numPAR_IDS_ARRAY]OF McAcpTrakSegProcessParIDType; (*Array of parIds to read*)
 		PS_UDC_Value : REAL; (*Configured DC bus voltage value for the power supplies*)
 		PowerFailDetectRatio : REAL; (*Powerfail Detect Ratio used to validate DC bus voltage*)
@@ -246,7 +245,6 @@ TYPE
 		UdcMiddleAct : REAL; (*Actual middle point DC Bus voltage on the segment*)
 	END_STRUCT;
 	segTraceResultsTyp : 	STRUCT  (*Segment Trace Results type*)
-		SegmentName : STRING[32]; (*Segment Name*)
 		BalancerPass : BOOL; (*Balancer sumation test passed*)
 		UDCActPass : BOOL; (*DC bus voltage actual test passed*)
 		UDCMiddlePass : BOOL; (*DC middle voltage actual test passed*)

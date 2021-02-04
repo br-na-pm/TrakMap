@@ -2,6 +2,7 @@
 <?AutomationStudio FileVersion="4.9"?>
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Cyclic#1">
+    <Task Name="DiagConfig" Source="Source.SampleTrak.Diagnostic.DiagConfig.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="TSM" Source="Source.SampleTrak.TSM.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2">

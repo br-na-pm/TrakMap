@@ -54,7 +54,6 @@
         <Variable Name="gTrakSystem" AutomaticEnable="True" />
         <Variable Name="gSegTraceIf" AutomaticEnable="True">
           <Variable Name="Pars">
-            <Variable Name="Segments" EnableArrayElements="True" />
             <Variable Name="ParIds" EnableArrayElements="True" />
           </Variable>
           <Variable Name="Status">

@@ -18,7 +18,7 @@ PROGRAM _CYCLIC
 				gSegTraceIf.Status.FailCount := 0;
 				
 				segIdx := 0;
-				ProcessParId.Segment := gSegTraceIf.Pars.Segments[segIdx];
+				ProcessParId.Segment := ADR(TrackDiag.Seg[segIdx].SegmentLink) (*gSegTraceIf.Pars.Segments[segIdx]*);
 				ProcessParId.Mode := mcACPTRAK_SEG_PARID_GET_NO_NCT;
 				ProcessParId.NumberOfParIDs := 5;
 				gSegTraceIf.Pars.ParIds[0].VariableAddress := ADR(segTraceResults[segIdx].Values.BalCurrent_Act_1);
@@ -78,7 +78,7 @@ PROGRAM _CYCLIC
 			
 			segIdx := segIdx + 1;
 			IF segIdx < gSegTraceIf.Pars.SegmentCount THEN
-				ProcessParId.Segment := gSegTraceIf.Pars.Segments[segIdx];
+				ProcessParId.Segment :=  ADR(TrackDiag.Seg[segIdx].SegmentLink) (*gSegTraceIf.Pars.Segments[segIdx]*);
 				gSegTraceIf.Pars.ParIds[0].VariableAddress := ADR(segTraceResults[segIdx].Values.BalCurrent_Act_1);
 				gSegTraceIf.Pars.ParIds[1].VariableAddress := ADR(segTraceResults[segIdx].Values.BalCurrent_Act_2);
 				gSegTraceIf.Pars.ParIds[2].VariableAddress := ADR(segTraceResults[segIdx].Values.BalCurrent_Act_3);
@@ -94,7 +94,7 @@ PROGRAM _CYCLIC
 		SEG_TRACE_ADD_FAILS: //********************************************************************************************************* Trace Add Up Failures State
 			FOR i := 0 TO gSegTraceIf.Pars.SegmentCount - 1 DO
 				IF NOT segTraceResults[i].BalancerPass OR NOT segTraceResults[i].UDCActPass OR NOT segTraceResults[i].UDCMiddlePass THEN
-					gSegTraceIf.Status.Failures[gSegTraceIf.Status.FailCount].SegName := segTraceResults[i].SegmentName;
+					gSegTraceIf.Status.Failures[gSegTraceIf.Status.FailCount].SegName := TrackDiag.Seg[i].SegmentId; (*segTraceResults[i].SegmentName*)
 					gSegTraceIf.Status.Failures[gSegTraceIf.Status.FailCount].WarningActive := TRUE;
 					gSegTraceIf.Status.Failures[gSegTraceIf.Status.FailCount].BalancerFail := NOT segTraceResults[i].BalancerPass;
 					gSegTraceIf.Status.Failures[gSegTraceIf.Status.FailCount].UDCActFail := NOT segTraceResults[i].UDCActPass;

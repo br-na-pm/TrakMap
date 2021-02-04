@@ -59,7 +59,7 @@ ACTION actCheckErrorCode:
 					IF(SegIndex > 0)THEN
 						
 						ErrorSegNum[ErrorCnt] 	:= SegIndex - 1;
-						ErrorSegName[ErrorCnt]	:= ErroredSegments[SegIndex].SegName;
+						ErrorSegName[ErrorCnt]	:= TrackDiag.Seg[SegIndex].SegmentId;
 						ErrorNumber[ErrorCnt]	:= TrackDiag.Seg[SegIndex].Status.ErrorCode;
 						ErrorCnt := ErrorCnt + 1;
 						

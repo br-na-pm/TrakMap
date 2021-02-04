@@ -7,34 +7,7 @@ PROGRAM _INIT
 	AsmReadStatus.Assembly := ADR(gSampleTrak);
 	AsmReadInfo.Assembly 	:= ADR(gSampleTrak);
 	
-	#ifdef ASSEMBLY_STANDARD
-	(*All segment references must be included in the following segment array*)
-	aSegName[0] := gSeg_A_1;
-	aSegName[1] := gSeg_A_2;
-	aSegName[2] := gSeg_A_3;
-	aSegName[3] := gSeg_A_4;
-	aSegName[4] := gSeg_A_5;
-	aSegName[5] := gSeg_A_6;
-	aSegName[6] := gSeg_A_7;
-	aSegName[7] := gSeg_A_8;
-	aSegName[8] := gSeg_A_9;
-	aSegName[9] := gSeg_A_10;
-	aSegName[10] := gSeg_A_11;
-	aSegName[11] := gSeg_A_12;
 
-	ErroredSegments[0].SegName := 'gSeg_A_1';
-	ErroredSegments[1].SegName := 'gSeg_A_2';
-	ErroredSegments[2].SegName := 'gSeg_A_3';
-	ErroredSegments[3].SegName := 'gSeg_A_4';
-	ErroredSegments[4].SegName := 'gSeg_A_5';
-	ErroredSegments[5].SegName := 'gSeg_A_6';
-	ErroredSegments[6].SegName := 'gSeg_A_7';
-	ErroredSegments[7].SegName := 'gSeg_A_8';
-	ErroredSegments[8].SegName := 'gSeg_A_9';
-	ErroredSegments[9].SegName := 'gSeg_A_10';
-	ErroredSegments[10].SegName := 'gSeg_A_11';
-	ErroredSegments[11].SegName := 'gSeg_A_12';
-	#endif
 
 	
 	TempRefreshTime := T#120s;
@@ -46,14 +19,14 @@ PROGRAM _INIT
 	(*Initialize Error ParId Info*)
 	FOR SegIndex := 0 TO NUM_SEG DO
 		
-		IF aSegName[SegIndex].controlif <> 0 THEN
+		IF TrackDiag.Seg[SegIndex].SegmentLink.controlif (*aSegName[SegIndex].controlif*) <> 0 THEN
 		
 			ErrorCodeIDInfo[SegIndex].DataType 	:= mcACPTRAK_SEG_PARTYPE_UINT;
 			ErrorCodeIDInfo[SegIndex].ParID		:= mcACPPAR_ERROR_NUMBER;
 			ErrorCodeIDInfo[SegIndex].VariableAddress := ADR(SegErrorCheck[SegIndex].ErrorNumber);
 		
 		
-			SegProcessParID[SegIndex].Segment			:= ADR(aSegName[SegIndex]);
+			SegProcessParID[SegIndex].Segment			:= ADR(TrackDiag.Seg[SegIndex].SegmentLink);
 			SegProcessParID[SegIndex].ChannelIndex 		:= 0;
 			SegProcessParID[SegIndex].NumberOfParIDs 	:= 1;
 			SegProcessParID[SegIndex].Mode				:= mcACPTRAK_SEG_PARID_GET_NO_NCT;
@@ -108,7 +81,7 @@ PROGRAM _INIT
 			SegTempIDInfo[SegIndex, 15].DataType		:= mcACPTRAK_SEG_PARTYPE_REAL;
 			SegTempIDInfo[SegIndex, 15].VariableAddress	:= ADR(TrackDiag.Seg[SegIndex].Status.Temp.TemperaturePOWER_SENS11);
 			
-			SegProcessParID_Temp[SegIndex].Segment := ADR(aSegName[SegIndex]);
+			SegProcessParID_Temp[SegIndex].Segment := ADR(TrackDiag.Seg[SegIndex].SegmentLink);
 			SegProcessParID_Temp[SegIndex].ChannelIndex := 0;
 			SegProcessParID_Temp[SegIndex].NumberOfParIDs := 16;
 			SegProcessParID_Temp[SegIndex].Mode := mcACPTRAK_SEG_PARID_GET_NO_NCT;
@@ -128,7 +101,7 @@ PROGRAM _INIT
 			(*	SegPitchSet[SegIndex].CmdWriteFilter :=  TRUE;*)
 			//
 			
-			SegProcessParID_Pitch[SegIndex].Segment			:= ADR(aSegName[SegIndex]);
+			SegProcessParID_Pitch[SegIndex].Segment			:= ADR(TrackDiag.Seg[SegIndex].SegmentLink);
 			SegProcessParID_Pitch[SegIndex].ChannelIndex	:= 0;
 			SegProcessParID_Pitch[SegIndex].NumberOfParIDs 	:= 1;
 			SegProcessParID_Pitch[SegIndex].Mode			:= mcACPTRAK_SEG_PARID_SET;
@@ -149,7 +122,7 @@ PROGRAM _INIT
 			SegResetIDInfo[SegIndex].VariableAddress := ADR(SegmentReset[SegIndex].SegResetCmd);
 		
 		
-			SegProcessParID_Reset[SegIndex].Segment			:= ADR(aSegName[SegIndex]);
+			SegProcessParID_Reset[SegIndex].Segment			:= ADR(TrackDiag.Seg[SegIndex].SegmentLink);
 			SegProcessParID_Reset[SegIndex].ChannelIndex 	:= 0;
 			SegProcessParID_Reset[SegIndex].NumberOfParIDs 	:= 1;
 			SegProcessParID_Reset[SegIndex].Mode			:= mcACPTRAK_SEG_PARID_GET_NO_NCT;
@@ -202,8 +175,8 @@ PROGRAM _CYCLIC
 		
 	FOR SegIndex := 0 TO NUM_SEG DO
 	
-		IF aSegName[SegIndex].controlif <> 0 THEN //If the array contains a segment reference
-			SegReadInfo[SegIndex].Segment 	:= ADR(aSegName[SegIndex]);
+		IF TrackDiag.Seg[SegIndex].SegmentLink.controlif <> 0 THEN //If the array contains a segment reference
+			SegReadInfo[SegIndex].Segment 	:= ADR(TrackDiag.Seg[SegIndex].SegmentLink);
 			SegReadInfo[SegIndex].Enable	:= TRUE;
 			SegReadInfo[SegIndex]();
 			
@@ -218,7 +191,7 @@ PROGRAM _CYCLIC
 			END_IF
 		
 			
-			SegReadStatus[SegIndex].Segment := ADR(aSegName[SegIndex]);
+			SegReadStatus[SegIndex].Segment := ADR(TrackDiag.Seg[SegIndex].SegmentLink);
 			SegReadStatus[SegIndex].Enable	:= TRUE;
 			SegReadStatus[SegIndex]();
 			
@@ -272,7 +245,7 @@ PROGRAM _CYCLIC
 				
 			IF NOT(SegmentReset[SegIndex].StsResetDone)THEN //Wait for all segments to be reset
 				
-				IF aSegName[SegIndex].controlif <> 0 THEN //If the array contains a segment reference
+				IF TrackDiag.Seg[SegIndex].SegmentLink.controlif <> 0 THEN //If the array contains a segment reference
 					SegDoneChk := FALSE;
 				END_IF
 					
@@ -296,7 +269,7 @@ PROGRAM _CYCLIC
 			
 			FOR SegIndex := 0 TO NUM_SEG DO
 				
-				IF aSegName[SegIndex].controlif <> 0 THEN //If the array contains a segment reference
+				IF TrackDiag.Seg[SegIndex].SegmentLink.controlif <> 0 THEN //If the array contains a segment reference
 						
 					IF(SegmentReset[SegIndex].State = WAIT_FOR_DONE) AND NOT(SegmentReset[SegIndex].StsResetDone)THEN //Try to reset segment again
 						
@@ -320,7 +293,7 @@ PROGRAM _CYCLIC
 			
 			FOR SegIndex := 0 TO NUM_SEG DO
 				
-				IF aSegName[SegIndex].controlif <> 0 THEN //If the array contains a segment reference
+				IF TrackDiag.Seg[SegIndex].SegmentLink.controlif <> 0 THEN //If the array contains a segment reference
 					SegmentReset[SegIndex].CmdResetSeg := TRUE; //Check to see if segments need to be reset (Undervoltage error)
 				END_IF
 				

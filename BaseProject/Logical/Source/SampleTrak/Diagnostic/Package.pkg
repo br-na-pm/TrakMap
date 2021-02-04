@@ -4,6 +4,7 @@
   <Objects>
     <Object Type="File">TrackDiagGlobal.typ</Object>
     <Object Type="File">TrackDiagGlobal.var</Object>
+    <Object Type="Program" Language="IEC">DiagConfig</Object>
     <Object Type="Program" Language="IEC">TrackDiag</Object>
     <Object Type="Program" Language="IEC">TrackMap</Object>
     <Object Type="Program" Language="IEC" Description="trak support: motion logger filter">TrakLogger</Object>

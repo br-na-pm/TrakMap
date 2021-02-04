@@ -53,9 +53,7 @@ PROGRAM _CYCLIC
 					TrakLogger.Message := '';
 					SegmentErrorFound := 0;
 					brsmemset(ADR(AlarmCount), 0, SIZEOF(AlarmCount));
-					
-		//			brsmemcpy(ADR(AlarmCount), ADR(oldAlarmCount), SIZEOF(AlarmCount));
-					
+									
 					ArEventLogGetIdent_0.Execute			:= FALSE;
 					ArEventLogGetLatestRecordID_0.Execute	:= FALSE;
 					ArEventLogGetPreviousRecordID_0.Execute	:= FALSE;

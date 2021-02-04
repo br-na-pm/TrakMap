@@ -4,7 +4,6 @@ VAR
 	SegReadInfo : ARRAY[0..NUM_SEG] OF MC_BR_SegReadInfo_AcpTrak;
 	SegReadStatus : ARRAY[0..NUM_SEG] OF MC_BR_SegReadStatus_AcpTrak;
 	SegIndex : USINT;
-	aSegName : ARRAY[0..NUM_SEG] OF McSegmentType;
 	SegProcessParID : ARRAY[0..NUM_SEG] OF MC_BR_SegProcessParID_AcpTrak;
 	SegProcessParID_Lag : ARRAY[0..NUM_SEG] OF MC_BR_SegProcessParID_AcpTrak;
 	SegProcessParID_Vel : ARRAY[0..NUM_SEG] OF MC_BR_SegProcessParID_AcpTrak;
@@ -41,5 +40,5 @@ VAR
 	Current : ARRAY[0..20] OF INT; (*Power Supply Current*)
 	Voltage : ARRAY[0..20] OF SINT; (*Power Supply Voltage*)
 	fbAuditTrail : MpAuditTrail;
-gSegResetActive : BOOL;
+	gSegResetActive : BOOL;
 END_VAR
