@@ -4,7 +4,6 @@
   <Objects>
     <Object Type="File">trackMain.content</Object>
     <Object Type="File">trackMap.content</Object>
-    <Object Type="File">trackLogbook.content</Object>
     <Object Type="File">trackAlarm.content</Object>
     <Object Type="File">Logbook.content</Object>
   </Objects>

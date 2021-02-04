@@ -18,6 +18,7 @@
     <Parameter ID="Cyclic2Duration" Value="1600" />
     <Parameter ID="Cyclic2Tolerance" Value="0" />
     <Parameter ID="Cyclic2Stack" Value="32000" />
+    <Parameter ID="Cyclic8Duration" Value="4800" />
     <Group ID="FileDevice1" />
     <Parameter ID="FileDeviceName1" Value="SvgData" />
     <Parameter ID="FileDevicePath1" Value="F:\TestTrak\" />

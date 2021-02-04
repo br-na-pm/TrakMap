@@ -1,6 +1,0 @@
-WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=EM2::Recovery2 
-Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=100 Scope=60 Force=60 Index=2 ASCIIString=0
-                                    name                                     type force                                                            value level type len format place expand specs
-                           RecoveryAlarm                                     BOOL    0 "                                                           FALSE"    0    1    1    2    0    0         
-                     RecoveryInformation                                     BOOL    0 "                                                           FALSE"    0    1    1    2    0    0         
-                         RecoveryWarning                                     BOOL    0 "                                                           FALSE"    0    1    1    2    0    0         

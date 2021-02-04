@@ -66,7 +66,7 @@
   	<Configuration key="zoom" value="true" />
     <Configuration key="activityCount" value="false" />
 	<Configuration key="bootColor" value="#FFFFFF" />
-	<Configuration key="bootLogo" value="Media/Roadrunner.png" />
+	<Configuration key="bootLogo" value="Media/Framework.svg" />
 	  <Gestures>
 		  <!--<SystemGesture1 touchPoints="2" />
 		  <SystemGesture2 touchPoints="2" />

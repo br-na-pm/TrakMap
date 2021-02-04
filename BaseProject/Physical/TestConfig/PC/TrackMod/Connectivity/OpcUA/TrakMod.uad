@@ -18,5 +18,13 @@
     <EURangesAliases />
     <EngineeringUnitAliases />
   </Aliases>
-  <DefaultView AclId="2" />
+  <DefaultView AclId="2">
+    <Module Name="TrackMod">
+      <Task Name="AsmAlarm">
+        <Variable Name="TriggerTestAlarm" />
+        <Variable Name="TriggerTestInformation" />
+        <Variable Name="TriggerTestWarning" />
+      </Task>
+    </Module>
+  </DefaultView>
 </OpcUaSource>

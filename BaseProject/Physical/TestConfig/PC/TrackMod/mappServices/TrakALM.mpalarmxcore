@@ -37,7 +37,7 @@
         <Property ID="Code" Value="1000" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
-            <Property ID="MonitoredPV" Value="TrakModule::AsmSampleT:fbAsmReadStatus.AssemblyErrorStop" />
+            <Property ID="MonitoredPV" Value="TrackMod::AsmSampleT:fbAsmReadStatus.AssemblyErrorStop" />
             <Group ID="TriggerValues">
               <Property ID="[0]" Value="TRUE" />
             </Group>
@@ -49,7 +49,7 @@
         <Property ID="Message" Value="{$Assembly/Info/TrakPowerOn}" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
-            <Property ID="MonitoredPV" Value="TrakModule::AsmSampleT:fbAsmReadInfo.AssemblyInfo.PowerOn" />
+            <Property ID="MonitoredPV" Value="TrackMod::AsmSampleT:fbAsmReadInfo.AssemblyInfo.PowerOn" />
             <Group ID="TriggerValues">
               <Property ID="[0]" Value="TRUE" />
             </Group>
@@ -62,7 +62,7 @@
         <Property ID="Severity" Value="0" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
-            <Property ID="MonitoredPV" Value="TrakModule::AsmAlarm:TriggerTestInformation" />
+            <Property ID="MonitoredPV" Value="TrackMod::AsmAlarm:TriggerTestInformation" />
             <Group ID="TriggerValues">
               <Property ID="[0]" Value="TRUE" />
             </Group>
@@ -76,7 +76,7 @@
         <Property ID="Severity" Value="50" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
-            <Property ID="MonitoredPV" Value="TrakModule::AsmAlarm:TriggerTestWarning" />
+            <Property ID="MonitoredPV" Value="TrackMod::AsmAlarm:TriggerTestWarning" />
             <Group ID="TriggerValues">
               <Property ID="[0]" Value="TRUE" />
             </Group>
@@ -90,7 +90,7 @@
         <Property ID="Severity" Value="100" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
-            <Property ID="MonitoredPV" Value="TrakModule::AsmAlarm:TriggerTestAlarm" />
+            <Property ID="MonitoredPV" Value="TrackMod::AsmAlarm:TriggerTestAlarm" />
             <Group ID="TriggerValues">
               <Property ID="[0]" Value="TRUE" />
             </Group>
@@ -119,7 +119,7 @@
       <Group ID="[0]">
         <Property ID="Key" Value="ModuleName" />
         <Selector ID="Value">
-          <Property ID="PV" Value="TrakModule::ModuleName" />
+          <Property ID="PV" Value="TrackMod::ModuleName" />
         </Selector>
       </Group>
     </Group>

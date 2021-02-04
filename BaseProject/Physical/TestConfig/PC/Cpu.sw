@@ -9,18 +9,18 @@
   </TaskClass>
   <TaskClass Name="Cyclic#3">
     <Task Name="TSMAlarm" Source="Source.SampleTrak.TSMAlarm.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-  </TaskClass>
-  <TaskClass Name="Cyclic#4">
     <Task Name="Alarm" Source="Source.SampleTrak.ReusableSource.Alarm.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+  </TaskClass>
+  <TaskClass Name="Cyclic#4" />
+  <TaskClass Name="Cyclic#5" />
+  <TaskClass Name="Cyclic#6" />
+  <TaskClass Name="Cyclic#7" />
+  <TaskClass Name="Cyclic#8">
     <Task Name="Logbook" Source="Source.SampleTrak.Diagnostic.Logbook.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="TrackMap" Source="Source.SampleTrak.Diagnostic.TrackMap.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="TrakLogger" Source="Source.SampleTrak.Diagnostic.TrakLogger.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="TrackDiag" Source="Source.SampleTrak.Diagnostic.TrackDiag.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
-  <TaskClass Name="Cyclic#5" />
-  <TaskClass Name="Cyclic#6" />
-  <TaskClass Name="Cyclic#7" />
-  <TaskClass Name="Cyclic#8" />
   <DataObjects>
     <DataObject Name="McAcpSys" Source="" Memory="UserROM" Language="Binary" />
   </DataObjects>
