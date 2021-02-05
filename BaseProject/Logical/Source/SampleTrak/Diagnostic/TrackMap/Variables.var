@@ -8,5 +8,5 @@ VAR
 	Offset : UDINT;
 	clickId : STRING[160];
 	i : INT;
-	clickedSegmentStatus : tpCoreSegmentTyp;
+	clickedSegmentStatus : tpCoreSegmentStatusTyp;
 END_VAR

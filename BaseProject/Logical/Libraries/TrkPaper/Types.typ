@@ -52,7 +52,7 @@ TYPE
 	END_STRUCT;
 	tpCoreSegmentsOptionTyp : 	STRUCT  (*Segments Option*)
 		Enabled : BOOL; (*Option is enabled*)
-		Segments : REFERENCE TO tpCoreSegmentTyp; (*Address of the Segments Array*)
+		Status : REFERENCE TO tpCoreSegmentStatusTyp; (*Address of the Segments Array*)
 		SegmentCount : USINT; (*Count of the segments in the layout*)
 		SegmentStyles : tpCoreSegmentStylesTyp;
 	END_STRUCT;
@@ -66,11 +66,13 @@ TYPE
 		Blue : UDINT; (*Offset for UserData address for the Blue color in USINT*)
 	END_STRUCT;
 	tpCoreSegmentTyp : 	STRUCT 
-		SegmentLink : McSegmentType; (*Global segment address*)
-		SegmentId : STRING[32]; (*ID of the segment in the SVG*)
-		Status : tpCoreSegmentStatusTyp; (*Status Information for the segment*)
+		McType : ARRAY[0..NUM_SEG]OF McSegmentType; (*Global segment address*)
+		Name : ARRAY[0..NUM_SEG]OF STRING[32]; (*ID of the segment in the SVG*)
+		Status : ARRAY[0..NUM_SEG]OF tpCoreSegmentStatusTyp; (*Status Information for the segment*)
+		Count : USINT;
 	END_STRUCT;
 	tpCoreSegmentStatusTyp : 	STRUCT 
+		SegmentId : STRING[32];
 		CommunicationReady : BOOL; (*Communication ready on the segment*)
 		ReadyForPowerOn : BOOL; (*Segment is ready for power on*)
 		PowerOn : BOOL; (*Segment is powered*)

@@ -11,15 +11,15 @@
     <Task Name="TSMAlarm" Source="Source.SampleTrak.TSMAlarm.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Alarm" Source="Source.SampleTrak.ReusableSource.Alarm.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
-  <TaskClass Name="Cyclic#4" />
+  <TaskClass Name="Cyclic#4">
+    <Task Name="GlobalSetu" Source="Source.GlobalSetup.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+  </TaskClass>
   <TaskClass Name="Cyclic#5" />
   <TaskClass Name="Cyclic#6" />
   <TaskClass Name="Cyclic#7" />
   <TaskClass Name="Cyclic#8" />
-  <DataObjects>
-    <DataObject Name="McAcpSys" Source="" Memory="UserROM" Language="Binary" />
-  </DataObjects>
   <Binaries>
+    <BinaryObject Name="McAcpSys" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="McAcpDrv" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="udbdef" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="McAcpSim" Source="" Memory="UserROM" Language="Binary" />

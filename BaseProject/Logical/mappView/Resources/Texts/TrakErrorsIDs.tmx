@@ -10,16 +10,6 @@
         <seg>{=$IAT/TrakError/-1}</seg>
       </tuv>
     </tu>
-    <tu tuid="-1">
-      <tuv xml:lang="en">
-        <seg>{#::TrackMap:clickedSegmentStatus.Status.ErrorCode}</seg>
-      </tuv>
-    </tu>
-    <tu tuid="0">
-      <tuv xml:lang="en">
-        <seg>{=$IAT/TrakError/Code.{#::TrackMap:clickedSegmentStatus.Status.ErrorCode}}</seg>
-      </tuv>
-    </tu>
     <tu tuid="CheckLogBook">
       <tuv xml:lang="en">
         <seg>Check LogBook for additional information.</seg>

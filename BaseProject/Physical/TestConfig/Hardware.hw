@@ -10,7 +10,7 @@
   <Module Name="PC" Type="PC_any" Version="1.1.1.0" OrderNumber="PC">
     <Parameter ID="ConfigurationID" Value="BaseProject_TestConfig" />
     <Parameter ID="ConfigVersion" Value="0.0.2" />
-    <Parameter ID="VolatileGlobalPvSize" Value="100000" />
+    <Parameter ID="VolatileGlobalPvSize" Value="200000" />
     <Parameter ID="SystemTick" Value="800" />
     <Parameter ID="Cyclic1Duration" Value="800" />
     <Parameter ID="Cyclic1Tolerance" Value="0" />

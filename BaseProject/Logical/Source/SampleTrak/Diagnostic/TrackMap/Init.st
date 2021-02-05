@@ -2,10 +2,10 @@
 
 PROGRAM _INIT 
 	
-	paperOptions.Segments.SegmentCount := TrackDiag.SegmentCount;
+	paperOptions.Segments.SegmentCount := TrackDiag.Seg.Count;
 
 	paperOptions.Segments.Enabled := TRUE;
-	paperOptions.Segments.Segments := ADR(TrackDiag.Seg[0]);
+	paperOptions.Segments.Status := ADR(TrackDiag.Seg.Status);
 	paperOptions.Segments.SegmentStyles.SegDefault := 0;
 	paperOptions.Segments.SegmentStyles.SegError := 1;
 	paperOptions.Segments.SegmentStyles.SegOkay := 2;

@@ -231,27 +231,27 @@ struct tpCoreSegmentsOptionTyp* segOptions){
 		
 	//{"select":"#Segment","fill":1"}
 	for (i = 0; i < segOptions->SegmentCount; i++){
-		if(segOptions->Segments[i].Status.ErrorCode > 0){
+		if(segOptions->Status[i].ErrorCode > 0){
 			snprintf2(tmp,200,"{\"select\":\"#%s\",\"style\":\"fill:%d\"}",
-				segOptions->Segments[i].SegmentId, //Segment Name
+				segOptions->Status[i].SegmentId, //Segment Name
 				segOptions->SegmentStyles.SegError //Segment Style Color index
 				);
 		}
-		else if(!segOptions->Segments[i].Status.CommunicationReady || !segOptions->Segments[i].Status.ReadyForPowerOn){
+		else if(!segOptions->Status[i].CommunicationReady || !segOptions->Status[i].ReadyForPowerOn){
 			snprintf2(tmp,200,"{\"select\":\"#%s\",\"style\":\"fill:%d\"}",
-				segOptions->Segments[i].SegmentId, //Segment Name
+				segOptions->Status[i].SegmentId, //Segment Name
 				segOptions->SegmentStyles.SegWarning //Segment Style Color index
 				);
 		}
-		else if(segOptions->Segments[i].Status.PowerOn){
+		else if(segOptions->Status[i].PowerOn){
 			snprintf2(tmp,200,"{\"select\":\"#%s\",\"style\":\"fill:%d\"}",
-				segOptions->Segments[i].SegmentId, //Segment Name
+				segOptions->Status[i].SegmentId, //Segment Name
 				segOptions->SegmentStyles.SegOkay //Segment Style Color index
 				);
 		}
 		else{
 			snprintf2(tmp,200,"{\"select\":\"#%s\",\"style\":\"fill:%d\"}",
-				segOptions->Segments[i].SegmentId, //Segment Name
+				segOptions->Status[i].SegmentId, //Segment Name
 				segOptions->SegmentStyles.SegDefault //Segment Style Color index
 				);
 		}

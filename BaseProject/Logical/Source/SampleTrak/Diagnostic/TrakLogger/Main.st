@@ -21,7 +21,7 @@ PROGRAM _CYCLIC
 	MC_BR_AsmReadStatus_AcpTrak_0.Enable := TRUE;
 	MC_BR_AsmReadStatus_AcpTrak_0();
 
-	MC_BR_SegCommandError_AcpTrak_0(Segment := ADR(gSeg_A_1));
+	MC_BR_SegCommandError_AcpTrak_0(Segment := ADR(TrackDiag.Seg.McType[0]));
 	
 	IF EDGEPOS(MC_BR_AsmReadStatus_AcpTrak_0.AssemblyErrorStop) THEN
 		TrakLogger.CmdRefresh := TRUE;

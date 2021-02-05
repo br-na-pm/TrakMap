@@ -4,7 +4,7 @@ TYPE
 	DiagStatus_typ : 	STRUCT 
 		Sys : SystemStatus_typ;
 		Asm : AsmStatus_typ;
-		Seg : ARRAY[0..NUM_SEG]OF tpCoreSegmentTyp;
+		Seg : tpCoreSegmentTyp;
 		Shuttle : ShuttleStatus_typ;
 		PS : ARRAY[0..NUM_PS]OF PowerSupplyStatus_typ;
 		Hub : ARRAY[0..NUM_HUBS]OF HubStatus_typ;

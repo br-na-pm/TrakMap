@@ -2036,673 +2036,673 @@
       <Group ID="[1]">
         <Property ID="Key" Value="Cnt.1" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[0]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[0]" />
         </Selector>
       </Group>
       <Group ID="[2]">
         <Property ID="Key" Value="Cnt.2" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[1]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[1]" />
         </Selector>
       </Group>
       <Group ID="[3]">
         <Property ID="Key" Value="Cnt.7" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[2]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[2]" />
         </Selector>
       </Group>
       <Group ID="[4]">
         <Property ID="Key" Value="Cnt.2048" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[3]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[3]" />
         </Selector>
       </Group>
       <Group ID="[5]">
         <Property ID="Key" Value="Cnt.2049" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[4]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[4]" />
         </Selector>
       </Group>
       <Group ID="[6]">
         <Property ID="Key" Value="Cnt.2050" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[5]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[5]" />
         </Selector>
       </Group>
       <Group ID="[7]">
         <Property ID="Key" Value="Cnt.2051" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[6]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[6]" />
         </Selector>
       </Group>
       <Group ID="[8]">
         <Property ID="Key" Value="Cnt.2052" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[7]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[7]" />
         </Selector>
       </Group>
       <Group ID="[9]">
         <Property ID="Key" Value="Cnt.2053" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[8]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[8]" />
         </Selector>
       </Group>
       <Group ID="[10]">
         <Property ID="Key" Value="Cnt.2054" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[9]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[9]" />
         </Selector>
       </Group>
       <Group ID="[11]">
         <Property ID="Key" Value="Cnt.2055" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[10]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[10]" />
         </Selector>
       </Group>
       <Group ID="[12]">
         <Property ID="Key" Value="Cnt.2056" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[11]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[11]" />
         </Selector>
       </Group>
       <Group ID="[13]">
         <Property ID="Key" Value="Cnt.2057" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[12]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[12]" />
         </Selector>
       </Group>
       <Group ID="[14]">
         <Property ID="Key" Value="Cnt.2058" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[13]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[13]" />
         </Selector>
       </Group>
       <Group ID="[15]">
         <Property ID="Key" Value="Cnt.2060" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[14]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[14]" />
         </Selector>
       </Group>
       <Group ID="[16]">
         <Property ID="Key" Value="Cnt.2061" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[15]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[15]" />
         </Selector>
       </Group>
       <Group ID="[17]">
         <Property ID="Key" Value="Cnt.2063" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[16]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[16]" />
         </Selector>
       </Group>
       <Group ID="[18]">
         <Property ID="Key" Value="Cnt.2064" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[17]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[17]" />
         </Selector>
       </Group>
       <Group ID="[19]">
         <Property ID="Key" Value="Cnt.2066" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[18]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[18]" />
         </Selector>
       </Group>
       <Group ID="[20]">
         <Property ID="Key" Value="Cnt.2067" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[19]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[19]" />
         </Selector>
       </Group>
       <Group ID="[21]">
         <Property ID="Key" Value="Cnt.2068" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[20]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[20]" />
         </Selector>
       </Group>
       <Group ID="[22]">
         <Property ID="Key" Value="Cnt.2069" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[21]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[21]" />
         </Selector>
       </Group>
       <Group ID="[23]">
         <Property ID="Key" Value="Cnt.2070" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[22]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[22]" />
         </Selector>
       </Group>
       <Group ID="[24]">
         <Property ID="Key" Value="Cnt.2071" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[23]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[23]" />
         </Selector>
       </Group>
       <Group ID="[25]">
         <Property ID="Key" Value="Cnt.2074" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[24]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[24]" />
         </Selector>
       </Group>
       <Group ID="[26]">
         <Property ID="Key" Value="Cnt.2077" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[25]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[25]" />
         </Selector>
       </Group>
       <Group ID="[27]">
         <Property ID="Key" Value="Cnt.2080" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[26]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[26]" />
         </Selector>
       </Group>
       <Group ID="[28]">
         <Property ID="Key" Value="Cnt.2082" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[27]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[27]" />
         </Selector>
       </Group>
       <Group ID="[29]">
         <Property ID="Key" Value="Cnt.2083" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[28]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[28]" />
         </Selector>
       </Group>
       <Group ID="[30]">
         <Property ID="Key" Value="Cnt.2084" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[29]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[29]" />
         </Selector>
       </Group>
       <Group ID="[31]">
         <Property ID="Key" Value="Cnt.2085" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[30]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[30]" />
         </Selector>
       </Group>
       <Group ID="[32]">
         <Property ID="Key" Value="Cnt.2090" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[31]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[31]" />
         </Selector>
       </Group>
       <Group ID="[33]">
         <Property ID="Key" Value="Cnt.2091" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[32]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[32]" />
         </Selector>
       </Group>
       <Group ID="[34]">
         <Property ID="Key" Value="Cnt.2092" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[33]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[33]" />
         </Selector>
       </Group>
       <Group ID="[35]">
         <Property ID="Key" Value="Cnt.2093" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[34]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[34]" />
         </Selector>
       </Group>
       <Group ID="[36]">
         <Property ID="Key" Value="Cnt.2094" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[35]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[35]" />
         </Selector>
       </Group>
       <Group ID="[37]">
         <Property ID="Key" Value="Cnt.2095" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[36]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[36]" />
         </Selector>
       </Group>
       <Group ID="[38]">
         <Property ID="Key" Value="Cnt.2097" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[37]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[37]" />
         </Selector>
       </Group>
       <Group ID="[39]">
         <Property ID="Key" Value="Cnt.2098" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[38]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[38]" />
         </Selector>
       </Group>
       <Group ID="[40]">
         <Property ID="Key" Value="Cnt.2099" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[39]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[39]" />
         </Selector>
       </Group>
       <Group ID="[41]">
         <Property ID="Key" Value="Cnt.2100" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[40]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[40]" />
         </Selector>
       </Group>
       <Group ID="[42]">
         <Property ID="Key" Value="Cnt.2101" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[41]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[41]" />
         </Selector>
       </Group>
       <Group ID="[43]">
         <Property ID="Key" Value="Cnt.2102" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[42]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[42]" />
         </Selector>
       </Group>
       <Group ID="[44]">
         <Property ID="Key" Value="Cnt.2103" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[43]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[43]" />
         </Selector>
       </Group>
       <Group ID="[45]">
         <Property ID="Key" Value="Cnt.2104" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[44]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[44]" />
         </Selector>
       </Group>
       <Group ID="[46]">
         <Property ID="Key" Value="Cnt.2105" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[45]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[45]" />
         </Selector>
       </Group>
       <Group ID="[47]">
         <Property ID="Key" Value="Cnt.2106" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[46]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[46]" />
         </Selector>
       </Group>
       <Group ID="[48]">
         <Property ID="Key" Value="Cnt.2107" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[47]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[47]" />
         </Selector>
       </Group>
       <Group ID="[49]">
         <Property ID="Key" Value="Cnt.2108" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[48]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[48]" />
         </Selector>
       </Group>
       <Group ID="[50]">
         <Property ID="Key" Value="Cnt.2109" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[49]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[49]" />
         </Selector>
       </Group>
       <Group ID="[51]">
         <Property ID="Key" Value="Cnt.2110" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[50]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[50]" />
         </Selector>
       </Group>
       <Group ID="[52]">
         <Property ID="Key" Value="Cnt.2111" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[51]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[51]" />
         </Selector>
       </Group>
       <Group ID="[53]">
         <Property ID="Key" Value="Cnt.2112" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[52]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[52]" />
         </Selector>
       </Group>
       <Group ID="[54]">
         <Property ID="Key" Value="Cnt.4096" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[53]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[53]" />
         </Selector>
       </Group>
       <Group ID="[55]">
         <Property ID="Key" Value="Cnt.4097" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[54]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[54]" />
         </Selector>
       </Group>
       <Group ID="[56]">
         <Property ID="Key" Value="Cnt.4101" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[55]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[55]" />
         </Selector>
       </Group>
       <Group ID="[57]">
         <Property ID="Key" Value="Cnt.4102" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[56]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[56]" />
         </Selector>
       </Group>
       <Group ID="[58]">
         <Property ID="Key" Value="Cnt.6144" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[57]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[57]" />
         </Selector>
       </Group>
       <Group ID="[59]">
         <Property ID="Key" Value="Cnt.6165" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[58]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[58]" />
         </Selector>
       </Group>
       <Group ID="[60]">
         <Property ID="Key" Value="Cnt.6148" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[59]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[59]" />
         </Selector>
       </Group>
       <Group ID="[61]">
         <Property ID="Key" Value="Cnt.6149" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[60]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[60]" />
         </Selector>
       </Group>
       <Group ID="[62]">
         <Property ID="Key" Value="Cnt.6156" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[61]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[61]" />
         </Selector>
       </Group>
       <Group ID="[63]">
         <Property ID="Key" Value="Cnt.6157" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[62]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[62]" />
         </Selector>
       </Group>
       <Group ID="[64]">
         <Property ID="Key" Value="Cnt.6158" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[63]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[63]" />
         </Selector>
       </Group>
       <Group ID="[65]">
         <Property ID="Key" Value="Cnt.12288" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[64]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[64]" />
         </Selector>
       </Group>
       <Group ID="[66]">
         <Property ID="Key" Value="Cnt.12291" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[65]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[65]" />
         </Selector>
       </Group>
       <Group ID="[67]">
         <Property ID="Key" Value="Cnt.12293" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[66]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[66]" />
         </Selector>
       </Group>
       <Group ID="[68]">
         <Property ID="Key" Value="Cnt.12294" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[67]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[67]" />
         </Selector>
       </Group>
       <Group ID="[69]">
         <Property ID="Key" Value="Cnt.12295" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[68]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[68]" />
         </Selector>
       </Group>
       <Group ID="[70]">
         <Property ID="Key" Value="Cnt.12296" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[69]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[69]" />
         </Selector>
       </Group>
       <Group ID="[71]">
         <Property ID="Key" Value="Cnt.12297" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[70]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[70]" />
         </Selector>
       </Group>
       <Group ID="[72]">
         <Property ID="Key" Value="Cnt.12298" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[71]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[71]" />
         </Selector>
       </Group>
       <Group ID="[73]">
         <Property ID="Key" Value="Cnt.12299" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[72]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[72]" />
         </Selector>
       </Group>
       <Group ID="[74]">
         <Property ID="Key" Value="Cnt.12300" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[73]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[73]" />
         </Selector>
       </Group>
       <Group ID="[75]">
         <Property ID="Key" Value="Cnt.12301" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[74]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[74]" />
         </Selector>
       </Group>
       <Group ID="[76]">
         <Property ID="Key" Value="Cnt.12302" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[75]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[75]" />
         </Selector>
       </Group>
       <Group ID="[77]">
         <Property ID="Key" Value="Cnt.12303" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[76]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[76]" />
         </Selector>
       </Group>
       <Group ID="[78]">
         <Property ID="Key" Value="Cnt.12304" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[77]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[77]" />
         </Selector>
       </Group>
       <Group ID="[79]">
         <Property ID="Key" Value="Cnt.12305" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[78]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[78]" />
         </Selector>
       </Group>
       <Group ID="[80]">
         <Property ID="Key" Value="Cnt.12307" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[79]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[79]" />
         </Selector>
       </Group>
       <Group ID="[81]">
         <Property ID="Key" Value="Cnt.12312" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[80]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[80]" />
         </Selector>
       </Group>
       <Group ID="[82]">
         <Property ID="Key" Value="Cnt.12313" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[81]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[81]" />
         </Selector>
       </Group>
       <Group ID="[83]">
         <Property ID="Key" Value="Cnt.12314" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[82]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[82]" />
         </Selector>
       </Group>
       <Group ID="[84]">
         <Property ID="Key" Value="Cnt.12315" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[83]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[83]" />
         </Selector>
       </Group>
       <Group ID="[85]">
         <Property ID="Key" Value="Cnt.12316" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[84]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[84]" />
         </Selector>
       </Group>
       <Group ID="[86]">
         <Property ID="Key" Value="Cnt.12317" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[85]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[85]" />
         </Selector>
       </Group>
       <Group ID="[87]">
         <Property ID="Key" Value="Cnt.12320" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[86]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[86]" />
         </Selector>
       </Group>
       <Group ID="[88]">
         <Property ID="Key" Value="Cnt.12322" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[87]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[87]" />
         </Selector>
       </Group>
       <Group ID="[89]">
         <Property ID="Key" Value="Cnt.12323" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[88]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[88]" />
         </Selector>
       </Group>
       <Group ID="[90]">
         <Property ID="Key" Value="Cnt.12328" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[89]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[89]" />
         </Selector>
       </Group>
       <Group ID="[91]">
         <Property ID="Key" Value="Cnt.12330" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[90]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[90]" />
         </Selector>
       </Group>
       <Group ID="[92]">
         <Property ID="Key" Value="Cnt.12331" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[91]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[91]" />
         </Selector>
       </Group>
       <Group ID="[93]">
         <Property ID="Key" Value="Cnt.12333" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[92]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[92]" />
         </Selector>
       </Group>
       <Group ID="[94]">
         <Property ID="Key" Value="Cnt.12334" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[93]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[93]" />
         </Selector>
       </Group>
       <Group ID="[95]">
         <Property ID="Key" Value="Cnt.12335" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[94]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[94]" />
         </Selector>
       </Group>
       <Group ID="[96]">
         <Property ID="Key" Value="Cnt.12336" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[95]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[95]" />
         </Selector>
       </Group>
       <Group ID="[97]">
         <Property ID="Key" Value="Cnt.12337" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[96]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[96]" />
         </Selector>
       </Group>
       <Group ID="[98]">
         <Property ID="Key" Value="Cnt.12338" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[97]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[97]" />
         </Selector>
       </Group>
       <Group ID="[99]">
         <Property ID="Key" Value="Cnt.12340" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[98]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[98]" />
         </Selector>
       </Group>
       <Group ID="[100]">
         <Property ID="Key" Value="Cnt.12341" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[99]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[99]" />
         </Selector>
       </Group>
       <Group ID="[101]">
         <Property ID="Key" Value="Cnt.12342" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[100]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[100]" />
         </Selector>
       </Group>
       <Group ID="[102]">
         <Property ID="Key" Value="Cnt.12343" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[101]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[101]" />
         </Selector>
       </Group>
       <Group ID="[103]">
         <Property ID="Key" Value="Cnt.12344" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[102]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[102]" />
         </Selector>
       </Group>
       <Group ID="[104]">
         <Property ID="Key" Value="Cnt.12345" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[103]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[103]" />
         </Selector>
       </Group>
       <Group ID="[105]">
         <Property ID="Key" Value="Cnt.12346" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[104]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[104]" />
         </Selector>
       </Group>
       <Group ID="[106]">
         <Property ID="Key" Value="Cnt.12347" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[105]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[105]" />
         </Selector>
       </Group>
       <Group ID="[107]">
         <Property ID="Key" Value="Cnt.12348" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[106]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[106]" />
         </Selector>
       </Group>
       <Group ID="[108]">
         <Property ID="Key" Value="Cnt.4007" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[107]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[107]" />
         </Selector>
       </Group>
       <Group ID="[109]">
         <Property ID="Key" Value="Cnt.7230" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[108]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[108]" />
         </Selector>
       </Group>
       <Group ID="[110]">
         <Property ID="Key" Value="Cnt.4005" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[109]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[109]" />
         </Selector>
       </Group>
       <Group ID="[111]">
         <Property ID="Key" Value="Cnt.4098" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[110]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[110]" />
         </Selector>
       </Group>
       <Group ID="[112]">
         <Property ID="Key" Value="Cnt.9106" />
         <Selector ID="Value">
-          <Property ID="PV" Value="::TrakLogger:AlarmCount[111]" />
+          <Property ID="PV" Value="Diag::TrakLogger:AlarmCount[111]" />
         </Selector>
       </Group>
     </Group>

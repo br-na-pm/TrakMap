@@ -1,0 +1,6 @@
+VAR
+	gSegmentSetup : tpCoreSegmentTyp;
+END_VAR
+VAR CONSTANT
+	NUM_SEG : USINT := 100;
+END_VAR

@@ -7,7 +7,7 @@
 		<Target xsi:type="brease" contentRefId="content_seg_detail" widgetRefId="SegmentStatus1" attribute="statusStructure" />
 	</Binding>
 	<Binding mode="oneWay">
-		<Source xsi:type="opcUa" refId="NS6|String|Diag::TrackMap:clickedSegmentStatus.Status.ErrorCode" attribute="value" />
+		<Source xsi:type="opcUa" refId="NS6|String|Diag::TrackMap:clickedSegmentStatus.ErrorCode" attribute="value" />
 		<Target xsi:type="snippet" refId="SnippetSegError" attribute="value" />
 	</Binding>
 	<Binding mode="oneWay">

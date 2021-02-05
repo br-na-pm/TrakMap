@@ -7,7 +7,11 @@ PROGRAM _INIT
 	ModuleName := 'DiagModule';
 	
 	gRecipeXml_DiagModule;
+
+
 	
+	
+		
 //	#ifdef ASSEMBLY_STANDARD
 //	(*All segment references must be included in the following segment array*)
 //	aSegName[0] := gSeg_A_1; 		ErroredSegments[0].SegName := 'gSeg_A_1';
@@ -43,21 +47,4 @@ PROGRAM _INIT
 //		gSegTraceIf.Pars.SegmentCount := 12;
 //	#endif	
 	
-	#ifdef ASSEMBLY_STANDARD
-	(*All segment references must be included in the following segment array*)
-		TrackDiag.Seg[0].SegmentId := 'gSeg_A_1'; 	TrackDiag.Seg[0 ].SegmentLink := gSeg_A_1 ;
-		TrackDiag.Seg[1].SegmentId := 'gSeg_A_2';	TrackDiag.Seg[1 ].SegmentLink := gSeg_A_2 ;
-		TrackDiag.Seg[2].SegmentId := 'gSeg_A_3'; 	TrackDiag.Seg[2 ].SegmentLink := gSeg_A_3 ;
-		TrackDiag.Seg[3].SegmentId := 'gSeg_A_4';	TrackDiag.Seg[3 ].SegmentLink := gSeg_A_4 ;
-		TrackDiag.Seg[4].SegmentId := 'gSeg_A_5';	TrackDiag.Seg[4 ].SegmentLink := gSeg_A_5 ;
-		TrackDiag.Seg[5].SegmentId := 'gSeg_A_6';	TrackDiag.Seg[5 ].SegmentLink := gSeg_A_6 ;
-		TrackDiag.Seg[6].SegmentId := 'gSeg_A_7';	TrackDiag.Seg[6 ].SegmentLink := gSeg_A_7 ;
-		TrackDiag.Seg[7].SegmentId := 'gSeg_A_8';	TrackDiag.Seg[7 ].SegmentLink := gSeg_A_8 ;
-		TrackDiag.Seg[8].SegmentId := 'gSeg_A_9';	TrackDiag.Seg[8 ].SegmentLink := gSeg_A_9 ;
-		TrackDiag.Seg[9].SegmentId := 'gSeg_A_10';	TrackDiag.Seg[9 ].SegmentLink := gSeg_A_10;
-		TrackDiag.Seg[10].SegmentId := 'gSeg_A_11';	TrackDiag.Seg[10].SegmentLink := gSeg_A_11;
-		TrackDiag.Seg[11].SegmentId := 'gSeg_A_12';	TrackDiag.Seg[11].SegmentLink := gSeg_A_12;
-		
-		TrackDiag.SegmentCount := 12;
-	#endif
 END_PROGRAM

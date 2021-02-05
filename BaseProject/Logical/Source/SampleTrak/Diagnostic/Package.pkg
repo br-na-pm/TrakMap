@@ -9,10 +9,10 @@
     <Object Type="Program" Language="IEC">TrackMap</Object>
     <Object Type="Program" Language="IEC" Description="trak support: motion logger filter">TrakLogger</Object>
     <Object Type="Program" Language="IEC">Logbook</Object>
+    <Object Type="Program" Language="IEC">DiagAlarm</Object>
     <Object Type="File">DiagInfo.tmx</Object>
     <Object Type="File">DiagWarning.tmx</Object>
     <Object Type="File">DiagAlarm.tmx</Object>
     <Object Type="File">DiagError.tmx</Object>
-    <Object Type="Program" Language="IEC">DiagAlarm</Object>
   </Objects>
 </Package>
