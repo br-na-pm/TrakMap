@@ -4,9 +4,6 @@ TYPE
 	tpCoreInternalTyp : 	STRUCT  (*Internal Datatype*)
 		TypeID : UDINT; (*TypeID to help with handle application*)
 		State : USINT; (*State of execution*)
-		Axes : ARRAY[0..tpMAX_SHUTLE_ARRAY]OF tpCoreAxisLookupTyp; (*Axis Lookup table based on the current Shuttle Index*)
-		Fbs : tpCoreFbTyps; (*Internal Function blocks*)
-		ShCount : USINT; (*Shuttle Count*)
 	END_STRUCT;
 	tpCoreViewBoxCfgTyp : 	STRUCT  (*Attributes of the SVG's viewbox*)
 		MinX : REAL; (*Minimum x position*)
@@ -18,8 +15,6 @@ TYPE
 		( (*State of execution*)
 		tpCORE_OFF, (*Waiting for enable command*)
 		tpCORE_INIT, (*Initialization state*)
-		tpCORE_GET_SH, (*Get the shuttle in the assembly*)
-		tpCORE_GET_NEXT, (*Set the next command*)
 		tpCORE_RUNNING, (*Running state*)
 		tpCORE_RESET, (*Resetting state*)
 		tpCORE_ERROR (*Error state*)
@@ -35,9 +30,6 @@ TYPE
 		ContentLength : UDINT; (*String Length of SVG Content string*)
 		TransformLength : UDINT; (*String Length of SVG Transform string*)
 	END_STRUCT;
-	tpCoreFbTyps : 	STRUCT  (*Internal Function blocks*)
-		AsmGetShuttle : MC_BR_AsmGetShuttle_AcpTrak;
-	END_STRUCT;
 	tpCoreAxisLookupTyp : 	STRUCT  (*Lookup table datatype*)
 		Present : BOOL; (*Axis is present and a valid reference exists*)
 		Axis : McAxisType; (*Axis information*)
@@ -45,17 +37,17 @@ TYPE
 	tpCoreOptionsTyp : 	STRUCT  (*Options for Core Function Block*)
 		Color : tpCoreColorOptionTyp; (*Shuttle Color Option*)
 		Shuttle : tpCoreShuttleOptionTyp; (*Shuttle Option*)
-		Segments : tpCoreSegmentsOptionTyp; (*Segment Status Option*)
 	END_STRUCT;
 	tpCoreShuttleOptionTyp : 	STRUCT  (*Shuttle Option*)
 		Enabled : BOOL; (*Option is enabled*)
 	END_STRUCT;
-	tpCoreSegmentsOptionTyp : 	STRUCT  (*Segments Option*)
-		Enabled : BOOL; (*Option is enabled*)
-		Segments : REFERENCE TO tpCoreSegmentTyp; (*Address of the Segments Array*)
-		SegmentCount : USINT; (*Count of the segments in the layout*)
-		SegmentStyles : tpCoreSegmentStylesTyp;
-	END_STRUCT;
+	tpSegmentStyleEnumeration : 
+		( (*Style enumeration for the track map strings*)
+		segStyleDefault := 0, (*Segment Default Style*)
+		segStyleError := 1, (*Segment is in error style*)
+		segStyleOkay := 2, (*Segment is okay style*)
+		segStyleWarning := 3 (*Segment is in a warning state style*)
+		);
 	tpCoreColorOptionTyp : 	STRUCT  (*Shuttle Color Option*)
 		Enabled : BOOL; (*Option is enabled*)
 		Offsets : tpCoreColorOffsetsTyp; (*Userdata color offsets*)
@@ -82,12 +74,6 @@ TYPE
 		ErrorCode : UINT; (*Error code of the segment*)
 		DCBus : SegStatusDCBus_typ;
 		Temp : SegStatusTemp_typ;
-	END_STRUCT;
-	tpCoreSegmentStylesTyp : 	STRUCT  (*Sytles to use in the SVG for the segment's status*)
-		SegOkay : USINT; (*Segment is okay style*)
-		SegError : USINT; (*Segment is in error style*)
-		SegDefault : USINT; (*Segment default style*)
-		SegWarning : USINT; (*Segment is in a warning state style*)
 	END_STRUCT;
 END_TYPE
 

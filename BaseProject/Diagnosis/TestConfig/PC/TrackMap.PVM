@@ -1,0 +1,11 @@
+WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=TrackMap 
+Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=100 Scope=60 Force=60 Index=5 ASCIIString=0
+                                    name                                     type force                                                            value level type len format place expand specs
+                               paperCore                                   tpCore    0 "                                                               *"    0   24    1    0    1    1         
+                                   Error                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                  Active                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
+                            SvgTransform                            STRING[10000]    0 "'[{"select":"#gSeg_A_1","style":"fill:0"},{"select":"#gSeg_A_2","style":"fill:0"},{"s"    1    9 10001    1    0    0         
+                              SvgContent                            STRING[10000]    0 "     '<svg viewBox="0.000000 0.000000 0.000000 0.000000"></svg>'"    1    9 10001    1    0    0         
+                              StrLengths                      tpCoreSvgLengthsTyp    0 "                                                               *"    1   24    1    0    0    1         
+                           ContentLength                                    UDINT    0 "                                                              57"    2    7    1   10    0    0         
+                         TransformLength                                    UDINT    0 "                                                             484"    2    7    1   10    0    0         

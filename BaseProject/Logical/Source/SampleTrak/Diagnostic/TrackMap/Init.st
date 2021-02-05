@@ -17,16 +17,12 @@ PROGRAM _INIT
 		TrackDiag.Seg[10].SegmentId := 'gSeg_A_11';
 		TrackDiag.Seg[11].SegmentId := 'gSeg_A_12';
 		
-		paperOptions.Segments.SegmentCount := 12;
+		paperCore.SegmentCount := 12;
 	#endif
     
 	
-	paperOptions.Segments.Enabled := TRUE;
-	paperOptions.Segments.Segments := ADR(TrackDiag.Seg[0]);
-	paperOptions.Segments.SegmentStyles.SegDefault := 0;
-	paperOptions.Segments.SegmentStyles.SegError := 1;
-	paperOptions.Segments.SegmentStyles.SegOkay := 2;
-	paperOptions.Segments.SegmentStyles.SegWarning := 3;
+	
+	paperCore.Segments := ADR(TrackDiag.Seg[0]);
 	
 	paperCore.Options := ADR(paperOptions);
 	

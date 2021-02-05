@@ -5,9 +5,10 @@
 <Source xsi:type="opcUa" refId="::TrackMap:paperCore.SvgTransform" attribute="value" />
 <Target xsi:type="brease" contentRefId="trackMapContent" widgetRefId="trackMap" attribute="svgContent" />
 </Binding>
+
 <Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::TrackMap:paperCore.SvgContent" attribute="value" />
-<Target xsi:type="brease" contentRefId="trackMapContent" widgetRefId="trackMap" attribute="svgFilePath" />
+<Source xsi:type="opcUa" refId="::TrackMap:paperCore.SvgTransform" attribute="value" />
+<Target xsi:type="brease" contentRefId="trackMapContent" widgetRefId="trackMap" attribute="transform" />
 </Binding>
 </Bindings>
 </BindingsSet>

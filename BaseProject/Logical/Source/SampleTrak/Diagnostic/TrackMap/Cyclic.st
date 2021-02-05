@@ -10,10 +10,8 @@ PROGRAM _CYCLIC
 		
 		IF TrackDiag.Seg[i].SegmentId = DELETE(clickId,1,1) THEN // clickId contains a leading # which needs to be removed 
 			clickedSegmentStatus := TrackDiag.Seg[i];
-			
 			EXIT;
 		END_IF	
-
 	END_FOR	
 		
 	

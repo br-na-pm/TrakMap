@@ -3,8 +3,8 @@ FUNCTION_BLOCK tpCore (*Core Track Paper Function Block*)
 	VAR_INPUT
 		Enable : BOOL; (*Enables the core functionality*)
 		ErrorRest : BOOL; (*Reset any present errors*)
-		Assembly : REFERENCE TO McAssemblyType; (*Assembly reference to monitor*)
-		ShuttleMon : REFERENCE TO McAcpTrakAssemblyMonData; (*Shuttle Monitor structure for the assembly*)
+		Segments : REFERENCE TO tpCoreSegmentTyp; (*Address of the segment list for the system*)
+		SegmentCount : USINT; (*Count of the segments in the system*)
 		ViewBoxCfg : tpCoreViewBoxCfgTyp; (*View box configuration for the SVG*)
 		Options : REFERENCE TO tpCoreOptionsTyp; (*Options for the core fb*)
 	END_VAR
@@ -43,4 +43,7 @@ FUNCTION_BLOCK tpShuttleControl (*Shuttle Control Function Block*)
 	VAR
 		Internal : tpShuttleControlInternalTyp; (*Internal data type*)
 	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK tpShuttleFeature (*Shuttle Feature Function Block*)
 END_FUNCTION_BLOCK
