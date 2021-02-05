@@ -3,8 +3,6 @@
 <Package SubType="AreaContentsPackage" PackageType="AreaContentsPackage" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="File">trackMain.content</Object>
-    <Object Type="File">trackMap.content</Object>
     <Object Type="File">trackAlarm.content</Object>
-    <Object Type="File">Logbook.content</Object>
   </Objects>
 </Package>

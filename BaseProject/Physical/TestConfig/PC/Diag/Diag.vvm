@@ -1,0 +1,17 @@
+VAR_CONFIG
+	Cyclic#1.Diag::gRecipeXml_DiagModule AT %Q.Diag::DiagInterface.RecipeCore; (*Insert your comment here...*)
+	Cyclic#1.Diag::gAuditTrail_DiagModule AT %Q.Diag::DiagInterface.AuditCore; (*Insert your comment here...*)
+	Cyclic#1.Diag::gAlarmXCore_DiagModule AT %Q.Diag::DiagInterface.AlarmCore; (*Insert your comment here...*)
+	::gSeg_A_1 AT %Q.Diag::TrackDiag.Seg[0].SegmentLink; (*Insert your comment here...*)
+	::gSeg_A_2 AT %Q.Diag::TrackDiag.Seg[1].SegmentLink; (*Insert your comment here...*)
+	::gSeg_A_3 AT %Q.Diag::TrackDiag.Seg[2].SegmentLink; (*Insert your comment here...*)
+	::gSeg_A_4 AT %Q.Diag::TrackDiag.Seg[3].SegmentLink; (*Insert your comment here...*)
+	::gSeg_A_5 AT %Q.Diag::TrackDiag.Seg[4].SegmentLink; (*Insert your comment here...*)
+	::gSeg_A_6 AT %Q.Diag::TrackDiag.Seg[5].SegmentLink; (*Insert your comment here...*)
+	::gSeg_A_7 AT %Q.Diag::TrackDiag.Seg[6].SegmentLink; (*Insert your comment here...*)
+	::gSeg_A_8 AT %Q.Diag::TrackDiag.Seg[7].SegmentLink; (*Insert your comment here...*)
+	::gSeg_A_9 AT %Q.Diag::TrackDiag.Seg[8].SegmentLink; (*Insert your comment here...*)
+	::gSeg_A_10 AT %Q.Diag::TrackDiag.Seg[9].SegmentLink; (*Insert your comment here...*)
+	::gSeg_A_11 AT %Q.Diag::TrackDiag.Seg[10].SegmentLink; (*Insert your comment here...*)
+	::gSeg_A_12 AT %Q.Diag::TrackDiag.Seg[11].SegmentLink; (*Insert your comment here...*)
+END_VAR

@@ -10,5 +10,6 @@
     <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EM2</Object>
     <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EM3</Object>
     <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EMx</Object>
+    <Object Type="Package">Diag</Object>
   </Objects>
 </Package>

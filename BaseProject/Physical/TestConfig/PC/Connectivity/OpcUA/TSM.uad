@@ -29,37 +29,7 @@
       <GlobalVariables Name="Global Variables">
         <Variable Name="MachineLastRevisionDate" />
         <Variable Name="MachineSoftwareVersion" />
-        <Variable Name="gLogbook" AutomaticEnable="True">
-          <Variable Name="DAT">
-            <Variable Name="CntSeverity" EnableArrayElements="True" />
-            <Variable Name="CntLogbook" EnableArrayElements="True" />
-            <Variable Name="Entries">
-              <Variable Name="EventID" EnableArrayElements="True" />
-              <Variable Name="Timestamp" EnableArrayElements="True" />
-              <Variable Name="DTsec" EnableArrayElements="True" />
-              <Variable Name="DTmsec" EnableArrayElements="True" />
-              <Variable Name="Severity" EnableArrayElements="True" />
-              <Variable Name="Code" EnableArrayElements="True" />
-              <Variable Name="FacilityCode" EnableArrayElements="True" />
-              <Variable Name="LogbookName" EnableArrayElements="True" />
-              <Variable Name="ErrorNo" EnableArrayElements="True" />
-              <Variable Name="ErrorText" EnableArrayElements="True" />
-            </Variable>
-          </Variable>
-          <Variable Name="PAR">
-            <Variable Name="FilterSeverity" EnableArrayElements="True" />
-            <Variable Name="FilterLogbook" EnableArrayElements="True" />
-          </Variable>
-        </Variable>
         <Variable Name="gTrakSystem" AutomaticEnable="True" />
-        <Variable Name="gSegTraceIf" AutomaticEnable="True">
-          <Variable Name="Pars">
-            <Variable Name="ParIds" EnableArrayElements="True" />
-          </Variable>
-          <Variable Name="Status">
-            <Variable Name="Failures" EnableArrayElements="True" />
-          </Variable>
-        </Variable>
       </GlobalVariables>
       <Task Name="TSMAlarm">
         <Variable Name="FilterConfiguration" />
@@ -67,14 +37,6 @@
         <Variable Name="HistorySort" />
         <Variable Name="SortConfiguration" />
         <Variable Name="TriggerTestAlarm" />
-      </Task>
-      <Task Name="TrackMap">
-        <Variable Name="clickedSegmentStatus" AutomaticEnable="True" />
-        <Variable Name="paperCore">
-          <Variable Name="SvgTransform" />
-          <Variable Name="SvgContent" />
-        </Variable>
-        <Variable Name="clickId" />
       </Task>
     </Module>
   </DefaultView>

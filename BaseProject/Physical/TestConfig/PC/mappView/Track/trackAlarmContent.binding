@@ -4,12 +4,12 @@
 	
 		
 	<Binding mode="twoWay">
-		<Source xsi:type="opcUa" refId="NS9|String|TrackMod::AsmAlarm:SortConfiguration" attribute="value" />
+		<Source xsi:type="opcUa" refId="NS10|String|TrackMod::AsmAlarm:SortConfiguration" attribute="value" />
 		<Target xsi:type="brease" contentRefId="trackAlarmContent" widgetRefId="AlarmList1" attribute="sortConfiguration" />
 	</Binding>
 		
 	<Binding mode="twoWay">
-		<Source xsi:type="opcUa" refId="NS9|String|TrackMod::AsmAlarm:FilterConfiguration" attribute="value" />
+		<Source xsi:type="opcUa" refId="NS10|String|TrackMod::AsmAlarm:FilterConfiguration" attribute="value" />
 		<Target xsi:type="brease" contentRefId="trackAlarmContent" widgetRefId="AlarmList1" attribute="filterConfiguration" />
 	</Binding>
 

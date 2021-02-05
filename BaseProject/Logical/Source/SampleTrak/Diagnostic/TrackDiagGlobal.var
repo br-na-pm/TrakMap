@@ -27,3 +27,8 @@ END_VAR
 VAR
 	gSegTraceIf : segTraceIfTyp; (*Segment Diagnostic Trace interface*)
 END_VAR
+(*Module definitions*)
+VAR
+	DiagInterface : ModuleInterfaceType;
+	ModuleName : STRING[40];
+END_VAR

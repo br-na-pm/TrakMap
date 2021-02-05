@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="7" ArVersion="C4.90">
+  <Aliases>
+    <ACLAliases />
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases />
+  </Aliases>
+  <DefaultView>
+    <Module Name="Diag">
+      <GlobalVariables Name="Global Variables">
+        <Variable Name="gLogbook">
+          <Variable Name="CMD" AutomaticEnable="True" />
+          <Variable Name="PAR" AutomaticEnable="True">
+            <Variable Name="FilterSeverity" EnableArrayElements="True" />
+            <Variable Name="FilterLogbook" EnableArrayElements="True" />
+          </Variable>
+          <Variable Name="DAT" AutomaticEnable="True">
+            <Variable Name="CntSeverity" EnableArrayElements="True" />
+            <Variable Name="CntLogbook" EnableArrayElements="True" />
+            <Variable Name="Entries">
+              <Variable Name="EventID" EnableArrayElements="True" />
+              <Variable Name="Timestamp" EnableArrayElements="True" />
+              <Variable Name="DTsec" EnableArrayElements="True" />
+              <Variable Name="DTmsec" EnableArrayElements="True" />
+              <Variable Name="Severity" EnableArrayElements="True" />
+              <Variable Name="Code" EnableArrayElements="True" />
+              <Variable Name="FacilityCode" EnableArrayElements="True" />
+              <Variable Name="LogbookName" EnableArrayElements="True" />
+              <Variable Name="ErrorNo" EnableArrayElements="True" />
+              <Variable Name="ErrorText" EnableArrayElements="True" />
+            </Variable>
+          </Variable>
+          <Variable Name="ERR" AutomaticEnable="True" />
+          <Variable Name="Status" />
+          <Variable Name="StatusText" />
+        </Variable>
+        <Variable Name="gSegTraceIf">
+          <Variable Name="Status">
+            <Variable Name="FailCount" />
+            <Variable Name="Failures" EnableArrayElements="True" />
+          </Variable>
+          <Variable Name="Cmds">
+            <Variable Name="Export" />
+            <Variable Name="Capture" />
+          </Variable>
+          <Variable Name="Pars">
+            <Variable Name="PS_UDC_Value" />
+            <Variable Name="PowerFailDetectRatio" />
+            <Variable Name="BalancerCurrentLimit" />
+          </Variable>
+        </Variable>
+      </GlobalVariables>
+      <Task Name="TrackMap">
+        <Variable Name="clickedSegmentStatus" AutomaticEnable="True" />
+        <Variable Name="clickId" />
+        <Variable Name="paperCore">
+          <Variable Name="SvgTransform" />
+          <Variable Name="SvgContent" />
+        </Variable>
+      </Task>
+      <Task Name="DiagAlarm">
+        <Variable Name="FilterConfiguration" />
+        <Variable Name="HistoryFilter" />
+        <Variable Name="HistorySort" />
+        <Variable Name="SortConfiguration" />
+        <Variable Name="TriggerTestAlarm" />
+        <Variable Name="TriggerTestInformation" />
+        <Variable Name="TriggerTestWarning" />
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>

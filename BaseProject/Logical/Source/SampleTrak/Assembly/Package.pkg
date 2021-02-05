@@ -11,6 +11,5 @@
     <Object Type="Package">SubModule1</Object>
     <Object Type="File">AsmWarning.tmx</Object>
     <Object Type="File">AsmAlarm.tmx</Object>
-    <Object Type="File">AsmError.tmx</Object>
   </Objects>
 </Package>

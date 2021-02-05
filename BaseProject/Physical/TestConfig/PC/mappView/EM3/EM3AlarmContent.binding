@@ -7,11 +7,11 @@
 			<Target xsi:type="brease" contentRefId="EM3AlarmContent" widgetRefId="AlarmList1" attribute="mpLink" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="NS7|String|EM3::AsGlobalPV:SortConfiguration" attribute="value" />
+			<Source xsi:type="opcUa" refId="NS8|String|EM3::AsGlobalPV:SortConfiguration" attribute="value" />
 			<Target xsi:type="brease" contentRefId="EM3AlarmContent" widgetRefId="AlarmList1" attribute="sortConfiguration" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="NS7|String|EM3::AsGlobalPV:FilterConfiguration" attribute="value" />
+			<Source xsi:type="opcUa" refId="NS8|String|EM3::AsGlobalPV:FilterConfiguration" attribute="value" />
 			<Target xsi:type="brease" contentRefId="EM3AlarmContent" widgetRefId="AlarmList1" attribute="filterConfiguration" />
 		</Binding>
 	</Bindings>

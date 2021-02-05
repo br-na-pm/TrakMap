@@ -7,9 +7,6 @@ PROGRAM _INIT
 	AsmReadStatus.Assembly := ADR(gSampleTrak);
 	AsmReadInfo.Assembly 	:= ADR(gSampleTrak);
 	
-
-
-	
 	TempRefreshTime := T#120s;
 	TempRefreshTON.PT := TempRefreshTime;
 	
@@ -310,7 +307,7 @@ PROGRAM _CYCLIC
 	actCheckTemp;
 	actSegmentReset;
 	
-	fbAuditTrail(MpLink := ADR(gAuditTrail), Enable := TRUE, Language := ADR('en'), DeviceName := ADR('User'));
+	fbAuditTrail(MpLink := ADR(gAuditTrail_DiagModule), Enable := TRUE, Language := ADR('en'), DeviceName := ADR('User'));
 	
 END_PROGRAM
 

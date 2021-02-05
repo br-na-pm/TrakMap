@@ -3,6 +3,10 @@
 PROGRAM _INIT
 	(* Insert code here *)
 	
+		(* Insert code here *)
+	ModuleName := 'DiagModule';
+	
+	gRecipeXml_DiagModule;
 	
 //	#ifdef ASSEMBLY_STANDARD
 //	(*All segment references must be included in the following segment array*)

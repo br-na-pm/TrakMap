@@ -2,7 +2,6 @@
 <?AutomationStudio FileVersion="4.9"?>
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Cyclic#1">
-    <Task Name="DiagConfig" Source="Source.SampleTrak.Diagnostic.DiagConfig.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="TSM" Source="Source.SampleTrak.TSM.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2">
@@ -16,13 +15,7 @@
   <TaskClass Name="Cyclic#5" />
   <TaskClass Name="Cyclic#6" />
   <TaskClass Name="Cyclic#7" />
-  <TaskClass Name="Cyclic#8">
-    <Task Name="Logbook" Source="Source.SampleTrak.Diagnostic.Logbook.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="TrackMap" Source="Source.SampleTrak.Diagnostic.TrackMap.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="TrakLogger" Source="Source.SampleTrak.Diagnostic.TrakLogger.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="TrackDiag" Source="Source.SampleTrak.Diagnostic.TrackDiag.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="SegTrace" Source="Source.SampleTrak.Diagnostic.SegTrace.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-  </TaskClass>
+  <TaskClass Name="Cyclic#8" />
   <DataObjects>
     <DataObject Name="McAcpSys" Source="" Memory="UserROM" Language="Binary" />
   </DataObjects>
