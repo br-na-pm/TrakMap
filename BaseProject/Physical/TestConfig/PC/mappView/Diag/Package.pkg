@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">logbookContent.binding</Object>
+    <Object Type="File">logbookContent.eventbinding</Object>
+    <Object Type="File">trackMapContent.binding</Object>
+    <Object Type="File">content_trackmap.eventbinding</Object>
+    <Object Type="File">content_seg_detail.binding</Object>
+    <Object Type="File">diagAlarmContent.binding</Object>
+    <Object Type="File">diagAlarmContent.eventbinding</Object>
+  </Objects>
+</Package>

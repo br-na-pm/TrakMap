@@ -8,32 +8,49 @@
 		<!--<Navigation refId="" />-->
 	</Navigations>  
 	<BindingsSets>
+		<!--General-->
 		<BindingsSet refId="alarmMainContent_binding" />
 		<BindingsSet refId="alarmHistoryContent_binding" />
 		<BindingsSet refId="headerContent_binding" />
+		<!--Track ASM-->
 		<BindingsSet refId="trackGeneral_binding" />
 		<BindingsSet refId="trackContent_binding" />
-		<BindingsSet refId="trackLogbookContent_binding" />
-		<BindingsSet refId="trackMapContent_binding" />		
 		<BindingsSet refId="trackAlarmContent_binding" />
+		<!--EM2-->
 		<BindingsSet refId="EM2AlarmContent_binding" />
+		<!--EM3-->
 		<BindingsSet refId="EM3AlarmContent_binding" />
-		<BindingsSet refId="EMxAlarmContent_binding" />		
+		<!--EMx-->
+		<BindingsSet refId="EMxAlarmContent_binding" />	
+		<!--Diag-->	
+		<BindingsSet refId="trackLogbookContent_binding" />
+		<BindingsSet refId="trackMapContent_binding" />
+		<BindingsSet refId="content_alarm_details_binding" />
+		<BindingsSet refId="content_seg_detail_binding" />
+		<BindingsSet refId="diagAlarmContent_binding" />
 	
 	</BindingsSets>
 	<EventBindingsSets>
-		<EventBindingsSet refId="mainAlarmContentBinding" />
-		<EventBindingsSet refId="trackAlarmContentBinding" />
-		<EventBindingsSet refId="EM2AlarmContentBinding" />
-		<EventBindingsSet refId="EM3AlarmContentBinding" />
-		<EventBindingsSet refId="EMxAlarmContentBinding" />
+		<!--General-->
 		<EventBindingsSet refId="loadContentBinding" />	
 		<EventBindingsSet refId="headerContent_eventbinding" />
+		<EventBindingsSet refId="mainAlarmContentBinding" />
+		<!--Track ASM-->
+		<EventBindingsSet refId="trackAlarmContentBinding" />
+		<!--EM2-->
+		<EventBindingsSet refId="EM2AlarmContentBinding" />
+		<!--EM3-->
+		<EventBindingsSet refId="EM3AlarmContentBinding" />
+		<!--EMx-->
+		<EventBindingsSet refId="EMxAlarmContentBinding" />
+		<!--Diag-->
 		<EventBindingsSet refId="trackLogbookContent_eventbinding" />
-		<!--<EventBindingsSet refId="laserLogContent_eventbinding" />-->
+		<EventBindingsSet refId="content_trackmap_eventbinding" />
+		<EventBindingsSet refId="diagAlarmContentBinding" />
 	</EventBindingsSets>
 	<Dialogs>
-		<!--<Dialog refId="" />-->
+		<Dialog refId="dialog_alarm_details" />
+		<Dialog refId="dialog_seg_details" />
 	</Dialogs>
 	<Contents>
 		<Content refId="navigationContent" />
@@ -48,33 +65,36 @@
 		<Content refId="EM2AlarmContent" />
 		<Content refId="EM3AlarmContent" />
 		<Content refId="EMxAlarmContent" />
+		<Content refId="diagAlarmContent" />
 	
-	</Contents>
-	<SnippetsSets>
-		<SnippetsSet refId="snippetsForStates"/>
-	</SnippetsSets>
-	<ExpressionsSets>
-		<!--<ExpressionsSet refId=""/>-->
-	</ExpressionsSets>
-	<VariablesSets>
-		<VariablesSet refId="svar_0" />
-	</VariablesSets>
-	<StartTheme themeRefId="BuRThemeFlat2" />
-	<Themes>
-		<Theme refId="BuRThemeFlat2"/>
-	</Themes>
-	<Configurations>
-		<Configuration key="zoom" value="true" />
-		<Configuration key="activityCount" value="false" />
-		<Configuration key="bootColor" value="#FFFFFF" />
-		<Configuration key="bootLogo" value="Media/Roadrunner.png" />
-		<Gestures>
-			<!--<SystemGesture1 touchPoints="2" />
-			<SystemGesture2 touchPoints="2" />
-			<SystemGesture3 touchPoints="2" />-->
-		</Gestures>
-		<VirtualKeyboards>
-			<!--<InputProcessing onKeyDown="true" />-->
-		</VirtualKeyboards> 
-	</Configurations>
+  </Contents>
+  <SnippetsSets>
+    <SnippetsSet refId="snippetsForStates"/>
+	<SnippetsSet refId="IndexTextTrakInfo"/>
+  </SnippetsSets>
+  <ExpressionsSets>
+    <!--<ExpressionsSet refId=""/>-->
+  </ExpressionsSets>
+  <VariablesSets>
+    <VariablesSet refId="svar_0" />
+  </VariablesSets>
+  <StartTheme themeRefId="BuRThemeFlat2" />
+  <Themes>
+    <Theme refId="BuRThemeFlat2"/>
+  </Themes>
+  <Configurations>
+  	<Configuration key="zoom" value="true" />
+    <Configuration key="activityCount" value="false" />
+	<Configuration key="bootColor" value="#FFFFFF" />
+	<Configuration key="bootLogo" value="Media/SymbolLib/Symbols/Framework.svg" />
+	  <Gestures>
+		  <!--<SystemGesture1 touchPoints="2" />
+		  <SystemGesture2 touchPoints="2" />
+		  <SystemGesture3 touchPoints="2" />-->
+	  </Gestures>
+    <VirtualKeyboards>
+      <!--<InputProcessing onKeyDown="true" />-->
+    </VirtualKeyboards> 
+  </Configurations>
+
 </vdef:Visualization>

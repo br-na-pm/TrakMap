@@ -30,6 +30,7 @@ TYPE
 		MainPml : MpComIdentType;
 		ModulePml : MpComIdentType;
 		AlarmCore : MpComIdentType;
+		AuditCore : MpComIdentType;
 		RecipeCore : MpComIdentType;
 	END_STRUCT;
 END_TYPE

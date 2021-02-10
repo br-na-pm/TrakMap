@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<CompoundWidget id="SegmentStatus" width="1500" height="100" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CompoundWidget id="SegmentStatus" width="1060" height="100" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-  	<Widget xsi:type="widgets.brease.TextOutput" id="txtItemClicked" top="20" left="10" width="190" zIndex="0" />
-    <Widget xsi:type="widgets.brease.ToggleButton" id="btnCommunicationReady" top="0" left="215" width="180" zIndex="1" text="Communication Ready" enable="false" style="GreenIndicator" />
-    <Widget xsi:type="widgets.brease.ToggleButton" id="btnReadyForPowerOn" top="35" left="215" width="180" zIndex="2" text="Ready For PowerOn" enable="false" style="GreenIndicator" />
-    <Widget xsi:type="widgets.brease.ToggleButton" id="btnSegmentDisabled" top="0" left="605" width="180" zIndex="3" text="Segment Disabled" enable="false" style="RedIndicator" />
-    <Widget xsi:type="widgets.brease.ToggleButton" id="btnPowerOn" top="70" left="215" width="180" zIndex="4" text="PowerOn" enable="false" style="GreenIndicator" />
-    <Widget xsi:type="widgets.brease.ToggleButton" id="btnSegmentReady" top="35" left="605" width="180" zIndex="5" text="Segment Ready" enable="false" style="GreenIndicator" />
-    <Widget xsi:type="widgets.brease.ToggleButton" id="btnSegmentErrorStop" top="0" left="790" width="180" zIndex="6" text="Segment ErrorStop" enable="false" style="RedIndicator" />
-    <Widget xsi:type="widgets.brease.ToggleButton" id="btnSegmentStopping" top="70" left="605" width="180" zIndex="7" text="Segment Stopping" enable="false" style="RedIndicator" />
-    <Widget xsi:type="widgets.brease.Label" id="lblErrorCode" top="35" left="790" width="100" zIndex="8" text="ErrorCode" />
-    <Widget xsi:type="widgets.brease.NumericOutput" id="numOutErrorCode" top="70" left="790" width="180" zIndex="9" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" />
-	<Widget xsi:type="widgets.brease.TextOutput" id="txtOutSegComState" top="35" left="400" width="200" zIndex="12" />
-    <Widget xsi:type="widgets.brease.Label" id="lblSegComState" top="0" left="400" width="100" zIndex="11" text="SegComState" />
-	<Widget xsi:type="widgets.brease.ImageList" visible="false" id="numInComState" top="0" left="0" width="1" height="1" zIndex="10" imageList="['']" />
-	<Widget xsi:type="widgets.brease.TextOutput" id="txtOutErrorText" top="0" left="980" width="500" height="100" zIndex="13" breakWord="true" multiLine="true"  />
-	<Widget xsi:type="widgets.brease.ImageList" visible="false" id="numErrorCode" top="0" left="0" width="1" height="1" zIndex="14" imageList="['']"/>
+  	<Widget xsi:type="widgets.brease.TextOutput" id="txtItemClicked" 			top="0" 	left="10" width="90" zIndex="0" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="btnCommunicationReady" 	top="0" 	left="115" width="180" zIndex="1" text="Communication Ready" enable="false" style="GreenIndicator" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="btnReadyForPowerOn" 		top="35" 	left="115" width="180" zIndex="2" text="Ready For PowerOn" enable="false" style="GreenIndicator" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="btnSegmentDisabled" 		top="0" 	left="505" width="180" zIndex="3" text="Segment Disabled" enable="false" style="RedIndicator" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="btnPowerOn" 				top="70" 	left="115" width="180" zIndex="4" text="PowerOn" enable="false" style="GreenIndicator" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="btnSegmentReady" 		top="35" 	left="505" width="180" zIndex="5" text="Segment Ready" enable="false" style="GreenIndicator" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="btnSegmentErrorStop" 	top="0" 	left="690" width="180" zIndex="6" text="Segment ErrorStop" enable="false" style="RedIndicator" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="btnSegmentStopping" 		top="70" 	left="505" width="180" zIndex="7" text="Segment Stopping" enable="false" style="RedIndicator" />
+    <Widget xsi:type="widgets.brease.Label" id="lblErrorCode" 					top="35" 	left="690" width="100" zIndex="8" text="ErrorCode" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="numOutErrorCode" 		top="70" 	left="690" width="180" zIndex="9" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" />
+	<Widget xsi:type="widgets.brease.TextOutput" id="txtOutSegComState" 		top="35" 	left="300" width="200" zIndex="12" />
+    <Widget xsi:type="widgets.brease.Label" id="lblSegComState" 				top="0" 	left="300" width="100" zIndex="11" text="SegComState" />
+	<Widget xsi:type="widgets.brease.ImageList" visible="false" id="numInComState" top="0" 	left="0" width="1" height="1" zIndex="10" imageList="['']" />
+	<Widget xsi:type="widgets.brease.TextOutput" id="txtOutErrorText" 			top="0" 	left="880" width="180" height="100" zIndex="13" breakWord="true" multiLine="true"  />
+	<Widget xsi:type="widgets.brease.ImageList" visible="false" id="numErrorCode" top="0" 	left="0" width="1" height="1" zIndex="14" imageList="['']"/>
 
   </Widgets>
   <Properties>
@@ -40,20 +40,20 @@
       </Mappings>
     </Property>
 
-	<Property xsi:type="StructureBindableProperty" name="statusStructure" type="tpCoreSegmentTyp" category="Data" readOnly="true" required="false">
+	<Property xsi:type="StructureBindableProperty" name="statusStructure" type="tpCoreSegmentStatusTyp" category="Data" readOnly="true" required="false">
 		<Description>Segment Status </Description>
 		<Mappings>
 			<Mapping widget="txtItemClicked" type="String" property="value" mode="oneWay" memberPath="SegmentId" mapToNode="false"/>			
-			<Mapping widget="btnCommunicationReady" type="Boolean" property="value" mode="oneWay" memberPath="Status.CommunicationReady" mapToNode="false"/>
-			<Mapping widget="btnReadyForPowerOn" type="Boolean" property="value" mode="oneWay" memberPath="Status.ReadyForPowerOn" mapToNode="false"/>
-			<Mapping widget="btnSegmentDisabled" type="Boolean" property="value" mode="oneWay" memberPath="Status.SegmentDisabled" mapToNode="false"/>
-			<Mapping widget="btnPowerOn" type="Boolean" property="value" mode="oneWay" memberPath="Status.PowerOn" mapToNode="false"/>
-			<Mapping widget="btnSegmentReady" type="Boolean" property="value" mode="oneWay" memberPath="Status.SegmentReady" mapToNode="false"/>
-			<Mapping widget="btnSegmentErrorStop" type="Boolean" property="value" mode="oneWay" memberPath="Status.SegmentErrorStop" mapToNode="false"/>
-			<Mapping widget="btnSegmentStopping" type="Boolean" property="value" mode="oneWay" memberPath="Status.SegmentStopping" mapToNode="false"/>
-			<Mapping widget="numOutErrorCode" type="Number" property="value" mode="oneWay" memberPath="Status.ErrorCode" mapToNode="false"/>
-			<Mapping widget="numInComState" type="Number" property="selectedIndex" mode="twoWay" memberPath="Status.CommunicationState" mapToNode="false"/>
-			<Mapping widget="numErrorCode" type="Number" property="selectedIndex" mode="twoWay" memberPath="Status.ErrorCode" mapToNode="false"/>
+			<Mapping widget="btnCommunicationReady" type="Boolean" property="value" mode="oneWay" memberPath="CommunicationReady" mapToNode="false"/>
+			<Mapping widget="btnReadyForPowerOn" type="Boolean" property="value" mode="oneWay" memberPath="ReadyForPowerOn" mapToNode="false"/>
+			<Mapping widget="btnSegmentDisabled" type="Boolean" property="value" mode="oneWay" memberPath="SegmentDisabled" mapToNode="false"/>
+			<Mapping widget="btnPowerOn" type="Boolean" property="value" mode="oneWay" memberPath="PowerOn" mapToNode="false"/>
+			<Mapping widget="btnSegmentReady" type="Boolean" property="value" mode="oneWay" memberPath="SegmentReady" mapToNode="false"/>
+			<Mapping widget="btnSegmentErrorStop" type="Boolean" property="value" mode="oneWay" memberPath="SegmentErrorStop" mapToNode="false"/>
+			<Mapping widget="btnSegmentStopping" type="Boolean" property="value" mode="oneWay" memberPath="SegmentStopping" mapToNode="false"/>
+			<Mapping widget="numOutErrorCode" type="Number" property="value" mode="oneWay" memberPath="ErrorCode" mapToNode="false"/>
+			<Mapping widget="numInComState" type="Number" property="selectedIndex" mode="twoWay" memberPath="CommunicationState" mapToNode="false"/>
+			<Mapping widget="numErrorCode" type="Number" property="selectedIndex" mode="twoWay" memberPath="ErrorCode" mapToNode="false"/>
 		</Mappings>
 	</Property>
 	

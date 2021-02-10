@@ -31,3 +31,16 @@ TYPE
 		Error : BOOL; (*The subroutine is in error*)
 	END_STRUCT;
 END_TYPE
+
+(*Track Data Datatypes*)
+
+TYPE
+	TrackDataTyp : 	STRUCT 
+		Segments : SegmentDataTyp;
+	END_STRUCT;
+	SegmentDataTyp : 	STRUCT 
+		SegListAdr : UDINT;
+		SegList : ARRAY[0..NUM_SEG]OF tpCoreSegmentTyp;
+		SegCount : USINT;
+	END_STRUCT;
+END_TYPE

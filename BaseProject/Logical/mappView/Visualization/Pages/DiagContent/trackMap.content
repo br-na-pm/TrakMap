@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="trackMapContent" height="810" width="1080" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.Paper" id="paperTrackMap" top="105" left="0" width="1080" height="703" zIndex="0" colorList="#E0E0E0,#FF0000,#00FF00,#FFFF80" svgFilePath="Media/SampleTrackMap.svg" borderStyle="none" />
+  </Widgets>
+</Content>

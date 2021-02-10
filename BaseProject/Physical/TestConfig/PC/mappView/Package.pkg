@@ -7,8 +7,9 @@
     <Object Type="File">Visualizat.vis</Object>
     <Object Type="Package">General</Object>
     <Object Type="Package">Track</Object>
-    <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EM2Alarm</Object>
-    <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EM3Alarm</Object>
-    <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EMxAlarm</Object>
+    <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EM2</Object>
+    <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EM3</Object>
+    <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EMx</Object>
+    <Object Type="Package">Diag</Object>
   </Objects>
 </Package>

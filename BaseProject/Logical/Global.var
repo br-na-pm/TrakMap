@@ -1,0 +1,6 @@
+VAR
+	gTrackData : TrackDataTyp;
+END_VAR
+VAR CONSTANT
+	NUM_SEG : USINT := 100; (*Maximum Number of segments allowed*)
+END_VAR

@@ -21,7 +21,7 @@ PROGRAM _CYCLIC
 	MC_BR_AsmReadStatus_AcpTrak_0.Enable := TRUE;
 	MC_BR_AsmReadStatus_AcpTrak_0();
 
-	MC_BR_SegCommandError_AcpTrak_0(Segment := ADR(gSeg_A_1));
+//	MC_BR_SegCommandError_AcpTrak_0(Segment := ADR(TrackDiag.Seg[0].McType[0]));
 	
 	IF EDGEPOS(MC_BR_AsmReadStatus_AcpTrak_0.AssemblyErrorStop) THEN
 		TrakLogger.CmdRefresh := TRUE;
@@ -53,9 +53,7 @@ PROGRAM _CYCLIC
 					TrakLogger.Message := '';
 					SegmentErrorFound := 0;
 					brsmemset(ADR(AlarmCount), 0, SIZEOF(AlarmCount));
-					
-		//			brsmemcpy(ADR(AlarmCount), ADR(oldAlarmCount), SIZEOF(AlarmCount));
-					
+									
 					ArEventLogGetIdent_0.Execute			:= FALSE;
 					ArEventLogGetLatestRecordID_0.Execute	:= FALSE;
 					ArEventLogGetPreviousRecordID_0.Execute	:= FALSE;

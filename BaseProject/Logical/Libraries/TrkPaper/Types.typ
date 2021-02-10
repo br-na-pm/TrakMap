@@ -58,7 +58,8 @@ TYPE
 		Blue : UDINT; (*Offset for UserData address for the Blue color in USINT*)
 	END_STRUCT;
 	tpCoreSegmentTyp : 	STRUCT 
-		SegmentId : STRING[32]; (*ID of the segment in the SVG*)
+		Name : STRING[32]; (*Name of the segment in the SVG*)
+		McType : McSegmentType; (*Segment Reference*)
 		Status : tpCoreSegmentStatusTyp; (*Status Information for the segment*)
 	END_STRUCT;
 	tpCoreSegmentStatusTyp : 	STRUCT 

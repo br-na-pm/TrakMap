@@ -149,18 +149,18 @@
       <Group ID="[9]">
         <Property ID="Name" Value="ModuleInfo" />
         <Property ID="Message" Value="{$AppModule/Module.Info}" />
-        <Property ID="AdditionalInformation1" Value="alarmEM2Content" />
+        <Property ID="AdditionalInformation1" Value="EM2AlarmContent" />
       </Group>
       <Group ID="[10]">
         <Property ID="Name" Value="ModuleWarning" />
         <Property ID="Message" Value="{$AppModule/Module.Warning}" />
-        <Property ID="AdditionalInformation1" Value="alarmEM2Content" />
+        <Property ID="AdditionalInformation1" Value="EM2AlarmContent" />
       </Group>
       <Group ID="[11]">
         <Property ID="Name" Value="ModuleAlarm" />
         <Property ID="Message" Value="{$AppModule/Module.Alarm}" />
         <Property ID="Code" Value="1000" />
-        <Property ID="AdditionalInformation1" Value="alarmEM2Content" />
+        <Property ID="AdditionalInformation1" Value="EM2AlarmContent" />
       </Group>
     </Group>
     <Group ID="mapp.AlarmX.Core.Snippets">

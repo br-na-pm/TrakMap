@@ -1,5 +1,4 @@
 VAR CONSTANT
-	NUM_SEG : USINT := 100;
 	NUM_HUBS : USINT := 5;
 	NUM_PS : USINT := 5;
 END_VAR
@@ -17,4 +16,18 @@ VAR CONSTANT
 	LOGBOOK_ENTRIES_MAX : UINT := 100; (*Total number of entries*)
 	LOGBOOK_BOOKS_MAX : USINT := 13; (*Total number of facilities*)
 	LOGBOOK_TEXT_LEN : UINT := 200; (*Error text length*)
+END_VAR
+(*Segment trace*)
+VAR CONSTANT
+	MAX_SEGMENTS : USINT := 86;
+	numPAR_IDS : USINT := 5;
+	numPAR_IDS_ARRAY : USINT := numPAR_IDS-1;
+END_VAR
+VAR
+	gSegTraceIf : segTraceIfTyp; (*Segment Diagnostic Trace interface*)
+END_VAR
+(*Module definitions*)
+VAR
+	DiagInterface : ModuleInterfaceType;
+	ModuleName : STRING[40];
 END_VAR

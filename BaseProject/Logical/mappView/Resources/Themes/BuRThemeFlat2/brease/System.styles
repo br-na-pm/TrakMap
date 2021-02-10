@@ -11,6 +11,17 @@
 		headerBorderWidth="0px" 
 		borderWidth="0px" 
 		borderColor="#A899A0 #5F5F5F #5F5F5F #A899A0" />
+		
+	<Style id="SegmentDetails" xsi:type="system.brease.Dialog"
+		textAlign="left" 
+		backColor="rgba(235, 235, 235, 0)" 
+		borderWidth="2px" 
+		borderColor="rgba(40, 40, 45, 1)" 
+		headerBackColor="rgba(50, 50, 55, 1)" 
+		headerBorderColor="rgba(40, 40, 45, 1)" 
+		textColor="rgba(192, 192, 192, 1)" 
+		fontSize="15px"
+	/>	
 	
 	<Style id="default" xsi:type="system.brease.MessageBox"
 		backColor="#ccc"

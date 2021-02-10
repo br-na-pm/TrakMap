@@ -84,26 +84,26 @@ USINT SegmentCount){
 	for (i = 0; i < SegmentCount; i++){
 		if(segList[i].Status.ErrorCode > 0){
 			snprintf2(tmp,200,"{\"select\":\"#%s\",\"style\":\"fill:%d\"}",
-				segList[i].SegmentId, //Segment Name
+				segList[i].Name, //Segment Name
 				segStyleError //Segment Style Color index
 				);
 			
 		}
 		else if(!segList[i].Status.CommunicationReady || !segList[i].Status.ReadyForPowerOn){
 			snprintf2(tmp,200,"{\"select\":\"#%s\",\"style\":\"fill:%d\"}",
-				segList[i].SegmentId, //Segment Name
+				segList[i].Name, //Segment Name
 				segStyleWarning //Segment Style Color index
 				);
 		}
 		else if(segList[i].Status.PowerOn){
 			snprintf2(tmp,200,"{\"select\":\"#%s\",\"style\":\"fill:%d\"}",
-				segList[i].SegmentId, //Segment Name
+				segList[i].Name, //Segment Name
 				segStyleOkay //Segment Style Color index
 				);
 		}
 		else{
 			snprintf2(tmp,200,"{\"select\":\"#%s\",\"style\":\"fill:%d\"}",
-				segList[i].SegmentId, //Segment Name
+				segList[i].Name, //Segment Name
 				segStyleDefault //Segment Style Color index
 				);
 		}

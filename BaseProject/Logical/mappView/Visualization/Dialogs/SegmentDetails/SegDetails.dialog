@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ddef:Dialog xmlns:ddef="http://www.br-automation.com/iat2015/dialogDefinition/v2" id="dialog_seg_details" layoutRefId="Layout_dialog_seg_detail" borderWidth="1px" borderColor="rgba(34, 34, 34, 1)" headerBorderColor="rgba(34, 34, 34, 1)" headerBorderWidth="1px 1px 0px 1px" fontSize="18px" textAlign="left" backColor="rgba(34, 34, 34, 1)" headerBackColor="rgba(34, 34, 34, 1)" textColor="rgba(180, 180, 180, 1)">
+  <Assignments>
+    <Assignment type="Content" baseContentRefId="content_seg_detail" areaRefId="AreaContent" />
+  </Assignments>
+</ddef:Dialog>
