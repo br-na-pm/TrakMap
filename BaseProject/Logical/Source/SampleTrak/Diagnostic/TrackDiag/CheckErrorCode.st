@@ -42,14 +42,14 @@ ACTION actCheckErrorCode:
 				
 				IF (SegErrorCheck[SegIndex].ErrorNumber = 0) OR (SegErrorCheck[SegIndex].ErrorNumber = 36005) THEN
 					//Segment has no new error recorded. Shows either 0 or the commanded warning (36005) used to overwrite old errors
-					TrackDiag.Seg[SegIndex].Status.ErrorCode := 0;
+					TrackDiag.Seg.SegList[SegIndex].Status.ErrorCode := 0;
 					SegErrorCheck[SegIndex].CheckState := WAIT_FOR_CHECK;
 					
 					ErroredSegments[SegIndex].Error := FALSE;
 				
 				ELSE
 					//Otherwise, there is a new error on this segment
-					TrackDiag.Seg[SegIndex].Status.ErrorCode := SegErrorCheck[SegIndex].ErrorNumber;
+					TrackDiag.Seg.SegList[SegIndex].Status.ErrorCode := SegErrorCheck[SegIndex].ErrorNumber;
 					
 					ErroredSegments[SegIndex].Error := TRUE;
 					//Send to overwrite state to store a known error number (36005) in the error code parID
@@ -59,8 +59,8 @@ ACTION actCheckErrorCode:
 					IF(SegIndex > 0)THEN
 						
 						ErrorSegNum[ErrorCnt] 	:= SegIndex - 1;
-						ErrorSegName[ErrorCnt]	:= TrackDiag.Seg[SegIndex].Name;
-						ErrorNumber[ErrorCnt]	:= TrackDiag.Seg[SegIndex].Status.ErrorCode;
+						ErrorSegName[ErrorCnt]	:= TrackDiag.Seg.SegList[SegIndex].Name;
+						ErrorNumber[ErrorCnt]	:= TrackDiag.Seg.SegList[SegIndex].Status.ErrorCode;
 						ErrorCnt := ErrorCnt + 1;
 						
 					END_IF

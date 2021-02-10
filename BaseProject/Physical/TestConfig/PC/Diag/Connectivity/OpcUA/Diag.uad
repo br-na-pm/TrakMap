@@ -53,12 +53,12 @@
         </Variable>
       </GlobalVariables>
       <Task Name="TrackMap">
-        <Variable Name="clickedSegmentStatus" AutomaticEnable="True" />
         <Variable Name="clickId" />
         <Variable Name="paperCore">
           <Variable Name="SvgTransform" />
           <Variable Name="SvgContent" />
         </Variable>
+        <Variable Name="clickedSegment" AutomaticEnable="True" />
       </Task>
       <Task Name="DiagAlarm">
         <Variable Name="FilterConfiguration" />

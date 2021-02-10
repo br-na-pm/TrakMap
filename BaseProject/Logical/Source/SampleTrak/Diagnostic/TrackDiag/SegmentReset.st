@@ -19,7 +19,7 @@ ACTION actSegmentReset:
 					//Check segment status
 					IF NOT(SegReadInfo[SegIndex].SegmentInfo.ReadyForPowerOn)THEN
 						
-						IF(TrackDiag.Seg[SegIndex].Status.ErrorCode = 6020)THEN  		//Undervoltage error
+						IF(TrackDiag.Seg.SegList[SegIndex].Status.ErrorCode = 6020)THEN  		//Undervoltage error
 							SegmentReset[SegIndex].State := WRITE_SEG_RESET;
 						ELSE
 							SegmentReset[SegIndex].State := WAIT_FOR_DONE;

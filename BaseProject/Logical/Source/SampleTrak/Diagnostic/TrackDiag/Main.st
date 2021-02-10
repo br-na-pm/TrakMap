@@ -16,14 +16,14 @@ PROGRAM _INIT
 	(*Initialize Error ParId Info*)
 	FOR SegIndex := 0 TO NUM_SEG DO
 		
-		IF TrackDiag.Seg[SegIndex].McType.controlif <> 0 THEN
+		IF TrackDiag.Seg.SegList[SegIndex].McType.controlif <> 0 THEN
 		
 			ErrorCodeIDInfo[SegIndex].DataType 	:= mcACPTRAK_SEG_PARTYPE_UINT;
 			ErrorCodeIDInfo[SegIndex].ParID		:= mcACPPAR_ERROR_NUMBER;
 			ErrorCodeIDInfo[SegIndex].VariableAddress := ADR(SegErrorCheck[SegIndex].ErrorNumber);
 		
 		
-			SegProcessParID[SegIndex].Segment			:= ADR(TrackDiag.Seg[SegIndex].McType);
+			SegProcessParID[SegIndex].Segment			:= ADR(TrackDiag.Seg.SegList[SegIndex].McType);
 			SegProcessParID[SegIndex].ChannelIndex 		:= 0;
 			SegProcessParID[SegIndex].NumberOfParIDs 	:= 1;
 			SegProcessParID[SegIndex].Mode				:= mcACPTRAK_SEG_PARID_GET_NO_NCT;
@@ -31,54 +31,54 @@ PROGRAM _INIT
 			//
 			SegTempIDInfo[SegIndex, 0].ParID			:= mcACPPAR_TEMP_AIRIN;
 			SegTempIDInfo[SegIndex, 0].DataType			:= mcACPTRAK_SEG_PARTYPE_REAL;
-			SegTempIDInfo[SegIndex, 0].VariableAddress	:= ADR(TrackDiag.Seg[SegIndex].Status.Temp.TemperatureCON);
+			SegTempIDInfo[SegIndex, 0].VariableAddress	:= ADR(TrackDiag.Seg.SegList[SegIndex].Status.Temp.TemperatureCON);
 			SegTempIDInfo[SegIndex, 1].ParID			:= mcACPPAR_TEMP_MODUL5;
 			SegTempIDInfo[SegIndex, 1].DataType			:= mcACPTRAK_SEG_PARTYPE_REAL;
-			SegTempIDInfo[SegIndex, 1].VariableAddress	:= ADR(TrackDiag.Seg[SegIndex].Status.Temp.TemperaturePROZ);
+			SegTempIDInfo[SegIndex, 1].VariableAddress	:= ADR(TrackDiag.Seg.SegList[SegIndex].Status.Temp.TemperaturePROZ);
 			SegTempIDInfo[SegIndex, 2].ParID			:= mcACPPAR_TEMP_POWERSTAGE_AIR;
 			SegTempIDInfo[SegIndex, 2].DataType			:= mcACPTRAK_SEG_PARTYPE_REAL;
-			SegTempIDInfo[SegIndex, 2].VariableAddress	:= ADR(TrackDiag.Seg[SegIndex].Status.Temp.TemperatureAIR);
+			SegTempIDInfo[SegIndex, 2].VariableAddress	:= ADR(TrackDiag.Seg.SegList[SegIndex].Status.Temp.TemperatureAIR);
 			SegTempIDInfo[SegIndex, 3].ParID			:= mcACPPAR_TEMP_POWERSTAGE_BAL;
 			SegTempIDInfo[SegIndex, 3].DataType			:= mcACPTRAK_SEG_PARTYPE_REAL;
-			SegTempIDInfo[SegIndex, 3].VariableAddress	:= ADR(TrackDiag.Seg[SegIndex].Status.Temp.TemperatureBAL);
+			SegTempIDInfo[SegIndex, 3].VariableAddress	:= ADR(TrackDiag.Seg.SegList[SegIndex].Status.Temp.TemperatureBAL);
 			SegTempIDInfo[SegIndex, 4].ParID			:= mcACPPAR_TEMP_AIROUT;
 			SegTempIDInfo[SegIndex, 4].DataType			:= mcACPTRAK_SEG_PARTYPE_REAL;
-			SegTempIDInfo[SegIndex, 4].VariableAddress	:= ADR(TrackDiag.Seg[SegIndex].Status.Temp.TemperatureCHASSIS_1);
+			SegTempIDInfo[SegIndex, 4].VariableAddress	:= ADR(TrackDiag.Seg.SegList[SegIndex].Status.Temp.TemperatureCHASSIS_1);
 			SegTempIDInfo[SegIndex, 5].ParID			:= mcACPPAR_TEMP_MODUL3;
 			SegTempIDInfo[SegIndex, 5].DataType			:= mcACPTRAK_SEG_PARTYPE_REAL;
-			SegTempIDInfo[SegIndex, 5].VariableAddress	:= ADR(TrackDiag.Seg[SegIndex].Status.Temp.TemperatureCHASSIS_2);
+			SegTempIDInfo[SegIndex, 5].VariableAddress	:= ADR(TrackDiag.Seg.SegList[SegIndex].Status.Temp.TemperatureCHASSIS_2);
 			SegTempIDInfo[SegIndex, 6].ParID			:= mcACPPAR_TEMP_MODUL4;
 			SegTempIDInfo[SegIndex, 6].DataType			:= mcACPTRAK_SEG_PARTYPE_REAL;
-			SegTempIDInfo[SegIndex, 6].VariableAddress	:= ADR(TrackDiag.Seg[SegIndex].Status.Temp.TemperatureCHASSIS_3);
+			SegTempIDInfo[SegIndex, 6].VariableAddress	:= ADR(TrackDiag.Seg.SegList[SegIndex].Status.Temp.TemperatureCHASSIS_3);
 			SegTempIDInfo[SegIndex, 7].ParID			:= mcACPPAR_TEMP_POWERSTAGE_SENS3;
 			SegTempIDInfo[SegIndex, 7].DataType			:= mcACPTRAK_SEG_PARTYPE_REAL;
-			SegTempIDInfo[SegIndex, 7].VariableAddress	:= ADR(TrackDiag.Seg[SegIndex].Status.Temp.TemperaturePOWER_SENS3);
+			SegTempIDInfo[SegIndex, 7].VariableAddress	:= ADR(TrackDiag.Seg.SegList[SegIndex].Status.Temp.TemperaturePOWER_SENS3);
 			SegTempIDInfo[SegIndex, 8].ParID			:= mcACPPAR_TEMP_POWERSTAGE_SENS4;
 			SegTempIDInfo[SegIndex, 8].DataType			:= mcACPTRAK_SEG_PARTYPE_REAL;
-			SegTempIDInfo[SegIndex, 8].VariableAddress	:= ADR(TrackDiag.Seg[SegIndex].Status.Temp.TemperaturePOWER_SENS4);
+			SegTempIDInfo[SegIndex, 8].VariableAddress	:= ADR(TrackDiag.Seg.SegList[SegIndex].Status.Temp.TemperaturePOWER_SENS4);
 			SegTempIDInfo[SegIndex, 9].ParID			:= mcACPPAR_TEMP_POWERSTAGE_SENS5;
 			SegTempIDInfo[SegIndex, 9].DataType			:= mcACPTRAK_SEG_PARTYPE_REAL;
-			SegTempIDInfo[SegIndex, 9].VariableAddress	:= ADR(TrackDiag.Seg[SegIndex].Status.Temp.TemperaturePOWER_SENS5);
+			SegTempIDInfo[SegIndex, 9].VariableAddress	:= ADR(TrackDiag.Seg.SegList[SegIndex].Status.Temp.TemperaturePOWER_SENS5);
 			SegTempIDInfo[SegIndex, 10].ParID			:= mcACPPAR_TEMP_POWERSTAGE_SENS6;
 			SegTempIDInfo[SegIndex, 10].DataType		:= mcACPTRAK_SEG_PARTYPE_REAL;
-			SegTempIDInfo[SegIndex, 10].VariableAddress	:= ADR(TrackDiag.Seg[SegIndex].Status.Temp.TemperaturePOWER_SENS6);
+			SegTempIDInfo[SegIndex, 10].VariableAddress	:= ADR(TrackDiag.Seg.SegList[SegIndex].Status.Temp.TemperaturePOWER_SENS6);
 			SegTempIDInfo[SegIndex, 11].ParID			:= mcACPPAR_TEMP_POWERSTAGE_SENS7;
 			SegTempIDInfo[SegIndex, 11].DataType		:= mcACPTRAK_SEG_PARTYPE_REAL;
-			SegTempIDInfo[SegIndex, 11].VariableAddress	:= ADR(TrackDiag.Seg[SegIndex].Status.Temp.TemperaturePOWER_SENS7);
+			SegTempIDInfo[SegIndex, 11].VariableAddress	:= ADR(TrackDiag.Seg.SegList[SegIndex].Status.Temp.TemperaturePOWER_SENS7);
 			SegTempIDInfo[SegIndex, 12].ParID			:= mcACPPAR_TEMP_POWERSTAGE_SENS8;
 			SegTempIDInfo[SegIndex, 12].DataType		:= mcACPTRAK_SEG_PARTYPE_REAL;
-			SegTempIDInfo[SegIndex, 12].VariableAddress	:= ADR(TrackDiag.Seg[SegIndex].Status.Temp.TemperaturePOWER_SENS8);
+			SegTempIDInfo[SegIndex, 12].VariableAddress	:= ADR(TrackDiag.Seg.SegList[SegIndex].Status.Temp.TemperaturePOWER_SENS8);
 			SegTempIDInfo[SegIndex, 13].ParID			:= mcACPPAR_TEMP_POWERSTAGE_SENS9;
 			SegTempIDInfo[SegIndex, 13].DataType		:= mcACPTRAK_SEG_PARTYPE_REAL;
-			SegTempIDInfo[SegIndex, 13].VariableAddress	:= ADR(TrackDiag.Seg[SegIndex].Status.Temp.TemperaturePOWER_SENS9);
+			SegTempIDInfo[SegIndex, 13].VariableAddress	:= ADR(TrackDiag.Seg.SegList[SegIndex].Status.Temp.TemperaturePOWER_SENS9);
 			SegTempIDInfo[SegIndex, 14].ParID			:= mcACPPAR_TEMP_POWERSTAGE_SENS10;
 			SegTempIDInfo[SegIndex, 14].DataType		:= mcACPTRAK_SEG_PARTYPE_REAL;
-			SegTempIDInfo[SegIndex, 14].VariableAddress	:= ADR(TrackDiag.Seg[SegIndex].Status.Temp.TemperaturePOWER_SENS10);
+			SegTempIDInfo[SegIndex, 14].VariableAddress	:= ADR(TrackDiag.Seg.SegList[SegIndex].Status.Temp.TemperaturePOWER_SENS10);
 			SegTempIDInfo[SegIndex, 15].ParID			:= mcACPPAR_TEMP_POWERSTAGE_SENS11;
 			SegTempIDInfo[SegIndex, 15].DataType		:= mcACPTRAK_SEG_PARTYPE_REAL;
-			SegTempIDInfo[SegIndex, 15].VariableAddress	:= ADR(TrackDiag.Seg[SegIndex].Status.Temp.TemperaturePOWER_SENS11);
+			SegTempIDInfo[SegIndex, 15].VariableAddress	:= ADR(TrackDiag.Seg.SegList[SegIndex].Status.Temp.TemperaturePOWER_SENS11);
 			
-			SegProcessParID_Temp[SegIndex].Segment := ADR(TrackDiag.Seg[SegIndex].McType);
+			SegProcessParID_Temp[SegIndex].Segment := ADR(TrackDiag.Seg.SegList[SegIndex].McType);
 			SegProcessParID_Temp[SegIndex].ChannelIndex := 0;
 			SegProcessParID_Temp[SegIndex].NumberOfParIDs := 16;
 			SegProcessParID_Temp[SegIndex].Mode := mcACPTRAK_SEG_PARID_GET_NO_NCT;
@@ -98,7 +98,7 @@ PROGRAM _INIT
 			(*	SegPitchSet[SegIndex].CmdWriteFilter :=  TRUE;*)
 			//
 			
-			SegProcessParID_Pitch[SegIndex].Segment			:= ADR(TrackDiag.Seg[SegIndex].McType);
+			SegProcessParID_Pitch[SegIndex].Segment			:= ADR(TrackDiag.Seg.SegList[SegIndex].McType);
 			SegProcessParID_Pitch[SegIndex].ChannelIndex	:= 0;
 			SegProcessParID_Pitch[SegIndex].NumberOfParIDs 	:= 1;
 			SegProcessParID_Pitch[SegIndex].Mode			:= mcACPTRAK_SEG_PARID_SET;
@@ -119,7 +119,7 @@ PROGRAM _INIT
 			SegResetIDInfo[SegIndex].VariableAddress := ADR(SegmentReset[SegIndex].SegResetCmd);
 		
 		
-			SegProcessParID_Reset[SegIndex].Segment			:= ADR(TrackDiag.Seg[SegIndex].McType);
+			SegProcessParID_Reset[SegIndex].Segment			:= ADR(TrackDiag.Seg.SegList[SegIndex].McType);
 			SegProcessParID_Reset[SegIndex].ChannelIndex 	:= 0;
 			SegProcessParID_Reset[SegIndex].NumberOfParIDs 	:= 1;
 			SegProcessParID_Reset[SegIndex].Mode			:= mcACPTRAK_SEG_PARID_GET_NO_NCT;
@@ -172,49 +172,49 @@ PROGRAM _CYCLIC
 		
 	FOR SegIndex := 0 TO NUM_SEG DO
 	
-		IF TrackDiag.Seg[SegIndex].McType.controlif <> 0 THEN //If the array contains a segment reference
-			SegReadInfo[SegIndex].Segment 	:= ADR(TrackDiag.Seg[SegIndex].McType);
+		IF TrackDiag.Seg.SegList[SegIndex].McType.controlif <> 0 THEN //If the array contains a segment reference
+			SegReadInfo[SegIndex].Segment 	:= ADR(TrackDiag.Seg.SegList[SegIndex].McType);
 			SegReadInfo[SegIndex].Enable	:= TRUE;
 			SegReadInfo[SegIndex]();
 			
 			IF SegReadInfo[SegIndex].Valid THEN
 				//Capture Segment Info
-				TrackDiag.Seg[SegIndex].Status.CommunicationReady 	:= SegReadInfo[SegIndex].SegmentInfo.CommunicationReady;
-				TrackDiag.Seg[SegIndex].Status.ReadyForPowerOn		:= SegReadInfo[SegIndex].SegmentInfo.ReadyForPowerOn;
-				TrackDiag.Seg[SegIndex].Status.PowerOn				:= SegReadInfo[SegIndex].SegmentInfo.PowerOn;
-				TrackDiag.Seg[SegIndex].Status.StartupCount			:= SegReadInfo[SegIndex].SegmentInfo.StartupCount;
-				TrackDiag.Seg[SegIndex].Status.CommunicationState	:= SegReadInfo[SegIndex].SegmentInfo.CommunicationState;
+				TrackDiag.Seg.SegList[SegIndex].Status.CommunicationReady 	:= SegReadInfo[SegIndex].SegmentInfo.CommunicationReady;
+				TrackDiag.Seg.SegList[SegIndex].Status.ReadyForPowerOn		:= SegReadInfo[SegIndex].SegmentInfo.ReadyForPowerOn;
+				TrackDiag.Seg.SegList[SegIndex].Status.PowerOn				:= SegReadInfo[SegIndex].SegmentInfo.PowerOn;
+				TrackDiag.Seg.SegList[SegIndex].Status.StartupCount			:= SegReadInfo[SegIndex].SegmentInfo.StartupCount;
+				TrackDiag.Seg.SegList[SegIndex].Status.CommunicationState	:= SegReadInfo[SegIndex].SegmentInfo.CommunicationState;
 				
 			END_IF
 		
 			
-			SegReadStatus[SegIndex].Segment := ADR(TrackDiag.Seg[SegIndex].McType);
+			SegReadStatus[SegIndex].Segment := ADR(TrackDiag.Seg.SegList[SegIndex].McType);
 			SegReadStatus[SegIndex].Enable	:= TRUE;
 			SegReadStatus[SegIndex]();
 			
 			IF SegReadStatus[SegIndex].Valid THEN
 				
 				//Check for change of state to ErrorStop to command reading error data, IF communication is ready
-				IF ((TrackDiag.Seg[SegIndex].Status.SegmentErrorStop = FALSE AND SegReadStatus[SegIndex].SegmentErrorStop = TRUE))
-					AND (TrackDiag.Seg[SegIndex].Status.CommunicationReady = TRUE) THEN
+				IF ((TrackDiag.Seg.SegList[SegIndex].Status.SegmentErrorStop = FALSE AND SegReadStatus[SegIndex].SegmentErrorStop = TRUE))
+					AND (TrackDiag.Seg.SegList[SegIndex].Status.CommunicationReady = TRUE) THEN
 								
 					SegErrorCheck[SegIndex].CmdCheckErrorCode := TRUE;
 				
 					//Check for change of state from ErrorStop to reset error number in diag structure
-				ELSIF ((TrackDiag.Seg[SegIndex].Status.SegmentErrorStop = TRUE) AND (SegReadStatus[SegIndex].SegmentErrorStop = FALSE))
-					AND (TrackDiag.Seg[SegIndex].Status.CommunicationReady = TRUE) THEN
+				ELSIF ((TrackDiag.Seg.SegList[SegIndex].Status.SegmentErrorStop = TRUE) AND (SegReadStatus[SegIndex].SegmentErrorStop = FALSE))
+					AND (TrackDiag.Seg.SegList[SegIndex].Status.CommunicationReady = TRUE) THEN
 					
-					TrackDiag.Seg[SegIndex].Status.ErrorCode := 0;
+					TrackDiag.Seg.SegList[SegIndex].Status.ErrorCode := 0;
 									
 				END_IF
 								
 					
 				//Capture Segment Status
 				
-				TrackDiag.Seg[SegIndex].Status.SegmentDisabled	:= SegReadStatus[SegIndex].SegmentDisabled; 
-				TrackDiag.Seg[SegIndex].Status.SegmentErrorStop	:= SegReadStatus[SegIndex].SegmentErrorStop;
-				TrackDiag.Seg[SegIndex].Status.SegmentReady		:= SegReadStatus[SegIndex].SegmentReady;
-				TrackDiag.Seg[SegIndex].Status.SegmentStopping	:= SegReadStatus[SegIndex].SegmentStopping;
+				TrackDiag.Seg.SegList[SegIndex].Status.SegmentDisabled	:= SegReadStatus[SegIndex].SegmentDisabled; 
+				TrackDiag.Seg.SegList[SegIndex].Status.SegmentErrorStop	:= SegReadStatus[SegIndex].SegmentErrorStop;
+				TrackDiag.Seg.SegList[SegIndex].Status.SegmentReady		:= SegReadStatus[SegIndex].SegmentReady;
+				TrackDiag.Seg.SegList[SegIndex].Status.SegmentStopping	:= SegReadStatus[SegIndex].SegmentStopping;
 			END_IF
 			
 			//Command an update of the segment temperature data on the output of the refresh timer
@@ -243,7 +243,7 @@ PROGRAM _CYCLIC
 				
 			IF NOT(SegmentReset[SegIndex].StsResetDone)THEN //Wait for all segments to be reset
 				
-				IF TrackDiag.Seg[SegIndex].McType.controlif <> 0 THEN //If the array contains a segment reference
+				IF TrackDiag.Seg.SegList[SegIndex].McType.controlif <> 0 THEN //If the array contains a segment reference
 					SegDoneChk := FALSE;
 				END_IF
 					
@@ -267,7 +267,7 @@ PROGRAM _CYCLIC
 			
 			FOR SegIndex := 0 TO NUM_SEG DO
 				
-				IF TrackDiag.Seg[SegIndex].McType.controlif <> 0 THEN //If the array contains a segment reference
+				IF TrackDiag.Seg.SegList[SegIndex].McType.controlif <> 0 THEN //If the array contains a segment reference
 						
 					IF(SegmentReset[SegIndex].State = WAIT_FOR_DONE) AND NOT(SegmentReset[SegIndex].StsResetDone)THEN //Try to reset segment again
 						
@@ -291,7 +291,7 @@ PROGRAM _CYCLIC
 			
 			FOR SegIndex := 0 TO NUM_SEG DO
 				
-				IF TrackDiag.Seg[SegIndex].McType.controlif <> 0 THEN //If the array contains a segment reference
+				IF TrackDiag.Seg.SegList[SegIndex].McType.controlif <> 0 THEN //If the array contains a segment reference
 					SegmentReset[SegIndex].CmdResetSeg := TRUE; //Check to see if segments need to be reset (Undervoltage error)
 				END_IF
 				

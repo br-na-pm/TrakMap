@@ -46,7 +46,7 @@
       </Group>
       <Group ID="[1]">
         <Property ID="Name" Value="Inf_PowerOn" />
-        <Property ID="Message" Value="{$Assembly/Info/TrakPowerOn}" />
+        <Property ID="Message" Value="{$TrakAssembly/TrakPowerOn}" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
             <Property ID="MonitoredPV" Value="TrackMod::AsmSampleT:fbAsmReadInfo.AssemblyInfo.PowerOn" />

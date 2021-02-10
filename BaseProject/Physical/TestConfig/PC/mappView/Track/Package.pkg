@@ -2,7 +2,7 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="File">trackGeneral.binding</Object>
+    <Object Type="File">trackMainContent.binding</Object>
     <Object Type="File">trackContent.binding</Object>
     <Object Type="File">winderLogContent.binding</Object>
     <Object Type="File">winderLogContent.eventbinding</Object>

@@ -3,11 +3,11 @@
 	<Bindings>
 	
 	<Binding mode="twoWay">
-		<Source xsi:type="opcUaComplexObject" refId="NS6|String|Diag::TrackMap:clickedSegmentStatus" />
+		<Source xsi:type="opcUaComplexObject" refId="NS6|String|Diag::TrackMap:clickedSegment" />
 		<Target xsi:type="brease" contentRefId="content_seg_detail" widgetRefId="SegmentStatus1" attribute="statusStructure" />
 	</Binding>
 	<Binding mode="oneWay">
-		<Source xsi:type="opcUa" refId="NS6|String|Diag::TrackMap:clickedSegmentStatus.ErrorCode" attribute="value" />
+		<Source xsi:type="opcUa" refId="NS6|String|Diag::TrackMap:clickedSegment.Status.ErrorCode" attribute="value" />
 		<Target xsi:type="snippet" refId="SnippetSegError" attribute="value" />
 	</Binding>
 	<Binding mode="oneWay">

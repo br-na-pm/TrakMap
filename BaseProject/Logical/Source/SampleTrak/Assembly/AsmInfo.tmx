@@ -5,7 +5,7 @@
     <prop type="x-BR-TS:Namespace">TrakAssembly</prop>
   </header>
   <body>
-    <tu tuid="PowerOn">
+    <tu tuid="TrakPowerOn">
       <tuv xml:lang="de">
         <seg>Trak Powered On</seg>
       </tuv>

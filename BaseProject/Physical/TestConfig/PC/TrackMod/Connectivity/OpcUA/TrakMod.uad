@@ -20,6 +20,11 @@
   </Aliases>
   <DefaultView AclId="2">
     <Module Name="TrackMod">
+      <GlobalVariables Name="Global Variables">
+        <Variable Name="gTrakSystem">
+          <Variable Name="Asm" AutomaticEnable="True" />
+        </Variable>
+      </GlobalVariables>
       <Task Name="AsmAlarm">
         <Variable Name="TriggerTestAlarm" />
         <Variable Name="TriggerTestInformation" />

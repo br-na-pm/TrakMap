@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="trackMainContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+  
+    <Binding mode="twoWay">
+	<Source xsi:type="opcUa"  refId="NS10|String|TrackMod::AsGlobalPV:gTrakSystem.Asm.Status.PowerOn" attribute="value" />
+	<Target xsi:type="session" refId="winderAsmPowerOn" attribute="value" />
+	</Binding>
+	<Binding mode="twoWay">
+	<Source xsi:type="opcUa"  refId="NS10|String|TrackMod::AsGlobalPV:gTrakSystem.Asm.Status.ErrorStop" attribute="value" />
+	<Target xsi:type="session" refId="winderAsmErrorStop" attribute="value" />
+	</Binding>
+	<Binding mode="twoWay">
+	<Source xsi:type="opcUa"  refId="NS10|String|TrackMod::AsGlobalPV:gTrakSystem.Asm.Status.Disabled" attribute="value" />
+	<Target xsi:type="session" refId="winderAsmDisabled" attribute="value" />
+	</Binding>
+	<Binding mode="twoWay">
+	<Source xsi:type="opcUa"  refId="NS10|String|TrackMod::AsGlobalPV:gTrakSystem.Asm.Status.Ready" attribute="value" />
+	<Target xsi:type="session" refId="winderAsmReady" attribute="value" />
+	</Binding>
+	<Binding mode="twoWay">			 
+	<Source xsi:type="opcUa"  refId="NS10|String|TrackMod::AsGlobalPV:gTrakSystem.Asm.Status.ReadyForPowerOn" attribute="value" />
+	<Target xsi:type="session" refId="winderAsmRdyToPwrOn" attribute="value" />
+	</Binding>
+  
+  
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="NS10|String|TrackMod::AsGlobalPV:gTrakSystem.Asm.Cmd.Power" attribute="value" />
+<Target xsi:type="brease" contentRefId="trackMainContent" widgetRefId="ToggleSwitch1" attribute="value" />
+</Binding>
+</Bindings>
+</BindingsSet>

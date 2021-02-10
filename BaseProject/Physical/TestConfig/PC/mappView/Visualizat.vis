@@ -13,7 +13,7 @@
 		<BindingsSet refId="alarmHistoryContent_binding" />
 		<BindingsSet refId="headerContent_binding" />
 		<!--Track ASM-->
-		<BindingsSet refId="trackGeneral_binding" />
+		<BindingsSet refId="trackMainContent_binding" />
 		<BindingsSet refId="trackContent_binding" />
 		<BindingsSet refId="trackAlarmContent_binding" />
 		<!--EM2-->

@@ -43,17 +43,17 @@
 	<Property xsi:type="StructureBindableProperty" name="statusStructure" type="tpCoreSegmentStatusTyp" category="Data" readOnly="true" required="false">
 		<Description>Segment Status </Description>
 		<Mappings>
-			<Mapping widget="txtItemClicked" type="String" property="value" mode="oneWay" memberPath="SegmentId" mapToNode="false"/>			
-			<Mapping widget="btnCommunicationReady" type="Boolean" property="value" mode="oneWay" memberPath="CommunicationReady" mapToNode="false"/>
-			<Mapping widget="btnReadyForPowerOn" type="Boolean" property="value" mode="oneWay" memberPath="ReadyForPowerOn" mapToNode="false"/>
-			<Mapping widget="btnSegmentDisabled" type="Boolean" property="value" mode="oneWay" memberPath="SegmentDisabled" mapToNode="false"/>
-			<Mapping widget="btnPowerOn" type="Boolean" property="value" mode="oneWay" memberPath="PowerOn" mapToNode="false"/>
-			<Mapping widget="btnSegmentReady" type="Boolean" property="value" mode="oneWay" memberPath="SegmentReady" mapToNode="false"/>
-			<Mapping widget="btnSegmentErrorStop" type="Boolean" property="value" mode="oneWay" memberPath="SegmentErrorStop" mapToNode="false"/>
-			<Mapping widget="btnSegmentStopping" type="Boolean" property="value" mode="oneWay" memberPath="SegmentStopping" mapToNode="false"/>
-			<Mapping widget="numOutErrorCode" type="Number" property="value" mode="oneWay" memberPath="ErrorCode" mapToNode="false"/>
-			<Mapping widget="numInComState" type="Number" property="selectedIndex" mode="twoWay" memberPath="CommunicationState" mapToNode="false"/>
-			<Mapping widget="numErrorCode" type="Number" property="selectedIndex" mode="twoWay" memberPath="ErrorCode" mapToNode="false"/>
+			<Mapping widget="txtItemClicked" type="String" property="value" mode="oneWay" memberPath="Name" mapToNode="false"/>			
+			<Mapping widget="btnCommunicationReady" type="Boolean" property="value" mode="oneWay" memberPath="Status.CommunicationReady" mapToNode="false"/>
+			<Mapping widget="btnReadyForPowerOn" type="Boolean" property="value" mode="oneWay" memberPath="Status.ReadyForPowerOn" mapToNode="false"/>
+			<Mapping widget="btnSegmentDisabled" type="Boolean" property="value" mode="oneWay" memberPath="Status.SegmentDisabled" mapToNode="false"/>
+			<Mapping widget="btnPowerOn" type="Boolean" property="value" mode="oneWay" memberPath="Status.PowerOn" mapToNode="false"/>
+			<Mapping widget="btnSegmentReady" type="Boolean" property="value" mode="oneWay" memberPath="Status.SegmentReady" mapToNode="false"/>
+			<Mapping widget="btnSegmentErrorStop" type="Boolean" property="value" mode="oneWay" memberPath="Status.SegmentErrorStop" mapToNode="false"/>
+			<Mapping widget="btnSegmentStopping" type="Boolean" property="value" mode="oneWay" memberPath="Status.SegmentStopping" mapToNode="false"/>
+			<Mapping widget="numOutErrorCode" type="Number" property="value" mode="oneWay" memberPath="Status.ErrorCode" mapToNode="false"/>
+			<Mapping widget="numInComState" type="Number" property="selectedIndex" mode="twoWay" memberPath="Status.CommunicationState" mapToNode="false"/>
+			<Mapping widget="numErrorCode" type="Number" property="selectedIndex" mode="twoWay" memberPath="Status.ErrorCode" mapToNode="false"/>
 		</Mappings>
 	</Property>
 	

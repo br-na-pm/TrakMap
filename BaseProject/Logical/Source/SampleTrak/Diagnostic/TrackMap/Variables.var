@@ -3,5 +3,6 @@ VAR
 	Offset : UDINT;
 	clickId : STRING[160];
 	i : INT;
-	clickedSegmentStatus : tpCoreSegmentStatusTyp;
+	clickedSegment : tpCoreSegmentTyp;
+	SegIndex : INT;
 END_VAR
