@@ -1,0 +1,7 @@
+VAR_CONFIG
+	Cyclic#1.Diag::gRecipeXml_DiagModule AT %Q.Diag::DiagInterface.RecipeCore; (*Insert your comment here...*)
+	Cyclic#1.Diag::gAuditTrail_DiagModule AT %Q.Diag::DiagInterface.AuditCore; (*Insert your comment here...*)
+	Cyclic#1.Diag::gAlarmXCore_DiagModule AT %Q.Diag::DiagInterface.AlarmCore; (*Insert your comment here...*)
+	Cyclic#1.::gSampleTrak AT %Q.Diag::DiagInterface.SampleTrak; (*Insert your comment here...*)
+	Cyclic#4.::gSegmentSetup AT %Q.Diag::TrackDiag.Seg; (*Insert your comment here...*)
+END_VAR

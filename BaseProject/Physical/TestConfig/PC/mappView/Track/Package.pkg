@@ -8,8 +8,5 @@
     <Object Type="File">winderLogContent.eventbinding</Object>
     <Object Type="File">trackAlarmContent.binding</Object>
     <Object Type="File">trackAlarmContent.eventbinding</Object>
-    <Object Type="File">logbookContent.binding</Object>
-    <Object Type="File">logbookContent.eventbinding</Object>
-    <Object Type="File">trackMapContent.binding</Object>
   </Objects>
 </Package>

@@ -85,7 +85,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-     <EventBinding id="loadLogbook">
+    <EventBinding id="loadLogbook">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadLogbook" event="Click" />
       <EventHandler>
         <Sequence>
@@ -167,6 +167,16 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="EventBinding_4">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="navigationContent" widgetRefId="loadDiagAlarmPage" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="diagAlarmContent" pageId="MainPage" areaId="AreaContent" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
     <EventBinding id="headerAlarmTextChange">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <EventHandler condition="contentId = &quot;EMxAlarmContent&quot;">
@@ -194,6 +204,13 @@
         <Action>
           <Target xsi:type="session.VariableAction" refId="headerText">
             <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/TrackActiveAlarm" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="contentId = &quot;diagAlarmContent&quot;">
+        <Action>
+          <Target xsi:type="session.VariableAction" refId="headerText">
+            <Method xsi:type="session.VariableAction.SetValueString" value="$IAT/Header/DiagActiveAlarm" />
           </Target>
         </Action>
       </EventHandler>

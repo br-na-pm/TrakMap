@@ -45,16 +45,9 @@
     <Object Type="File">Wait.svg</Object>
     <Object Type="File">Webcam.svg</Object>
     <Object Type="File">Audit.svg</Object>
-    <Object Type="File">Volcano.svg</Object>
-    <Object Type="File">Winder.svg</Object>
-    <Object Type="File">TrakA.svg</Object>
-    <Object Type="File">TrakB.svg</Object>
-    <Object Type="File">ReturnArrow.svg</Object>
-    <Object Type="File">Loop2.svg</Object>
-    <Object Type="File">Loop1.svg</Object>
-    <Object Type="File">Distribute.svg</Object>
     <Object Type="File">Roadrunner.svg</Object>
     <Object Type="File">LogBook.svg</Object>
-    <Object Type="File">ReturnArrow1.svg</Object>
+    <Object Type="File">Framework.svg</Object>
+    <Object Type="File">Online.svg</Object>
   </Objects>
 </Package>

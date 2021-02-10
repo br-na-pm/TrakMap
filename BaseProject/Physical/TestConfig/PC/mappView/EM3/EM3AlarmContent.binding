@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="EM3AlarmContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Bindings>			
+	
+		<Binding mode="twoWay">
+			<Source xsi:type="mapp" refId="EM3::gAlarmXCore_EM3" attribute="link" />
+			<Target xsi:type="brease" contentRefId="EM3AlarmContent" widgetRefId="AlarmList1" attribute="mpLink" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="NS8|String|EM3::AsGlobalPV:SortConfiguration" attribute="value" />
+			<Target xsi:type="brease" contentRefId="EM3AlarmContent" widgetRefId="AlarmList1" attribute="sortConfiguration" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="NS8|String|EM3::AsGlobalPV:FilterConfiguration" attribute="value" />
+			<Target xsi:type="brease" contentRefId="EM3AlarmContent" widgetRefId="AlarmList1" attribute="filterConfiguration" />
+		</Binding>
+	</Bindings>
+</BindingsSet>

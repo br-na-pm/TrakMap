@@ -1,12 +1,7 @@
 VAR
 	paperCore : tpCore;
-	SvgTransformRemote : STRING[tpCORE_MAX_STR_LEN];
-	SvgTransform : STRING[tpCORE_MAX_STR_LEN];
-	SvgTransformCombined : STRING[20000];
-	nxt_adr : UDINT;
-	StringCheck : REFERENCE TO STRING[20000];
 	Offset : UDINT;
 	clickId : STRING[160];
 	i : INT;
-	clickedSegmentStatus : tpCoreSegmentTyp;
+	clickedSegmentStatus : tpCoreSegmentStatusTyp;
 END_VAR

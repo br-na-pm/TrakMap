@@ -7,6 +7,7 @@
     <Object Type="Package">EM2Content</Object>
     <Object Type="Package">EM3Content</Object>
     <Object Type="Package">EMxContent</Object>
+    <Object Type="Package">DiagContent</Object>
     <Object Type="Package">Main</Object>
   </Objects>
 </Package>

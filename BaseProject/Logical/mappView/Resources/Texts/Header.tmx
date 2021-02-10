@@ -5,29 +5,34 @@
     <prop type="x-BR-TS:Namespace">IAT/Header</prop>
   </header>
   <body>
+    <tu tuid="DiagActiveAlarm">
+      <tuv xml:lang="en">
+        <seg>Active Diagnostic Alarm</seg>
+      </tuv>
+    </tu>
     <tu tuid="EMxActiveAlarm">
       <tuv xml:lang="en">
-        <seg>Module X Active Alarm</seg>
+        <seg>Active Module X Alarm</seg>
       </tuv>
     </tu>
     <tu tuid="EM3ActiveAlarm">
       <tuv xml:lang="en">
-        <seg>Module 3 Active Alarm</seg>
+        <seg>Active Module 3 Alarm</seg>
       </tuv>
     </tu>
     <tu tuid="EM2ActiveAlarm">
       <tuv xml:lang="en">
-        <seg>Module 2 Active Alarm</seg>
+        <seg>Active Module 2 Alarm</seg>
       </tuv>
     </tu>
     <tu tuid="TrackActiveAlarm">
       <tuv xml:lang="en">
-        <seg>Trak Module Active Alarm</seg>
+        <seg>Active Trak Module  Alarm</seg>
       </tuv>
     </tu>
     <tu tuid="ActiveAlarm">
       <tuv xml:lang="en">
-        <seg>Active Alarm</seg>
+        <seg>Active Machine Alarm</seg>
       </tuv>
     </tu>
     <tu tuid="AlarmHistory">

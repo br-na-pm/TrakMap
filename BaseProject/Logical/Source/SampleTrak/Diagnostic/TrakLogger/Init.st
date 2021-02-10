@@ -17,11 +17,11 @@
 
 PROGRAM _INIT
 
-	TrakLogger.AssemblyRef			:= ADR(gSampleTrak);
+	TrakLogger.AssemblyRef			:= ADR(DiagInterface.SampleTrak);
 	TrakLogger.CmdRefresh			:= FALSE;
 	TrakLogger.ParaShowSegError		:= TRUE;
 	TrakLogger.ParaShowSegWarning	:= TRUE;
-	TrakLogger.ParaSegFilter		:= 'SEG_';
+	TrakLogger.ParaSegFilter		:= 'gSeg_';
 
 	Step := TRAK_COMMAND;
 	

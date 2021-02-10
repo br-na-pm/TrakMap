@@ -24,6 +24,10 @@
       <Property ID="TargetFile[11]" Value="Source.SampleTrak.EMx.EMxInfo.tmx" />
       <Property ID="TargetFile[12]" Value="Source.SampleTrak.EMx.EMxWarning.tmx" />
       <Property ID="TargetFile[13]" Value="Source.SampleTrak.EMx.EMxAlarm.tmx" />
+      <Property ID="TargetFile[14]" Value="Source.SampleTrak.Diagnostic.DiagInfo.tmx" />
+      <Property ID="TargetFile[15]" Value="Source.SampleTrak.Diagnostic.DiagWarning.tmx" />
+      <Property ID="TargetFile[16]" Value="Source.SampleTrak.Diagnostic.DiagAlarm.tmx" />
+      <Property ID="TargetFile[17]" Value="Source.SampleTrak.Diagnostic.DiagError.tmx" />
     </Group>
   </Element>
 </Configuration>

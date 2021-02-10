@@ -71,19 +71,19 @@
       <Group ID="[3]">
         <Property ID="Name" Value="ModuleInfo" />
         <Property ID="Message" Value="{$AppModuleEMx/Module.Info}" />
-        <Property ID="AdditionalInformation1" Value="alarmEMxContent" />
+        <Property ID="AdditionalInformation1" Value="EMxAlarmContent" />
       </Group>
       <Group ID="[4]">
         <Property ID="Name" Value="ModuleWarning" />
         <Property ID="Message" Value="{$AppModuleEMx/Module.Warning}" />
         <Property ID="Code" Value="100" />
-        <Property ID="AdditionalInformation1" Value="alarmEMxContent" />
+        <Property ID="AdditionalInformation1" Value="EMxAlarmContent" />
       </Group>
       <Group ID="[5]">
         <Property ID="Name" Value="ModuleAlarm" />
         <Property ID="Message" Value="{$AppModule/Module.Alarm}" />
         <Property ID="Code" Value="1000" />
-        <Property ID="AdditionalInformation1" Value="alarmEMxContent" />
+        <Property ID="AdditionalInformation1" Value="EMxAlarmContent" />
       </Group>
     </Group>
     <Group ID="mapp.AlarmX.Core.Snippets">
