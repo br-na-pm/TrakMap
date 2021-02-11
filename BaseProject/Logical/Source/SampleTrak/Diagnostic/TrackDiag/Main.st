@@ -77,7 +77,7 @@ PROGRAM _INIT
 			SegTempIDInfo[SegIndex, 15].ParID			:= mcACPPAR_TEMP_POWERSTAGE_SENS11;
 			SegTempIDInfo[SegIndex, 15].DataType		:= mcACPTRAK_SEG_PARTYPE_REAL;
 			SegTempIDInfo[SegIndex, 15].VariableAddress	:= ADR(TrackDiag.Seg.SegList[SegIndex].Status.Temp.TemperaturePOWER_SENS11);
-			
+
 			SegProcessParID_Temp[SegIndex].Segment := ADR(TrackDiag.Seg.SegList[SegIndex].McType);
 			SegProcessParID_Temp[SegIndex].ChannelIndex := 0;
 			SegProcessParID_Temp[SegIndex].NumberOfParIDs := 16;
@@ -304,10 +304,14 @@ PROGRAM _CYCLIC
 	TempRefreshTON.PT := TempRefreshTime;
 	TempRefreshTON();
 		
-	actCheckErrorCode;
-	actCheckTemp;
-	actSegmentReset;
+	CpuSim := DiagCpuIsSimulated() OR DiagCpuIsARsim();
 	
+	IF CpuSim = FALSE THEN
+		actCheckErrorCode;
+		actCheckTemp;
+		actSegmentReset;
+	END_IF	
+		
 	fbAuditTrail(MpLink := ADR(gAuditTrail_DiagModule), Enable := TRUE, Language := ADR('en'), DeviceName := ADR('User'));
 	
 END_PROGRAM

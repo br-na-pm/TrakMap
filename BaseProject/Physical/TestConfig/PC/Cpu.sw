@@ -18,18 +18,20 @@
   <TaskClass Name="Cyclic#6" />
   <TaskClass Name="Cyclic#7" />
   <TaskClass Name="Cyclic#8" />
+  <DataObjects>
+    <DataObject Name="McAcpSys" Source="" Memory="UserROM" Language="Binary" />
+  </DataObjects>
   <Binaries>
-    <BinaryObject Name="McAcpSys" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="McAcpDrv" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="udbdef" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="McAcpSim" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="mvLoader" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="mCoWebSc" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="arflatprv" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="McProfGen" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="TCLang" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="TCData" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="FWRules" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="mCoWebSc" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="arcoal" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="arsvcreg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="McMechSys" Source="" Memory="UserROM" Language="Binary" />
@@ -95,6 +97,8 @@
     <LibraryObject Name="standard" Source="Libraries.standard.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="MpAudit" Source="Libraries.MpAudit.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="McAcpPar" Source="Libraries.McAcpPar.lby" Memory="UserROM" Language="binary" Debugging="true" />
+    <LibraryObject Name="AdvIecChk" Source="Libraries.AdvIecChk.lby" Memory="UserROM" Language="IEC" Debugging="true" />
+    <LibraryObject Name="asstring" Source="Libraries.asstring.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="powerlnk" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asieccon" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asepl" Source="" Memory="UserROM" Language="Binary" Debugging="true" />

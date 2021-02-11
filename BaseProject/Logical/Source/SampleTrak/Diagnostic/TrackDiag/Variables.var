@@ -41,4 +41,5 @@ VAR
 	Voltage : ARRAY[0..20] OF SINT; (*Power Supply Voltage*)
 	fbAuditTrail : MpAuditTrail;
 	gSegResetActive : BOOL;
+	CpuSim : BOOL;
 END_VAR

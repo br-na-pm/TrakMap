@@ -23,6 +23,10 @@ PROGRAM _CYCLIC
 
 	MC_BR_SegCommandError_AcpTrak_0(Segment := ADR(TrackDiag.Seg.SegList[0].McType));
 	
+	IF MC_BR_SegCommandError_AcpTrak_0.Done THEN
+		MC_BR_SegCommandError_AcpTrak_0.Execute := FALSE;
+	END_IF	
+	
 	IF EDGEPOS(MC_BR_AsmReadStatus_AcpTrak_0.AssemblyErrorStop) THEN
 		TrakLogger.CmdRefresh := TRUE;
 	END_IF
@@ -52,6 +56,7 @@ PROGRAM _CYCLIC
 					brsmemset(ADR(TrakLogger.Record), 0, SIZEOF(TrakLogger.Record));
 					TrakLogger.Message := '';
 					SegmentErrorFound := 0;
+					
 					brsmemset(ADR(AlarmCount), 0, SIZEOF(AlarmCount));
 									
 					ArEventLogGetIdent_0.Execute			:= FALSE;

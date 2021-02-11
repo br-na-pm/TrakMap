@@ -13,7 +13,7 @@ ACTION actCheckErrorCode:
 				IF SegErrorCheck[SegIndex].CmdCheckErrorCode THEN
 					SegProcessParID[SegIndex].Execute := TRUE;
 //					SegProcessParID[SegIndex].DataAddress := ADR(SegStateIDInfo[SegIndex]);
-					//					SegErrorCheck[SegIndex].CheckState := READ_DATA_SEG_STATE;
+//					SegErrorCheck[SegIndex].CheckState := READ_DATA_SEG_STATE;
 					SegProcessParID[SegIndex].Mode := mcACPTRAK_SEG_PARID_GET_NO_NCT;
 					SegProcessParID[SegIndex].DataAddress := ADR(ErrorCodeIDInfo[SegIndex]);
 					SegErrorCheck[SegIndex].CheckState := READ_DATA_SEG_ERROR;			

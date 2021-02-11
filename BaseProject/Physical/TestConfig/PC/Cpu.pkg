@@ -29,5 +29,6 @@
     <Safety SafetyRelease="0.0" />
     <Transfer AddToUserPart="False" AdditionalUserDir="" AllowDowngrade="True" AllowInitialTransfer="False" AllowPartitioning="False" ExecuteInitExitProgram="False" ForceInitialTransfer="False" IdentificationTypeValue="" IgnoreVersion="True" KeepNonVolatileMemory="False" ModuleSystemForPip="" PreserveVariableValues="True" ProjectConsistent="True" RebootDuringTransfer="False" TargetIdentificationType="Always" TryToBootInRunMode="False" UserFilesIgnoreDifference="True" />
     <Vc FirmwareVersion="V4.72.2" />
+    <OnlineConfiguration Name="BaseProject TestConfig connection to ArSim" DeviceType="TCPIP" DeviceParameters="/IF=tcpip /LOPO=11159 /SA=1" ConnectionParameters="/COMT=2500 /RT=1000 /AM=* /DAIP=127.0.0.1 /REPO=11160 /ANSL=1 /PT=11169" Description="" />
   </Configuration>
 </Cpu>
