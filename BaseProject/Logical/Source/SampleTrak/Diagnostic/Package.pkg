@@ -7,7 +7,6 @@
     <Object Type="Program" Language="IEC">DiagConfig</Object>
     <Object Type="Program" Language="IEC">TrackDiag</Object>
     <Object Type="Program" Language="IEC">TrackMap</Object>
-    <Object Type="Program" Language="IEC" Description="trak support: motion logger filter">TrakLogger</Object>
     <Object Type="Program" Language="IEC">Logbook</Object>
     <Object Type="Program" Language="IEC">DiagAlarm</Object>
     <Object Type="File">DiagInfo.tmx</Object>

@@ -2,7 +2,6 @@
 
 TYPE
 	TrakLoggerType : 	STRUCT 
-		AssemblyRef : REFERENCE TO McAssemblyType; (*assembly reference - ADR(gAssembly_1)*)
 		CmdRefresh : BOOL; (*command read & filter motion logger*)
 		ParaShowSegError : BOOL; (*filter - show motion logger enties severity error*)
 		ParaShowSegWarning : BOOL; (*filter - show motion logger enties severity warning*)

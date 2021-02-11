@@ -14,10 +14,9 @@ VAR
 	Description : STRING[256] := '';
 	TempString : STRING[32] := '';
 	SegmentErrorFound : USINT := 0;
-END_VAR
-(*assembly FUB*)
-VAR
-	MC_BR_AsmReadStatus_AcpTrak_0 : MC_BR_AsmReadStatus_AcpTrak;
+	AlarmCount : ARRAY[0..119] OF UDINT;
+	TimeStruct : TIMEStructure;
+	FirstEntryCheckSum : USINT;
 END_VAR
 (*ArEventLog FUB*)
 VAR
@@ -28,8 +27,8 @@ VAR
 	ArEventLogRead_0 : ArEventLogRead := (0);
 	ArEventLogReadObjectID_0 : ArEventLogReadObjectID := (0);
 	ArEventLogReadDescription_0 : ArEventLogReadDescription := (0);
+END_VAR
+(*Test function*)
+VAR
 	MC_BR_SegCommandError_AcpTrak_0 : MC_BR_SegCommandError_AcpTrak;
-	AlarmCount : ARRAY[0..119] OF UDINT;
-	TimeStruct : TIMEStructure;
-	FirstEntryCheckSum : USINT;
 END_VAR

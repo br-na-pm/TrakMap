@@ -1,6 +1,8 @@
 
 PROGRAM _INIT
 
+	TrakLoggerInit;
+
     Current;
     Voltage;
 	
@@ -139,6 +141,7 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 	
+	TrakLoggerCyclic;
 	
 	(***********************************ASSEMBLY INFORMATION******************************	)
 	(*Read Assebly Status*)
