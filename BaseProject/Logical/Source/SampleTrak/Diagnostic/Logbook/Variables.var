@@ -34,7 +34,7 @@ VAR
 END_VAR
 (*Local variables*)
 VAR
-	state : LogBookStateEnum;
+	LogbookState : LogBookStateEnum;
 	ArEventLogGetIdent_0 : ArEventLogGetIdent;
 	executions : USINT;
 END_VAR

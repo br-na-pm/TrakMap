@@ -32,7 +32,7 @@ TYPE
 	SegStatusType : 	STRUCT 
 		CommunicationReady : BOOL;
 		ReadyForPowerOn : BOOL;
-		PowerOn : BOOL; 
+		PowerOn : BOOL;
 		StartupCount : UDINT;
 		CommunicationState : McCommunicationStateEnum;
 		SegmentDisiabled : BOOL;
@@ -99,49 +99,49 @@ END_TYPE
 TYPE
 	LogBookStateEnum : 
 		( (*State machine*)
-		stateWait,
-		stateCreate,
-		stateOpen,
-		stateLatest,
-		stateNext,
-		stateDetails1,
-		stateDetails2,
-		stateDetails3,
-		stateCheckFilter,
-		stateUpdateList,
-		stateDetails4,
-		stateFilter,
-		statePrep,
-		stateError,
-		stateNone
+		STATE_WAIT,
+		STATE_CREATE,
+		STATE_OPEN,
+		STATE_LATEST,
+		STATE_NEXT,
+		STATE_DETAILS_1,
+		STATE_DETAILS_2,
+		STATE_DETAILS_3,
+		STATE_CHECK_FILTER,
+		STATE_UPDATE_LIST,
+		STATE_DETAILS_4,
+		STATE_FILTER,
+		STATE_PREP,
+		STATE_ERROR,
+		STATE_NONE
 		);
 	LogBookSeverityEnum : 
 		(
-		severityNotification,
-		severityInformation,
-		severityWarning,
-		severityError
+		SEVERITY_NOTIFICATION,
+		SEVERITY_INFORMATION,
+		SEVERITY_WARNING,
+		SEVERITY_ERROR
 		);
 	LogBookTypeEnum : 
 		(
-		logAccessSecurity,
-		logCommisioning,
-		logConnectivity,
-		logFieldbus,
-		logFirewall,
-		logMapp,
-		logMotion,
-		logSafety,
-		logSystem,
-		logTextSystem,
-		logUnitSystem,
-		logUser,
-		logVisualization
+		LOG_ACCESS_SECURITY,
+		LOG_COMMISIONING,
+		LOG_CONNECTIVITY,
+		LOG_FIELDBUS,
+		LOG_FIREWALL,
+		LOG_MAPP,
+		LOG_MOTION,
+		LOG_SAFETY,
+		LOG_SYSTEM,
+		LOG_TEXTSYSTEM,
+		LOG_UNITSYSTEM,
+		LOG_USER,
+		LOG_VISUALIZATION
 		);
 	LogBookSortingEnum : 
 		(
-		sortingASC,
-		sortingDESC
+		SORTING_ASC,
+		SORTING_DESC
 		);
 	LogBookCmdType : 	STRUCT  (*Command structure*)
 		Refresh : BOOL; (*Read all entries*)
@@ -159,14 +159,14 @@ TYPE
 		FilterLogbook : ARRAY[0..LOGBOOK_BOOKS_MAX]OF BOOL := [14(TRUE)]; (*Filter by logbook*)
 		FilterDateStart : DATE; (*Filter by date*)
 		FilterDateEnd : DATE;
-		Sorting : LogBookSortingEnum := sortingDESC; (*Sort date asc or desc*)
+		Sorting : LogBookSortingEnum := SORTING_DESC; (*Sort date asc or desc*)
 		AbortOnEntriesLimit : BOOL; (*Stop looking for additional entries when limit is reached*)
 		AutoUpdate : BOOL; (*Automatically update data*)
 		AutoUpdateInterval : UINT := 60; (*Interval for auto update in s*)
 		CreateErrorNo : UINT; (*Error no for new entry*)
 		CreateErrorText : STRING[LOGBOOK_TEXT_LEN]; (*Error text for new entry*)
-		CreateSeverity : LogBookSeverityEnum := severityNotification; (*Error severiry for new entry*)
-		CreateLogbook : LogBookTypeEnum := logUser; (*Error logbook for new entry*)
+		CreateSeverity : LogBookSeverityEnum := SEVERITY_NOTIFICATION; (*Error severiry for new entry*)
+		CreateLogbook : LogBookTypeEnum := LOG_USER; (*Error logbook for new entry*)
 	END_STRUCT;
 	LogBookErrorType : 	STRUCT  (*Error structure*)
 		State : LogBookStateEnum; (*State where the error occured*)

@@ -31,7 +31,7 @@ FUNCTION InsertEntry
 	// Lets see where new entry fits
 	FOR idx:=1 TO DAT.EntriesTotal DO
 		// Sorting is ascending
-		IF Sorting = sortingASC THEN
+		IF Sorting = SORTING_ASC THEN
 			// New entry is old than this entry
 			IF DTsec < DAT.Entries.DTsec[idx] THEN
 				EXIT;
