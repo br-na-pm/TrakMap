@@ -19,10 +19,10 @@ END_FUNCTION
 
 FUNCTION InsertEntry : UINT
 	VAR_INPUT
-		DAT : REFERENCE TO logbookDAT;
+		DAT : REFERENCE TO LogBookDataType;
 		DTsec : UDINT;
 		DTmsec : UINT;
-		Sorting : enumSorting;
+		Sorting : LogBookSortingEnum;
 	END_VAR
 	VAR
 		idx : UINT;
@@ -57,5 +57,13 @@ FUNCTION IsInstr : BOOL
 	END_VAR
 	VAR
 		idx : UDINT;
+	END_VAR
+END_FUNCTION
+
+{REDUND_ERROR} FUNCTION SetTrakSegAlarm : BOOL (*Trigger MpAlarmXSet based on EventIDCode*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
+	VAR_INPUT
+		AlarmMpLink : MpComIdentType;
+		EventIDCode : UDINT;
+		AlarmCount : REFERENCE TO ARRAY[0..119] OF UDINT;
 	END_VAR
 END_FUNCTION

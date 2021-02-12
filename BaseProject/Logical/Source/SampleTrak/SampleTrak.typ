@@ -32,5 +32,6 @@ TYPE
 		AlarmCore : MpComIdentType;
 		AuditCore : MpComIdentType;
 		RecipeCore : MpComIdentType;
+		TrakInterface : TrakType;
 	END_STRUCT;
 END_TYPE

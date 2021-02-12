@@ -4,5 +4,6 @@ VAR_CONFIG
 	Cyclic#1.Diag::gAlarmXCore_DiagModule AT %Q.Diag::DiagInterface.AlarmCore; (*Insert your comment here...*)
 	Cyclic#1.::gSampleTrak AT %Q.Diag::DiagInterface.SampleTrak; (*Insert your comment here...*)
 	Cyclic#4.::gTrackData.Segments AT %Q.Diag::TrackDiag.Seg; (*Insert your comment here...*)
+	Cyclic#1.TrackMod::gTrakSystem AT %Q.Diag::DiagInterface.TrakInterface; (*Insert your comment here...*)
 	Diag::TrackDiag.Seg.SegList AT %Q.Diag::gTrackData.Segments.SegList; (*Insert your comment here...*)
 END_VAR

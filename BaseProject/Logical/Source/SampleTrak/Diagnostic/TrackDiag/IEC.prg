@@ -10,6 +10,5 @@
     <File>CheckErrorCode.st</File>
     <File>CheckTemp.st</File>
     <File>SegmentReset.st</File>
-    <File>TrakLogger.st</File>
   </Files>
 </Program>

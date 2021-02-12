@@ -1,8 +1,6 @@
 
 PROGRAM _INIT
 
-	TrakLoggerInit;
-
     Current;
     Voltage;
 	
@@ -141,7 +139,11 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 	
-	TrakLoggerCyclic;
+	MC_BR_SegCommandError_AcpTrak_0(Segment := ADR(TrackDiag.Seg.SegList[0].McType));
+	
+	IF MC_BR_SegCommandError_AcpTrak_0.Done THEN
+		MC_BR_SegCommandError_AcpTrak_0.Execute := FALSE;
+	END_IF
 	
 	(***********************************ASSEMBLY INFORMATION******************************	)
 	(*Read Assebly Status*)

@@ -42,9 +42,9 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="trackLogbookContent.EntiresTotal.Notification">
-      <Source xsi:type="opcUa.Event" refId="NS6|String|Diag::AsGlobalPV:gLogbook.DAT.EntriesTotal" event="ValueChanged" />
+      <Source xsi:type="opcUa.Event" refId="NS6|String|Diag::AsGlobalPV:gLogbook.Data.EntriesTotal" event="ValueChanged" />
       <Operand datatype="ANY_INT" name="MAX_ENTRIES">
-        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="NS6|String|Diag::AsGlobalPV:gLogbook.PAR.EntriesMax" serverAlias="">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="NS6|String|Diag::AsGlobalPV:gLogbook.Par.EntriesMax" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
@@ -70,7 +70,7 @@
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="trackLogbookContent" widgetRefId="btnUpdate" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::AsGlobalPV:gLogbook.CMD.Update">
+          <Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::AsGlobalPV:gLogbook.Cmd.Update">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -80,7 +80,7 @@
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="trackLogbookContent" widgetRefId="btnResetError" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::AsGlobalPV:gLogbook.CMD.ResetError">
+          <Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::AsGlobalPV:gLogbook.Cmd.ResetError">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -423,7 +423,7 @@
     <EventBinding id="trackLogbookContent.btnDateToday.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="trackLogbookContent" widgetRefId="btnDateToday" event="Click" />
       <Operand datatype="DATE_AND_TIME" name="DateNow">
-        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="NS6|String|Diag::AsGlobalPV:gLogbook.PAR.DateNow" serverAlias="">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="NS6|String|Diag::AsGlobalPV:gLogbook.Par.DateNow" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
@@ -456,7 +456,7 @@
     <EventBinding id="trackLogbookContent.btnDateAll.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="trackLogbookContent" widgetRefId="btnDateAll" event="Click" />
       <Operand datatype="DATE_AND_TIME" name="DateNow">
-        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="NS6|String|Diag::AsGlobalPV:gLogbook.PAR.DateNow" serverAlias="">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="NS6|String|Diag::AsGlobalPV:gLogbook.Par.DateNow" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
@@ -490,7 +490,7 @@
       <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="trackLogbookContent" widgetRefId="btnTimestampSorting" event="ValueChanged" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::AsGlobalPV:gLogbook.CMD.Refresh">
+          <Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::AsGlobalPV:gLogbook.Cmd.Refresh">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -510,7 +510,7 @@
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="trackLogbookContent" widgetRefId="btnCreate" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::AsGlobalPV:gLogbook.CMD.Create">
+          <Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::AsGlobalPV:gLogbook.Cmd.Create">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -524,7 +524,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="trackLogbookContent.EntriesTotal.SetEnable">
-      <Source xsi:type="opcUa.Event" refId="NS6|String|Diag::AsGlobalPV:gLogbook.DAT.EntriesTotal" event="ValueChanged" />
+      <Source xsi:type="opcUa.Event" refId="NS6|String|Diag::AsGlobalPV:gLogbook.Data.EntriesTotal" event="ValueChanged" />
       <EventHandler condition="newValue &gt; 0">
         <Sequence>
           <Step order="0">

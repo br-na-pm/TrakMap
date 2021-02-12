@@ -12,7 +12,7 @@ VAR
 	TimeStart : DATE_AND_TIME;
 	TimeEnd : DATE_AND_TIME;
 	AddData : ARRAY[0..500] OF USINT;
-	Logbook : typLogbook;
+	Logbook : LogBooksType;
 	idx : UINT;
 	eventID : DINT;
 	animation : USINT;
@@ -27,13 +27,14 @@ VAR
 	ArEventLogReadErrorNumber_0 : ArEventLogReadErrorNumber;
 	ArEventLogReadDescription_0 : ArEventLogReadDescription;
 	ArEventLogReadAddData_0 : ArEventLogReadAddData;
+	ArEventLogReadObjectID_0 : ArEventLogReadObjectID;
 	DTGetTime_0 : DTGetTime;
 	httpUtf8ToString_0 : httpUtf8ToString;
 	AutoRefresh : TON_10ms;
 END_VAR
 (*Local variables*)
 VAR
-	state : enumLogbookState;
+	state : LogBookStateEnum;
 	ArEventLogGetIdent_0 : ArEventLogGetIdent;
 	executions : USINT;
 END_VAR
@@ -43,4 +44,23 @@ VAR CONSTANT
 	LOGBOOK_NAMES : ARRAY[0..LOGBOOK_BOOKS_MAX] OF STRING[50] := ['$$accsec','$$diag','$$arlogconn','$$fieldbus','$$firewall','$$mapp','$$motion','$$safety','$$arlogsys','$$textsys','$$unitsys','$$arlogusr','$$vision','$$visu'];
 	LOGBOOK_TEXT : ARRAY[0..LOGBOOK_BOOKS_MAX] OF STRING[50] := ['Access','Commissioning','Connectivity','Fieldbus','Firewall','Mapp','Motion','Safety','System','Text System','Unit System','User','Vision','Visualization'];
 	NO_SPACE : UINT := 0;
+END_VAR
+(*read & filter motion logger*)
+VAR
+	EventID : DINT := 0;
+	EventIDSeverity : USINT := 0;
+	EventIDFacility : UINT := 0;
+	EventIDCode : UINT := 0;
+	EventTimeStamp : ArEventLogTimeStampType := (0);
+	ObjectID : STRING[36] := '';
+	Description : STRING[256] := '';
+	TempString : STRING[32] := '';
+	SegmentErrorFound : USINT := 0;
+	AlarmCount : ARRAY[0..119] OF UDINT;
+	TimeStruct : TIMEStructure;
+	FirstEntryCheckSum : USINT;
+END_VAR
+(*Test function*)
+VAR
+	MC_BR_SegCommandError_AcpTrak_0 : MC_BR_SegCommandError_AcpTrak;
 END_VAR

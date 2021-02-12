@@ -97,7 +97,7 @@ END_TYPE
 (*LogBook def*)
 
 TYPE
-	enumLogbookState : 
+	LogBookStateEnum : 
 		( (*State machine*)
 		stateWait,
 		stateCreate,
@@ -107,20 +107,22 @@ TYPE
 		stateDetails1,
 		stateDetails2,
 		stateDetails3,
+		stateCheckFilter,
+		stateUpdateList,
 		stateDetails4,
 		stateFilter,
 		statePrep,
 		stateError,
 		stateNone
 		);
-	enumSeverity : 
+	LogBookSeverityEnum : 
 		(
 		severityNotification,
 		severityInformation,
 		severityWarning,
 		severityError
 		);
-	enumLogbookType : 
+	LogBookTypeEnum : 
 		(
 		logAccessSecurity,
 		logCommisioning,
@@ -136,18 +138,18 @@ TYPE
 		logUser,
 		logVisualization
 		);
-	enumSorting : 
+	LogBookSortingEnum : 
 		(
 		sortingASC,
 		sortingDESC
 		);
-	logbookCMD : 	STRUCT  (*Command structure*)
+	LogBookCmdType : 	STRUCT  (*Command structure*)
 		Refresh : BOOL; (*Read all entries*)
 		Update : BOOL; (*Update entries*)
 		Create : BOOL; (*Create a new entry*)
 		ResetError : BOOL; (*Reset error*)
 	END_STRUCT;
-	logbookPAR : 	STRUCT  (*Parameter structure*)
+	LogBookParType : 	STRUCT  (*Parameter structure*)
 		DateNow : DATE_AND_TIME; (*Current date and time*)
 		TableConfig : STRING[100]; (*Hide unused rows*)
 		EntriesMax : UINT; (*Maximum number of entries, shadow of LOGBOOK_ENTRIES_MAX*)
@@ -157,26 +159,26 @@ TYPE
 		FilterLogbook : ARRAY[0..LOGBOOK_BOOKS_MAX]OF BOOL := [14(TRUE)]; (*Filter by logbook*)
 		FilterDateStart : DATE; (*Filter by date*)
 		FilterDateEnd : DATE;
-		Sorting : enumSorting := sortingDESC; (*Sort date asc or desc*)
+		Sorting : LogBookSortingEnum := sortingDESC; (*Sort date asc or desc*)
 		AbortOnEntriesLimit : BOOL; (*Stop looking for additional entries when limit is reached*)
 		AutoUpdate : BOOL; (*Automatically update data*)
 		AutoUpdateInterval : UINT := 60; (*Interval for auto update in s*)
 		CreateErrorNo : UINT; (*Error no for new entry*)
 		CreateErrorText : STRING[LOGBOOK_TEXT_LEN]; (*Error text for new entry*)
-		CreateSeverity : enumSeverity := severityNotification; (*Error severiry for new entry*)
-		CreateLogbook : enumLogbookType := logUser; (*Error logbook for new entry*)
+		CreateSeverity : LogBookSeverityEnum := severityNotification; (*Error severiry for new entry*)
+		CreateLogbook : LogBookTypeEnum := logUser; (*Error logbook for new entry*)
 	END_STRUCT;
-	logbookERR : 	STRUCT  (*Error structure*)
-		State : enumLogbookState; (*State where the error occured*)
+	LogBookErrorType : 	STRUCT  (*Error structure*)
+		State : LogBookStateEnum; (*State where the error occured*)
 	END_STRUCT;
-	logbookDAT : 	STRUCT  (*Data structure*)
-		Entries : logbookENTRIES;
+	LogBookDataType : 	STRUCT  (*Data structure*)
+		Entries : LogBookDataEntryType;
 		EntriesTotal : UINT; (*Total number of entries*)
 		CntSeverity : ARRAY[0..3]OF UINT; (*Counts by severity*)
 		CntLogbook : ARRAY[0..LOGBOOK_BOOKS_MAX]OF UINT; (*Counts by logbook*)
 		LastUpdate : STRING[25]; (*Last refresh run*)
 	END_STRUCT;
-	logbookENTRIES : 	STRUCT  (*Entries structure*)
+	LogBookDataEntryType : 	STRUCT  (*Entries structure*)
 		EventID : ARRAY[1..LOGBOOK_ENTRIES_MAX]OF DINT; (*Event ID*)
 		Timestamp : ARRAY[1..LOGBOOK_ENTRIES_MAX]OF STRING[25]; (*Date and time*)
 		DTsec : ARRAY[1..LOGBOOK_ENTRIES_MAX]OF UDINT; (*Date and time in sec*)
@@ -188,74 +190,28 @@ TYPE
 		ErrorNo : ARRAY[1..LOGBOOK_ENTRIES_MAX]OF DINT; (*Error number*)
 		ErrorText : ARRAY[1..LOGBOOK_ENTRIES_MAX]OF STRING[LOGBOOK_TEXT_LEN]; (*Error text*)
 	END_STRUCT;
-	logbookMAIN : 	STRUCT  (*Main structure*)
-		CMD : logbookCMD;
-		PAR : logbookPAR;
-		DAT : logbookDAT;
-		ERR : logbookERR;
+	LogBookSegErrorType : 	STRUCT 
+		ParaSegFilter : STRING[8]; (*show only entries with names beginning with this string*)
+		Message : STRING[256]; (*message ArEventLog handling*)
+		Record : ARRAY[0..500]OF LogBookSegErrorRecordType;
+	END_STRUCT;
+	LogBookSegErrorRecordType : 	STRUCT 
+		ObjectID : STRING[36]; (*logger entry "Entered by"*)
+		EventID : DINT; (*logger entry "ID"*)
+		EventIDSeverity : USINT; (*logger entry "Severity"*)
+		EventIDFacility : UINT; (*logger entry "Facility"*)
+		EventIDCode : UINT; (*logger entry "Code"*)
+		EventTimeStamp : TIME; (*logger entry "Time"*)
+		Text : STRING[300]; (*logger entry "Description"*)
+		Description : STRING[256]; (*logger entry "Description"*)
+	END_STRUCT;
+	LogBookCtrlType : 	STRUCT  (*Main structure*)
+		Cmd : LogBookCmdType;
+		Par : LogBookParType;
+		Data : LogBookDataType;
+		Error : LogBookErrorType;
+		SegError : LogBookSegErrorType;
 		Status : DINT;
 		StatusText : STRING[80];
-	END_STRUCT;
-END_TYPE
-
-(*Segment Trace Diagnostic Structures*)
-
-TYPE
-	segTraceIfTyp : 	STRUCT  (*Segment trace interface typ*)
-		Cmds : segTraceIfCmdsTyp; (*Commands type*)
-		Pars : segTraceIfParsTyp; (*Segment Trace parameters type*)
-		Status : segTraceIfStatusTyp; (*Segmetn Trace status type*)
-	END_STRUCT;
-	segTraceIfCmdsTyp : 	STRUCT  (*Segment Trace Commands type*)
-		Capture : BOOL; (*Capture/Execute the segment trace*)
-		ErrorReset : BOOL; (*Error reset the segment trace*)
-		Export : BOOL; (*Export trace results command*)
-	END_STRUCT;
-	segTraceIfParsTyp : 	STRUCT  (*Segment Trace parameters type*)
-		ParIds : ARRAY[0..numPAR_IDS_ARRAY]OF McAcpTrakSegProcessParIDType; (*Array of parIds to read*)
-		PS_UDC_Value : REAL; (*Configured DC bus voltage value for the power supplies*)
-		PowerFailDetectRatio : REAL; (*Powerfail Detect Ratio used to validate DC bus voltage*)
-		BalancerCurrentLimit : REAL; (*Set current limit for the calculation check*)
-		SegmentCount : USINT; (*Number Of segments*)
-		Export : segTraceIfExportParsTyp; (*Export parameters*)
-	END_STRUCT;
-	segTraceIfExportParsTyp : 	STRUCT  (*Export parameters*)
-		FileName : STRING[80]; (*File name used for exporting*)
-		FileDev : STRING[80]; (*File Device used for exporting*)
-	END_STRUCT;
-	segTraceIfStatusTyp : 	STRUCT  (*Segment Trace Status Type*)
-		Active : BOOL; (*Segment trace is currently Active*)
-		Done : BOOL; (*Segment Trace is Done*)
-		Error : BOOL; (*Segment Trace has an Error*)
-		Result : segTraceResultEnum; (*Segment Trace Result*)
-		FailCount : USINT; (*Number of failed segments*)
-		Failures : ARRAY[0..MAX_SEGMENTS]OF segTraceFailTyp; (*List of segments that failed the parID checks*)
-	END_STRUCT;
-	segTraceResultEnum : 
-		( (*Segment Trace Result Enumeration*)
-		segTraceUnknown, (*Unknown (test not run yet)*)
-		segTracePass, (*Test Passed*)
-		segTraceFail (*Test Failed*)
-		);
-	segTraceResultsValuesTyp : 	STRUCT  (*List of values read from the segment*)
-		BalCurrent_Act_1 : REAL; (*Balancer current actual value 1*)
-		BalCurrent_Act_2 : REAL; (*Balancer current actual value 2*)
-		BalCurrent_Act_3 : REAL; (*Balancer current actual value 3*)
-		UdcAct : REAL; (*Actual DC bus voltage on the segment*)
-		UdcMiddleAct : REAL; (*Actual middle point DC Bus voltage on the segment*)
-	END_STRUCT;
-	segTraceResultsTyp : 	STRUCT  (*Segment Trace Results type*)
-		BalancerPass : BOOL; (*Balancer sumation test passed*)
-		UDCActPass : BOOL; (*DC bus voltage actual test passed*)
-		UDCMiddlePass : BOOL; (*DC middle voltage actual test passed*)
-		BalancerSum : REAL; (*Sum of balancer currents*)
-		Values : segTraceResultsValuesTyp; (*List of values read from the segment*)
-	END_STRUCT;
-	segTraceFailTyp : 	STRUCT  (*Failed Test segment type*)
-		SegName : STRING[32]; (*Segment Name*)
-		WarningActive : BOOL; (*Segment has a warning active from the check. (Aide in HMI visualization)*)
-		BalancerFail : BOOL; (*The balancer summation failed*)
-		UDCActFail : BOOL; (*The UDC Act check failed*)
-		UDCMiddleActFail : BOOL; (*The UDC Middle check failed*)
 	END_STRUCT;
 END_TYPE

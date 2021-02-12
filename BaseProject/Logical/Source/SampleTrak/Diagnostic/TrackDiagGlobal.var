@@ -9,7 +9,7 @@ VAR
 END_VAR
 (*LogBook variables*)
 VAR
-	gLogbook : logbookMAIN; (*Logbook main structure*)
+	gLogbook : LogBookCtrlType; (*Logbook main structure*)
 END_VAR
 VAR CONSTANT
 	LOGBOOK_EXECUTIONS : USINT := 10; (*Executions per cycle*)
@@ -22,9 +22,6 @@ VAR CONSTANT
 	MAX_SEGMENTS : USINT := 86;
 	numPAR_IDS : USINT := 5;
 	numPAR_IDS_ARRAY : USINT := numPAR_IDS-1;
-END_VAR
-VAR
-	gSegTraceIf : segTraceIfTyp; (*Segment Diagnostic Trace interface*)
 END_VAR
 (*Module definitions*)
 VAR
