@@ -92,23 +92,11 @@ PROGRAM _INIT
 			SegFilterIDInfo[SegIndex].ParID				:= mcACPPAR_SCTRL_TI_FIL;
 			SegFilterIDInfo[SegIndex].DataType			:= mcACPTRAK_SEG_PARTYPE_REAL;
 			SegFilterIDInfo[SegIndex].VariableAddress	:= ADR(SpeedFilterTime);
-				
-			
-			// WORKAROUND FOR 5.12.0 - write speed filter
-			(*	SegPitchSet[SegIndex].CmdWriteFilter :=  TRUE;*)
-			//
 			
 			SegProcessParID_Pitch[SegIndex].Segment			:= ADR(TrackDiag.Seg.SegList[SegIndex].McType);
 			SegProcessParID_Pitch[SegIndex].ChannelIndex	:= 0;
 			SegProcessParID_Pitch[SegIndex].NumberOfParIDs 	:= 1;
 			SegProcessParID_Pitch[SegIndex].Mode			:= mcACPTRAK_SEG_PARID_SET;
-			
-			//			FOR i := 0 TO 2 DO 
-			//				SegLagIDInfo[SegIndex][i].DataType := 
-			//				SegLagIDInfo[SegIndex][i].ParID		:= 
-			//				SegLagIDInfo[SegIndex][i].VariableAddress := ADR(SegShuttleMonitor_typ
-			//			END_FOR
-			
 			
 			SegStatusIDInfo[SegIndex].DataType 		:= mcACPTRAK_SEG_PARTYPE_UDINT;
 			SegStatusIDInfo[SegIndex].ParID			:= mcACPPAR_LLM_CYC_SEG_STATUS_BITS;
@@ -117,8 +105,7 @@ PROGRAM _INIT
 			SegResetIDInfo[SegIndex].DataType 		:= mcACPTRAK_SEG_PARTYPE_UDINT;
 			SegResetIDInfo[SegIndex].ParID			:= 1050;
 			SegResetIDInfo[SegIndex].VariableAddress := ADR(SegmentReset[SegIndex].SegResetCmd);
-		
-		
+				
 			SegProcessParID_Reset[SegIndex].Segment			:= ADR(TrackDiag.Seg.SegList[SegIndex].McType);
 			SegProcessParID_Reset[SegIndex].ChannelIndex 	:= 0;
 			SegProcessParID_Reset[SegIndex].NumberOfParIDs 	:= 1;
@@ -314,7 +301,6 @@ PROGRAM _CYCLIC
 	IF CpuSim = FALSE THEN
 		actCheckErrorCode;
 		actCheckTemp;
-		actSegmentReset;
 	END_IF	
 		
 	fbAuditTrail(MpLink := ADR(gAuditTrail_DiagModule), Enable := TRUE, Language := ADR('en'), DeviceName := ADR('User'));

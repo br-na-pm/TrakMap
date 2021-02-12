@@ -42,4 +42,5 @@ VAR
 	fbAuditTrail : MpAuditTrail;
 	gSegResetActive : BOOL;
 	CpuSim : BOOL;
+	MC_BR_SegCommandError_AcpTrak_0 : MC_BR_SegCommandError_AcpTrak;
 END_VAR
