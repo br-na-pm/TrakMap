@@ -35,12 +35,12 @@ END_TYPE
 (*Track Data Datatypes*)
 
 TYPE
-	TrackDataTyp : 	STRUCT 
-		Segments : SegmentDataTyp;
+	TrackDataType : 	STRUCT 
+		Segments : SegmentDataType;
 	END_STRUCT;
-	SegmentDataTyp : 	STRUCT 
+	SegmentDataType : 	STRUCT 
 		SegListAdr : UDINT;
-		SegList : ARRAY[0..NUM_SEG]OF tpCoreSegmentTyp;
+		SegList : ARRAY[0..NUM_SEG]OF TrkPaperCoreSegmentType;
 		SegCount : USINT;
 	END_STRUCT;
 END_TYPE

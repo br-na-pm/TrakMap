@@ -29,6 +29,7 @@
     <Object Type="Library" Language="binary" Description="[mapp Motion] Program interpreter library">McProgInt</Object>
     <Object Type="Library" Language="Binary" Description="a safe sprintf implementation">snprintf</Object>
     <Object Type="Library" Language="ANSIC">brdkSTR</Object>
+    <Object Type="Library" Language="ANSIC">TrkDiag</Object>
     <Object Type="Library" Language="ANSIC">TrkPaper</Object>
     <Object Type="Library" Language="binary" Description="The ArEventLog library can be used to collect additional error information and for further processing.">ArEventLog</Object>
     <Object Type="Library" Language="binary" Description="This library contains FBKs for exchanging and formatting data (message based) via HTTP (TCP).">AsHttp</Object>

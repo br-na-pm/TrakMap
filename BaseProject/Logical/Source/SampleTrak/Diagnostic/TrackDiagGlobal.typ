@@ -1,23 +1,23 @@
 (*Insert your comment here.*)
 
 TYPE
-	DiagStatus_typ : 	STRUCT 
-		Sys : SystemStatus_typ;
-		Asm : AsmStatus_typ;
-		Seg : SegmentDataTyp;
-		Shuttle : ShuttleStatus_typ;
-		PS : ARRAY[0..NUM_PS]OF PowerSupplyStatus_typ;
-		Hub : ARRAY[0..NUM_HUBS]OF HubStatus_typ;
-		IO : IOStatus_typ;
-		CPU : CPUStatus_typ;
+	DiagStatusType : 	STRUCT 
+		Sys : SystemStatusType;
+		Asm : AsmStatusType;
+		Seg : SegmentDataType;
+		Shuttle : ShuttleStatusType;
+		PS : ARRAY[0..NUM_PS]OF PowerSupplyStatusType;
+		Hub : ARRAY[0..NUM_HUBS]OF HubStatusType;
+		IO : IOStatusType;
+		CPU : CPUStatusType;
 		SegmentCount : USINT; (*Number Of segments*)
 	END_STRUCT;
-	SystemStatus_typ : 	STRUCT 
+	SystemStatusType : 	STRUCT 
 		ConfigCheckComplete : BOOL;
 		ConfigCheckOk : BOOL;
 		StatusMessage : STRING[0];
 	END_STRUCT;
-	AsmStatus_typ : 	STRUCT 
+	AsmStatusType : 	STRUCT 
 		AssemblyDisabled : BOOL;
 		AssemblyReady : BOOL;
 		AssemblyHoming : BOOL;
@@ -29,10 +29,10 @@ TYPE
 		StartupCount : UDINT;
 		ShuttleInErrorStopCount : UINT;
 	END_STRUCT;
-	SegStatus_typ : 	STRUCT 
+	SegStatusType : 	STRUCT 
 		CommunicationReady : BOOL;
 		ReadyForPowerOn : BOOL;
-		PowerOn : BOOL;
+		PowerOn : BOOL; 
 		StartupCount : UDINT;
 		CommunicationState : McCommunicationStateEnum;
 		SegmentDisiabled : BOOL;
@@ -40,10 +40,10 @@ TYPE
 		SegmentStopping : BOOL;
 		SegmentErrorStop : BOOL;
 		ErrorCode : UINT;
-		DCBus : SegStatusDCBus_typ;
-		Temp : SegStatusTemp_typ;
+		DCBus : TrkDiagSegStatusDCBusType;
+		Temp : TrkDiagSegStatusTempType;
 	END_STRUCT;
-	ShuttleStatus_typ : 	STRUCT 
+	ShuttleStatusType : 	STRUCT 
 		Position : REAL;
 		Velocity : REAL;
 		LagError : REAL;
@@ -51,7 +51,7 @@ TYPE
 		Channel_ID : REAL;
 		ErrorMessage : STRING[0];
 	END_STRUCT;
-	PowerSupplyStatus_typ : 	STRUCT 
+	PowerSupplyStatusType : 	STRUCT 
 		ModuleOk : BOOL;
 		CurrentLimit01 : BOOL;
 		Voltage01 : SINT;
@@ -67,7 +67,7 @@ TYPE
 		StatusBleeder01 : BOOL;
 		StatusOutput02 : BOOL;
 	END_STRUCT;
-	HubStatus_typ : 	STRUCT 
+	HubStatusType : 	STRUCT 
 		ErrorMessage : STRING[0];
 		X20BC8083_ModuleOK : BOOL;
 		X20PS9400_ModuleOk : BOOL;
@@ -77,7 +77,7 @@ TYPE
 		PLK_CycleOk : BOOL;
 		PLK_SyncOk : BOOL;
 	END_STRUCT;
-	IOStatus_typ : 	STRUCT 
+	IOStatusType : 	STRUCT 
 		X20BT9400_ModuleOk : BOOL;
 		X20BT9400_StatusInput01 : BOOL;
 		X20BT9400_StatusInput02 : BOOL;
@@ -85,11 +85,11 @@ TYPE
 		X20DI2371_DigitalInput01 : BOOL;
 		X20DI2371_DigitalInput02 : BOOL;
 	END_STRUCT;
-	CPUStatus_typ : 	STRUCT 
+	CPUStatusType : 	STRUCT 
 		TemperatureCPU : UINT;
 		TemperatureBoard : UINT;
 	END_STRUCT;
-	ErrorSegInfo_typ : 	STRUCT 
+	ErrorSegInfoType : 	STRUCT 
 		Error : USINT;
 	END_STRUCT;
 END_TYPE

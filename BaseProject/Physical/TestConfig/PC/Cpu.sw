@@ -110,5 +110,6 @@
     <LibraryObject Name="asmem" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="brsystem" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asarlog" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="TrkDiag" Source="Libraries.TrkDiag.lby" Memory="UserROM" Language="ANSIC" Debugging="true" />
   </Libraries>
 </SwConfiguration>

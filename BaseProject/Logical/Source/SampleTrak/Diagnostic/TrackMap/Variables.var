@@ -1,8 +1,8 @@
 VAR
-	paperCore : tpCore;
+	paperCore : TrkPaperCore;
 	Offset : UDINT;
 	clickId : STRING[160];
 	i : INT;
-	clickedSegment : tpCoreSegmentTyp;
+	clickedSegment : TrkPaperCoreSegmentType;
 	SegIndex : INT;
 END_VAR

@@ -24,7 +24,7 @@ plcbit CheckStrLen(char* dest,char* source,UDINT length){
 
 DINT StartSVGStrings(char* svgContent,
 	char* svgTransform,
-struct tpCoreViewBoxCfgTyp* viewBox){
+struct TrkPaperCoreViewBoxCfgType* viewBox){
 	
 	char tmp[150];
 	
@@ -36,37 +36,37 @@ struct tpCoreViewBoxCfgTyp* viewBox){
 		viewBox->MinY,
 		viewBox->Width,
 		viewBox->Height);
-	if(CheckStrLen(svgContent,&tmp,tpCORE_MAX_STR_LEN)){
+	if(CheckStrLen(svgContent,&tmp,trkPAPER_CORE_MAX_STR_LEN)){
 		brsstrcat(svgContent,&tmp);
 	}
 	else 
-		return tpCORE_ERR_STR_LEN_EXCEEDED;
-	if(CheckStrLen(svgTransform,&"[",tpCORE_MAX_STR_LEN)){
+		return trkPAPER_CORE_ERR_STR_LEN_EXCD;
+	if(CheckStrLen(svgTransform,&"[",trkPAPER_CORE_MAX_STR_LEN)){
 		brsstrcat(svgTransform,&"[");
 	}
 	else 
-		return tpCORE_ERR_STR_LEN_EXCEEDED;
+		return trkPAPER_CORE_ERR_STR_LEN_EXCD;
 	//No Error, finished everything return OK
-	return tpCORE_ERR_OK;
+	return trkPAPER_CORE_ERR_OK;
 	
 }
 
 //Closes the Transform and Content strings with the appropriate tags
 DINT CloseSVGStrings(char* svgContent,
 char* svgTransform){
-	if(CheckStrLen(svgContent,&"</svg>",tpCORE_MAX_STR_LEN)){
+	if(CheckStrLen(svgContent,&"</svg>",trkPAPER_CORE_MAX_STR_LEN)){
 		brsstrcat(svgContent,&"</svg>");
 	}
 	else 
-		return tpCORE_ERR_STR_LEN_EXCEEDED;
-	if(CheckStrLen(svgTransform,&"]",tpCORE_MAX_STR_LEN)){
+		return trkPAPER_CORE_ERR_STR_LEN_EXCD;
+	if(CheckStrLen(svgTransform,&"]",trkPAPER_CORE_MAX_STR_LEN)){
 		brsstrcat(svgTransform,&"]");
 	}
 	else 
-		return tpCORE_ERR_STR_LEN_EXCEEDED;
+		return trkPAPER_CORE_ERR_STR_LEN_EXCD;
 	
 	//No Error, finished everything return OK
-	return tpCORE_ERR_OK;
+	return trkPAPER_CORE_ERR_OK;
 }
 
 
@@ -74,7 +74,7 @@ char* svgTransform){
 //Method for building the shuttle transform string. Defined the style of a segment based upon the information input into the FB
 DINT BuildSegmentStrings(char* svgContent,
 	char* svgTransform,
-struct tpCoreSegmentTyp* segList,
+struct TrkPaperCoreSegmentType* segList,
 USINT SegmentCount){
 	
 	USINT i;
@@ -85,69 +85,69 @@ USINT SegmentCount){
 		if(segList[i].Status.ErrorCode > 0){
 			snprintf2(tmp,200,"{\"select\":\"#%s\",\"style\":\"fill:%d\"}",
 				segList[i].Name, //Segment Name
-				segStyleError //Segment Style Color index
+				trkPAPER_SEG_STYLE_ERROR //Segment Style Color index
 				);
 			
 		}
 		else if(!segList[i].Status.CommunicationReady || !segList[i].Status.ReadyForPowerOn){
 			snprintf2(tmp,200,"{\"select\":\"#%s\",\"style\":\"fill:%d\"}",
 				segList[i].Name, //Segment Name
-				segStyleWarning //Segment Style Color index
+				trkPAPER_SEG_STYLE_WARNING //Segment Style Color index
 				);
 		}
 		else if(segList[i].Status.PowerOn){
 			snprintf2(tmp,200,"{\"select\":\"#%s\",\"style\":\"fill:%d\"}",
 				segList[i].Name, //Segment Name
-				segStyleOkay //Segment Style Color index
+				trkPAPER_SEG_STYLE_OKAY //Segment Style Color index
 				);
 		}
 		else{
 			snprintf2(tmp,200,"{\"select\":\"#%s\",\"style\":\"fill:%d\"}",
 				segList[i].Name, //Segment Name
-				segStyleDefault //Segment Style Color index
+				trkPAPER_SEG_STYLE_DEFAULT //Segment Style Color index
 				);
 		}
 		
-		if(CheckStrLen(svgTransform,&tmp,tpCORE_MAX_STR_LEN)){
+		if(CheckStrLen(svgTransform,&tmp,trkPAPER_CORE_MAX_STR_LEN)){
 			brsstrcat(svgTransform,&tmp);
-			if(CheckStrLen(svgTransform,&",",tpCORE_MAX_STR_LEN)){
+			if(CheckStrLen(svgTransform,&",",trkPAPER_CORE_MAX_STR_LEN)){
 				//Every one except for the last index add a comma
 				if(i != SegmentCount-1){
 					brsstrcat(svgTransform,&",");
 				}
 			}
 			else{
-				return tpCORE_ERR_STR_LEN_EXCEEDED;	
+				return trkPAPER_CORE_ERR_STR_LEN_EXCD;	
 			}
 			
 		}
 		else 
-			return tpCORE_ERR_STR_LEN_EXCEEDED;	
+			return trkPAPER_CORE_ERR_STR_LEN_EXCD;	
 	}
 	
-	return tpCORE_ERR_OK;
+	return trkPAPER_CORE_ERR_OK;
 
 }
 
 /* Core Track Master function blocks. Handles the building of the SVG string */
-void tpCore(struct tpCore* inst)
+void TrkPaperCore(struct TrkPaperCore* inst)
 {
 	switch (inst->Internal.State){
-		case tpCORE_OFF:
+		case trkPAPER_CORE_OFF:
 			//******************************************************************************** Off state
 			if(inst->Enable){
-				inst->Internal.TypeID = tpCORE_CORE_TYPE_ID;
+				inst->Internal.TypeID = trkPAPER_CORE_CORE_TYPE_ID;
 				inst->Handle = &inst->Internal;
 				
 				inst->Active = TRUE;
-				inst->Internal.State = tpCORE_INIT;
+				inst->Internal.State = trkPAPER_CORE_INIT;
 			}
 			break;
-		case tpCORE_INIT:
-				inst->Internal.State = tpCORE_RUNNING;
+		case trkPAPER_CORE_INIT:
+				inst->Internal.State = trkPAPER_CORE_RUNNING;
 			break;
 		
-		case tpCORE_RUNNING:
+		case trkPAPER_CORE_RUNNING:
 			StartSVGStrings(&inst->SvgContent,&inst->SvgTransform,&inst->ViewBoxCfg);
 			
 			inst->ErrorID = BuildSegmentStrings(&inst->SvgContent,&inst->SvgTransform,inst->Segments,inst->SegmentCount);
@@ -156,26 +156,26 @@ void tpCore(struct tpCore* inst)
 			inst->StrLengths.ContentLength = brdkStrLen(&inst->SvgContent);
 			inst->StrLengths.TransformLength = brdkStrLen(&inst->SvgTransform);
 			
-			if(inst->ErrorID != tpCORE_ERR_OK){
+			if(inst->ErrorID != trkPAPER_CORE_ERR_OK){
 				inst->Error = TRUE;
 				
-				inst->Internal.State = tpCORE_ERROR;
+				inst->Internal.State = trkPAPER_CORE_ERROR;
 			}
 			if(!inst->Enable){
 				inst->Active = FALSE;
-				inst->Internal.State = tpCORE_OFF;
+				inst->Internal.State = trkPAPER_CORE_OFF;
 			}
 			break;
-		case tpCORE_RESET:
+		case trkPAPER_CORE_RESET:
 			//Try and recover by resetting any blocks
 			
 			break;
-		case tpCORE_ERROR:
+		case trkPAPER_CORE_ERROR:
 			if(inst->ErrorRest){
 				inst->Error = FALSE;
-				inst->ErrorID = tpCORE_ERR_OK;
+				inst->ErrorID = trkPAPER_CORE_ERR_OK;
 				
-				inst->Internal.State = tpCORE_OFF;
+				inst->Internal.State = trkPAPER_CORE_OFF;
 			}
 			break;
 	}

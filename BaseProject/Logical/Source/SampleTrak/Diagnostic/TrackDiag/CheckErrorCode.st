@@ -45,13 +45,13 @@ ACTION actCheckErrorCode:
 					TrackDiag.Seg.SegList[SegIndex].Status.ErrorCode := 0;
 					SegErrorCheck[SegIndex].CheckState := WAIT_FOR_CHECK;
 					
-					ErroredSegments[SegIndex].Error := FALSE;
+					SegmentsInError[SegIndex].Error := FALSE;
 				
 				ELSE
 					//Otherwise, there is a new error on this segment
 					TrackDiag.Seg.SegList[SegIndex].Status.ErrorCode := SegErrorCheck[SegIndex].ErrorNumber;
 					
-					ErroredSegments[SegIndex].Error := TRUE;
+					SegmentsInError[SegIndex].Error := TRUE;
 					//Send to overwrite state to store a known error number (36005) in the error code parID
 					SegErrorCheck[SegIndex].CheckState := WRITE_WARNING_CODE;
 					

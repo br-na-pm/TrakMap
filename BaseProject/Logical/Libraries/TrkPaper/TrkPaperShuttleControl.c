@@ -31,7 +31,7 @@ USINT GetIndex(char* selectedElem){
 	return (USINT)brdkStrAToUdint(&buf,BRDK_STR_CONVERT_DECIMAL);
 }
 /* Function block for handling a shuttle control provided from the paper element's selected element ID. Must be paired with the tmCore FB */
-void tpShuttleControl(struct tpShuttleControl* inst)
+void TrkPaperShuttleControl(struct TrkPaperShuttleControl* inst)
 {
 	//TODO Code disabled for the moment as major type changes are occuring. Will need to revist at a future time.
 	
@@ -39,55 +39,55 @@ void tpShuttleControl(struct tpShuttleControl* inst)
 //		inst->ShInfo = inst->Internal.Fbs.ShGetInfo.ShuttleInfo;
 //	}
 //	switch (inst->Internal.State){
-//		case tpSH_CONTROL_OFF:
+//		case trkPAPER_SH_CONTROL_OFF:
 //			//******************************************************************************** Off state
 //			if(inst->Enable){
 //				if(inst->Handle == 0){
 //					inst->Error = TRUE;
-//					inst->ErrorID = tpSH_CONTROL_ERR_INVALID_HANDLE;
+//					inst->ErrorID = trkPAPER_SH_CONTROL_ERR_INVALID_HANDLE;
 //					
-//					inst->Internal.State = tpSH_CONTROL_ERROR;
+//					inst->Internal.State = trkPAPER_SH_CONTROL_ERROR;
 //				}
 //				else{
-//					inst->Internal.CoreInt = (tpCoreInternalTyp*)inst->Handle;
-//					if(inst->Internal.CoreInt->TypeID != tpCORE_CORE_TYPE_ID){
+//					inst->Internal.CoreInt = (TpCoreInternalTyp*)inst->Handle;
+//					if(inst->Internal.CoreInt->TypeID != TpCORE_CORE_TYPE_ID){
 //						inst->Error = TRUE;
-//						inst->ErrorID = tpSH_CONTROL_ERR_INVALID_HANDLE;
+//						inst->ErrorID = trkPAPER_SH_CONTROL_ERR_INVALID_HANDLE;
 //						
-//						inst->Internal.State = tpSH_CONTROL_ERROR;
+//						inst->Internal.State = trkPAPER_SH_CONTROL_ERROR;
 //					}
 //					else{
 //						inst->Active = TRUE;
 //						
-//						inst->Internal.State = tpSH_CONTROL_INIT;
+//						inst->Internal.State = trkPAPER_SH_CONTROL_INIT;
 //					}
 //				}
 //			}
 //			break;
-//		case tpSH_CONTROL_INIT:
+//		case trkPAPER_SH_CONTROL_INIT:
 //			//******************************************************************************** Init state
 //			if(CheckValidity(&inst->SelectedElem)){	//Checking for the validity of the selected element format
 //				inst->Internal.Idx = GetIndex(&inst->SelectedElem);	//Pulling the index from the string
 //				if(inst->Internal.CoreInt->Axes[inst->Internal.Idx].Present){ //Verifying that index has a valid access in it
-//					inst->ErrorID = tpSH_CONTROL_ERR_OK;
+//					inst->ErrorID = trkPAPER_SH_CONTROL_ERR_OK;
 //					inst->Valid = TRUE;
 //					inst->Internal.CurrentAxis = inst->Internal.CoreInt->Axes[inst->Internal.Idx].Axis;
 //					
 //					inst->Internal.Fbs.ShGetInfo.Axis = &inst->Internal.CurrentAxis;
 //					inst->Internal.Fbs.ShGetInfo.Enable = TRUE;
 //					
-//					inst->Internal.State = tpSH_CONTROL_IDLE;
+//					inst->Internal.State = trkPAPER_SH_CONTROL_IDLE;
 //				}
 //				else{
-//					inst->ErrorID = tpSH_CONTROL_WARN_SH_NOT_AVAIL;
+//					inst->ErrorID = trkPAPER_SH_CONTROL_WARN_SH_NOT_AVAIL;
 //				}
 //			}
 //			else{
-//				inst->ErrorID = tpSH_CONTROL_WARN_NO_ELEM_FND;
+//				inst->ErrorID = trkPAPER_SH_CONTROL_WARN_NO_ELEM_FND;
 //			}
 //        	
 //			break;
-//		case tpSH_CONTROL_IDLE:
+//		case trkPAPER_SH_CONTROL_IDLE:
 //			//******************************************************************************** Get Shuttle state
 //			//Need to check for if the selected element has changed
 //			inst->Internal.LastIdx = inst->Internal.Idx;
@@ -99,7 +99,7 @@ void tpShuttleControl(struct tpShuttleControl* inst)
 //					inst->Valid = FALSE;
 //					inst->Internal.Fbs.ShGetInfo.Enable = FALSE;
 //			
-//					inst->Internal.State = tpSH_CONTROL_INIT;
+//					inst->Internal.State = trkPAPER_SH_CONTROL_INIT;
 //				}
 //				else{
 //					//Here we can start parsing commands
@@ -113,7 +113,7 @@ void tpShuttleControl(struct tpShuttleControl* inst)
 //				
 //						inst->Internal.Fbs.ElMoveAbs.Execute = TRUE;
 //			
-//						inst->Internal.State = tpSH_CONTROL_EL_MOVE_ABS;
+//						inst->Internal.State = trkPAPER_SH_CONTROL_EL_MOVE_ABS;
 //					}
 //					else if(inst->ElasticMoveAdd){
 //						//Setup the elastic move additve block and execute it
@@ -125,7 +125,7 @@ void tpShuttleControl(struct tpShuttleControl* inst)
 //						
 //						inst->Internal.Fbs.ElMoveAdd.Execute = TRUE;
 //						
-//						inst->Internal.State = tpSH_CONTROL_EL_MOVE_ADD;
+//						inst->Internal.State = trkPAPER_SH_CONTROL_EL_MOVE_ADD;
 //					}//End of commands check conditionals
 //				}
 //			}
@@ -133,17 +133,17 @@ void tpShuttleControl(struct tpShuttleControl* inst)
 //				inst->Valid = FALSE;
 //				inst->Internal.Fbs.ShGetInfo.Enable = FALSE;
 //			
-//				inst->Internal.State = tpSH_CONTROL_INIT;
+//				inst->Internal.State = trkPAPER_SH_CONTROL_INIT;
 //			}
 //			
 //			break;
-//		case tpSH_CONTROL_EL_MOVE_ABS:
+//		case trkPAPER_SH_CONTROL_EL_MOVE_ABS:
 //			//******************************************************************************** Elastic Move absolute state
 //			if(inst->Internal.Fbs.ElMoveAbs.Error){
 //				inst->Error = TRUE;
-//				inst->ErrorID = tpSH_CONTROL_ERR_EL_MOVE;
+//				inst->ErrorID = trkPAPER_SH_CONTROL_ERR_EL_MOVE;
 //				
-//				inst->Internal.State = tpSH_CONTROL_ERROR;
+//				inst->Internal.State = trkPAPER_SH_CONTROL_ERROR;
 //			}
 //			else if(inst->Internal.Fbs.ElMoveAbs.Active){
 //				inst->MovementActive = TRUE;
@@ -158,7 +158,7 @@ void tpShuttleControl(struct tpShuttleControl* inst)
 //						inst->Valid = FALSE;
 //						inst->Internal.Fbs.ShGetInfo.Enable = FALSE;
 //			
-//						inst->Internal.State = tpSH_CONTROL_INIT;
+//						inst->Internal.State = trkPAPER_SH_CONTROL_INIT;
 //					}
 //				}
 //			}
@@ -167,16 +167,16 @@ void tpShuttleControl(struct tpShuttleControl* inst)
 //				inst->MovementActive = FALSE;
 //				inst->MovementDone = TRUE;
 //				
-//				inst->Internal.State = tpSH_CONTROL_MOVE_DONE;
+//				inst->Internal.State = trkPAPER_SH_CONTROL_MOVE_DONE;
 //			}
 //			break;
-//		case tpSH_CONTROL_EL_MOVE_ADD:
+//		case trkPAPER_SH_CONTROL_EL_MOVE_ADD:
 //			//******************************************************************************** Elastic Move Additive state
 //			if(inst->Internal.Fbs.ElMoveAdd.Error){
 //				inst->Error = TRUE;
-//				inst->ErrorID = tpSH_CONTROL_ERR_EL_MOVE;
+//				inst->ErrorID = trkPAPER_SH_CONTROL_ERR_EL_MOVE;
 //				
-//				inst->Internal.State = tpSH_CONTROL_ERROR;
+//				inst->Internal.State = trkPAPER_SH_CONTROL_ERROR;
 //			}
 //			else if(inst->Internal.Fbs.ElMoveAdd.Done){
 //				inst->MovementActive = FALSE;
@@ -184,26 +184,26 @@ void tpShuttleControl(struct tpShuttleControl* inst)
 //				
 //				inst->Internal.Fbs.ElMoveAdd.Execute = FALSE;
 //				
-//				inst->Internal.State = tpSH_CONTROL_MOVE_DONE;
+//				inst->Internal.State = trkPAPER_SH_CONTROL_MOVE_DONE;
 //			}
 //			else{
 //				inst->MovementActive = TRUE;
 //			}
 //			break;
-//		case tpSH_CONTROL_MOVE_DONE:
+//		case trkPAPER_SH_CONTROL_MOVE_DONE:
 //			//******************************************************************************** Movement Done State
 //			if(!inst->ElasticMoveAbs
 //				&& !inst->ElasticMoveAdd){
 //				inst->MovementDone = FALSE;
 //				
-//				inst->Internal.State = tpSH_CONTROL_IDLE;
+//				inst->Internal.State = trkPAPER_SH_CONTROL_IDLE;
 //			}
 //			break;
-//		case tpSH_CONTROL_ERROR:
+//		case trkPAPER_SH_CONTROL_ERROR:
 //			//******************************************************************************** Error State
 //			if(!inst->Enable){
 //				inst->Error = FALSE;
-//				inst->ErrorID = tpSH_CONTROL_ERR_OK;
+//				inst->ErrorID = trkPAPER_SH_CONTROL_ERR_OK;
 //				
 //				inst->Internal.Fbs.ElMoveAbs.Execute = FALSE;
 //				inst->Internal.Fbs.ElMoveAdd.Execute = FALSE;
@@ -212,7 +212,7 @@ void tpShuttleControl(struct tpShuttleControl* inst)
 //				inst->Internal.Idx = 0;
 //				inst->Internal.LastIdx = 0;
 //				
-//				inst->Internal.State = tpSH_CONTROL_OFF;
+//				inst->Internal.State = trkPAPER_SH_CONTROL_OFF;
 //			}
 //			break;
 //	}
