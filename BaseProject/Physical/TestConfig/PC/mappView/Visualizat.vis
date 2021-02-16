@@ -24,33 +24,33 @@
 		<BindingsSet refId="EMxAlarmContent_binding" />	
 		<!--Diag-->	
 		<BindingsSet refId="trackLogbookContent_binding" />
-		<BindingsSet refId="trackMapContent_binding" />
-		<BindingsSet refId="content_alarm_details_binding" />
-		<BindingsSet refId="content_seg_detail_binding" />
+		<BindingsSet refId="trackmapContent_binding" />
+		<BindingsSet refId="alarmDetailsContent_binding" />
+		<BindingsSet refId="segmentDetailsContent_binding" />
 		<BindingsSet refId="diagAlarmContent_binding" />
 	
 	</BindingsSets>
 	<EventBindingsSets>
 		<!--General-->
-		<EventBindingsSet refId="loadContentBinding" />	
+		<EventBindingsSet refId="loadContent_eventbinding" />	
 		<EventBindingsSet refId="headerContent_eventbinding" />
-		<EventBindingsSet refId="mainAlarmContentBinding" />
+		<EventBindingsSet refId="mainAlarmContent_eventbinding" />
 		<!--Track ASM-->
-		<EventBindingsSet refId="trackAlarmContentBinding" />
+		<EventBindingsSet refId="trackAlarmContent_eventbinding" />
 		<!--EM2-->
-		<EventBindingsSet refId="EM2AlarmContentBinding" />
+		<EventBindingsSet refId="EM2AlarmContent_eventbinding" />
 		<!--EM3-->
-		<EventBindingsSet refId="EM3AlarmContentBinding" />
+		<EventBindingsSet refId="EM3AlarmContent_eventbinding" />
 		<!--EMx-->
-		<EventBindingsSet refId="EMxAlarmContentBinding" />
+		<EventBindingsSet refId="EMxAlarmContent_eventbinding" />
 		<!--Diag-->
 		<EventBindingsSet refId="trackLogbookContent_eventbinding" />
-		<EventBindingsSet refId="content_trackmap_eventbinding" />
-		<EventBindingsSet refId="diagAlarmContentBinding" />
+		<EventBindingsSet refId="trackmapContent_eventbinding" />
+		<EventBindingsSet refId="diagAlarmContent_eventbinding" />
 	</EventBindingsSets>
 	<Dialogs>
-		<Dialog refId="dialog_alarm_details" />
-		<Dialog refId="dialog_seg_details" />
+		<Dialog refId="alarmDetailsDialog" />
+		<Dialog refId="segmentDetailsDialog" />
 	</Dialogs>
 	<Contents>
 		<Content refId="navigationContent" />
@@ -60,7 +60,7 @@
 		<Content refId="trackAlarmContent" />
 		<Content refId="trackMainContent" />
 		<Content refId="trackLogbookContent" />
-		<Content refId="trackMapContent" />
+		<Content refId="trackmapContent" />
 		<Content refId="allTrakContent" />
 		<Content refId="EM2AlarmContent" />
 		<Content refId="EM3AlarmContent" />

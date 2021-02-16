@@ -3,7 +3,6 @@ VAR
 	ModuleName : STRING[40];
 	StartValue : INT;
 	Counter : INT;
-	StartValu : INT;
 	ModuleInterface : ModuleInterfaceType;
 END_VAR
 (*Alarm configuration*)

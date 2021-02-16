@@ -4,9 +4,9 @@
   <Objects>
     <Object Type="File">logbookContent.binding</Object>
     <Object Type="File">logbookContent.eventbinding</Object>
-    <Object Type="File">trackMapContent.binding</Object>
-    <Object Type="File">content_trackmap.eventbinding</Object>
-    <Object Type="File">content_seg_detail.binding</Object>
+    <Object Type="File">trackmapContent.binding</Object>
+    <Object Type="File">trackmapContent.eventbinding</Object>
+    <Object Type="File">segmentDetailsContent.binding</Object>
     <Object Type="File">diagAlarmContent.binding</Object>
     <Object Type="File">diagAlarmContent.eventbinding</Object>
   </Objects>

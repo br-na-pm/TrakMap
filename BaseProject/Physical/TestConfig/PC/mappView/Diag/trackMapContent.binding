@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<BindingsSet id="trackMapContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<BindingsSet id="trackmapContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
 
 
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="NS6|String|Diag::TrackDiag:paperCore.SvgTransform" attribute="value" />
-<Target xsi:type="brease" contentRefId="trackMapContent" widgetRefId="paperTrackMap" attribute="transform" />
+<Target xsi:type="brease" contentRefId="trackmapContent" widgetRefId="paperTrackMap" attribute="transform" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="NS6|String|Diag::TrackDiag:paperCore.SvgContent" attribute="value" />
-<Target xsi:type="brease" contentRefId="trackMapContent" widgetRefId="paperTrackMap" attribute="svgContent" />
+<Target xsi:type="brease" contentRefId="trackmapContent" widgetRefId="paperTrackMap" attribute="svgContent" />
 </Binding>
 </Bindings>
 </BindingsSet>

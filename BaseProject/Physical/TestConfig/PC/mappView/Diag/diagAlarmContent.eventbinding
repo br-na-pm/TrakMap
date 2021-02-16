@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<EventBindingSet id="diagAlarmContentBinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<EventBindingSet id="diagAlarmContent_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
     <EventBinding id="diagAlarmContent.AcknButton.Click.1">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="diagAlarmContent" widgetRefId="AcknButton" event="Click" />
@@ -46,7 +46,7 @@
       <EventHandler condition="code = 7720400">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="dialog_alarm_details" autoClose="true" />
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="alarmDetailsDialog" autoClose="true" />
           </Target>
         </Action>
       </EventHandler>

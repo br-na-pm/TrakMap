@@ -17,12 +17,6 @@ VAR CONSTANT
 	LOGBOOK_BOOKS_MAX : USINT := 13; (*Total number of facilities*)
 	LOGBOOK_TEXT_LEN : UINT := 200; (*Error text length*)
 END_VAR
-(*Segment trace*)
-VAR CONSTANT
-	MAX_SEGMENTS : USINT := 86;
-	PAR_IDS : USINT := 5;
-	PAR_IDS_ARRAY : USINT := PAR_IDS-1;
-END_VAR
 (*Module definitions*)
 VAR
 	DiagInterface : ModuleInterfaceType;

@@ -60,7 +60,4 @@ VAR
 	TimeStruct : TIMEStructure;
 	FirstEntryCheckSum : USINT;
 END_VAR
-(*Test function*)
-VAR
-	MC_BR_SegCommandError_AcpTrak_0 : MC_BR_SegCommandError_AcpTrak;
-END_VAR
+

@@ -3,23 +3,23 @@
   <Bindings>
 	
 <Binding mode="twoWay">
-<Source xsi:type="session" refId="winderAsmPowerOn" attribute="value" />
+<Source xsi:type="session" refId="AsmPowerOn" attribute="value" />
 <Target xsi:type="brease" contentRefId="trackMainContent" widgetRefId="ToggleButton10" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="session" refId="winderAsmRdyToPwrOn" attribute="value" />
+<Source xsi:type="session" refId="AsmRdyToPwrOn" attribute="value" />
 <Target xsi:type="brease" contentRefId="trackMainContent" widgetRefId="ToggleButton5" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="session" refId="winderAsmDisabled" attribute="value" />
+<Source xsi:type="session" refId="AsmDisabled" attribute="value" />
 <Target xsi:type="brease" contentRefId="trackMainContent" widgetRefId="ToggleButton8" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="session" refId="winderAsmReady" attribute="value" />
+<Source xsi:type="session" refId="AsmReady" attribute="value" />
 <Target xsi:type="brease" contentRefId="trackMainContent" widgetRefId="ToggleButton7" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="session" refId="winderAsmErrorStop" attribute="value" />
+<Source xsi:type="session" refId="AsmErrorStop" attribute="value" />
 <Target xsi:type="brease" contentRefId="trackMainContent" widgetRefId="ToggleButton9" attribute="value" />
 </Binding>
 </Bindings>

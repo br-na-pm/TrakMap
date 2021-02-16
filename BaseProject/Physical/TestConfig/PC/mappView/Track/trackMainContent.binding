@@ -4,23 +4,23 @@
   
     <Binding mode="twoWay">
 	<Source xsi:type="opcUa" refId="NS10|String|TrackMod::AsGlobalPV:gTrakSystem.Asm.Status.PowerOn" attribute="value" />
-	<Target xsi:type="session" refId="winderAsmPowerOn" attribute="value" />
+	<Target xsi:type="session" refId="AsmPowerOn" attribute="value" />
 	</Binding>
 	<Binding mode="twoWay">
 	<Source xsi:type="opcUa" refId="NS10|String|TrackMod::AsGlobalPV:gTrakSystem.Asm.Status.ErrorStop" attribute="value" />
-	<Target xsi:type="session" refId="winderAsmErrorStop" attribute="value" />
+	<Target xsi:type="session" refId="AsmErrorStop" attribute="value" />
 	</Binding>
 	<Binding mode="twoWay">
 	<Source xsi:type="opcUa" refId="NS10|String|TrackMod::AsGlobalPV:gTrakSystem.Asm.Status.Disabled" attribute="value" />
-	<Target xsi:type="session" refId="winderAsmDisabled" attribute="value" />
+	<Target xsi:type="session" refId="AsmDisabled" attribute="value" />
 	</Binding>
 	<Binding mode="twoWay">
 	<Source xsi:type="opcUa" refId="NS10|String|TrackMod::AsGlobalPV:gTrakSystem.Asm.Status.Ready" attribute="value" />
-	<Target xsi:type="session" refId="winderAsmReady" attribute="value" />
+	<Target xsi:type="session" refId="AsmReady" attribute="value" />
 	</Binding>
 	<Binding mode="twoWay">			 
 	<Source xsi:type="opcUa" refId="NS10|String|TrackMod::AsGlobalPV:gTrakSystem.Asm.Status.ReadyForPowerOn" attribute="value" />
-	<Target xsi:type="session" refId="winderAsmRdyToPwrOn" attribute="value" />
+	<Target xsi:type="session" refId="AsmRdyToPwrOn" attribute="value" />
 	</Binding>
   
   
