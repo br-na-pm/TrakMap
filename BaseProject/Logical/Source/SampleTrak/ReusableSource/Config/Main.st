@@ -1,6 +1,6 @@
 
 PROGRAM _INIT
-	(* Insert code here *)
+	(* Read out the task name for multiple deployed programs for in line configuration *)
 	
 	ST_name(0,ADR(ModuleLink),0);
 	

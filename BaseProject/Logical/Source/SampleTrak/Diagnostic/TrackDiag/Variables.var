@@ -5,42 +5,37 @@ VAR
 	SegReadStatus : ARRAY[0..NUM_SEG] OF MC_BR_SegReadStatus_AcpTrak;
 	SegIndex : USINT;
 	SegProcessParID : ARRAY[0..NUM_SEG] OF MC_BR_SegProcessParID_AcpTrak;
-	SegProcessParID_Lag : ARRAY[0..NUM_SEG] OF MC_BR_SegProcessParID_AcpTrak;
-	SegProcessParID_Vel : ARRAY[0..NUM_SEG] OF MC_BR_SegProcessParID_AcpTrak;
 	SegProcessParID_Temp : ARRAY[0..NUM_SEG] OF MC_BR_SegProcessParID_AcpTrak;
 	SegProcessParID_Pitch : ARRAY[0..NUM_SEG] OF MC_BR_SegProcessParID_AcpTrak;
 	SegProcessParID_Reset : ARRAY[0..NUM_SEG] OF MC_BR_SegProcessParID_AcpTrak;
 	ErrorCodeIDInfo : ARRAY[0..NUM_SEG] OF McAcpTrakSegProcessParIDType;
-	SegStatusIDInfo : ARRAY[0..NUM_SEG] OF McAcpTrakSegProcessParIDType;
-	SegResetIDInfo : ARRAY[0..NUM_SEG] OF McAcpTrakSegProcessParIDType;
 	SegWarningCmdIDInfo : McAcpTrakSegProcessParIDType;
-	SegErrStatIDInfo : ARRAY[0..NUM_SEG] OF McAcpTrakSegProcessParIDType;
-	SegStateIDInfo : ARRAY[0..NUM_SEG] OF McAcpTrakSegProcessParIDType;
-	SegLagIDInfo : ARRAY[0..NUM_SEG,0..2] OF McAcpTrakSegProcessParIDType;
-	SegVelocityIDInfo : ARRAY[0..NUM_SEG,0..2] OF McAcpTrakSegProcessParIDType;
 	SegTempIDInfo : ARRAY[0..NUM_SEG,0..15] OF McAcpTrakSegProcessParIDType;
 	SegPitchIDInfo : ARRAY[0..NUM_SEG] OF McAcpTrakSegProcessParIDType;
 	SegFilterIDInfo : ARRAY[0..NUM_SEG] OF McAcpTrakSegProcessParIDType;
-	SegErrorCheck : ARRAY[0..NUM_SEG] OF SegErrorCheck_typ;
-	SegShuttleMonitor : ARRAY[0..NUM_SEG] OF SegShuttleMonitor_typ;
-	SegTempCheck : ARRAY[0..NUM_SEG] OF SegTempCheck_typ;
-	SegPitchSet : ARRAY[0..NUM_SEG] OF SegPitchSet_typ;
+	SegErrorCheck : ARRAY[0..NUM_SEG] OF SegErrorCheckType;
+	SegTempCheck : ARRAY[0..NUM_SEG] OF SegTempCheckType;
 	TempRefreshTON : TON;
 	TempRefreshTime : TIME;
 	CmdWarning : UINT;
 	ZeroPitchDisableMode : UDINT := 3;
 	SpeedFilterTime : REAL := 0.0008;
-	readErrors : BOOL;
-	SegmentReset : ARRAY[0..NUM_SEG] OF SegmentReset_typ;
 	ErrorSegNum : ARRAY[0..NUM_SEG] OF USINT;
 	ErrorCnt : USINT;
 	ErrorSegName : ARRAY[0..NUM_SEG] OF STRING[80];
 	ErrorNumber : ARRAY[0..NUM_SEG] OF UINT;
-	SegDoneChk : BOOL;
 	Current : ARRAY[0..20] OF INT; (*Power Supply Current*)
 	Voltage : ARRAY[0..20] OF SINT; (*Power Supply Voltage*)
 	fbAuditTrail : MpAuditTrail;
-	gSegResetActive : BOOL;
 	CpuSim : BOOL;
+END_VAR
+(*For testing only*)
+VAR
 	MC_BR_SegCommandError_AcpTrak_0 : MC_BR_SegCommandError_AcpTrak;
+END_VAR
+(*Declarations for TrackMap*)
+VAR
+	paperCore : TrkPaperCore;
+	clickId : STRING[160];
+	clickedSegment : TrkPaperCoreSegmentType;
 END_VAR

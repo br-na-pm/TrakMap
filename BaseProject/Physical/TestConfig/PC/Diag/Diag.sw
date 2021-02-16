@@ -14,7 +14,6 @@
   <TaskClass Name="Cyclic#7" />
   <TaskClass Name="Cyclic#8">
     <Task Name="TrackDiag" Source="Source.SampleTrak.Diagnostic.TrackDiag.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="TrackMap" Source="Source.SampleTrak.Diagnostic.TrackMap.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Logbook" Source="Source.SampleTrak.Diagnostic.Logbook.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
 </SwConfiguration>

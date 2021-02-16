@@ -40,14 +40,6 @@
           </Variable>
         </Variable>
       </GlobalVariables>
-      <Task Name="TrackMap">
-        <Variable Name="clickId" />
-        <Variable Name="paperCore">
-          <Variable Name="SvgTransform" />
-          <Variable Name="SvgContent" />
-        </Variable>
-        <Variable Name="clickedSegment" AutomaticEnable="True" />
-      </Task>
       <Task Name="DiagAlarm">
         <Variable Name="FilterConfiguration" />
         <Variable Name="HistoryFilter" />
@@ -56,6 +48,17 @@
         <Variable Name="TriggerTestAlarm" />
         <Variable Name="TriggerTestInformation" />
         <Variable Name="TriggerTestWarning" />
+      </Task>
+      <Task Name="TrackDiag">
+        <Variable Name="clickedSegment">
+          <Variable Name="Name" />
+          <Variable Name="Status" AutomaticEnable="True" />
+        </Variable>
+        <Variable Name="clickId" />
+        <Variable Name="paperCore">
+          <Variable Name="SvgTransform" />
+          <Variable Name="SvgContent" />
+        </Variable>
       </Task>
     </Module>
   </DefaultView>

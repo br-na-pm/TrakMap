@@ -1,6 +1,18 @@
 
 PROGRAM _INIT
 
+(* parameter setup for TrackMap *)
+
+	paperCore.SegmentCount := TrackDiag.Seg.SegCount;
+
+	paperCore.Segments := ADR(TrackDiag.Seg.SegList);
+	
+	paperCore.Options := ADR(paperOptions);
+	
+	paperCore.Enable := TRUE;
+
+(* parameter setup for TrackDiag *)	
+	
     Current;
     Voltage;
 	
@@ -83,8 +95,7 @@ PROGRAM _INIT
 			SegProcessParID_Temp[SegIndex].NumberOfParIDs := 16;
 			SegProcessParID_Temp[SegIndex].Mode := mcACPTRAK_SEG_PARID_GET_NO_NCT;
 			SegProcessParID_Temp[SegIndex].DataAddress := ADR(SegTempIDInfo[SegIndex,0]);
-			
-			
+						
 			SegPitchIDInfo[SegIndex].ParID				:= 1280; //Identification mode
 			SegPitchIDInfo[SegIndex].DataType			:= mcACPTRAK_SEG_PARTYPE_UDINT;
 			SegPitchIDInfo[SegIndex].VariableAddress	:= ADR(ZeroPitchDisableMode);
@@ -97,14 +108,6 @@ PROGRAM _INIT
 			SegProcessParID_Pitch[SegIndex].ChannelIndex	:= 0;
 			SegProcessParID_Pitch[SegIndex].NumberOfParIDs 	:= 1;
 			SegProcessParID_Pitch[SegIndex].Mode			:= mcACPTRAK_SEG_PARID_SET;
-			
-			SegStatusIDInfo[SegIndex].DataType 		:= mcACPTRAK_SEG_PARTYPE_UDINT;
-			SegStatusIDInfo[SegIndex].ParID			:= mcACPPAR_LLM_CYC_SEG_STATUS_BITS;
-			SegStatusIDInfo[SegIndex].VariableAddress := ADR(SegmentReset[SegIndex].SegStatusBits);
-			
-			SegResetIDInfo[SegIndex].DataType 		:= mcACPTRAK_SEG_PARTYPE_UDINT;
-			SegResetIDInfo[SegIndex].ParID			:= 1050;
-			SegResetIDInfo[SegIndex].VariableAddress := ADR(SegmentReset[SegIndex].SegResetCmd);
 				
 			SegProcessParID_Reset[SegIndex].Segment			:= ADR(TrackDiag.Seg.SegList[SegIndex].McType);
 			SegProcessParID_Reset[SegIndex].ChannelIndex 	:= 0;
@@ -132,6 +135,7 @@ PROGRAM _CYCLIC
 		MC_BR_SegCommandError_AcpTrak_0.Execute := FALSE;
 	END_IF
 	
+
 	(***********************************ASSEMBLY INFORMATION******************************	)
 	(*Read Assebly Status*)
 
@@ -217,82 +221,13 @@ PROGRAM _CYCLIC
 				
 				
 			//END_IF
-			
-			
-			
+						
 		END_IF
 			
 			
 		
 	END_FOR
 		
-	//
-	IF(gSegResetActive)THEN
-			
-		SegDoneChk := TRUE;
-			
-		FOR SegIndex := 0 TO NUM_SEG DO
-				
-			IF NOT(SegmentReset[SegIndex].StsResetDone)THEN //Wait for all segments to be reset
-				
-				IF TrackDiag.Seg.SegList[SegIndex].McType.controlif <> 0 THEN //If the array contains a segment reference
-					SegDoneChk := FALSE;
-				END_IF
-					
-			END_IF
-				
-		END_FOR
-		
-		IF(SegDoneChk)THEN
-			gSegResetActive := FALSE;
-				
-			brsmemset(ADR(ErrorSegNum),0,SIZEOF(ErrorSegNum));
-			brsmemset(ADR(ErrorSegName),0,SIZEOF(ErrorSegName));
-			brsmemset(ADR(ErrorNumber),0,SIZEOF(ErrorNumber));
-			
-			ErrorCnt := 0;
-			
-		END_IF
-			
-		//Reset segment error
-		IF(gTrakSystem.Asm.Cmd.ErrorReset) AND (ErrorCnt > 0)THEN
-			
-			FOR SegIndex := 0 TO NUM_SEG DO
-				
-				IF TrackDiag.Seg.SegList[SegIndex].McType.controlif <> 0 THEN //If the array contains a segment reference
-						
-					IF(SegmentReset[SegIndex].State = WAIT_FOR_DONE) AND NOT(SegmentReset[SegIndex].StsResetDone)THEN //Try to reset segment again
-						
-						SegmentReset[SegIndex].CmdResetSeg 	:= TRUE; //Check to see if segments need to be reset (Undervoltage error)
-						SegmentReset[SegIndex].State		:= WAIT_FOR_CHECK;
-							
-					END_IF
-						
-				END_IF
-				
-			END_FOR
-				
-		END_IF
-			
-	ELSE
-			
-		//Reset segment error
-		IF(gTrakSystem.Asm.Cmd.ErrorReset) AND NOT(gSegResetActive) AND (ErrorCnt > 0)THEN
-			
-			gSegResetActive := TRUE;
-			
-			FOR SegIndex := 0 TO NUM_SEG DO
-				
-				IF TrackDiag.Seg.SegList[SegIndex].McType.controlif <> 0 THEN //If the array contains a segment reference
-					SegmentReset[SegIndex].CmdResetSeg := TRUE; //Check to see if segments need to be reset (Undervoltage error)
-				END_IF
-				
-			END_FOR
-				
-		END_IF
-			
-	END_IF
-	
 	TempRefreshTON.PT := TempRefreshTime;
 	TempRefreshTON();
 		
@@ -304,6 +239,23 @@ PROGRAM _CYCLIC
 	END_IF	
 		
 	fbAuditTrail(MpLink := ADR(gAuditTrail_DiagModule), Enable := TRUE, Language := ADR('en'), DeviceName := ADR('User'));
+	
+	
+	(***********************************TRACKMAP******************************)
+	
+		paperCore();
+		clickId;
+		// compare the elementID clicked on in paper with the configured ID to find and set the array index for the list binding
+		FOR SegIndex:= 0 TO NUM_SEG DO 
+			
+			IF TrackDiag.Seg.SegList[SegIndex].Name = DELETE(clickId,1,1) THEN // clickId contains a leading # which needs to be removed 
+				
+				clickedSegment := TrackDiag.Seg.SegList[SegIndex];
+				EXIT;
+			END_IF	
+	
+		END_FOR	
+	
 	
 END_PROGRAM
 

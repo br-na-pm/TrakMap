@@ -1,6 +1,6 @@
 
 TYPE
-	CheckState_enum : 
+	CheckStateEnum : 
 		(
 		WAIT_FOR_CHECK,
 		READ_DATA,
@@ -25,8 +25,8 @@ TYPE
 		WRITE_SEG_RESET,
 		WAIT_FOR_DONE
 		);
-	SegErrorCheck_typ : 	STRUCT 
-		CheckState : CheckState_enum;
+	SegErrorCheckType : 	STRUCT 
+		CheckState : CheckStateEnum;
 		CmdCheckErrorCode : BOOL;
 		DataReadExecutionError : BOOL;
 		ErrorNumber : UINT;
@@ -34,16 +34,7 @@ TYPE
 		ErrorStatusBit : BOOL;
 		ErrorStatus : UDINT;
 	END_STRUCT;
-	SegmentReset_typ : 	STRUCT 
-		State : CheckState_enum;
-		CmdResetSeg : BOOL;
-		DataReadExecutionError : BOOL;
-		ErrorNumber : UINT;
-		SegStatusBits : UDINT;
-		SegResetCmd : UDINT;
-		StsResetDone : BOOL;
-	END_STRUCT;
-	SegShuttleMonitor_typ : 	STRUCT 
+	SegShuttleMonitorType : 	STRUCT 
 		CheckState_enum : BOOL;
 		CmdMonitorLag : BOOL;
 		CmdMonitorVelocity : BOOL;
@@ -52,13 +43,13 @@ TYPE
 		LagLimitExceeded : BOOL;
 		VelLimitExceeded : BOOL;
 	END_STRUCT;
-	SegTempCheck_typ : 	STRUCT 
-		CheckState : CheckState_enum;
+	SegTempCheckType : 	STRUCT 
+		CheckState : CheckStateEnum;
 		CmdCheckTemp : BOOL;
 		DataReadExecutionError : BOOL;
 	END_STRUCT;
-	SegPitchSet_typ : 	STRUCT 
-		CheckState : CheckState_enum;
+	SegPitchSetType : 	STRUCT 
+		CheckState : CheckStateEnum;
 		CmdSetPitch : BOOL;
 		CmdWriteFilter : BOOL;
 		PitchSetComplete : BOOL;

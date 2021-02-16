@@ -5,7 +5,7 @@
       <Source xsi:type="widgets.brease.Paper.Event" contentRefId="trackMapContent" widgetRefId="paperTrackMap" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::TrackMap:clickId">
+          <Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::TrackDiag:clickId">
             <Method xsi:type="opcUa.NodeAction.SetValueString" value="= elementId" />
           </Target>
         </Action>

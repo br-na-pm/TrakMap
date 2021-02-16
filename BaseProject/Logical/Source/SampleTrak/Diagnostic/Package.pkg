@@ -11,7 +11,6 @@
     <Object Type="File">DiagAlarm.tmx</Object>
     <Object Type="File">DiagError.tmx</Object>
     <Object Type="Program" Language="IEC">TrackDiag</Object>
-    <Object Type="Program" Language="IEC">TrackMap</Object>
     <Object Type="Program" Language="IEC">Logbook</Object>
   </Objects>
 </Package>

@@ -4,11 +4,11 @@
 
 
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="NS6|String|Diag::TrackMap:paperCore.SvgTransform" attribute="value" />
+<Source xsi:type="opcUa" refId="NS6|String|Diag::TrackDiag:paperCore.SvgTransform" attribute="value" />
 <Target xsi:type="brease" contentRefId="trackMapContent" widgetRefId="paperTrackMap" attribute="transform" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="NS6|String|Diag::TrackMap:paperCore.SvgContent" attribute="value" />
+<Source xsi:type="opcUa" refId="NS6|String|Diag::TrackDiag:paperCore.SvgContent" attribute="value" />
 <Target xsi:type="brease" contentRefId="trackMapContent" widgetRefId="paperTrackMap" attribute="svgContent" />
 </Binding>
 </Bindings>
