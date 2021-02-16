@@ -3,11 +3,11 @@
 	<Bindings>				
 
 	<!--<Binding mode="twoWay">
-		<Source xsi:type="opcUaComplexObject" serverAlias="Winder" refId="::AsGlobalPV:gLogbook" />
+		<Source xsi:type="opcUaComplexObject" serverAlias="Winder" refId="::AsGlobalPV:LogbookInterface" />
 		<Target xsi:type="brease" contentRefId="winderLogContent" widgetRefId="LogbookSettings1" attribute="value" />
 	</Binding>
 	<Binding mode="twoWay">
-		<Source xsi:type="opcUaComplexObject" serverAlias="Winder" refId="::AsGlobalPV:gLogbook" />
+		<Source xsi:type="opcUaComplexObject" serverAlias="Winder" refId="::AsGlobalPV:LogbookInterface" />
 		<Target xsi:type="brease" contentRefId="winderLogContent" widgetRefId="LogbookTable1" attribute="value" />
 	</Binding>-->
 

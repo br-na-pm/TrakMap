@@ -257,7 +257,7 @@
 			<Source xsi:type="widget.brease.Button.Event" widgetRefId="btnResetError" event="Click" />
 			<EventHandler>
 				<Action>
-					<Target xsi:type="opcUa.NodeAction" serverAlias="Winder" refId="::AsGlobalPV:gLogbook.CMD.ResetError">
+					<Target xsi:type="opcUa.NodeAction" serverAlias="Winder" refId="::AsGlobalPV:LogbookInterface.CMD.ResetError">
 						<Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
 					</Target>
 				</Action>

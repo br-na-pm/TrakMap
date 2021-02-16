@@ -19,7 +19,7 @@ END_FUNCTION
 
 FUNCTION InsertEntry : UINT
 	VAR_INPUT
-		DAT : REFERENCE TO LogBookDataType;
+		Data : REFERENCE TO LogBookDataType;
 		DTsec : UDINT;
 		DTmsec : UINT;
 		Sorting : LogBookSortingEnum;
@@ -32,9 +32,9 @@ END_FUNCTION
 
 FUNCTION NormalizeDateTime : UDINT
 	VAR_INPUT
-		target : UDINT;
-		value : UDINT;
-		addSTR : STRING[5];
+		Target : UDINT;
+		Value : UDINT;
+		AddSTR : STRING[5];
 	END_VAR
 	VAR
 		tmpSTR1 : STRING[10];
@@ -44,16 +44,16 @@ END_FUNCTION
 
 FUNCTION WorkingStatus : USINT
 	VAR_INPUT
-		target : UDINT;
-		text : UDINT;
-		animation : USINT;
+		Target : UDINT;
+		Text : UDINT;
+		Animation : USINT;
 	END_VAR
 END_FUNCTION
 
 FUNCTION IsInstr : BOOL
 	VAR_INPUT
-		string1 : UDINT;
-		string2 : UDINT;
+		String1 : UDINT;
+		String2 : UDINT;
 	END_VAR
 	VAR
 		idx : UDINT;

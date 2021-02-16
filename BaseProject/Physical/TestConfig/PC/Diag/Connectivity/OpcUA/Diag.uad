@@ -10,7 +10,7 @@
   <DefaultView>
     <Module Name="Diag">
       <GlobalVariables Name="Global Variables">
-        <Variable Name="gLogbook">
+        <Variable Name="LogbookInterface">
           <Variable Name="Status" />
           <Variable Name="StatusText" />
           <Variable Name="Cmd" AutomaticEnable="True" />

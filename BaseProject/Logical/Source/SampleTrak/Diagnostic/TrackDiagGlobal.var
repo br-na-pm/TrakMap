@@ -9,7 +9,7 @@ VAR
 END_VAR
 (*LogBook variables*)
 VAR
-	gLogbook : LogBookCtrlType; (*Logbook main structure*)
+	LogbookInterface : LogBookCtrlType; (*Logbook main structure*)
 END_VAR
 VAR CONSTANT
 	LOGBOOK_EXECUTIONS : USINT := 10; (*Executions per cycle*)

@@ -6,27 +6,27 @@ PROGRAM _INIT
 	// Set time range to all on startup
 	DTGetTime_0.enable := TRUE;
 	DTGetTime_0();
-	gLogbook.Par.FilterDateStart := STRING_TO_DATE('D#1999-12-31');
-	gLogbook.Par.FilterDateEnd := DT_TO_DATE(DTGetTime_0.DT1);
+	LogbookInterface.Par.FilterDateStart := STRING_TO_DATE('D#1999-12-31');
+	LogbookInterface.Par.FilterDateEnd := DT_TO_DATE(DTGetTime_0.DT1);
 	
 	// Read data after reboot
-	gLogbook.Cmd.Refresh := TRUE;
+	LogbookInterface.Cmd.Refresh := TRUE;
 	
 	// define what object type should be searched for
-	gLogbook.SegError.ParaSegFilter		:= 'Asm';//'gSeg_';
+	LogbookInterface.SegError.ParaSegFilter		:= 'Asm';//'gSeg_';
 END_PROGRAM
 
 PROGRAM _CYCLIC
 	// Abort current update run
-	IF EDGENEG(gLogbook.Cmd.Refresh) THEN
+	IF EDGENEG(LogbookInterface.Cmd.Refresh) THEN
 		IF 	LogbookState <> STATE_ERROR THEN
-			gLogbook.Status := ERR_OK;
+			LogbookInterface.Status := ERR_OK;
 			LogbookState := STATE_WAIT;
 		END_IF
 	END_IF
 	
 	IF EDGEPOS(DiagInterface.TrakInterface.Asm.Status.ErrorStop) THEN
-		gLogbook.Cmd.Update := TRUE;
+		LogbookInterface.Cmd.Update := TRUE;
 	END_IF	
 	
 	// Run task multiple times to speed up process
@@ -43,28 +43,28 @@ PROGRAM _CYCLIC
 				// Get current date
 				DTGetTime_0.enable := TRUE;
 				DTGetTime_0();
-				gLogbook.Par.DateNow := DTGetTime_0.DT1;
-				gLogbook.Par.EntriesMax := LOGBOOK_ENTRIES_MAX;
+				LogbookInterface.Par.DateNow := DTGetTime_0.DT1;
+				LogbookInterface.Par.EntriesMax := LOGBOOK_ENTRIES_MAX;
 				
 				// --------------------------------------------------------------------------------------------------------------------
 				// Refresh all logbook data
-				IF gLogbook.Cmd.Refresh THEN
+				IF LogbookInterface.Cmd.Refresh THEN
 					// Erase old data, set busy state
 					brsmemset(ADR(Logbook), 0, SIZEOF(Logbook));
-					brsmemset(ADR(gLogbook.Data), 0, SIZEOF(gLogbook.Data));
-					gLogbook.Status := ERR_FUB_BUSY;
+					brsmemset(ADR(LogbookInterface.Data), 0, SIZEOF(LogbookInterface.Data));
+					LogbookInterface.Status := ERR_FUB_BUSY;
 					LogbookState := STATE_OPEN;
 				END_IF
 
 				// --------------------------------------------------------------------------------------------------------------------
 				// Auto update logbook data 
-				IF gLogbook.Par.AutoUpdate THEN
+				IF LogbookInterface.Par.AutoUpdate THEN
 					AutoRefresh.IN := TRUE;
-					AutoRefresh.PT := gLogbook.Par.AutoUpdateInterval*100;
+					AutoRefresh.PT := LogbookInterface.Par.AutoUpdateInterval*100;
 					AutoRefresh();
 					IF AutoRefresh.Q THEN
 						AutoRefresh(IN:= FALSE);
-						gLogbook.Cmd.Update := TRUE;
+						LogbookInterface.Cmd.Update := TRUE;
 						LogbookState := STATE_NEXT;
 					END_IF
 				ELSE
@@ -73,12 +73,12 @@ PROGRAM _CYCLIC
 				
 				// --------------------------------------------------------------------------------------------------------------------
 				// Update only latest logbook data
-				IF gLogbook.Cmd.Update THEN
+				IF LogbookInterface.Cmd.Update THEN
 					brsmemset(ADR(Logbook.RecordIDIsLast), 0, SIZEOF(Logbook.RecordIDIsLast));
 					brsmemset(ADR(Logbook.RecordID), 0, SIZEOF(Logbook.RecordID));
 					
-					brsmemset(ADR(gLogbook.SegError.Record), 0, SIZEOF(gLogbook.SegError.Record));
-					gLogbook.SegError.Message := '';
+					brsmemset(ADR(LogbookInterface.SegError.Record), 0, SIZEOF(LogbookInterface.SegError.Record));
+					LogbookInterface.SegError.Message := '';
 					SegmentErrorFound := 0;
 					
 					brsmemset(ADR(AlarmCount), 0, SIZEOF(AlarmCount));
@@ -86,14 +86,14 @@ PROGRAM _CYCLIC
 					
 					// Start at the beginning set busy state
 					Logbook.CntLogbook := 0;
-					gLogbook.Status := ERR_FUB_BUSY;
+					LogbookInterface.Status := ERR_FUB_BUSY;
 					LogbookState := STATE_LATEST;
 				END_IF
 				
 				// --------------------------------------------------------------------------------------------------------------------
 				// Create new logbook entry
-				IF gLogbook.Cmd.Create THEN
-					gLogbook.Status := ERR_FUB_BUSY;
+				IF LogbookInterface.Cmd.Create THEN
+					LogbookInterface.Status := ERR_FUB_BUSY;
 					LogbookState := STATE_CREATE;
 				END_IF
 
@@ -111,20 +111,20 @@ PROGRAM _CYCLIC
 				
 				// --------------------------------------------------------------------------------------------------------------------
 				// Show status, reset error command
-				gLogbook.Cmd.ResetError := FALSE;
-				gLogbook.StatusText := 'Waiting...last update ';
-				brsstrcat(ADR(gLogbook.StatusText), ADR(gLogbook.Data.LastUpdate));
+				LogbookInterface.Cmd.ResetError := FALSE;
+				LogbookInterface.StatusText := 'Waiting...last update ';
+				brsstrcat(ADR(LogbookInterface.StatusText), ADR(LogbookInterface.Data.LastUpdate));
 				EXIT;
 				// --------------------------------------------------------------------------------------------------------------------
 				// Create a new logbook entry
 				// --------------------------------------------------------------------------------------------------------------------
 			STATE_CREATE:
-				eventID := ArEventLogMakeEventID(UDINT_TO_USINT(gLogbook.Par.CreateSeverity), 0 , gLogbook.Par.CreateErrorNo);
+				eventID := ArEventLogMakeEventID(UDINT_TO_USINT(LogbookInterface.Par.CreateSeverity), 0 , LogbookInterface.Par.CreateErrorNo);
 				brsmemset(ADR(AddData), 0, SIZEOF(AddData));
-				brsstrcpy(ADR(AddData), ADR(gLogbook.Par.CreateErrorText));
+				brsstrcpy(ADR(AddData), ADR(LogbookInterface.Par.CreateErrorText));
 				
 				ArEventLogWrite_0.Execute := TRUE;
-				ArEventLogWrite_0.Ident := Logbook.Ident[gLogbook.Par.CreateLogbook];
+				ArEventLogWrite_0.Ident := Logbook.Ident[LogbookInterface.Par.CreateLogbook];
 				ArEventLogWrite_0.EventID := eventID;
 				ArEventLogWrite_0.ObjectID := 'User event';
 				ArEventLogWrite_0.AddDataFormat := arEVENTLOG_ADDFORMAT_TEXT;
@@ -135,13 +135,13 @@ PROGRAM _CYCLIC
 				// Success
 				IF ArEventLogWrite_0.Done AND ArEventLogWrite_0.StatusID = ERR_OK THEN
 					ArEventLogWrite_0(Execute := FALSE);
-					gLogbook.Cmd.Create := FALSE;
-					gLogbook.Cmd.Update := TRUE;
+					LogbookInterface.Cmd.Create := FALSE;
+					LogbookInterface.Cmd.Update := TRUE;
 					LogbookState := STATE_WAIT;
 				// Error
 				ELSIF ArEventLogWrite_0.Error THEN
-					gLogbook.Error.State := LogbookState;
-					gLogbook.Status := ArEventLogWrite_0.StatusID;
+					LogbookInterface.Error.State := LogbookState;
+					LogbookInterface.Status := ArEventLogWrite_0.StatusID;
 					LogbookState := STATE_ERROR;
 				END_IF
 				// --------------------------------------------------------------------------------------------------------------------
@@ -154,7 +154,7 @@ PROGRAM _CYCLIC
 					LogbookState := STATE_LATEST;
 					EXIT;
 				END_IF
-				ArEventLogGetIdent_0.Execute := gLogbook.Cmd.Refresh;
+				ArEventLogGetIdent_0.Execute := LogbookInterface.Cmd.Refresh;
 				ArEventLogGetIdent_0.Name := LOGBOOK_NAMES[Logbook.CntLogbook];
 				ArEventLogGetIdent_0();
 	
@@ -165,8 +165,8 @@ PROGRAM _CYCLIC
 					ArEventLogGetIdent_0(Execute := FALSE);
 					// Error
 				ELSIF ArEventLogGetIdent_0.Error THEN
-					gLogbook.Error.State := LogbookState;
-					gLogbook.Status := ArEventLogGetIdent_0.StatusID;
+					LogbookInterface.Error.State := LogbookState;
+					LogbookInterface.Status := ArEventLogGetIdent_0.StatusID;
 					LogbookState := STATE_ERROR;
 				END_IF
 				// --------------------------------------------------------------------------------------------------------------------
@@ -193,15 +193,15 @@ PROGRAM _CYCLIC
 					END_IF
 					// Error
 				ELSIF ArEventLogGetLatestRecordID_0.Error THEN
-					gLogbook.Error.State := LogbookState;
-					gLogbook.Status := ArEventLogGetLatestRecordID_0.StatusID;
+					LogbookInterface.Error.State := LogbookState;
+					LogbookInterface.Status := ArEventLogGetLatestRecordID_0.StatusID;
 					LogbookState := STATE_ERROR;
 				END_IF
 				// --------------------------------------------------------------------------------------------------------------------
 				// Read next entry
 				// --------------------------------------------------------------------------------------------------------------------
 			STATE_NEXT:
-				animation := WorkingStatus(ADR(gLogbook.StatusText), ADR('reading entries...'), animation);
+				animation := WorkingStatus(ADR(LogbookInterface.StatusText), ADR('reading entries...'), animation);
 				ArEventLogGetPreviousRecordID_0.Execute := TRUE;
 				ArEventLogGetPreviousRecordID_0.Ident := Logbook.Ident[Logbook.CntLogbook];
 				ArEventLogGetPreviousRecordID_0.RecordID := Logbook.RecordID[Logbook.CntLogbook];
@@ -212,7 +212,7 @@ PROGRAM _CYCLIC
 					// Store this record ID for next step
 					Logbook.RecordID[Logbook.CntLogbook] := ArEventLogGetPreviousRecordID_0.PrevRecordID;
 					// Stop update when previous record ID is reached
-					IF Logbook.RecordID[Logbook.CntLogbook] = Logbook.RecordIDOld[Logbook.CntLogbook] AND gLogbook.Cmd.Update THEN
+					IF Logbook.RecordID[Logbook.CntLogbook] = Logbook.RecordIDOld[Logbook.CntLogbook] AND LogbookInterface.Cmd.Update THEN
 						// Remember latest entry, set is last flag
 						Logbook.RecordIDOld[Logbook.CntLogbook] := Logbook.RecordIDLatest[Logbook.CntLogbook];
 						Logbook.RecordIDIsLast[Logbook.CntLogbook] := TRUE;
@@ -230,8 +230,8 @@ PROGRAM _CYCLIC
 						LogbookState := STATE_PREP;
 						// Everything else is an error
 					ELSE
-						gLogbook.Error.State := LogbookState;
-						gLogbook.Status := ArEventLogGetPreviousRecordID_0.StatusID;
+						LogbookInterface.Error.State := LogbookState;
+						LogbookInterface.Status := ArEventLogGetPreviousRecordID_0.StatusID;
 						LogbookState := STATE_ERROR;
 					END_IF
 				END_IF
@@ -256,8 +256,8 @@ PROGRAM _CYCLIC
 
 				// Error
 				ELSIF ArEventLogRead_0.Error THEN
-					gLogbook.Error.State := LogbookState;
-					gLogbook.Status := ArEventLogRead_0.StatusID;
+					LogbookInterface.Error.State := LogbookState;
+					LogbookInterface.Status := ArEventLogRead_0.StatusID;
 					LogbookState := STATE_ERROR;
 				END_IF
 				// --------------------------------------------------------------------------------------------------------------------
@@ -275,8 +275,8 @@ PROGRAM _CYCLIC
 					LogbookState := STATE_DETAILS_3;
 				// Error
 				ELSIF ArEventLogReadErrorNumber_0.Error THEN
-					gLogbook.Error.State := LogbookState;
-					gLogbook.Status := ArEventLogReadErrorNumber_0.StatusID;
+					LogbookInterface.Error.State := LogbookState;
+					LogbookInterface.Status := ArEventLogReadErrorNumber_0.StatusID;
 					LogbookState := STATE_ERROR;
 				END_IF
 				// --------------------------------------------------------------------------------------------------------------------
@@ -300,8 +300,8 @@ PROGRAM _CYCLIC
 					END_IF	
 				// Error
 				ELSIF ArEventLogReadDescription_0.Error THEN
-					gLogbook.Error.State := LogbookState;
-					gLogbook.Status := ArEventLogReadDescription_0.StatusID;
+					LogbookInterface.Error.State := LogbookState;
+					LogbookInterface.Status := ArEventLogReadDescription_0.StatusID;
 					LogbookState := STATE_ERROR;
 				END_IF
 				
@@ -316,41 +316,41 @@ PROGRAM _CYCLIC
 				IF ArEventLogReadObjectID_0.Done THEN
 					ObjectID := ArEventLogReadObjectID_0.ObjectID;
 					ArEventLogReadObjectID_0.Execute := FALSE;
-					IF brsmemcmp(ADR(ObjectID), ADR(gLogbook.SegError.ParaSegFilter), 3) = 0 THEN
+					IF brsmemcmp(ADR(ObjectID), ADR(LogbookInterface.SegError.ParaSegFilter), 3) = 0 THEN
 						LogbookState := STATE_UPDATE_LIST;
 					ELSE
 						LogbookState := STATE_DETAILS_4;
 					END_IF
 				ELSIF ArEventLogReadObjectID_0.Error THEN
-					gLogbook.SegError.Message := 'Error ReadObjectID';
+					LogbookInterface.SegError.Message := 'Error ReadObjectID';
 					LogbookState := STATE_ERROR;
 				END_IF	
 				
 			STATE_UPDATE_LIST:
-				gLogbook.SegError.Record[SegmentErrorFound].ObjectID		:= ObjectID;
-				gLogbook.SegError.Record[SegmentErrorFound].EventID			:= EventID;
-				gLogbook.SegError.Record[SegmentErrorFound].EventIDSeverity	:= EventIDSeverity;
-				gLogbook.SegError.Record[SegmentErrorFound].EventIDFacility	:= EventIDFacility;
-				gLogbook.SegError.Record[SegmentErrorFound].EventIDCode		:= EventIDCode;
-				gLogbook.SegError.Record[SegmentErrorFound].Description		:= Description;
+				LogbookInterface.SegError.Record[SegmentErrorFound].ObjectID		:= ObjectID;
+				LogbookInterface.SegError.Record[SegmentErrorFound].EventID			:= EventID;
+				LogbookInterface.SegError.Record[SegmentErrorFound].EventIDSeverity	:= EventIDSeverity;
+				LogbookInterface.SegError.Record[SegmentErrorFound].EventIDFacility	:= EventIDFacility;
+				LogbookInterface.SegError.Record[SegmentErrorFound].EventIDCode		:= EventIDCode;
+				LogbookInterface.SegError.Record[SegmentErrorFound].Description		:= Description;
 
-				gLogbook.SegError.Record[SegmentErrorFound].EventTimeStamp	:= UDINT_TO_TIME((EventTimeStamp.sec MOD (24*60*60))*1000 + (EventTimeStamp.nsec / 1000000));		// convert to TIME format (ms since start of day)
+				LogbookInterface.SegError.Record[SegmentErrorFound].EventTimeStamp	:= UDINT_TO_TIME((EventTimeStamp.sec MOD (24*60*60))*1000 + (EventTimeStamp.nsec / 1000000));		// convert to TIME format (ms since start of day)
 
-				brsstrcpy(ADR(gLogbook.SegError.Record[SegmentErrorFound].Text), ADR(''));
-				ascTIME(gLogbook.SegError.Record[SegmentErrorFound].EventTimeStamp, ADR(TempString), SIZEOF(TempString));
-				TIME_TO_TIMEStructure(gLogbook.SegError.Record[SegmentErrorFound].EventTimeStamp,ADR(TimeStruct)); // for checking against older entries
+				brsstrcpy(ADR(LogbookInterface.SegError.Record[SegmentErrorFound].Text), ADR(''));
+				ascTIME(LogbookInterface.SegError.Record[SegmentErrorFound].EventTimeStamp, ADR(TempString), SIZEOF(TempString));
+				TIME_TO_TIMEStructure(LogbookInterface.SegError.Record[SegmentErrorFound].EventTimeStamp,ADR(TimeStruct)); // for checking against older entries
 
-				brsstrcat(ADR(gLogbook.SegError.Record[SegmentErrorFound].Text), ADR(TempString));
-				brsstrcat(ADR(gLogbook.SegError.Record[SegmentErrorFound].Text), ADR(' => '));
+				brsstrcat(ADR(LogbookInterface.SegError.Record[SegmentErrorFound].Text), ADR(TempString));
+				brsstrcat(ADR(LogbookInterface.SegError.Record[SegmentErrorFound].Text), ADR(' => '));
 
-				brsstrcat(ADR(gLogbook.SegError.Record[SegmentErrorFound].Text), ADR(ObjectID));
+				brsstrcat(ADR(LogbookInterface.SegError.Record[SegmentErrorFound].Text), ADR(ObjectID));
 	
-				brsstrcat(ADR(gLogbook.SegError.Record[SegmentErrorFound].Text), ADR(': Error '));
+				brsstrcat(ADR(LogbookInterface.SegError.Record[SegmentErrorFound].Text), ADR(': Error '));
 				brsitoa(EventIDCode, ADR(TempString));
-				brsstrcat(ADR(gLogbook.SegError.Record[SegmentErrorFound].Text), ADR(TempString));
+				brsstrcat(ADR(LogbookInterface.SegError.Record[SegmentErrorFound].Text), ADR(TempString));
 	
-				brsstrcat(ADR(gLogbook.SegError.Record[SegmentErrorFound].Text), ADR(' => '));
-				brsstrcat(ADR(gLogbook.SegError.Record[SegmentErrorFound].Text), ADR(Description));
+				brsstrcat(ADR(LogbookInterface.SegError.Record[SegmentErrorFound].Text), ADR(' => '));
+				brsstrcat(ADR(LogbookInterface.SegError.Record[SegmentErrorFound].Text), ADR(Description));
 				
 				IF SegmentErrorFound = 0 THEN
 					FirstEntryCheckSum := TimeStruct.minute; // save the timestamp minute of the first entry as checksum
@@ -410,8 +410,8 @@ PROGRAM _CYCLIC
 						LogbookState := STATE_FILTER;
 					// Error
 					ELSIF ArEventLogReadDescription_0.Error THEN
-						gLogbook.Error.State := LogbookState;
-						gLogbook.Status := ArEventLogReadAddData_0.StatusID;
+						LogbookInterface.Error.State := LogbookState;
+						LogbookInterface.Status := ArEventLogReadAddData_0.StatusID;
 						LogbookState := STATE_ERROR;
 					END_IF
 				ELSE
@@ -430,38 +430,38 @@ PROGRAM _CYCLIC
 				cntFilterDate := 0;
 				// --------------------------------------------------------------------------------------------------------------------
 				// Check if logbook should be read
-				IF  gLogbook.Par.FilterLogbook[Logbook.CntLogbook] THEN
+				IF  LogbookInterface.Par.FilterLogbook[Logbook.CntLogbook] THEN
 					cntFilterLogbook := cntFilterLogbook + 1;
 				END_IF
 				// --------------------------------------------------------------------------------------------------------------------
 				// Check if error text matches search string
-				IF gLogbook.Par.FilterErrorText = '' OR IsInstr(ADR(ErrorText), ADR(gLogbook.Par.FilterErrorText)) THEN
+				IF LogbookInterface.Par.FilterErrorText = '' OR IsInstr(ADR(ErrorText), ADR(LogbookInterface.Par.FilterErrorText)) THEN
 					cntFilterText := cntFilterText + 1;
 				END_IF
 				// --------------------------------------------------------------------------------------------------------------------
 				// Make sure error number matches filter
-				IF gLogbook.Par.FilterErrorNo = 0 OR gLogbook.Par.FilterErrorNo = ArEventLogReadErrorNumber_0.ErrorNumber THEN
+				IF LogbookInterface.Par.FilterErrorNo = 0 OR LogbookInterface.Par.FilterErrorNo = ArEventLogReadErrorNumber_0.ErrorNumber THEN
 					cntFilterNo := cntFilterNo + 1;
 				END_IF
 				// --------------------------------------------------------------------------------------------------------------------
 				// Check severity filter settings
 				IF ArEventLogRead_0.EventID <> 0 THEN
-					gLogbook.Data.CntSeverity[GetSeverity(EventID := ArEventLogRead_0.EventID)] := gLogbook.Data.CntSeverity[GetSeverity(EventID := ArEventLogRead_0.EventID)] + 1;
-					IF gLogbook.Par.FilterSeverity[GetSeverity(EventID := ArEventLogRead_0.EventID)] THEN
+					LogbookInterface.Data.CntSeverity[GetSeverity(EventID := ArEventLogRead_0.EventID)] := LogbookInterface.Data.CntSeverity[GetSeverity(EventID := ArEventLogRead_0.EventID)] + 1;
+					IF LogbookInterface.Par.FilterSeverity[GetSeverity(EventID := ArEventLogRead_0.EventID)] THEN
 						cntFilterSeverity := cntFilterSeverity + 1;
 					END_IF
 				ELSE
-					gLogbook.Data.CntSeverity[ArEventLogReadErrorNumber_0.Severity] := gLogbook.Data.CntSeverity[ArEventLogReadErrorNumber_0.Severity] + 1;
-					IF gLogbook.Par.FilterSeverity[ArEventLogReadErrorNumber_0.Severity] THEN
+					LogbookInterface.Data.CntSeverity[ArEventLogReadErrorNumber_0.Severity] := LogbookInterface.Data.CntSeverity[ArEventLogReadErrorNumber_0.Severity] + 1;
+					IF LogbookInterface.Par.FilterSeverity[ArEventLogReadErrorNumber_0.Severity] THEN
 						cntFilterSeverity := cntFilterSeverity + 1;
 					END_IF
 				END_IF
 				// --------------------------------------------------------------------------------------------------------------------
 				// Check date range
-				tmpSTR:= DT_TO_STRING(DATE_TO_DT(gLogbook.Par.FilterDateStart));
+				tmpSTR:= DT_TO_STRING(DATE_TO_DT(LogbookInterface.Par.FilterDateStart));
 				brsmemcpy(ADR(tmpSTR)+13, ADR('-00:00:00'), 9);
 				TimeStart := STRING_TO_DT(tmpSTR);
-				tmpSTR:= DT_TO_STRING(DATE_TO_DT(gLogbook.Par.FilterDateEnd));
+				tmpSTR:= DT_TO_STRING(DATE_TO_DT(LogbookInterface.Par.FilterDateEnd));
 				brsmemcpy(ADR(tmpSTR)+13, ADR('-23:59:59'), 9);
 				TimeEnd := STRING_TO_DT(tmpSTR);
 				IF ArEventLogRead_0.TimeStamp.sec >= DT_TO_UDINT(TimeStart) AND ArEventLogRead_0.TimeStamp.sec <= DT_TO_UDINT(TimeEnd) THEN
@@ -469,58 +469,58 @@ PROGRAM _CYCLIC
 				END_IF
 				// --------------------------------------------------------------------------------------------------------------------
 				// Count logbook entries
-				gLogbook.Data.CntLogbook[Logbook.CntLogbook] := gLogbook.Data.CntLogbook[Logbook.CntLogbook] +  1;
+				LogbookInterface.Data.CntLogbook[Logbook.CntLogbook] := LogbookInterface.Data.CntLogbook[Logbook.CntLogbook] +  1;
 			
 				// --------------------------------------------------------------------------------------------------------------------
 				// Transfer data
 				IF cntFilterNo > 0 AND cntFilterText > 0 AND cntFilterLogbook > 0 AND cntFilterSeverity > 0 AND cntFilterDate > 0 THEN						
 					// --------------------------------------------------------------------------------------------------------------------
 					// Find new place for entry
-					idx := InsertEntry(ADR(gLogbook.Data), ArEventLogRead_0.TimeStamp.sec, UDINT_TO_UINT(ArEventLogRead_0.TimeStamp.nsec/1000000), gLogbook.Par.Sorting);
+					idx := InsertEntry(ADR(LogbookInterface.Data), ArEventLogRead_0.TimeStamp.sec, UDINT_TO_UINT(ArEventLogRead_0.TimeStamp.nsec/1000000), LogbookInterface.Par.Sorting);
 					IF idx <> NO_SPACE THEN
 						// Store date and time
-						gLogbook.Data.Entries.DTsec[idx] := ArEventLogRead_0.TimeStamp.sec;
-						gLogbook.Data.Entries.DTmsec[idx] := UDINT_TO_UINT(ArEventLogRead_0.TimeStamp.nsec/1000000);
+						LogbookInterface.Data.Entries.DTsec[idx] := ArEventLogRead_0.TimeStamp.sec;
+						LogbookInterface.Data.Entries.DTmsec[idx] := UDINT_TO_UINT(ArEventLogRead_0.TimeStamp.nsec/1000000);
 						// Add timestamp
 						tmpDT := UDINT_TO_DT(ArEventLogRead_0.TimeStamp.sec);
 						DT_TO_DTStructure(tmpDT, ADR(tmpDTstruct));
-						brsmemset(ADR(gLogbook.Data.Entries.Timestamp[idx]), 0, SIZEOF(gLogbook.Data.Entries.Timestamp[idx]));
-						NormalizeDateTime(ADR(gLogbook.Data.Entries.Timestamp[idx]), tmpDTstruct.day, '');
-						NormalizeDateTime(ADR(gLogbook.Data.Entries.Timestamp[idx]), tmpDTstruct.month, '.');
-						NormalizeDateTime(ADR(gLogbook.Data.Entries.Timestamp[idx]), tmpDTstruct.year, '.');
-						NormalizeDateTime(ADR(gLogbook.Data.Entries.Timestamp[idx]), tmpDTstruct.hour, ' ');
-						NormalizeDateTime(ADR(gLogbook.Data.Entries.Timestamp[idx]), tmpDTstruct.minute, ':');
-						NormalizeDateTime(ADR(gLogbook.Data.Entries.Timestamp[idx]), tmpDTstruct.second, ':');
-						NormalizeDateTime(ADR(gLogbook.Data.Entries.Timestamp[idx]), gLogbook.Data.Entries.DTmsec[idx], '.');
+						brsmemset(ADR(LogbookInterface.Data.Entries.Timestamp[idx]), 0, SIZEOF(LogbookInterface.Data.Entries.Timestamp[idx]));
+						NormalizeDateTime(ADR(LogbookInterface.Data.Entries.Timestamp[idx]), tmpDTstruct.day, '');
+						NormalizeDateTime(ADR(LogbookInterface.Data.Entries.Timestamp[idx]), tmpDTstruct.month, '.');
+						NormalizeDateTime(ADR(LogbookInterface.Data.Entries.Timestamp[idx]), tmpDTstruct.year, '.');
+						NormalizeDateTime(ADR(LogbookInterface.Data.Entries.Timestamp[idx]), tmpDTstruct.hour, ' ');
+						NormalizeDateTime(ADR(LogbookInterface.Data.Entries.Timestamp[idx]), tmpDTstruct.minute, ':');
+						NormalizeDateTime(ADR(LogbookInterface.Data.Entries.Timestamp[idx]), tmpDTstruct.second, ':');
+						NormalizeDateTime(ADR(LogbookInterface.Data.Entries.Timestamp[idx]), LogbookInterface.Data.Entries.DTmsec[idx], '.');
 						// Add event ID, code, logbook, severity
-						gLogbook.Data.Entries.EventID[gLogbook.Data.EntriesTotal] := ArEventLogRead_0.EventID;
+						LogbookInterface.Data.Entries.EventID[LogbookInterface.Data.EntriesTotal] := ArEventLogRead_0.EventID;
 						IF ArEventLogRead_0.EventID <> 0 THEN
-							gLogbook.Data.Entries.Severity[idx] := GetSeverity(EventID := ArEventLogRead_0.EventID);
+							LogbookInterface.Data.Entries.Severity[idx] := GetSeverity(EventID := ArEventLogRead_0.EventID);
 						ELSE
-							gLogbook.Data.Entries.Severity[idx] := ArEventLogReadErrorNumber_0.Severity;
+							LogbookInterface.Data.Entries.Severity[idx] := ArEventLogReadErrorNumber_0.Severity;
 						END_IF
-						gLogbook.Data.Entries.Code[idx] := GetCode(EventID := ArEventLogRead_0.EventID);
-						gLogbook.Data.Entries.FacilityCode[idx] := GetFacility(EventID := ArEventLogRead_0.EventID);
-						gLogbook.Data.Entries.LogbookName[idx] := LOGBOOK_TEXT[Logbook.CntLogbook];
+						LogbookInterface.Data.Entries.Code[idx] := GetCode(EventID := ArEventLogRead_0.EventID);
+						LogbookInterface.Data.Entries.FacilityCode[idx] := GetFacility(EventID := ArEventLogRead_0.EventID);
+						LogbookInterface.Data.Entries.LogbookName[idx] := LOGBOOK_TEXT[Logbook.CntLogbook];
 						// Add error number and text, use event ID if error no is 0
 						IF ArEventLogReadErrorNumber_0.ErrorNumber <> 0 THEN
-							gLogbook.Data.Entries.ErrorNo[idx] := ArEventLogReadErrorNumber_0.ErrorNumber;
+							LogbookInterface.Data.Entries.ErrorNo[idx] := ArEventLogReadErrorNumber_0.ErrorNumber;
 						ELSE
-							gLogbook.Data.Entries.ErrorNo[idx] := ArEventLogRead_0.EventID;
+							LogbookInterface.Data.Entries.ErrorNo[idx] := ArEventLogRead_0.EventID;
 						END_IF
-						httpUtf8ToString_0(enable := TRUE, pSrc := ADR(ErrorText), pDest := ADR(gLogbook.Data.Entries.ErrorText[idx]), destSize := SIZEOF(gLogbook.Data.Entries.ErrorText[idx]));
+						httpUtf8ToString_0(enable := TRUE, pSrc := ADR(ErrorText), pDest := ADR(LogbookInterface.Data.Entries.ErrorText[idx]), destSize := SIZEOF(LogbookInterface.Data.Entries.ErrorText[idx]));
 					END_IF
 				END_IF
 				
 				// --------------------------------------------------------------------------------------------------------------------
 				// Hide unused table rows
-				brsitoa(gLogbook.Data.EntriesTotal, ADR(tmpSTR));
-				gLogbook.Par.TableConfig := '{"specRows":[{"from":';
-				brsstrcat(ADR(gLogbook.Par.TableConfig), ADR(tmpSTR));
-				brsstrcat(ADR(gLogbook.Par.TableConfig), ADR(', "to":'));
+				brsitoa(LogbookInterface.Data.EntriesTotal, ADR(tmpSTR));
+				LogbookInterface.Par.TableConfig := '{"specRows":[{"from":';
+				brsstrcat(ADR(LogbookInterface.Par.TableConfig), ADR(tmpSTR));
+				brsstrcat(ADR(LogbookInterface.Par.TableConfig), ADR(', "to":'));
 				brsitoa(LOGBOOK_ENTRIES_MAX, ADR(tmpSTR));
-				brsstrcat(ADR(gLogbook.Par.TableConfig), ADR(tmpSTR));
-				brsstrcat(ADR(gLogbook.Par.TableConfig), ADR(', "visible":false}]}'));	
+				brsstrcat(ADR(LogbookInterface.Par.TableConfig), ADR(tmpSTR));
+				brsstrcat(ADR(LogbookInterface.Par.TableConfig), ADR(', "visible":false}]}'));	
 				
 				LogbookState := STATE_PREP;
 			
@@ -567,20 +567,20 @@ PROGRAM _CYCLIC
 
 				// --------------------------------------------------------------------------------------------------------------------
 				// Finish when no logbook found or max entries is reached
-				IF Logbook.CntLogbook > LOGBOOK_BOOKS_MAX OR (gLogbook.Par.AbortOnEntriesLimit AND gLogbook.Data.EntriesTotal = LOGBOOK_ENTRIES_MAX) THEN
+				IF Logbook.CntLogbook > LOGBOOK_BOOKS_MAX OR (LogbookInterface.Par.AbortOnEntriesLimit AND LogbookInterface.Data.EntriesTotal = LOGBOOK_ENTRIES_MAX) THEN
 					// Add last update
-					DT_TO_DTStructure(gLogbook.Par.DateNow, ADR(tmpDTstruct));
-					brsmemset(ADR(gLogbook.Data.LastUpdate), 0, SIZEOF(gLogbook.Data.LastUpdate));
-					NormalizeDateTime(ADR(gLogbook.Data.LastUpdate), tmpDTstruct.day, '');
-					NormalizeDateTime(ADR(gLogbook.Data.LastUpdate), tmpDTstruct.month, '.');
-					NormalizeDateTime(ADR(gLogbook.Data.LastUpdate), tmpDTstruct.year, '.');
-					NormalizeDateTime(ADR(gLogbook.Data.LastUpdate), tmpDTstruct.hour, ' ');
-					NormalizeDateTime(ADR(gLogbook.Data.LastUpdate), tmpDTstruct.minute, ':');
-					NormalizeDateTime(ADR(gLogbook.Data.LastUpdate), tmpDTstruct.second, ':');
+					DT_TO_DTStructure(LogbookInterface.Par.DateNow, ADR(tmpDTstruct));
+					brsmemset(ADR(LogbookInterface.Data.LastUpdate), 0, SIZEOF(LogbookInterface.Data.LastUpdate));
+					NormalizeDateTime(ADR(LogbookInterface.Data.LastUpdate), tmpDTstruct.day, '');
+					NormalizeDateTime(ADR(LogbookInterface.Data.LastUpdate), tmpDTstruct.month, '.');
+					NormalizeDateTime(ADR(LogbookInterface.Data.LastUpdate), tmpDTstruct.year, '.');
+					NormalizeDateTime(ADR(LogbookInterface.Data.LastUpdate), tmpDTstruct.hour, ' ');
+					NormalizeDateTime(ADR(LogbookInterface.Data.LastUpdate), tmpDTstruct.minute, ':');
+					NormalizeDateTime(ADR(LogbookInterface.Data.LastUpdate), tmpDTstruct.second, ':');
 					// Reset status and command
-					gLogbook.Status := ERR_OK;
-					gLogbook.Cmd.Refresh := FALSE;
-					gLogbook.Cmd.Update := FALSE;
+					LogbookInterface.Status := ERR_OK;
+					LogbookInterface.Cmd.Refresh := FALSE;
+					LogbookInterface.Cmd.Update := FALSE;
 					LogbookState := STATE_WAIT;
 				ELSE
 					// Read latest entry
@@ -596,13 +596,13 @@ PROGRAM _CYCLIC
 				// Error state
 				// --------------------------------------------------------------------------------------------------------------------
 			STATE_ERROR:
-				gLogbook.StatusText := 'Error...';
-				brsmemset(ADR(gLogbook.Cmd), 0, SIZEOF(gLogbook.Cmd)-1);
+				LogbookInterface.StatusText := 'Error...';
+				brsmemset(ADR(LogbookInterface.Cmd), 0, SIZEOF(LogbookInterface.Cmd)-1);
 				// Reset error
-				IF gLogbook.Cmd.ResetError THEN
-					gLogbook.Error.State := STATE_NONE;
-					gLogbook.Status := 0;
-					gLogbook.Cmd.ResetError := FALSE;
+				IF LogbookInterface.Cmd.ResetError THEN
+					LogbookInterface.Error.State := STATE_NONE;
+					LogbookInterface.Status := 0;
+					LogbookInterface.Cmd.ResetError := FALSE;
 					LogbookState := STATE_WAIT;	
 				END_IF
 				EXIT;
