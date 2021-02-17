@@ -4,7 +4,6 @@ VAR CONSTANT
 END_VAR
 VAR
 	TrackDiag : DiagStatusType;
-	SegmentsInError : ARRAY[0..NUM_SEG] OF ErrorSegInfoType;
 	paperOptions : TrkPaperCoreOptionsType;
 END_VAR
 (*LogBook variables*)

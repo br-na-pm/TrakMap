@@ -44,14 +44,13 @@ ACTION actCheckErrorCode:
 					//Segment has no new error recorded. Shows either 0 or the commanded warning (36005) used to overwrite old errors
 					TrackDiag.Seg.SegList[SegIndex].Status.ErrorCode := 0;
 					SegErrorCheck[SegIndex].CheckState := WAIT_FOR_CHECK;
-					
-					SegmentsInError[SegIndex].Error := FALSE;
+					TrackDiag.Seg.SegList[SegIndex].Status.Error := FALSE;
 				
 				ELSE
 					//Otherwise, there is a new error on this segment
 					TrackDiag.Seg.SegList[SegIndex].Status.ErrorCode := SegErrorCheck[SegIndex].ErrorNumber;
 					
-					SegmentsInError[SegIndex].Error := TRUE;
+					TrackDiag.Seg.SegList[SegIndex].Status.Error := TRUE;
 					//Send to overwrite state to store a known error number (36005) in the error code parID
 					SegErrorCheck[SegIndex].CheckState := WRITE_WARNING_CODE;
 					

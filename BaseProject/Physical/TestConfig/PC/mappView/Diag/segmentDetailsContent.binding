@@ -14,8 +14,6 @@
 		<Source xsi:type="snippet" refId="SnippetSegError" attribute="value" />
 		<Target xsi:type="brease" contentRefId="segmentDetailsContent" widgetRefId="SegmentStatus1" attribute="segErrorText" />
 	</Binding>
-	
-	
 		
 	</Bindings>
 </BindingsSet>

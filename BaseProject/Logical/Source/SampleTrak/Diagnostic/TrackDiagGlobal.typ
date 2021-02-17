@@ -10,7 +10,6 @@ TYPE
 		Hub : ARRAY[0..NUM_HUBS]OF HubStatusType;
 		IO : IOStatusType;
 		CPU : CPUStatusType;
-		SegmentCount : USINT; (*Number Of segments*)
 	END_STRUCT;
 	SystemStatusType : 	STRUCT 
 		ConfigCheckComplete : BOOL;
@@ -28,20 +27,6 @@ TYPE
 		PowerOn : BOOL;
 		StartupCount : UDINT;
 		ShuttleInErrorStopCount : UINT;
-	END_STRUCT;
-	SegStatusType : 	STRUCT 
-		CommunicationReady : BOOL;
-		ReadyForPowerOn : BOOL;
-		PowerOn : BOOL;
-		StartupCount : UDINT;
-		CommunicationState : McCommunicationStateEnum;
-		SegmentDisiabled : BOOL;
-		SegmentReady : BOOL;
-		SegmentStopping : BOOL;
-		SegmentErrorStop : BOOL;
-		ErrorCode : UINT;
-		DCBus : TrkDiagSegStatusDCBusType;
-		Temp : TrkDiagSegStatusTempType;
 	END_STRUCT;
 	ShuttleStatusType : 	STRUCT 
 		Position : REAL;
@@ -143,12 +128,6 @@ TYPE
 		SORTING_ASC,
 		SORTING_DESC
 		);
-	LogBookCmdType : 	STRUCT  (*Command structure*)
-		Refresh : BOOL; (*Read all entries*)
-		Update : BOOL; (*Update entries*)
-		Create : BOOL; (*Create a new entry*)
-		ResetError : BOOL; (*Reset error*)
-	END_STRUCT;
 	LogBookParType : 	STRUCT  (*Parameter structure*)
 		DateNow : DATE_AND_TIME; (*Current date and time*)
 		TableConfig : STRING[100]; (*Hide unused rows*)
@@ -189,6 +168,12 @@ TYPE
 		LogbookName : ARRAY[1..LOGBOOK_ENTRIES_MAX]OF STRING[30]; (*Logbook text*)
 		ErrorNo : ARRAY[1..LOGBOOK_ENTRIES_MAX]OF DINT; (*Error number*)
 		ErrorText : ARRAY[1..LOGBOOK_ENTRIES_MAX]OF STRING[LOGBOOK_TEXT_LEN]; (*Error text*)
+	END_STRUCT;
+	LogBookCmdType : 	STRUCT  (*Command structure*)
+		Refresh : BOOL; (*Read all entries*)
+		Update : BOOL; (*Update entries*)
+		Create : BOOL; (*Create a new entry*)
+		ResetError : BOOL; (*Reset error*)
 	END_STRUCT;
 	LogBookSegErrorType : 	STRUCT 
 		ParaSegFilter : STRING[8]; (*show only entries with names beginning with this string*)

@@ -39,6 +39,7 @@ TYPE
 		SegmentReady : BOOL; (*Segment is Ready*)
 		SegmentStopping : BOOL; (*Segment is in the Stopping State*)
 		SegmentErrorStop : BOOL; (*Segment is in an error stop state*)
+		Error : BOOL;
 		ErrorCode : UINT; (*Error code of the segment*)
 		DCBus : TrkDiagSegStatusDCBusType;
 		Temp : TrkDiagSegStatusTempType;
