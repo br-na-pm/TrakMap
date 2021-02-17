@@ -39,8 +39,8 @@ TYPE
 		Segments : SegmentDataType;
 	END_STRUCT;
 	SegmentDataType : 	STRUCT 
+		SegCount : USINT;
 		SegListAdr : UDINT;
 		SegList : ARRAY[0..NUM_SEG]OF TrkPaperCoreSegmentType;
-		SegCount : USINT;
 	END_STRUCT;
 END_TYPE

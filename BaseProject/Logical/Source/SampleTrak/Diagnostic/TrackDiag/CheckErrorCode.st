@@ -83,9 +83,7 @@ ACTION actCheckErrorCode:
 					
 				ELSIF SegProcessParID[SegIndex].Error THEN
 					SegErrorCheck[SegIndex].CheckState := READ_EXEC_ERROR;
-				END_IF
-				
-				
+				END_IF			
 		
 			
 			READ_EXEC_ERROR:

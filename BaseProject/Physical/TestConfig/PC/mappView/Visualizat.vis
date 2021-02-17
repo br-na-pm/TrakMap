@@ -65,8 +65,7 @@
 		<Content refId="EM2AlarmContent" />
 		<Content refId="EM3AlarmContent" />
 		<Content refId="EMxAlarmContent" />
-		<Content refId="diagAlarmContent" />
-	
+		<Content refId="diagAlarmContent" />	
   </Contents>
   <SnippetsSets>
     <SnippetsSet refId="snippetsForStates"/>
@@ -76,7 +75,7 @@
     <!--<ExpressionsSet refId=""/>-->
   </ExpressionsSets>
   <VariablesSets>
-    <VariablesSet refId="svar_0" />
+    <VariablesSet refId="sessionVariables" />
   </VariablesSets>
   <StartTheme themeRefId="BuRThemeFlat2" />
   <Themes>
