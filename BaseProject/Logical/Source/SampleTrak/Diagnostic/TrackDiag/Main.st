@@ -30,9 +30,9 @@ PROGRAM _INIT
 		
 		IF TrackDiag.Seg.SegList[SegIndex].McType.controlif <> 0 THEN
 		
-			ErrorCodeIDInfo[SegIndex].DataType 	:= mcACPTRAK_SEG_PARTYPE_UINT;
-			ErrorCodeIDInfo[SegIndex].ParID		:= mcACPPAR_ERROR_NUMBER;
-			ErrorCodeIDInfo[SegIndex].VariableAddress := ADR(SegErrorCheck[SegIndex].ErrorNumber);
+			ErrorCodeIDInfo[SegIndex].DataType 			:= mcACPTRAK_SEG_PARTYPE_UINT;
+			ErrorCodeIDInfo[SegIndex].ParID				:= mcACPPAR_ERROR_NUMBER;
+			ErrorCodeIDInfo[SegIndex].VariableAddress 	:= ADR(SegErrorCheck[SegIndex].ErrorNumber);
 		
 		
 			SegProcessParID[SegIndex].Segment			:= ADR(TrackDiag.Seg.SegList[SegIndex].McType);

@@ -2,7 +2,7 @@
 <?AutomationStudio FileVersion="4.9"?>
 <BR.AS.HardwareTopology>
   <TimeStamps>
-    <TimeStamp LogicalPath="TestConfig.Hardware.hw" LastWriteTime="12/04/2020 13:51:35" />
+    <TimeStamp LogicalPath="TestConfig.Hardware.hw" LastWriteTime="02/22/2021 09:06:32" />
   </TimeStamps>
   <Modules>
     <Module Name="PC" Type="PC_any" X="100" Y="100" />
@@ -16,17 +16,38 @@
     <Module Name="SegAA_1" Type="8F1I01.AA66.xxxx-1" X="482" Y="368" RotationAngle="180" />
     <Module Name="SegAB_2" Type="8F1I01.AB2B.xxxx-1" X="746" Y="368" RotationAngle="180" />
     <Module Name="SegBB_11" Type="8F1I01.BB4B.xxxx-1" X="232" Y="374" RotationAngle="135" />
-    <Module Name="SegBB_4" Type="8F1I01.BB4B.xxxx-1" X="948.25" Y="451" RotationAngle="270" Flipped="true" />
+    <Module Name="SegBB_4" Type="8F1I01.BB4B.xxxx-1" X="948.5" Y="451" RotationAngle="270" Flipped="true" />
     <Module Name="SegBB_3" Type="8F1I01.BB4B.xxxx-1" X="894" Y="377" RotationAngle="225" />
     <Module Name="SegBB_5" Type="8F1I01.BB4B.xxxx-1" X="896" Y="509" RotationAngle="315" />
+    <Module Name="0AC808.9-1" Type="0AC808.9-1" X="575" Y="201" />
+    <Module Name="8EI2X2MCS10.xxxx-1" Type="8EI2X2MCS10.xxxx-1" X="780" Y="-51" />
+    <Module Name="8EI2X2MCS10.xxxx-1a" Type="8EI2X2MCS10.xxxx-1" X="837" Y="-51" />
   </Modules>
   <Links>
-    <Link From="5LS189.6-1" To="SegAA_1" FromPort="IF2" ToPort="PLK3" IsRoutedByUser="False">
+    <Link From="0AC808.9-1" To="5LS189.6-1" FromPort="ETH1" ToPort="IF2" IsRoutedByUser="False">
       <Point X="459" Y="130" />
       <Point X="459" Y="130" />
       <Point X="464" Y="130" />
-      <Point X="471" Y="130" />
-      <Point X="471" Y="415" />
+      <Point X="601.5" Y="130" />
+      <Point X="601.5" Y="200.5" />
+      <Point X="601.5" Y="212.5" />
+      <Point X="601.5" Y="212.5" />
+    </Link>
+    <Link From="0AC808.9-1" To="8EI2X2MCS10.xxxx-1" FromPort="ETH2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="614" Y="212" />
+      <Point X="614" Y="212" />
+      <Point X="614" Y="200" />
+      <Point X="614" Y="-40.5" />
+      <Point X="779.7" Y="-40.5" />
+      <Point X="787.7" Y="-40.5" />
+      <Point X="787.7" Y="-40.5" />
+    </Link>
+    <Link From="0AC808.9-1" To="SegAA_1" FromPort="ETH5" ToPort="PLK3" IsRoutedByUser="False">
+      <Point X="601" Y="225" />
+      <Point X="601" Y="225" />
+      <Point X="601" Y="245" />
+      <Point X="478" Y="245" />
+      <Point X="478" Y="415" />
       <Point X="613.5" Y="415" />
       <Point X="613.5" Y="408" />
       <Point X="613.5" Y="408" />
@@ -122,9 +143,9 @@
       <Point X="937" Y="479" />
       <Point X="931" Y="479" />
       <Point X="931" Y="507" />
-      <Point X="946.75" Y="507" />
-      <Point X="951.75" Y="507" />
-      <Point X="951.75" Y="507" />
+      <Point X="947" Y="507" />
+      <Point X="952" Y="507" />
+      <Point X="952" Y="507" />
     </Link>
     <Link From="SegBB_4" To="SegBB_5" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
       <Point X="951.75" Y="486" />
@@ -134,6 +155,16 @@
       <Point X="938" Y="508" />
       <Point X="938" Y="536" />
       <Point X="938" Y="536" />
+    </Link>
+    <Link From="8EI2X2MCS10.xxxx-1" To="8EI2X2MCS10.xxxx-1a" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="796.1" Y="-40.5" />
+      <Point X="796.1" Y="-40.5" />
+      <Point X="796.1" Y="-51.5" />
+      <Point X="831.6" Y="-51.5" />
+      <Point X="831.6" Y="-40.5" />
+      <Point X="836.7" Y="-40.5" />
+      <Point X="844.7" Y="-40.5" />
+      <Point X="844.7" Y="-40.5" />
     </Link>
   </Links>
   <InfoElements />

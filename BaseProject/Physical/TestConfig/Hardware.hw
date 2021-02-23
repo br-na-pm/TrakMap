@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio Version=4.9.2.46 FileVersion="4.9"?>
 <Hardware xmlns="http://br-automation.co.at/AS/Hardware">
+  <Module Name="0AC808.9-1" Type="0AC808.9-1" Version="1.0.0.0">
+    <Connection Connector="ETH1" TargetModule="5LS189.6-1" TargetConnector="IF2">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="ETH5" TargetModule="SegAA_1" TargetConnector="PLK3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
   <Module Name="5LS189.6-1" Type="5LS189.6-1" Version="1.4.1.0">
     <Connection Connector="SL" TargetModule="PC" TargetConnector="SL1" />
     <Connector Name="IF2">
@@ -46,7 +54,7 @@
     <Connection Connector="PLK2" TargetModule="SegAB_2" TargetConnector="PLK1" NodeNumber="1">
       <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
     </Connection>
-    <Connection Connector="PLK3" TargetModule="5LS189.6-1" TargetConnector="IF2" NodeNumber="1">
+    <Connection Connector="PLK3" TargetModule="0AC808.9-1" TargetConnector="ETH5" NodeNumber="1">
       <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
     </Connection>
     <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
