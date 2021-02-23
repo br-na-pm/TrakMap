@@ -68,9 +68,9 @@
 		borderColor="#fff" 
 		mouseDownBorderWidth="0px 6px 0px 6px"
 		mouseDownBorderColor="#ff9900" 
-		backColor="#b4b4b4" 
-		mouseDownBackColor="#b4b4b4" 
-		checkedBackColor="#b4b4b4" 
+		backColor="#636363" 
+		mouseDownBackColor="#636363" 
+		checkedBackColor="#636363" 
 		checkedBorderColor="#ff9900" 
 		disabledBackColor="#d1d1d1" />
 		
@@ -175,7 +175,7 @@
 	
 	<Style id="default" xsi:type="widgets.brease.Label" 
 		fontSize="12px" 
-		textColor="#b4b4b4" 
+		textColor="#636363" 
 		backColor="transparent" 
 		borderStyle="none" 
 		padding="5px" />
@@ -197,7 +197,7 @@
 	<!--date time output-->
 	
 	<Style id="default" xsi:type="widgets.brease.DateTimeOutput" 
-		textColor="#b4b4b4" 
+		textColor="#636363" 
 		borderWidth="0px" 
 		fontSize="16px" 
 		backColor="transparent" 
@@ -276,7 +276,7 @@
 	<!--numeric output-->
 	
 	<Style id="default" xsi:type="widgets.brease.NumericOutput" 
-		textColor="#b4b4b4" 
+		textColor="#636363" 
 		borderWidth="0px" 
 		fontSize="16px" 
 		backColor="transparent" 
@@ -299,7 +299,7 @@
 	<!--text output-->
 	
 	<Style id="default" xsi:type="widgets.brease.TextOutput" 
-		textColor="#b4b4b4" 
+		textColor="#636363" 
 		fontSize="16px" 
 		backColor="transparent" 
 		bold="false" />
@@ -599,7 +599,7 @@
 	
 	<Style id="default" xsi:type="widgets.brease.ProfileGeneratorYAxisStepItem"
 		lineColor="#FF9900" 
-		editLineColor="#b4b4b4" 
+		editLineColor="#636363" 
 		editLineWidth="15px" />
 	
 	<!-- progress bar -->
@@ -711,7 +711,7 @@
 		thumbColor="#ff9900" 
 		trackColor="#cccccc"
 		borderWidth="0px"
-		textColor="#b4b4b4" 
+		textColor="#636363" 
 	/>
 	
 	<!--alarm list-->

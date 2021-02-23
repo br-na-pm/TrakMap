@@ -2,7 +2,7 @@
 <?AutomationStudio FileVersion="4.9"?>
 <BR.AS.HardwareTopology>
   <TimeStamps>
-    <TimeStamp LogicalPath="TestConfig.Hardware.hw" LastWriteTime="02/22/2021 09:06:32" />
+    <TimeStamp LogicalPath="TestConfig.Hardware.hw" LastWriteTime="02/22/2021 11:56:24" />
   </TimeStamps>
   <Modules>
     <Module Name="PC" Type="PC_any" X="100" Y="100" />
@@ -20,8 +20,6 @@
     <Module Name="SegBB_3" Type="8F1I01.BB4B.xxxx-1" X="894" Y="377" RotationAngle="225" />
     <Module Name="SegBB_5" Type="8F1I01.BB4B.xxxx-1" X="896" Y="509" RotationAngle="315" />
     <Module Name="0AC808.9-1" Type="0AC808.9-1" X="575" Y="201" />
-    <Module Name="8EI2X2MCS10.xxxx-1" Type="8EI2X2MCS10.xxxx-1" X="780" Y="-51" />
-    <Module Name="8EI2X2MCS10.xxxx-1a" Type="8EI2X2MCS10.xxxx-1" X="837" Y="-51" />
   </Modules>
   <Links>
     <Link From="0AC808.9-1" To="5LS189.6-1" FromPort="ETH1" ToPort="IF2" IsRoutedByUser="False">
@@ -32,15 +30,6 @@
       <Point X="601.5" Y="200.5" />
       <Point X="601.5" Y="212.5" />
       <Point X="601.5" Y="212.5" />
-    </Link>
-    <Link From="0AC808.9-1" To="8EI2X2MCS10.xxxx-1" FromPort="ETH2" ToPort="PLK1" IsRoutedByUser="False">
-      <Point X="614" Y="212" />
-      <Point X="614" Y="212" />
-      <Point X="614" Y="200" />
-      <Point X="614" Y="-40.5" />
-      <Point X="779.7" Y="-40.5" />
-      <Point X="787.7" Y="-40.5" />
-      <Point X="787.7" Y="-40.5" />
     </Link>
     <Link From="0AC808.9-1" To="SegAA_1" FromPort="ETH5" ToPort="PLK3" IsRoutedByUser="False">
       <Point X="601" Y="225" />
@@ -155,16 +144,6 @@
       <Point X="938" Y="508" />
       <Point X="938" Y="536" />
       <Point X="938" Y="536" />
-    </Link>
-    <Link From="8EI2X2MCS10.xxxx-1" To="8EI2X2MCS10.xxxx-1a" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
-      <Point X="796.1" Y="-40.5" />
-      <Point X="796.1" Y="-40.5" />
-      <Point X="796.1" Y="-51.5" />
-      <Point X="831.6" Y="-51.5" />
-      <Point X="831.6" Y="-40.5" />
-      <Point X="836.7" Y="-40.5" />
-      <Point X="844.7" Y="-40.5" />
-      <Point X="844.7" Y="-40.5" />
     </Link>
   </Links>
   <InfoElements />
