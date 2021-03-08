@@ -59,6 +59,26 @@ FUNCTION_BLOCK MC_BR_GroupHome_15
 	END_VAR
 END_FUNCTION_BLOCK
 
+FUNCTION_BLOCK MC_BR_GroupBrakeOperation
+	VAR_INPUT
+		AxesGroup : REFERENCE TO McAxesGroupType; (*The axis group reference establishes the connection between the function block and the axis group.*)
+		Execute : BOOL; (*Execution of this function block is started on rising edge of the input*)
+		Command : McBrakeCmdEnum; (*Brake command input*)
+		SelectMode : McBrakeSelectModeEnum; (*Mode for selecting the brake*)
+		Identifier : UDINT; (*Identifier for the brake*)
+	END_VAR
+	VAR_OUTPUT
+		Done : BOOL; (*execution successful. FB finished*)
+		Busy : BOOL; (*FB is active and needs to be called*)
+		Error : BOOL; (*error occurred during operation*)
+		ErrorID : DINT; (*error number*)
+		BrakeStatus : McBrakeStatusEnum; (*shows the brake status*)
+	END_VAR
+	VAR
+		Internal : McInternalType; (*internal variable*)
+	END_VAR
+END_FUNCTION_BLOCK
+
 FUNCTION_BLOCK MC_BR_GroupJogAbsolute_15
 	VAR_INPUT
 		AxesGroup : REFERENCE TO McAxesGroupType; (*The axis group reference establishes the connection between the function block and the axis group.*)
@@ -769,6 +789,24 @@ FUNCTION_BLOCK MC_BR_LoadProgram
 	END_VAR
 	VAR
 		Internal : McInternalType;
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MC_BR_VelLimitMonPoints
+	VAR_INPUT
+		AxesGroup : REFERENCE TO McAxesGroupType; (*The axis group reference establishes the connection between the function block and the axis group.*)
+		Enable : BOOL; (*The function block is active as long as this input is set.*)
+		Parameter : McLimitMonPointsParType; (*Limitation parameters*)
+	END_VAR
+	VAR_OUTPUT
+		Valid : BOOL; (*The function block's output values can be used.*)
+		Busy : BOOL; (*Function block is active and must continue to be called.*)
+		Error : BOOL; (*Error occurred during execution.*)
+		ErrorID : DINT; (*Error number*)
+		LimitInfo : McLimitMonPointsInfoType; (*Info about current Limitation*)
+	END_VAR
+	VAR
+		Internal : McInternalType; (*Internal data*)
 	END_VAR
 END_FUNCTION_BLOCK
 

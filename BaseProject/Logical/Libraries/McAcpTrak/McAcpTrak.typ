@@ -98,6 +98,13 @@ TYPE
 		mcACPTRAK_REASON_RECONTROLLED := 10		(*maneuver due to transition from uncontrolled to controlled*)
 	);
 
+	McAcpTrakBarrierTypeEnum:
+	(
+		mcACPTRAK_BARRIER_USER := 0,			(*user-defined barrier*)
+		mcACPTRAK_BARRIER_CONFLICTZONE := 1,	(*internal conflictzone barrier*)
+		mcACPTRAK_BARRIER_SEGMENT := 2			(*internal segment barrier*)
+	);
+
 	McAcpTrakSelectShSideEnum:
 	(
 		 mcACPTRAK_SIDE_BOTH := 0			(* Both sides of the shuttle are affected*)
@@ -121,6 +128,15 @@ TYPE
 		mcACPTRAK_MOVEMENT_STANDSTILL,	(*no movement active*)
 		mcACPTRAK_MOVEMENT_ELASTIC,		(*elastic movement*)
 		mcACPTRAK_MOVEMENT_RIGID		(*rigid movement*)
+	);
+
+	McAcpTrakMoveCmdEnum :
+	(
+		mcACPTRAK_MOV_CMD_HALT,					(*halt*)
+		mcACPTRAK_MOV_CMD_MOVEABS,				(*move absolute*)
+		mcACPTRAK_MOV_CMD_ELASTICMOVEABS,		(*elastic move absolute*)
+		mcACPTRAK_MOV_CMD_MOVEVEL,				(*move velocity*)
+		mcACPTRAK_MOV_CMD_ELASTICMOVEVEL		(*elastic move velocity*)
 	);
 
 	McAcpTrakBarrierCmdEnum :
@@ -314,6 +330,78 @@ TYPE
 		SegmentCurrentValues : ARRAY[0..3] OF McAcpTrakShSegCurrentValuesType; (*actual values that are read from the segments*)
 	END_STRUCT;
 
+	McAcpTrakSegPositionType : STRUCT
+		Segment : McSegmentType; (*a segment the shuttle was located on*)
+		Name : STRING[32]; (*name of the segment the shuttle was located on*)
+		Position : LREAL; (*position of the shuttle on the segment*)
+	END_STRUCT;
+
+	McAcpTrakSecPositionType : STRUCT
+		Sector : McSectorType; (*a sector*)
+		Name : STRING[32]; (*name of the sector*)
+		Position : LREAL; (*position on the sector*)
+	END_STRUCT;
+
+	McAcpTrakShRecoveryInfoType	: STRUCT
+		SectorPosition : McAcpTrakSecPositionType; (* Sector position where shuttle was controlled last time*)
+		OnSector : BOOL; (* Indicates whether shuttle is still on the sector given in sector position*)
+		Destination : McAcpTrakSecPositionType; (* Sector position which shuttle was heading for*)
+		SegmentPosition : McAcpTrakSegPositionType; (* Segment position where shuttle was controlled last time *)
+	END_STRUCT;
+
+	McAcpTrakShErrorShuttleInfoType : STRUCT
+		Shuttle : McAxisType; (*the other shuttle*)
+		SegmentPosition : McAcpTrakSegPositionType; (*the segment position of the other shuttle*)
+	END_STRUCT;
+
+	McAcpTrakShErrorBarrierInfoType : STRUCT
+	    BarrierType : McAcpTrakBarrierTypeEnum; (*type of the barrier*)
+		ProcessPoint : McProcessPointType; (*the process point containing the barrier*)
+		Name : STRING[32]; (*the name of the process point containing the barrier*)
+		Status : McAcpTrakBarrierStatusEnum; (*the barrier's mode*)
+	END_STRUCT;
+
+	McAcpTrakShErrorLocLimitInfoType : STRUCT
+		Name : STRING[32]; (*the local limit's name*)
+		VelocityLimit : REAL; (*the limit's bound on the velocity*)
+		AccelerationLimit : REAL; (*the limit's bound on the acceleration*)
+		InRange : BOOL; (*true iff the error happened in range of the local limit*)
+	END_STRUCT;
+
+	McAcpTrakShErrorManeuverInfoType : STRUCT
+		Reason : McAcpTrakShManeuverReasonEnum; (*the reason for the maneuver*)
+		ShuttleManInfo : McAcpTrakShErrorShuttleInfoType; (*information about maneuver due to shuttle*)
+		BarrierManInfo : McAcpTrakShErrorBarrierInfoType; (*information about maneuver due to barrier*)
+		LocalLimitManInfo : McAcpTrakShErrorLocLimitInfoType; (*information about maneuver due to local limit*)
+	END_STRUCT;
+
+	McAcpTrakShErrorEncdiffInfoType : STRUCT
+		Difference : LREAL; (*the difference between the encoder positions*)
+		LowPosition : McAcpTrakSegPositionType; (*the shuttle's segment position that implies, after translation to the shuttle's sector, to the lowest sector position*)
+		HighPosition : McAcpTrakSegPositionType; (*the shuttle's segment position that implies, after translation to the shuttle's sector, to the highest sector position*)
+	END_STRUCT;
+
+	McAcpTrakShErrorGripperInfoType : STRUCT
+		Segment : McSegmentType; (*the segment where the shuttle could not allocate a gripper*)
+		SegmentName : STRING[32]; (*the name of the segment where the shuttle could not allocate a gripper*)
+	END_STRUCT;
+
+	McAcpTrakShErrorSegmentInfoType : STRUCT
+		Segment : McSegmentType; (*the segment whose error triggered the shuttle error*)
+		SegmentName : STRING[32]; (*the name of the segment whose error triggered the shuttle error*)
+	END_STRUCT;
+
+	McAcpTrakShErrorInfoType : STRUCT
+		SegmentPosition : McAcpTrakSegPositionType; (*a segment position of the shuttle when the error occured*)
+		Velocity : REAL; (*the shuttle's absolute velocity*)
+		Acceleration : REAL; (*the shuttle's acceleration; if negative, it was decelerating*)
+		Reason : McAcpTrakShErrorReasonEnum; (*reason for the error*)
+		ManeuverErrorInfo : McAcpTrakShErrorManeuverInfoType; (*information about a maneuver triggering an error*)
+		EncdiffErrorInfo : McAcpTrakShErrorEncdiffInfoType; (*information about a encoder discrepancy error*)
+		GripperErrorInfo : McAcpTrakShErrorGripperInfoType; (*information about a error where no gripper could be allocated*)
+		SegmentErrorInfo : McAcpTrakShErrorSegmentInfoType; (*information about a segment error*)
+	END_STRUCT;
+
 	McAcpTrakShResizeParamType : STRUCT
 		Mode :  McAcpTrakShResizeModeEnum; (*resize mode selector*)
 		ExtentToFront : LREAL; (*extent from the center point of the magnet plate to the front of the shuttle*)
@@ -417,6 +505,19 @@ TYPE
 	 	Type :  McAcpTrakSecTypeEnum; (*type of the sector*)
 	 END_STRUCT;
 
+	McAcpTrakAdvSecAddShWithMovType : STRUCT
+		MoveCmd :  McAcpTrakMoveCmdEnum; (*Specifies the movement type for the shuttle*)
+		Position : LREAL; 		(*target position for the motion*)
+		Velocity : REAL; 		(*maximum velocity*)
+		Acceleration : REAL; 		(*maximum acceleration*)
+		Deceleration : REAL; 		(*maximum deceleration*)
+		Jerk : REAL; 			(*maximum jerk*)	
+	END_STRUCT;
+	
+	 McAcpTrakSecAddShWithMovInfoType : STRUCT
+	 	PLCopenState : McAxisPLCopenStateEnum; (*PLCopen state*)
+	END_STRUCT;
+
 	 McAcpTrakAdvSecAddShParType  : STRUCT
 		Velocity : REAL; (*velocity of a moving shuttle*)
 		Orientation : McDirectionEnum; (*orientation of the shuttle in the sector*)
@@ -470,6 +571,21 @@ TYPE
 		Orientation : McDirectionEnum; (* Orientation of the shuttle on the sector*)
 	END_STRUCT;
 
+	McAcpTrakBarrierGetShModeEnum :
+	(
+		mcACPTRAK_BARR_GET_SH_ALL := 0, (*get all shuttles performing adjustment maneuvers*)
+		mcACPTRAK_BARR_GET_SH_STANDSTILL (*get shuttles performing adjustment maneuvers which are not moving*)
+	);
+
+	McAcpTrakAdvBarrierGetShParType : STRUCT
+		SelectionMode : McAcpTrakBarrierGetShModeEnum; (*Selector for the shuttles to output*)
+	END_STRUCT;
+
+	McAcpTrakBarrierGetShInfoType : STRUCT
+		ShuttleID : UINT; (* Unique shuttle index on the assembly.*)
+		Distance : LREAL; (* Distance to the barrier*)
+	END_STRUCT;
+
 	 McAcpTrakSecInfoType : STRUCT
 	 	ShuttlesCount : UINT; (*number of shuttles on the sector*)
 	 	ShuttlesInStandstillCount : UINT; (*number of shuttles without active movement command*)
@@ -504,11 +620,54 @@ TYPE
 
 	McAcpTrakAdvShSwitchSecParType : STRUCT
 		Deceleration : REAL; (*maximum deceleration of a moving shuttle*)
+		StartPosition : LREAL; (*Start position of the sector position interval to switch to*)
+		EndPosition : LREAL; (*Start position of the sector position interval to switch to*)
 	END_STRUCT;
 
 	McAcpTrakShReadSecPosInfoType : STRUCT
 		Position : LREAL; (*Shuttle position on the sector*)
 		Orientation : McDirectionEnum; (*Shuttle orientation on the sector*)
+	END_STRUCT;
+
+	McAcpTrakAdvShReadSecPosParType : STRUCT
+		StartPosition : LREAL; (*Start position of the sector position interval to search for position*)
+		EndPosition : LREAL; (*Start position of the sector position interval to search for position*)
+	END_STRUCT;
+
+	McAcpTrakAdvShCamAutCmdParType : STRUCT
+		Elastic : BOOL; (*true iff elastic movements are started*)
+		Deceleration : REAL; (*maximum deceleration*)
+	END_STRUCT;
+
+	McAcpTrakShCamAutCmdCommandsType : STRUCT
+		Start : BOOL; (*starts the cam automat*)
+		Stop : BOOL; (*stops the movement on the slave axis*)
+		Restart : BOOL; (*restarts a cam automat which is in stand by*)
+		EndAutomat : BOOL; (*finishes the execution of the cam automat*)
+		SetSignal1 : BOOL; (*sets signal 1 of the cam automat*)
+		SetSignal2 : BOOL; (*sets signal 2 of the cam automat*)
+		SetSignal3 : BOOL; (*sets signal 3 of the cam automat*)
+		SetSignal4 : BOOL; (*sets signal 4 of the cam automat*)
+		ResetSignal1 : BOOL; (*resets signal 1 of the cam automat*)
+		ResetSignal2 : BOOL; (*resets signal 2 of the cam automat*)
+		ResetSignal3 : BOOL; (*resets signal 3 of the cam automat*)
+		ResetSignal4 : BOOL; (*resets signal 4 of the cam automat*)
+	END_STRUCT;
+
+	McAcpTrakShCamAutCmdInfoType : STRUCT
+		Running : BOOL; (*automat is currently running*)
+		StandBy : BOOL; (*automat is in standby and can be restarted*)
+		ActualStateIndex : USINT; (*index of the actual cam automat state*)
+		ActualStateCamIndex : UINT; (*index of the cam of the actual cam automat state*)
+		InCam : BOOL; (*cam in the current cam automat state is active*)
+		InCompensation : BOOL; (*compensation in the current cam automat state is active*)
+		InPosition : BOOL; (*shuttle realized its current cyclic target position*)
+	END_STRUCT;
+
+	McAcpTrakAdvSecStopParType : STRUCT
+		StopMode : McStopModeEnum; (*determines whether jerk limits are used*)
+		StartPosition : LREAL; (*Start position of the sector position interval for search*)
+		EndPosition : LREAL; (*Start position of the sector position interval for search*)
 	END_STRUCT;
 
 END_TYPE

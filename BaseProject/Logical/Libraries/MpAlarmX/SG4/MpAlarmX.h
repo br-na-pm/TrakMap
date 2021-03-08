@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpAlarmX 5.13.0 */
+/* MpAlarmX 5.14.0 */
 
 #ifndef _MPALARMX_
 #define _MPALARMX_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpAlarmX_VERSION
-#define _MpAlarmX_VERSION 5.13.0
+#define _MpAlarmX_VERSION 5.14.0
 #endif
 
 #include <bur/plctypes.h>

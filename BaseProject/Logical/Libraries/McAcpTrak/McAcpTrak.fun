@@ -92,6 +92,24 @@ FUNCTION_BLOCK MC_BR_AsmCommandError_AcpTrak (*A assembly error can be set with 
 	END_VAR
 END_FUNCTION_BLOCK
 
+FUNCTION_BLOCK MC_BR_AsmStop_AcpTrak (*Stop all shuttles on the assembly*)
+	VAR_INPUT
+		Assembly : REFERENCE TO McAssemblyType; (*The assembly reference establishes the connection between the function block and the assembly.*)
+		Execute : BOOL; (*Execution of the function block begins on a rising edge of this input.*)
+		StopMode : McStopModeEnum; (*determines whether jerk limits are used*)
+	END_VAR
+	VAR_OUTPUT
+		Done : BOOL; (*Execution successful. Function block is finished.*)
+		Busy : BOOL; (*Function block is active and must continue to be called.*)
+		CommandAborted : BOOL; (*Command aborted by another command.*)
+		Error : BOOL; (*Execution error*)
+		ErrorID : DINT; (*Error number*)
+	END_VAR
+	VAR
+		Internal : McInternalType;
+	END_VAR
+END_FUNCTION_BLOCK
+
 FUNCTION_BLOCK MC_BR_AsmGetShuttle_AcpTrak (*Loop through a snapshot of shuttles on a assembly.*)
 	VAR_INPUT
 		Assembly : REFERENCE TO McAssemblyType; (*The assembly reference establishes the connection between the function block and the assembly.*)
@@ -274,6 +292,28 @@ FUNCTION_BLOCK MC_BR_BarrierReadInfo_AcpTrak (*Get informations about the barrie
 	END_VAR
 END_FUNCTION_BLOCK
 
+FUNCTION_BLOCK MC_BR_BarrierGetShuttle_AcpTrak (*Loop through a snapshot of shuttles performing adjustment maneuvers due to a barrier.*)
+	VAR_INPUT
+		ProcessPoint : REFERENCE TO McProcessPointType; (*The ProcessPoint reference establishes the connection between the function block and the trigger point.*)
+		Enable : BOOL;  (* The FB is active as long as this input is set.*)
+		Next : BOOL; (* Show data of next shuttle.*)
+		AdvancedParameters : McAcpTrakAdvBarrierGetShParType; (*Advanced parameters*)
+	END_VAR
+	VAR_OUTPUT
+		Valid : BOOL; (* Function block's output values can be used.*)
+		Busy : BOOL; (* Function block is active and must continue to be called.*)
+		Error : BOOL; (* Execution error*)
+		ErrorID : DINT; (* Error number*)
+		TotalCount : UINT; (* Total amount of shuttles on the sector.*)
+		RemainingCount : UINT; (* Remaining shuttles to loop through.*)
+		Axis : McAxisType; (* Shuttle*)
+		AdditionalInfo : McAcpTrakBarrierGetShInfoType; (* Additional information about the shuttle. *)
+	END_VAR
+	VAR
+		Internal : McInternalType;
+	END_VAR
+END_FUNCTION_BLOCK
+
 FUNCTION_BLOCK MC_BR_TrgPointGetInfo_AcpTrak (*Get information about a shuttle passed the trigger*)
 	VAR_INPUT
 		ProcessPoint : REFERENCE TO McProcessPointType; (*The ProcessPoint reference establishes the connection between the function block and the trigger point.*)
@@ -326,7 +366,6 @@ FUNCTION_BLOCK MC_BR_SecAddShuttle_AcpTrak (*Add a shuttle on a sector.*)
 		Internal : McInternalType;
 	END_VAR
 END_FUNCTION_BLOCK
-
 
 FUNCTION_BLOCK MC_BR_SecGetShuttle_AcpTrak (*Loop through a snapshot of shuttles on a sector.*)
 	VAR_INPUT
@@ -645,6 +684,27 @@ FUNCTION_BLOCK MC_BR_ElasticMoveVel_AcpTrak (*commands a motion with specific ve
 	END_VAR
 END_FUNCTION_BLOCK
 
+FUNCTION_BLOCK MC_BR_ShCamAutCmd_AcpTrak (*send command for the cam automat to the drive*)
+	VAR_INPUT
+		Slave : REFERENCE TO McAxisType; (*axis reference*)
+		Enable : BOOL; (*when set commands can be given*)
+		AdvancedParameters : McAcpTrakAdvShCamAutCmdParType; (*advanced parameters*)
+		Commands : McAcpTrakShCamAutCmdCommandsType; (*struct storing possible commands*)
+	END_VAR
+	VAR_OUTPUT
+		Valid : BOOL; (*output values are valid*)
+		Busy : BOOL; (*FB is active and needs to be called*)
+		CommandAborted : BOOL; (*Command was aborted by another command*)
+		Error : BOOL; (*error occurred during operation*)
+		ErrorID : DINT; (*error number*)
+		Info : McAcpTrakShCamAutCmdInfoType; (*info about current state*)
+		Ready : BOOL; (*command can be given*)
+	END_VAR
+	VAR
+		Internal : McInternalType; (*internal variable*)
+	END_VAR
+END_FUNCTION_BLOCK
+
 FUNCTION_BLOCK MC_BR_ShSwitchSector_AcpTrak (*changes sector of a shuttle to a defined sector*)
 	VAR_INPUT
 		Axis : REFERENCE TO McAxisType; (*the shuttle reference establishes the connection between the function block and the shuttle.*)
@@ -663,6 +723,42 @@ FUNCTION_BLOCK MC_BR_ShSwitchSector_AcpTrak (*changes sector of a shuttle to a d
 	END_VAR
 	VAR
 		Internal : McInternalTwoRefType; (*internal variable*)
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MC_BR_ShReadSectorPos_AcpTrak (*Get a shuttle's position wrt. a given sector*)
+	VAR_INPUT
+		Axis : REFERENCE TO McAxisType; (*the shuttle reference establishes the connection between the function block and the shuttle.*)
+		Enable : BOOL; (*The function block is active as long as this input is set.*)
+		Sector : REFERENCE TO McSectorType; (*target sector where position shall be computed*)
+		AdvancedParameters : McAcpTrakAdvShReadSecPosParType; (*optional parameters*)
+	END_VAR
+	VAR_OUTPUT
+		Valid : BOOL; (*function block's output values can be used*)
+		Busy : BOOL; (*Function block is active and must continue to be called.*)
+		Error : BOOL; (*error occurred during operation*)
+		ErrorID : DINT; (*Error number*)
+		Info : McAcpTrakShReadSecPosInfoType; (*information about position on the sector*)
+	END_VAR
+	VAR
+		Internal : McInternalTwoRefType; (*internal variable*)
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MC_BR_ShReadRecoveryInfo_AcpTrak (*reads shuttle recovery information*)
+	VAR_INPUT
+		Axis : REFERENCE TO McAxisType; (*the shuttle reference establishes the connection between the function block and the shuttle.*)
+		Execute : BOOL; (*execution of this FB started on a rising edge of the input*)
+	END_VAR
+	VAR_OUTPUT
+		Done : BOOL; (*Function block is finished*)
+		Busy : BOOL; (*function block is active and must continue to be called.*)
+		Error : BOOL; (*execution error*)
+		ErrorID : DINT; (*error number*)
+		RecoveryInfo : McAcpTrakShRecoveryInfoType; (*information structure*)
+	END_VAR
+	VAR
+		Internal : McInternalType;
 	END_VAR
 END_FUNCTION_BLOCK
 
@@ -703,6 +799,23 @@ FUNCTION_BLOCK MC_BR_SegReadInfo_AcpTrak (*Provides status information of the se
 	END_VAR
 END_FUNCTION_BLOCK
 
+FUNCTION_BLOCK  MC_BR_SegGetInfo_AcpTrak (*Get information of the segment.*)
+	VAR_INPUT
+		Segment : REFERENCE TO McSegmentType; (*The assembly reference establishes the connection between the function block and the assembly.*)
+		Execute : BOOL; (*Execution of the function block begins on a rising edge of this input.*)
+	END_VAR
+	VAR_OUTPUT
+		Done : BOOL; (*Execution successful. Function block is finished.*)
+		Busy : BOOL; (* Function block is active and must continue to be called.*)
+		Error : BOOL; (* Execution error*)
+		ErrorID : DINT; (* Error number*)
+		SegmentInfo : McAcpTrakSegGetInfoType;  (*Information of the assembly*)
+	END_VAR
+	VAR
+		Internal : McInternalType;
+	END_VAR
+END_FUNCTION_BLOCK
+
 FUNCTION_BLOCK MC_BR_ShReadInfo_AcpTrak (*reads shuttle information*)
 	VAR_INPUT
 		Axis : REFERENCE TO McAxisType; (*the shuttle reference establishes the connection between the function block and the shuttle.*)
@@ -731,6 +844,23 @@ FUNCTION_BLOCK MC_BR_ShReadSegmentInfo_AcpTrak (*reads shuttle information*)
 		Error : BOOL; (*execution error*)
 		ErrorID : DINT; (*error number*)
 		SegmentInfo :  McAcpTrakShSegmentInfoType; (*information structure*)
+	END_VAR
+	VAR
+		Internal : McInternalType;
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MC_BR_ShReadErrorInfo_AcpTrak (*reads information about a shuttle's error*)
+	VAR_INPUT
+		Axis : REFERENCE TO McAxisType; (*the shuttle reference establishes the connection between the function block and the shuttle.*)
+		Enable: BOOL; (*The function block is active as long as this input is set.*)
+	END_VAR
+	VAR_OUTPUT
+		Valid : BOOL; (*function block's output values can be used*)
+		Busy : BOOL; (*function block is active and must continue to be called.*)
+		Error : BOOL; (*execution error*)
+		ErrorID : DINT; (*error number*)
+		ErrorInfo :  McAcpTrakShErrorInfoType; (*information structure*)
 	END_VAR
 	VAR
 		Internal : McInternalType;

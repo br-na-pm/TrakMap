@@ -22,22 +22,22 @@
     <Object Type="Library" Language="IEC" Description="IEC Check w/ Advanced Debugging Data">AdvIecChk</Object>
     <Object Type="Library" Language="binary" Description="The AsString Library contains FBKs for memory and character string handling.">asstring</Object>
     <Object Type="Library" Language="binary" Description="[mapp Motion] Base library">McBase</Object>
-    <Object Type="Library" Language="binary" Description="[mapp Motion] Path generator axes group library">McPathGen</Object>
     <Object Type="Library" Language="binary" Description="[mapp Motion] ACOPOS parameter ID library">McAcpPar</Object>
-    <Object Type="Library" Language="binary" Description="[mapp Motion] ACOPOS axis library">McAcpAx</Object>
-    <Object Type="Library" Language="binary" Description="[mapp Motion] mapp Trak Library">McAcpTrak</Object>
-    <Object Type="Library" Language="binary" Description="[mapp Motion] PLCopen axis library">McAxis</Object>
-    <Object Type="Library" Language="binary" Description="[mapp Motion] Program interpreter library">McProgInt</Object>
     <Object Type="Library" Language="binary" Description="[mapp Motion] PLCopen axes group library">McAxGroup</Object>
-    <Object Type="Library" Language="binary" Description="[mapp Motion] Axis library">MpAxis</Object>
+    <Object Type="Library" Language="binary" Description="[mapp Motion] ACOPOS axis library">McAcpAx</Object>
+    <Object Type="Library" Language="binary" Description="[mapp Motion] PLCopen axis library">McAxis</Object>
+    <Object Type="Library" Language="binary" Description="[mapp Motion] Path generator axes group library">McPathGen</Object>
+    <Object Type="Library" Language="binary" Description="[mapp Motion] Program interpreter library">McProgInt</Object>
+    <Object Type="Library" Language="binary" Description="[mapp Motion] mapp Trak Library">McAcpTrak</Object>
     <Object Type="Library" Language="binary" Description="[mapp Motion] Robotics library">MpRobotics</Object>
+    <Object Type="Library" Language="binary" Description="[mapp Motion] Axis library">MpAxis</Object>
     <Object Type="Library" Language="Binary" Description="Core library for mapp components">MpBase</Object>
+    <Object Type="Library" Language="Binary" Description="mapp components diagnosis,hierarchy and unit handling">MpCom</Object>
     <Object Type="Library" Language="Binary" Description="OMAC PackML">MpPackML</Object>
-    <Object Type="Library" Language="Binary" Description="Advanced alarm management">MpAlarmX</Object>
     <Object Type="Library" Language="Binary" Description="File explorer for B+R file devices">MpFile</Object>
     <Object Type="Library" Language="Binary" Description="Centralized event audit trail">MpAudit</Object>
-    <Object Type="Library" Language="Binary" Description="mapp components diagnosis,hierarchy and unit handling">MpCom</Object>
     <Object Type="Library" Language="Binary" Description="Recipe management">MpRecipe</Object>
+    <Object Type="Library" Language="Binary" Description="Advanced alarm management">MpAlarmX</Object>
     <Object Type="Library" Language="binary" Description="This library contains functionality to execute traces (to sample numeric values periodically for a defined time-span)">CoTrace</Object>
     <Object Type="Library" Language="Binary" Description="Communication library for mappView widgets">MpServer</Object>
   </Objects>

@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McPathGen 5.13.1 */
+/* McPathGen 5.14.0 */
 
 #ifndef _MCPATHGEN_
 #define _MCPATHGEN_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McPathGen_VERSION
-#define _McPathGen_VERSION 5.13.1
+#define _McPathGen_VERSION 5.14.0
 #endif
 
 #include <bur/plctypes.h>
@@ -701,6 +701,24 @@ typedef enum McMS6ARBWFrmMdlEnum
 {	mcMS6ARBWFM_STD = 0
 } McMS6ARBWFrmMdlEnum;
 
+typedef enum McMS6ARCDescEnum
+{	mcMS6ARCD_STD = 0
+} McMS6ARCDescEnum;
+
+typedef enum McMS6ARCSingHndlgEnum
+{	mcMS6ARCSH_STD = 0,
+	mcMS6ARCSH_ORIENT_COMP = 1
+} McMS6ARCSingHndlgEnum;
+
+typedef enum McMS6ARCWFrmMdlEnum
+{	mcMS6ARCWFM_STD = 0
+} McMS6ARCWFrmMdlEnum;
+
+typedef enum McMS6ARCMonPtEnum
+{	mcMS6ARCMP_NOT_USE = 0,
+	mcMS6ARCMP_STD = 1
+} McMS6ARCMonPtEnum;
+
 typedef struct McPathGenTrackedObjectType
 {	enum McPathGenTrackedObjTypeEnum ObjectType;
 	struct McTrackingPathType TrackedTrkPath;
@@ -1057,8 +1075,14 @@ typedef struct McAGPGModalDatBxType
 {	enum McAGPGModalDatBxEnum Type;
 } McAGPGModalDatBxType;
 
+typedef struct McAGPGGeoPlanTCPResType
+{	double LengthResolution;
+	double AngleResolution;
+} McAGPGGeoPlanTCPResType;
+
 typedef struct McAGPGGeoPlanType
-{	enum McAGPGGeoPlanRndModEnum RoundingMode;
+{	struct McAGPGGeoPlanTCPResType TCPResolution;
+	enum McAGPGGeoPlanRndModEnum RoundingMode;
 	double MaxCornerDeviation;
 	double MaxTangentialTransitionDeviation;
 	double MaxRadiusDeviation;
@@ -3164,6 +3188,7 @@ typedef struct McMS5ADACplgType
 typedef struct McCfgMS5AxDeltaAType
 {	struct McMS5ADADescType Description;
 	struct McMS5ADACoorNameType CoordinatesNames;
+	struct McMSTCPOType TCPOrientation;
 	struct McMS5ADAWFrmMdlType WireFrameModel;
 	struct McMSDynMdlType DynamicModel;
 	struct McMS5ADACplgType Couplings;
@@ -3536,6 +3561,97 @@ typedef struct McCfgMS6AxRobBType
 	struct McMS6ARBCplgType Couplings;
 	struct McMSJnt6AxPosLimType JointAxesPositionLimits;
 } McCfgMS6AxRobBType;
+
+typedef struct McMS6ARCDSDTFQ4ToQ5Type
+{	double YZ;
+	double Angle;
+} McMS6ARCDSDTFQ4ToQ5Type;
+
+typedef struct McMS6ARCDSDTFQ5ToPQ1Type
+{	double YZ;
+	double Angle;
+} McMS6ARCDSDTFQ5ToPQ1Type;
+
+typedef struct McMS6ARCDSDimType
+{	struct McCfgTransXYZType TranslationFromBaseToQ1;
+	struct McCfgTransXYZType TranslationFromQ1ToQ2;
+	struct McCfgTransXYZType TranslationFromQ2ToQ3;
+	struct McCfgTransXYZType TranslationFromQ3ToQ4;
+	struct McMS6ARCDSDTFQ4ToQ5Type TranslationFromQ4ToQ5;
+	struct McMS6ARCDSDTFQ5ToPQ1Type TranslationFromQ5ToPQ1;
+	struct McCfgTransYType TranslationFromPQ1ToQ6;
+	struct McCfgTransXYZType TranslationFromQ6ToFlange;
+} McMS6ARCDSDimType;
+
+typedef struct McMS6ARCDSType
+{	struct McMS6ARCDSDimType Dimensions;
+	struct McMSMdl6ZeroPosOffType ModelZeroPositionOffsets;
+	struct McMSMdl6CntDirType ModelCountDirections;
+} McMS6ARCDSType;
+
+typedef struct McMS6ARCDescType
+{	enum McMS6ARCDescEnum Type;
+	struct McMS6ARCDSType Standard;
+} McMS6ARCDescType;
+
+typedef struct McMS6ARCCoorNameCmnType
+{	plcstring XCoordinateName[251];
+	plcstring YCoordinateName[251];
+	plcstring ZCoordinateName[251];
+	plcstring ACoordinateName[251];
+	plcstring BCoordinateName[251];
+	plcstring CCoordinateName[251];
+} McMS6ARCCoorNameCmnType;
+
+typedef struct McMS6ARCCoorNameType
+{	enum McMSCNEnum Type;
+	struct McMS6ARCCoorNameCmnType Common;
+} McMS6ARCCoorNameType;
+
+typedef struct McMS6ARCSingHndlgOrientCompType
+{	double AngleTolerance;
+} McMS6ARCSingHndlgOrientCompType;
+
+typedef struct McMS6ARCSingHndlgType
+{	enum McMS6ARCSingHndlgEnum Type;
+	struct McMS6ARCSingHndlgOrientCompType OrientationCompliance;
+} McMS6ARCSingHndlgType;
+
+typedef struct McMS6ARCWFrmMdlStdType
+{	struct McMSFrmMdlStdEdgeType Q1ToQ2;
+	struct McMSFrmMdlStdEdgeType Q2ToQ3;
+	struct McMSFrmMdlStdEdgeType Q3ToP1;
+	struct McMSFrmMdlStdEdgeType P1ToQ4;
+	struct McMSFrmMdlStdEdgeType Q4ToQ5;
+	struct McMSFrmMdlStdEdgeType Q5ToPQ1;
+	struct McMSFrmMdlStdEdgeType PQ1ToQ6;
+	struct McMSFrmMdlStdEdgeType Q6ToFlange;
+	struct McMSFrmMdlStdEdgeType FlangeToTCP;
+} McMS6ARCWFrmMdlStdType;
+
+typedef struct McMS6ARCWFrmMdlType
+{	enum McMS6ARCWFrmMdlEnum Type;
+	struct McMS6ARCWFrmMdlStdType Standard;
+} McMS6ARCWFrmMdlType;
+
+typedef struct McMS6ARCCplgType
+{	struct McCfgUnboundedArrayType LinearCoupling;
+} McMS6ARCCplgType;
+
+typedef struct McMS6ARCMonPtType
+{	enum McMS6ARCMonPtEnum Type;
+} McMS6ARCMonPtType;
+
+typedef struct McCfgMS6AxRobCType
+{	struct McMS6ARCDescType Description;
+	struct McMS6ARCCoorNameType CoordinatesNames;
+	struct McMS6ARCSingHndlgType SingularityHandling;
+	struct McMS6ARCWFrmMdlType WireFrameModel;
+	struct McMSDynMdlType DynamicModel;
+	struct McMS6ARCCplgType Couplings;
+	struct McMSJnt6AxPosLimType JointAxesPositionLimits;
+	struct McMS6ARCMonPtType MonitoringPoints;
+} McCfgMS6AxRobCType;
 
 typedef struct MC_BR_TrackingStatus_PathGen
 {

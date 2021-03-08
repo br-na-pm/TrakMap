@@ -77,9 +77,10 @@
   <VariablesSets>
     <VariablesSet refId="sessionVariables" />
   </VariablesSets>
-  <StartTheme themeRefId="BuRThemeFlat2" />
+  <StartTheme themeRefId="BuRThemeFlat1" />
   <Themes>
-    <Theme refId="BuRThemeFlat2"/>
+    <Theme refId="BuRThemeFlat1"/>
+	<Theme refId="BuRThemeFlat2"/>
   </Themes>
   <Configurations>
   	<Configuration key="zoom" value="true" />

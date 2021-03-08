@@ -5,9 +5,20 @@
     <prop type="x-BR-TS:Namespace">MpAudit/DP</prop>
   </header>
   <body>
-    <tu tuid="TODO">
+    <tu tuid="::Audit:TestNumFloat">
+      <tuv xml:lang="de">
+        <seg>de: Audit</seg>
+      </tuv>
       <tuv xml:lang="en">
-        <seg>Add data-point descriptions here</seg>
+        <seg>en: Audit</seg>
+      </tuv>
+    </tu>
+    <tu tuid="::AsGlobalPV:GlobalValue">
+      <tuv xml:lang="de">
+        <seg>de: Global</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>en: Global</seg>
       </tuv>
     </tu>
   </body>

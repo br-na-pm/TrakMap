@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpServer 5.13.0 */
+/* MpServer 5.14.0 */
 
 #ifndef _MPSERVER_
 #define _MPSERVER_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpServer_VERSION
-#define _MpServer_VERSION 5.13.0
+#define _MpServer_VERSION 5.14.0
 #endif
 
 #include <bur/plctypes.h>

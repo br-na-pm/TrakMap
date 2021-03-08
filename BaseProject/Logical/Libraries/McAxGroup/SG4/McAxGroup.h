@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McAxGroup 5.13.1 */
+/* McAxGroup 5.14.0 */
 
 #ifndef _MCAXGROUP_
 #define _MCAXGROUP_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McAxGroup_VERSION
-#define _McAxGroup_VERSION 5.13.1
+#define _McAxGroup_VERSION 5.14.0
 #endif
 
 #include <bur/plctypes.h>
@@ -35,6 +35,10 @@ typedef enum McHomingOrderSourceEnum
 {	mcHO_CONFIGURATION,
 	mcHO_FUNCTIONBLOCK
 } McHomingOrderSourceEnum;
+
+typedef enum McBrakeSelectModeEnum
+{	mcBRAKESELECT_COMPOSITE
+} McBrakeSelectModeEnum;
 
 typedef enum McJogStatusEnum
 {	mcJOGSTATUS_DISABLED,
@@ -120,11 +124,6 @@ typedef enum McPrgInfoInterruptEnum
 	mcINTERRUPT_PROGRAM
 } McPrgInfoInterruptEnum;
 
-typedef enum McStopModeEnum
-{	mcSTOPMODE_JERK_LIMIT,
-	mcSTOPMODE_NO_JERK_LIMIT
-} McStopModeEnum;
-
 typedef enum McManualMoveTypeEnum
 {	mcMOVE_ABSOLUTE = 0,
 	mcMOVE_RELATIVE = 1
@@ -147,6 +146,20 @@ typedef enum McToolWireFramePointTypeEnum
 	mcTOOL_WF_TYPE_NOT_USED
 } McToolWireFramePointTypeEnum;
 
+typedef enum McAGFSBSBCErrBxEnum
+{	mcAGFSBSBCEB_CLOSE_IMMED = 0,
+	mcAGFSBSBCEB_CLOSE_A_STOP = 1
+} McAGFSBSBCErrBxEnum;
+
+typedef enum McAGFSBSBCOutEnum
+{	mcAGFSBSBCO_AX = 0,
+	mcAGFSBSBCO_VAR = 1
+} McAGFSBSBCOutEnum;
+
+typedef enum McAGFSBSBCFdbkEnum
+{	mcAGFSBSBCF_TIME_BASED = 0
+} McAGFSBSBCFdbkEnum;
+
 typedef enum McAGFModalDatBxEnum
 {	mcAGFMDB_USE_AX_GRP_SET = 0,
 	mcAGFMDB_RST_TO_DEF = 1,
@@ -164,6 +177,15 @@ typedef struct McAdvGroupHome_15_Type
 {	enum McHomingOrderSourceEnum HomingOrderSource;
 	unsigned short HomingOrder[15];
 } McAdvGroupHome_15_Type;
+
+typedef struct McLimitMonPointsParType
+{	float Velocity;
+} McLimitMonPointsParType;
+
+typedef struct McLimitMonPointsInfoType
+{	float Velocity;
+	plcbit LimitActive;
+} McLimitMonPointsInfoType;
 
 typedef struct McSingleStepAdvParType
 {	enum McMotionChainModuleEnum Module;
@@ -313,6 +335,49 @@ typedef struct McCfgAxGrpFeatExSngAxType
 	struct McAGFESAGrpOvrExType GroupOverrideExclusion;
 } McCfgAxGrpFeatExSngAxType;
 
+typedef struct McAGFSBSBCAxType
+{	struct McCfgUnboundedArrayType AxisReference;
+} McAGFSBSBCAxType;
+
+typedef struct McAGFSBSBCErrBxType
+{	enum McAGFSBSBCErrBxEnum Type;
+} McAGFSBSBCErrBxType;
+
+typedef struct McAGFSBSBCOutAxType
+{	struct McCfgReferenceType AxisReference;
+} McAGFSBSBCOutAxType;
+
+typedef struct McAGFSBSBCOutVarType
+{	plcstring PVMapping[251];
+} McAGFSBSBCOutVarType;
+
+typedef struct McAGFSBSBCOutType
+{	enum McAGFSBSBCOutEnum Type;
+	struct McAGFSBSBCOutAxType Axis;
+	struct McAGFSBSBCOutVarType Variable;
+} McAGFSBSBCOutType;
+
+typedef struct McAGFSBSBCFdbkTimeBasedType
+{	float ActivationDelay;
+	float ReleaseDelay;
+} McAGFSBSBCFdbkTimeBasedType;
+
+typedef struct McAGFSBSBCFdbkType
+{	enum McAGFSBSBCFdbkEnum Type;
+	struct McAGFSBSBCFdbkTimeBasedType TimeBased;
+} McAGFSBSBCFdbkType;
+
+typedef struct McAGFSBSBCType
+{	struct McAGFSBSBCAxType Axes;
+	struct McAGFSBSBCErrBxType ErrorBehavior;
+	struct McAGFSBSBCOutType Output;
+	struct McAGFSBSBCFdbkType Feedback;
+} McAGFSBSBCType;
+
+typedef struct McCfgAxGrpFeatShrBrkSigType
+{	struct McCfgUnboundedArrayType BrakeComposite;
+} McCfgAxGrpFeatShrBrkSigType;
+
 typedef struct McAGFModalDatBxType
 {	enum McAGFModalDatBxEnum Type;
 } McAGFModalDatBxType;
@@ -376,6 +441,26 @@ typedef struct MC_BR_GroupHome_15
 	plcbit CommandAborted;
 	plcbit Error;
 } MC_BR_GroupHome_15_typ;
+
+typedef struct MC_BR_GroupBrakeOperation
+{
+	/* VAR_INPUT (analog) */
+	struct McAxesGroupType* AxesGroup;
+	enum McBrakeCmdEnum Command;
+	enum McBrakeSelectModeEnum SelectMode;
+	unsigned long Identifier;
+	/* VAR_OUTPUT (analog) */
+	signed long ErrorID;
+	enum McBrakeStatusEnum BrakeStatus;
+	/* VAR (analog) */
+	struct McInternalType Internal;
+	/* VAR_INPUT (digital) */
+	plcbit Execute;
+	/* VAR_OUTPUT (digital) */
+	plcbit Done;
+	plcbit Busy;
+	plcbit Error;
+} MC_BR_GroupBrakeOperation_typ;
 
 typedef struct MC_BR_GroupJogAbsolute_15
 {
@@ -1089,12 +1174,31 @@ typedef struct MC_BR_LoadProgram
 	plcbit Error;
 } MC_BR_LoadProgram_typ;
 
+typedef struct MC_BR_VelLimitMonPoints
+{
+	/* VAR_INPUT (analog) */
+	struct McAxesGroupType* AxesGroup;
+	struct McLimitMonPointsParType Parameter;
+	/* VAR_OUTPUT (analog) */
+	signed long ErrorID;
+	struct McLimitMonPointsInfoType LimitInfo;
+	/* VAR (analog) */
+	struct McInternalType Internal;
+	/* VAR_INPUT (digital) */
+	plcbit Enable;
+	/* VAR_OUTPUT (digital) */
+	plcbit Valid;
+	plcbit Busy;
+	plcbit Error;
+} MC_BR_VelLimitMonPoints_typ;
+
 
 
 /* Prototyping of functions and function blocks */
 _BUR_PUBLIC void MC_BR_ConditionalStop(struct MC_BR_ConditionalStop* inst);
 _BUR_PUBLIC void MC_BR_GroupCommandError(struct MC_BR_GroupCommandError* inst);
 _BUR_PUBLIC void MC_BR_GroupHome_15(struct MC_BR_GroupHome_15* inst);
+_BUR_PUBLIC void MC_BR_GroupBrakeOperation(struct MC_BR_GroupBrakeOperation* inst);
 _BUR_PUBLIC void MC_BR_GroupJogAbsolute_15(struct MC_BR_GroupJogAbsolute_15* inst);
 _BUR_PUBLIC void MC_BR_GroupJogRelative_15(struct MC_BR_GroupJogRelative_15* inst);
 _BUR_PUBLIC void MC_BR_GroupJogVelocity_15(struct MC_BR_GroupJogVelocity_15* inst);
@@ -1130,6 +1234,7 @@ _BUR_PUBLIC void MC_MoveLinearAbsolute_15(struct MC_MoveLinearAbsolute_15* inst)
 _BUR_PUBLIC void MC_MoveLinearRelative_15(struct MC_MoveLinearRelative_15* inst);
 _BUR_PUBLIC void MC_BR_UnloadProgram(struct MC_BR_UnloadProgram* inst);
 _BUR_PUBLIC void MC_BR_LoadProgram(struct MC_BR_LoadProgram* inst);
+_BUR_PUBLIC void MC_BR_VelLimitMonPoints(struct MC_BR_VelLimitMonPoints* inst);
 
 
 #ifdef __cplusplus

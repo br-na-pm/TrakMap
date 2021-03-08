@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<Library Version="5.13.1" SubType="binary" Description="[mapp Motion] Program interpreter library" xmlns="http://br-automation.co.at/AS/Library">
+<Library Version="5.14.0" SubType="binary" Description="[mapp Motion] Program interpreter library" xmlns="http://br-automation.co.at/AS/Library">
   <Files>
     <File>McProgInt.typ</File>
     <File>McProgInt.fun</File>
@@ -9,6 +9,6 @@
     <File>McProgtIntUserConfig.zip</File>
   </Files>
   <Dependencies>
-    <Dependency ObjectName="McBase" FromVersion="5.13.0" ToVersion="5.13.9" />
+    <Dependency ObjectName="McBase" FromVersion="5.14.0" ToVersion="5.14.9" />
   </Dependencies>
 </Library>

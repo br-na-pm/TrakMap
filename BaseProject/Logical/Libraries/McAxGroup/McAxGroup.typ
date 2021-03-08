@@ -11,11 +11,24 @@ TYPE
 		HomingOrder : ARRAY[0..14]OF UINT; (*Specifies the homing order (see *)
 	END_STRUCT;
 
+ 	McLimitMonPointsParType : 	STRUCT
+		Velocity : REAL; (*Limiting velocity*)
+	END_STRUCT;
+
+	McLimitMonPointsInfoType : 	STRUCT
+		Velocity : REAL; (*Limiting velocity*)
+		LimitActive :   BOOL; (*Signaling that the limit is adhered to*)
+	END_STRUCT;
+
 	McHomingOrderSourceEnum :
 		(
 		mcHO_CONFIGURATION, (*Uses the homing order configured in the configuration*)
 		mcHO_FUNCTIONBLOCK (*Uses the homing order configured in the function block*)
 		);
+	McBrakeSelectModeEnum :
+	(
+		mcBRAKESELECT_COMPOSITE					 (*Select a brake composite for the operation *)
+	);
 	McJogStatusEnum :
 		(
 		mcJOGSTATUS_DISABLED, (*Function block disabled*)
@@ -167,11 +180,6 @@ TYPE
 			mcINTERRUPT_INTERPRETER,		(*The program has been interrupted by an interpreter halt (G170)*)
 			mcINTERRUPT_MFUNCTION,			(*The program has been interrupted by a blocking M-code*)
 			mcINTERRUPT_PROGRAM				(*The program has been interrupted by a programmed command*)
-		);
-	McStopModeEnum :
-		(
-			mcSTOPMODE_JERK_LIMIT,		 (*Takes into account the jerk limit value while stopping*)
-			mcSTOPMODE_NO_JERK_LIMIT	 (*Ignores the jerk limit value while stopping*)
 		);
 	McJogPathLimitsType : 	STRUCT
 		Velocity : REAL; (*Tool path feed rate*)

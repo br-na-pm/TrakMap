@@ -40,10 +40,14 @@ TYPE
 	McAGPGModalDatBxType : STRUCT (*All modal data is reset to the default/configured value for the next program*)
 		Type : McAGPGModalDatBxEnum; (*Modal data behaviour selector setting*)
 	END_STRUCT;
+	McAGPGGeoPlanTCPResType : STRUCT
+		LengthResolution : LREAL; (*Resolution of linear TCP coordinates [measurement units]*)
+		AngleResolution : LREAL; (*Resolution of rotary TCP coordinates [measurement units]*)
+	END_STRUCT;
 	McAGPGGeoPlanRndModEnum :
 		( (*Defines the used rounding mode*)
-		mcAGPGGPRM_STD := 0, (*Standard*)
-		mcAGPGGPRM_ADV := 1 (*Advanced*)
+		mcAGPGGPRM_STD := 0, (*Standard - Standard calculation for rounding*)
+		mcAGPGGPRM_ADV := 1 (*Advanced - Higher curvature but smoother run*)
 		);
 	McAGPGGeoPlanWrkPlEnum :
 		( (*Defines the initial active working plane*)
@@ -52,6 +56,7 @@ TYPE
 		mcAGPGGPWP_PL_ZX := 2 (*Plane ZX*)
 		);
 	McAGPGGeoPlanType : STRUCT
+		TCPResolution : McAGPGGeoPlanTCPResType;
 		RoundingMode : McAGPGGeoPlanRndModEnum; (*Defines the used rounding mode*)
 		MaxCornerDeviation : LREAL; (*Defines the maximum corner deviation for non tangential path transitions [measurement units]*)
 		MaxTangentialTransitionDeviation : LREAL; (*Defines the maximum contour deviation for tangential path transitions [measurement units]*)
@@ -2318,6 +2323,7 @@ TYPE
 	McCfgMS5AxDeltaAType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_MS_5AX_DELTA_A*)
 		Description : McMS5ADADescType; (*Description of the mechanical system*)
 		CoordinatesNames : McMS5ADACoorNameType; (*Coordinates names*)
+		TCPOrientation : McMSTCPOType; (*Handling of TCP orientation coordinates*)
 		WireFrameModel : McMS5ADAWFrmMdlType; (*Wire frame model of mechanical system*)
 		DynamicModel : McMSDynMdlType; (*Dynamic model of the mechanical system*)
 		Couplings : McMS5ADACplgType; (*Couplings between selected axes and the joint axis*)
@@ -2682,5 +2688,100 @@ TYPE
 		DynamicModel : McMSDynMdlType; (*Dynamic model of the mechanical system*)
 		Couplings : McMS6ARBCplgType; (*Couplings between selected axes and the joint axis*)
 		JointAxesPositionLimits : McMSJnt6AxPosLimType; (*Position limits for joint axis*)
+	END_STRUCT;
+	McMS6ARCDescEnum :
+		( (*Description selector setting*)
+		mcMS6ARCD_STD := 0 (*Standard - Standard description*)
+		);
+	McMS6ARCDSDTFQ4ToQ5Type : STRUCT (*Translation from Q4 to Q5*)
+		YZ : LREAL; (*Length of the link between Q4 and Q5 [measurement units]*)
+		Angle : LREAL; (*Angle of the link between Q4 and Q5 [measurement units]*)
+	END_STRUCT;
+	McMS6ARCDSDTFQ5ToPQ1Type : STRUCT (*Translation from Q5 to PQ1*)
+		YZ : LREAL; (*Length of the link between Q5 and PQ1 [measurement units]*)
+		Angle : LREAL; (*Angle of the link between Q5 and PQ1 [measurement units]*)
+	END_STRUCT;
+	McMS6ARCDSDimType : STRUCT (*Dimensions of the mechanical system*)
+		TranslationFromBaseToQ1 : McCfgTransXYZType; (*Translation from base to Q1*)
+		TranslationFromQ1ToQ2 : McCfgTransXYZType; (*Translation from Q1 to Q2*)
+		TranslationFromQ2ToQ3 : McCfgTransXYZType; (*Translation from Q2 to Q3*)
+		TranslationFromQ3ToQ4 : McCfgTransXYZType; (*Translation from Q3 to Q4*)
+		TranslationFromQ4ToQ5 : McMS6ARCDSDTFQ4ToQ5Type; (*Translation from Q4 to Q5*)
+		TranslationFromQ5ToPQ1 : McMS6ARCDSDTFQ5ToPQ1Type; (*Translation from Q5 to PQ1*)
+		TranslationFromPQ1ToQ6 : McCfgTransYType; (*Translation from PQ1 to Q6*)
+		TranslationFromQ6ToFlange : McCfgTransXYZType; (*Translation from Q6 to flange*)
+	END_STRUCT;
+	McMS6ARCDSType : STRUCT (*Type mcMS6ARCD_STD settings*)
+		Dimensions : McMS6ARCDSDimType; (*Dimensions of the mechanical system*)
+		ModelZeroPositionOffsets : McMSMdl6ZeroPosOffType; (*Offsets between desired and internal zero position*)
+		ModelCountDirections : McMSMdl6CntDirType; (*Count direction for joint axes relative to the internal model*)
+	END_STRUCT;
+	McMS6ARCDescType : STRUCT (*Description of the mechanical system*)
+		Type : McMS6ARCDescEnum; (*Description selector setting*)
+		Standard : McMS6ARCDSType; (*Type mcMS6ARCD_STD settings*)
+	END_STRUCT;
+	McMS6ARCCoorNameCmnType : STRUCT (*Common settings for all Type values*)
+		XCoordinateName : STRING[250]; (*X coordinate name*)
+		YCoordinateName : STRING[250]; (*Y coordinate name*)
+		ZCoordinateName : STRING[250]; (*Z coordinate name*)
+		ACoordinateName : STRING[250]; (*A coordinate name*)
+		BCoordinateName : STRING[250]; (*B coordinate name*)
+		CCoordinateName : STRING[250]; (*C coordinate name*)
+	END_STRUCT;
+	McMS6ARCCoorNameType : STRUCT (*Coordinates names*)
+		Type : McMSCNEnum; (*Coordinates names selector setting*)
+		Common : McMS6ARCCoorNameCmnType; (*Common settings for all Type values*)
+	END_STRUCT;
+	McMS6ARCSingHndlgEnum :
+		( (*Singularity handling selector setting*)
+		mcMS6ARCSH_STD := 0, (*Standard - Move through singularity with high TCP precision*)
+		mcMS6ARCSH_ORIENT_COMP := 1 (*Orientation compliance - TCP orientation is modified near and inside singularities*)
+		);
+	McMS6ARCSingHndlgOrientCompType : STRUCT (*Type mcMS6ARCSH_ORIENT_COMP settings*)
+		AngleTolerance : LREAL; (*Angle tolerance for TCP orientation modifications [measurement units]*)
+	END_STRUCT;
+	McMS6ARCSingHndlgType : STRUCT (*Behaviour near and inside mechanical singularities*)
+		Type : McMS6ARCSingHndlgEnum; (*Singularity handling selector setting*)
+		OrientationCompliance : McMS6ARCSingHndlgOrientCompType; (*Type mcMS6ARCSH_ORIENT_COMP settings*)
+	END_STRUCT;
+	McMS6ARCWFrmMdlEnum :
+		( (*Wire frame model selector setting*)
+		mcMS6ARCWFM_STD := 0 (*Standard - Standard wire-frame model*)
+		);
+	McMS6ARCWFrmMdlStdType : STRUCT (*Type mcMS6ARCWFM_STD settings*)
+		Q1ToQ2 : McMSFrmMdlStdEdgeType; (*Wire frame model edge*)
+		Q2ToQ3 : McMSFrmMdlStdEdgeType; (*Wire frame model edge*)
+		Q3ToP1 : McMSFrmMdlStdEdgeType; (*Wire frame model edge*)
+		P1ToQ4 : McMSFrmMdlStdEdgeType; (*Wire frame model edge*)
+		Q4ToQ5 : McMSFrmMdlStdEdgeType; (*Wire frame model edge*)
+		Q5ToPQ1 : McMSFrmMdlStdEdgeType; (*Wire frame model edge*)
+		PQ1ToQ6 : McMSFrmMdlStdEdgeType; (*Wire frame model edge*)
+		Q6ToFlange : McMSFrmMdlStdEdgeType; (*Wire frame model edge*)
+		FlangeToTCP : McMSFrmMdlStdEdgeType; (*Wire frame model edge*)
+	END_STRUCT;
+	McMS6ARCWFrmMdlType : STRUCT (*Wire frame model of mechanical system*)
+		Type : McMS6ARCWFrmMdlEnum; (*Wire frame model selector setting*)
+		Standard : McMS6ARCWFrmMdlStdType; (*Type mcMS6ARCWFM_STD settings*)
+	END_STRUCT;
+	McMS6ARCCplgType : STRUCT (*Couplings between selected axes and the joint axis*)
+		LinearCoupling : McCfgUnboundedArrayType; (*Linear coupling*)
+	END_STRUCT;
+	McMS6ARCMonPtEnum :
+		( (*Monitoring points selector setting*)
+		mcMS6ARCMP_NOT_USE := 0, (*Not used - Monitoring points not used*)
+		mcMS6ARCMP_STD := 1 (*Standard - Monitoring points used*)
+		);
+	McMS6ARCMonPtType : STRUCT (*Enable robot monitoring points*)
+		Type : McMS6ARCMonPtEnum; (*Monitoring points selector setting*)
+	END_STRUCT;
+	McCfgMS6AxRobCType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_MS_6AX_ROB_C*)
+		Description : McMS6ARCDescType; (*Description of the mechanical system*)
+		CoordinatesNames : McMS6ARCCoorNameType; (*Coordinates names*)
+		SingularityHandling : McMS6ARCSingHndlgType; (*Behaviour near and inside mechanical singularities*)
+		WireFrameModel : McMS6ARCWFrmMdlType; (*Wire frame model of mechanical system*)
+		DynamicModel : McMSDynMdlType; (*Dynamic model of the mechanical system*)
+		Couplings : McMS6ARCCplgType; (*Couplings between selected axes and the joint axis*)
+		JointAxesPositionLimits : McMSJnt6AxPosLimType; (*Position limits for joint axis*)
+		MonitoringPoints : McMS6ARCMonPtType; (*Enable robot monitoring points*)
 	END_STRUCT;
 END_TYPE
