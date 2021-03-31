@@ -119,7 +119,9 @@ PROGRAM _CYCLIC
 	// compare the elementID clicked on in paper with the configured ID to find and set the array index for the list binding
 	FOR SegIndex:= 0 TO NUM_SEG DO 
 		
-		IF TrackDiag.Seg.SegList[SegIndex].Name = DELETE(clickId,1,1) OR TrackDiag.Seg.SegList[SegIndex].Name = DELETE(clickId,1,2)  THEN  // clickId contains a leading # which needs to be removed 
+		// clickId contains a leading # which needs to be removed, 
+		// the second compare checks against the text and arrow and deletes the first two letters because the SVG elements text and arrow have an added x leading the name
+		IF TrackDiag.Seg.SegList[SegIndex].Name = DELETE(clickId,1,1) OR TrackDiag.Seg.SegList[SegIndex].Name = DELETE(clickId,1,2)  THEN  
 			
 			clickedSegment := TrackDiag.Seg.SegList[SegIndex];
 			EXIT;
