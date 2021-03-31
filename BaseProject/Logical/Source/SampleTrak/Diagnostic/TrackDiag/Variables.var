@@ -5,25 +5,10 @@ VAR
 	SegReadStatus : ARRAY[0..NUM_SEG] OF MC_BR_SegReadStatus_AcpTrak;
 	SegIndex : USINT;
 	SegProcessParID : ARRAY[0..NUM_SEG] OF MC_BR_SegProcessParID_AcpTrak;
-	SegProcessParID_Temp : ARRAY[0..NUM_SEG] OF MC_BR_SegProcessParID_AcpTrak;
-	SegProcessParID_Pitch : ARRAY[0..NUM_SEG] OF MC_BR_SegProcessParID_AcpTrak;
-	SegProcessParID_Reset : ARRAY[0..NUM_SEG] OF MC_BR_SegProcessParID_AcpTrak;
 	ErrorCodeIDInfo : ARRAY[0..NUM_SEG] OF McAcpTrakSegProcessParIDType;
 	SegWarningCmdIDInfo : McAcpTrakSegProcessParIDType;
-	SegTempIDInfo : ARRAY[0..NUM_SEG,0..15] OF McAcpTrakSegProcessParIDType;
-	SegPitchIDInfo : ARRAY[0..NUM_SEG] OF McAcpTrakSegProcessParIDType;
-	SegFilterIDInfo : ARRAY[0..NUM_SEG] OF McAcpTrakSegProcessParIDType;
 	SegErrorCheck : ARRAY[0..NUM_SEG] OF SegErrorCheckType;
-	SegTempCheck : ARRAY[0..NUM_SEG] OF SegTempCheckType;
-	TempRefreshTON : TON;
-	TempRefreshTime : TIME;
 	CmdWarning : UINT;
-	ZeroPitchDisableMode : UDINT := 3;
-	SpeedFilterTime : REAL := 0.0008;
-	ErrorSegNum : ARRAY[0..NUM_SEG] OF USINT;
-	ErrorCnt : USINT;
-	ErrorSegName : ARRAY[0..NUM_SEG] OF STRING[80];
-	ErrorNumber : ARRAY[0..NUM_SEG] OF UINT;
 	Current : ARRAY[0..20] OF INT; (*Power Supply Current*)
 	Voltage : ARRAY[0..20] OF SINT; (*Power Supply Voltage*)
 	fbAuditTrail : MpAuditTrail;

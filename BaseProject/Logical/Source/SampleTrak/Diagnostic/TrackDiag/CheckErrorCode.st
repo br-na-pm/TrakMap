@@ -12,16 +12,12 @@ ACTION actCheckErrorCode:
 				
 				IF SegErrorCheck[SegIndex].CmdCheckErrorCode THEN
 					SegProcessParID[SegIndex].Execute := TRUE;
-//					SegProcessParID[SegIndex].DataAddress := ADR(SegStateIDInfo[SegIndex]);
-//					SegErrorCheck[SegIndex].CheckState := READ_DATA_SEG_STATE;
 					SegProcessParID[SegIndex].Mode := mcACPTRAK_SEG_PARID_GET_NO_NCT;
 					SegProcessParID[SegIndex].DataAddress := ADR(ErrorCodeIDInfo[SegIndex]);
 					SegErrorCheck[SegIndex].CheckState := READ_DATA_SEG_ERROR;			
 					SegErrorCheck[SegIndex].CmdCheckErrorCode := FALSE; //Reset check command
 					
 				END_IF
-				
-				
 				
 			READ_DATA_SEG_ERROR:
 				//Check for completion of reading the PARID for
@@ -36,8 +32,6 @@ ACTION actCheckErrorCode:
 					//If there was an error in reading, go to error start
 					SegErrorCheck[SegIndex].CheckState := READ_EXEC_ERROR;
 				END_IF
-			
-			
 			CHECK_ERROR_CODE:
 				
 				IF (SegErrorCheck[SegIndex].ErrorNumber = 0) OR (SegErrorCheck[SegIndex].ErrorNumber = 36005) THEN
@@ -53,20 +47,8 @@ ACTION actCheckErrorCode:
 					TrackDiag.Seg.SegList[SegIndex].Status.Error := TRUE;
 					//Send to overwrite state to store a known error number (36005) in the error code parID
 					SegErrorCheck[SegIndex].CheckState := WRITE_WARNING_CODE;
-					
-					//Send data to HMI
-					IF(SegIndex > 0)THEN
-						
-						ErrorSegNum[ErrorCnt] 	:= SegIndex - 1;
-						ErrorSegName[ErrorCnt]	:= TrackDiag.Seg.SegList[SegIndex].Name;
-						ErrorNumber[ErrorCnt]	:= TrackDiag.Seg.SegList[SegIndex].Status.ErrorCode;
-						ErrorCnt := ErrorCnt + 1;
-						
-					END_IF
-					
-				END_IF
 				
-			
+				END_IF
 			WRITE_WARNING_CODE:
 				//Write commanded warning code (36005) to error parid
 				SegProcessParID[SegIndex].DataAddress := ADR(SegWarningCmdIDInfo);
@@ -82,9 +64,7 @@ ACTION actCheckErrorCode:
 					
 				ELSIF SegProcessParID[SegIndex].Error THEN
 					SegErrorCheck[SegIndex].CheckState := READ_EXEC_ERROR;
-				END_IF			
-		
-			
+				END_IF		
 			READ_EXEC_ERROR:
 				SegProcessParID[SegIndex].Execute := FALSE;
 				SegErrorCheck[SegIndex].DataReadExecutionError := TRUE;
@@ -92,14 +72,7 @@ ACTION actCheckErrorCode:
 				IF SegProcessParID[SegIndex].Error = FALSE THEN
 					SegErrorCheck[SegIndex].CheckState := WAIT_FOR_CHECK;
 				END_IF
-	
-		
 		END_CASE
-		
-	
 	SegProcessParID[SegIndex]();	
 	END_FOR
-	
-	
-	
 END_ACTION

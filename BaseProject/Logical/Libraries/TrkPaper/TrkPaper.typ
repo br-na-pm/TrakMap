@@ -41,8 +41,6 @@ TYPE
 		SegmentErrorStop : BOOL; (*Segment is in an error stop state*)
 		Error : BOOL;
 		ErrorCode : UINT; (*Error code of the segment*)
-		DCBus : TrkDiagSegStatusDCBusType;
-		Temp : TrkDiagSegStatusTempType;
 	END_STRUCT;
 	TrkPaperCoreSegmentType : 	STRUCT 
 		Name : STRING[32]; (*Name of the segment in the SVG*)

@@ -43,18 +43,4 @@ TYPE
 		LagLimitExceeded : BOOL;
 		VelLimitExceeded : BOOL;
 	END_STRUCT;
-	SegTempCheckType : 	STRUCT 
-		CheckState : CheckStateEnum;
-		CmdCheckTemp : BOOL;
-		DataReadExecutionError : BOOL;
-	END_STRUCT;
-	SegPitchSetType : 	STRUCT 
-		CheckState : CheckStateEnum;
-		CmdSetPitch : BOOL;
-		CmdWriteFilter : BOOL;
-		PitchSetComplete : BOOL;
-		FilterWriteComplete : BOOL;
-		DataReadExecutionError : BOOL;
-		ErrorID : UDINT;
-	END_STRUCT;
 END_TYPE
