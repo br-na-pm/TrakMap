@@ -91,7 +91,7 @@ PROGRAM _CYCLIC
 				ELSIF ((TrackDiag.Seg.SegList[SegIndex].Status.SegmentErrorStop = TRUE) AND (SegReadStatus[SegIndex].SegmentErrorStop = FALSE))
 					AND (TrackDiag.Seg.SegList[SegIndex].Status.CommunicationReady = TRUE) THEN
 					
-					//TrackDiag.Seg.SegList[SegIndex].Status.ErrorCode := 0;
+					TrackDiag.Seg.SegList[SegIndex].Status.ErrorCode := 0;
 									
 				END_IF
 				//Capture Segment Status
@@ -112,7 +112,7 @@ PROGRAM _CYCLIC
 		
 	fbAuditTrail(MpLink := ADR(gAuditTrail_DiagModule), Enable := TRUE, Language := ADR('en'), DeviceName := ADR('User'));
 	
-(***********************************TRACKMAP******************************)
+	(***********************************TRACKMAP******************************)
 	
 	paperCore();
 
@@ -124,10 +124,7 @@ PROGRAM _CYCLIC
 			clickedSegment := TrackDiag.Seg.SegList[SegIndex];
 			EXIT;
 		END_IF	
-
 	END_FOR	
-	
-	
 END_PROGRAM
 
 PROGRAM _EXIT
