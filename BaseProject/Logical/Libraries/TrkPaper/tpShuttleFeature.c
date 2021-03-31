@@ -12,6 +12,7 @@
 #ifdef __cplusplus
 	};
 #endif
+
 void tpShuttleFeature(struct tpShuttleFeature* inst)
 {
 	DINT BuildShuttlePolygon(char* dest,
@@ -23,7 +24,6 @@ void tpShuttleFeature(struct tpShuttleFeature* inst)
 	
 		char tmp[150];
 		USINT red,blue,green;
-		struct UserDataTyp* tst;
 	
 		if(!colorOption->Enabled){
 			snprintf2(tmp,150,"<polygon id=\"sh%d\" points=\"0,0 %0f,0 , %f,%f %f,%f 0,%f\" style=\"fill:rgb(0,255,0);\"/>",
@@ -36,7 +36,7 @@ void tpShuttleFeature(struct tpShuttleFeature* inst)
 				width); //p3.y
 		}
 		else{
-			brsmemcpy(&red,userDataAdr + colorOption->Offsets.Red,sizeof(USINT));
+			brsmemcpy((UDINT)&red,userDataAdr + colorOption->Offsets.Red,sizeof(USINT));
 			brsmemcpy(&green,userDataAdr + colorOption->Offsets.Green,sizeof(USINT));
 			brsmemcpy(&blue,userDataAdr + colorOption->Offsets.Blue,sizeof(USINT));
 		

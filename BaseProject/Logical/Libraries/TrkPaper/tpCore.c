@@ -12,6 +12,9 @@
 #ifdef __cplusplus
 	};
 #endif
+
+//Function Declaration to remove compiler warnings
+
 //Verify that the two string lengths do not exceed a length
 plcbit CheckStrLen(char* dest,char* source,UDINT length){
 	if(brdkStrLen(dest) + brdkStrLen(source) >= length){
@@ -179,6 +182,5 @@ void tpCore(struct tpCore* inst)
 			}
 			break;
 	}
-	//FB calls
 }
 
