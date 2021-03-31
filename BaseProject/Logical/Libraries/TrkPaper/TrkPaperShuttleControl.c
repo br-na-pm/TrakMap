@@ -16,7 +16,7 @@
 plcbit CheckValidity(char* selectedElem){
 	char buf[2];
 	//Get a substring of the first 3 characters
-	brdkStrSubStr(&buf,selectedElem,0,3);
+	brdkStrSubStr((UDINT)&buf,selectedElem,0,3);
 	//Look at the start of the selectedID, if it starts with #ID then we know a shuttle has been clicked
 	if(0 == brsstrcmp(&buf,&"#ID")){
 		return TRUE;
