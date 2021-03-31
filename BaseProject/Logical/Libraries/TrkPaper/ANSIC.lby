@@ -8,6 +8,7 @@
     <File>TrkPaperCore.c</File>
     <File>TrkPaperShuttleControl.c</File>
     <File>TrkPaperShuttleFeature.c</File>
+    <File>SvgPrep.py</File>
   </Files>
   <Dependencies>
     <Dependency ObjectName="McAcpTrak" />
