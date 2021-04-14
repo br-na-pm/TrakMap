@@ -77,7 +77,7 @@ char* svgTransform){
 //Method for building the shuttle transform string. Defined the style of a segment based upon the information input into the FB
 DINT BuildSegmentStrings(char* svgContent,
 	char* svgTransform,
-struct TrkPaperCoreSegmentType* segList,
+struct TrkDiagSegmentType* segList,
 USINT SegmentCount){
 	
 	USINT i;

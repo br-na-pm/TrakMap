@@ -6,4 +6,7 @@
     <File Description="Exported constants">TrkDiag.var</File>
     <File Description="Exported functions and function blocks">TrkDiag.fun</File>
   </Files>
+  <Dependencies>
+    <Dependency ObjectName="McAcpTrak" />
+  </Dependencies>
 </Library>

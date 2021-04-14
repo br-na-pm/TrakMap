@@ -4,7 +4,5 @@
   <Objects>
     <Object Type="File">StateTexts.tmx</Object>
     <Object Type="File">Header.tmx</Object>
-    <Object Type="File">SegComStateText.tmx</Object>
-    <Object Type="File">TrakErrorsIDs.tmx</Object>
   </Objects>
 </Package>

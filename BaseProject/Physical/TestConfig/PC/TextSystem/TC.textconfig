@@ -19,8 +19,8 @@
       <Property ID="TargetFile[6]" Value="Source.SampleTrak.ReusableSource.ReusableAlarm.tmx" />
       <Property ID="TargetFile[7]" Value="mappView.Resources.Texts.Header.tmx" />
       <Property ID="TargetFile[8]" Value="mappView.Resources.Texts.StateTexts.tmx" />
-      <Property ID="TargetFile[9]" Value="mappView.Resources.Texts.SegComStateText.tmx" />
-      <Property ID="TargetFile[10]" Value="mappView.Resources.Texts.TrakErrorsIDs.tmx" />
+      <Property ID="TargetFile[9]" Value="mappView.Widgets.WidgetLib.Resources.Texts.SegComStateText.tmx" />
+      <Property ID="TargetFile[10]" Value="mappView.Widgets.WidgetLib.Resources.Texts.TrakErrorsIDs.tmx" />
       <Property ID="TargetFile[11]" Value="Source.SampleTrak.EMx.EMxInfo.tmx" />
       <Property ID="TargetFile[12]" Value="Source.SampleTrak.EMx.EMxWarning.tmx" />
       <Property ID="TargetFile[13]" Value="Source.SampleTrak.EMx.EMxAlarm.tmx" />

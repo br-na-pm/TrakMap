@@ -3,7 +3,7 @@ VAR CONSTANT
 	NUM_PS : USINT := 5;
 END_VAR
 VAR
-	TrackDiag : DiagStatusType;
+	TrackDiag : TrkDiagStatusType;
 	paperOptions : TrkPaperCoreOptionsType;
 END_VAR
 (*LogBook variables*)

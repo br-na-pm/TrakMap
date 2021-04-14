@@ -22,5 +22,5 @@ END_VAR
 VAR
 	paperCore : TrkPaperCore;
 	clickId : STRING[160];
-	clickedSegment : TrkPaperCoreSegmentType;
+	clickedSegment : TrkDiagSegmentType;
 END_VAR

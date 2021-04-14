@@ -7,7 +7,7 @@
   <body>
     <tu tuid="SEGSTATE.0">
       <tuv xml:lang="en">
-        <seg> COMM_STATE_NOT_ACTIVE</seg>
+        <seg>COMM_STATE_NOT_ACTIVE</seg>
       </tuv>
     </tu>
     <tu tuid="SEGSTATE.100">
