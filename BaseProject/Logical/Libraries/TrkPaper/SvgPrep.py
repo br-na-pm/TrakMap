@@ -18,11 +18,17 @@ def main() -> None:
     parser.add_argument('-o', '--output', help='Output SVG', dest='outputPath', required=True)
 
     args = parser.parse_args()
-    path = Path(args.inputPath)
+    #Check to see if they input the .svg as the input path or not
+    if args.inputPath.endswith(".svg"):
+        path = Path(args.inputPath)
+    else:
+        args.inputPath += ".svg"
+    
     try:
         path = Path(args.inputPath)
+        
     except:
-        print("Invalid input path.")
+        print("Invalid input path. SVG not found")
         return
     
     ET.register_namespace('', "http://www.w3.org/2000/svg")
@@ -48,10 +54,13 @@ def main() -> None:
             group_text.set('id', 'x' + txt)
 
     #Write to the output file
-    out = '{output}.svg'.format(output = args.outputPath)
+    if not args.outputPath.endswith('.svg'):
+        args.outputPath += '.svg'
+    out = '{output}'.format(output = args.outputPath)
     xmlstr = minidom.parseString(ET.tostring(root)).toprettyxml(indent = "    ")
     with open(out, 'w') as file:
         file.write(xmlstr)
+    print('{input} file successfully prepared and output to {output}'.format(input = args.inputPath, output = args.outputPath))
 
 if __name__ == '__main__':
     main()
