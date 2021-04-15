@@ -11,23 +11,23 @@
       </Group>
     </Group>
     <Group ID="TargetFiles">
-      <Property ID="TargetFile[1]" Value="Source.SampleTrak.Assembly.AsmInfo.tmx" />
-      <Property ID="TargetFile[2]" Value="Source.SampleTrak.Assembly.AsmWarning.tmx" />
-      <Property ID="TargetFile[3]" Value="Source.SampleTrak.Assembly.AsmAlarm.tmx" />
-      <Property ID="TargetFile[4]" Value="Source.SampleTrak.ReusableSource.ReusableInfo.tmx" />
-      <Property ID="TargetFile[5]" Value="Source.SampleTrak.ReusableSource.ReusableWarning.tmx" />
-      <Property ID="TargetFile[6]" Value="Source.SampleTrak.ReusableSource.ReusableAlarm.tmx" />
+      <Property ID="TargetFile[1]" Value="Source.Assembly.AsmInfo.tmx" />
+      <Property ID="TargetFile[2]" Value="Source.Assembly.AsmWarning.tmx" />
+      <Property ID="TargetFile[3]" Value="Source.Assembly.AsmAlarm.tmx" />
+      <Property ID="TargetFile[4]" Value="Source.ReusableSource.ReusableInfo.tmx" />
+      <Property ID="TargetFile[5]" Value="Source.ReusableSource.ReusableWarning.tmx" />
+      <Property ID="TargetFile[6]" Value="Source.ReusableSource.ReusableAlarm.tmx" />
       <Property ID="TargetFile[7]" Value="mappView.Resources.Texts.Header.tmx" />
       <Property ID="TargetFile[8]" Value="mappView.Resources.Texts.StateTexts.tmx" />
-      <Property ID="TargetFile[9]" Value="mappView.Widgets.WidgetLib.Resources.Texts.SegComStateText.tmx" />
-      <Property ID="TargetFile[10]" Value="mappView.Widgets.WidgetLib.Resources.Texts.TrakErrorsIDs.tmx" />
-      <Property ID="TargetFile[11]" Value="Source.SampleTrak.EMx.EMxInfo.tmx" />
-      <Property ID="TargetFile[12]" Value="Source.SampleTrak.EMx.EMxWarning.tmx" />
-      <Property ID="TargetFile[13]" Value="Source.SampleTrak.EMx.EMxAlarm.tmx" />
-      <Property ID="TargetFile[14]" Value="Source.SampleTrak.Diagnostic.DiagInfo.tmx" />
-      <Property ID="TargetFile[15]" Value="Source.SampleTrak.Diagnostic.DiagWarning.tmx" />
-      <Property ID="TargetFile[16]" Value="Source.SampleTrak.Diagnostic.DiagAlarm.tmx" />
-      <Property ID="TargetFile[17]" Value="Source.SampleTrak.Diagnostic.DiagError.tmx" />
+      <Property ID="TargetFile[9]" Value="mappView.Widgets.TrakMap.Resources.Texts.TrakErrorsIDs.tmx" />
+      <Property ID="TargetFile[10]" Value="mappView.Widgets.TrakMap.Resources.Texts.SegComStateText.tmx" />
+      <Property ID="TargetFile[11]" Value="Source.EMx.EMxInfo.tmx" />
+      <Property ID="TargetFile[12]" Value="Source.EMx.EMxWarning.tmx" />
+      <Property ID="TargetFile[13]" Value="Source.EMx.EMxAlarm.tmx" />
+      <Property ID="TargetFile[14]" Value="Source.Diagnostic.DiagInfo.tmx" />
+      <Property ID="TargetFile[15]" Value="Source.Diagnostic.DiagWarning.tmx" />
+      <Property ID="TargetFile[16]" Value="Source.Diagnostic.DiagAlarm.tmx" />
+      <Property ID="TargetFile[17]" Value="Source.Diagnostic.DiagError.tmx" />
     </Group>
   </Element>
 </Configuration>
