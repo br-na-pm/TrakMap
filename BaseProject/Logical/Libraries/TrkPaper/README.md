@@ -15,6 +15,9 @@ The TrakPaper widget consists of a few components.
 Each of these components works together to create the TrakMap widget and functionality. 
 
 ## Usage
+
+### Import the TrakMap Technology Solution
+
 ### Preparing the SVG 
    The first step to use the track map is to have the automatically generated SVG generated with a valid layout and the SVGData file device. Some simple post processing must be done on this SVG in order to function with the Trak Paper widget. The SVG must be generated from a system with MpMotion 5.13+. The post processing is done by executing the SvgPython.py script with the input file name of the pre-generated SVG. To run the script you will need to have Python (preferably 3.8+) installed
 
@@ -58,21 +61,16 @@ Custom styling is possible by changing the color at the defined index.
 
 In order to use the segment details, the "clickID" property must be set for the Paper Widget. This can be done by using the below code block in an event binding and setting the "contentRefId" and "widgetRefId" correctly
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<EventBindingSet id="trackmapContent_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Bindings>
     <EventBinding id="content_trackmap.paperTrackMap.Click">
       <Source xsi:type="widgets.brease.Paper.Event" contentRefId="trackmapContent" widgetRefId="paperTrackMap" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="TrackDiag:clickId">
+          <Target xsi:type="opcUa.NodeAction" refId="::TrackDiag:clickId">
             <Method xsi:type="opcUa.NodeAction.SetValueString" value="= elementId" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
-  </Bindings>
-</EventBindingSet>
 ```
 
 #### Custom Status Widget

@@ -14,6 +14,6 @@
     <Object Type="File">Charts.styles</Object>
     <Object Type="File">Sequencer.styles</Object>
     <Object Type="File">Lists.styles</Object>
-    <Object Type="File">Custom.styles</Object>
+    <Object Type="File">TrakMap.styles</Object>
   </Objects>
 </Package>

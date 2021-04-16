@@ -34,13 +34,17 @@ TYPE
 		ErrorStatusBit : BOOL;
 		ErrorStatus : UDINT;
 	END_STRUCT;
-	SegShuttleMonitorType : 	STRUCT 
-		CheckState_enum : BOOL;
-		CmdMonitorLag : BOOL;
-		CmdMonitorVelocity : BOOL;
-		Lag : ARRAY[0..2]OF LREAL;
-		Velocity : ARRAY[0..2]OF LREAL;
-		LagLimitExceeded : BOOL;
-		VelLimitExceeded : BOOL;
+	DiagFbsType : 	STRUCT 
+		Asm : DiagAsmFbsTyp;
+		Seg : DiagSegFbsTyp;
+	END_STRUCT;
+	DiagAsmFbsTyp : 	STRUCT 
+		ReadInfo : MC_BR_AsmReadInfo_AcpTrak;
+		ReadStatus : MC_BR_AsmReadStatus_AcpTrak;
+	END_STRUCT;
+	DiagSegFbsTyp : 	STRUCT 
+		ReadInfo : ARRAY[0..NUM_SEG]OF MC_BR_SegReadInfo_AcpTrak;
+		ReadStatus : ARRAY[0..NUM_SEG]OF MC_BR_SegReadStatus_AcpTrak;
+		ProcessParID : ARRAY[0..NUM_SEG]OF MC_BR_SegProcessParID_AcpTrak;
 	END_STRUCT;
 END_TYPE
