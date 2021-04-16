@@ -10,7 +10,6 @@
     <File>TrkPaperShuttleFeature.c</File>
     <File>SvgPrep.py</File>
     <File>README.md</File>
-    <File>TrakMapStyles.txt</File>
   </Files>
   <Dependencies>
     <Dependency ObjectName="McAcpTrak" />
