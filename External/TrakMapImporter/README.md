@@ -20,31 +20,21 @@ Each of these components works together to create the TrakMap widget and functio
 ### Import the TrakMap Technology Solution
 Place the provided technology solution in the Automation Studio technology solutions folder (BrAutomationInstallationFolder)/(AutomationStudioVersion)/AS/TechnologySolutions. In your project, select the root node in the logical view, in the toolbox select to add a "Technology Solution" package and select the TrakMap application package that appears.
 
-### Preparing the SVG 
-   The first step to use the track map is to have the automatically generated SVG generated with a valid layout and the SVGData file device. Some simple post processing must be done on this SVG in order to function with the Trak Paper widget. The SVG must be generated from a system with MpMotion 5.13+. The post processing is done by executing the SvgPython.py script with the input file name of the pre-generated SVG. To run the script you will need to have Python (preferably 3.8+) installed
+### Running the TrakMapImporter program
+We've created a simple tool to help assist in the parsing of the SVG and other steps needed to use the track map. Run the provided .exe
+There is a prompt for 4 inputs:
 
-   1. Place SvgPrep.py and generated SVG into the same directory
-   2. Open a command line in this directory
-   3. Type `python SvgPrep.py -i preGeneratedSvg.svg -o OutputFileName.svg`
-      1. You can enter the command with or without the file extensions
+1. Initial SVG
+2. Export Folder
+3. Export File Name
+4. TrackDiag SegDefine.st action file path
 
-Upon a success a new file named "OutputFileName.svg" will have been generated in the same directory. This is the new pre-processed SVG that you will use in the paper widget.
+The initial SVG should be the file name for the exported SVG from Automation Runtime. The export folder is the location in which you'd like to generate the SVG for the paper widget itself. The Export file name is the name of the exported SVG you'd like to have. The final input is the file location of the SegDefine.st action under the provided TrackDiag task. 
+
+The program when "Generate" is pressed, will process the provided SVG and create a formatted SVG for the paper widget. Additionally it will populate the action with the segment names and assembly name. Upon completion of the export, you should validate that the values are correct from your project.
 
 ### Deploy to your Software Configuration
 To your project add the track paper library and the "TrakDiag" task. The TrakDiag task is the task that automatically implements the TrakPaper Core function block and supporting function blocks.  The TrackDiag task must be added to the cyclic 8 task class (or a large idle time task class)
-
-### Populate the Segment List Variable
-The TrakPaper library uses a list of segments to build the string. In order for this to work you must populate a segment list with the segment variable reference and the name of that segment. The variable is TrackDiag.Seg.SegList. 
-
-The easiest method is in your init of the TrakDiag task add your definitions for your segments and the total segment count:
-
-    TrackDiag.Seg.SegList[0].Name  := 'gSeg_A_1'; 	TrackDiag.Seg.SegList[0].McType := gSeg_A_1;
-    TrackDiag.Seg.SegCount := 1;
-
-
-The above would make a system with a singular segment with a segment name of gSeg_A_1.
-
-The last step in the init is to make sure to change your assembly name for the two Assembly status blocks.
 
 ### Setting up the Paper widget
 The final step that must be done is to connect to the paper widget and custom status widget.
