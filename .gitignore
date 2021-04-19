@@ -37,3 +37,9 @@
 
 # add here
 BaseProject/Diagnosis/
+
+# External Files
+*.spec
+**/__pycache__/**
+External/**/build/**
+External/**/dist/**
