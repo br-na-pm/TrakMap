@@ -40,7 +40,7 @@
       </Mappings>
     </Property>
 
-	<Property xsi:type="StructureBindableProperty" name="statusStructure" type="tpCoreSegmentStatusTyp" category="Data" readOnly="true" required="false">
+	<Property xsi:type="StructureBindableProperty" name="statusStructure" type="TrkDiagSegmentType" category="Data" readOnly="true" required="false">
 		<Description>Segment Status </Description>
 		<Mappings>
 			<Mapping widget="txtItemClicked" type="String" property="value" mode="oneWay" memberPath="Name" mapToNode="false"/>			

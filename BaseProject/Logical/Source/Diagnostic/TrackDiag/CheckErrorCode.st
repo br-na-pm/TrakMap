@@ -8,12 +8,12 @@ ACTION actCheckErrorCode:
 			
 			WAIT_FOR_CHECK:
 				//Wait for the command to check the error code ParID on the segment
-				SegProcessParID[SegIndex].Execute := FALSE;
+				DiagFbs.Seg.ProcessParID[SegIndex].Execute := FALSE;
 				
 				IF SegErrorCheck[SegIndex].CmdCheckErrorCode THEN
-					SegProcessParID[SegIndex].Execute := TRUE;
-					SegProcessParID[SegIndex].Mode := mcACPTRAK_SEG_PARID_GET_NO_NCT;
-					SegProcessParID[SegIndex].DataAddress := ADR(ErrorCodeIDInfo[SegIndex]);
+					DiagFbs.Seg.ProcessParID[SegIndex].Execute := TRUE;
+					DiagFbs.Seg.ProcessParID[SegIndex].Mode := mcACPTRAK_SEG_PARID_GET_NO_NCT;
+					DiagFbs.Seg.ProcessParID[SegIndex].DataAddress := ADR(ErrorCodeIDInfo[SegIndex]);
 					SegErrorCheck[SegIndex].CheckState := READ_DATA_SEG_ERROR;			
 					SegErrorCheck[SegIndex].CmdCheckErrorCode := FALSE; //Reset check command
 					
@@ -22,13 +22,13 @@ ACTION actCheckErrorCode:
 			READ_DATA_SEG_ERROR:
 				//Check for completion of reading the PARID for
 				
-				IF SegProcessParID[SegIndex].Done THEN
+				IF DiagFbs.Seg.ProcessParID[SegIndex].Done THEN
 					//If the parID was successfully read, go to check error code state
 					SegErrorCheck[SegIndex].CheckState := CHECK_ERROR_CODE;
-					SegProcessParID[SegIndex].Execute := FALSE;
+					DiagFbs.Seg.ProcessParID[SegIndex].Execute := FALSE;
 					SegErrorCheck[SegIndex].DataReadExecutionError := FALSE;
 				
-				ELSIF SegProcessParID[SegIndex].Error THEN
+				ELSIF DiagFbs.Seg.ProcessParID[SegIndex].Error THEN
 					//If there was an error in reading, go to error start
 					SegErrorCheck[SegIndex].CheckState := READ_EXEC_ERROR;
 				END_IF
@@ -51,28 +51,28 @@ ACTION actCheckErrorCode:
 				END_IF
 			WRITE_WARNING_CODE:
 				//Write commanded warning code (36005) to error parid
-				SegProcessParID[SegIndex].DataAddress := ADR(SegWarningCmdIDInfo);
-				SegProcessParID[SegIndex].ChannelIndex := 0;
-				SegProcessParID[SegIndex].Mode := mcACPTRAK_SEG_PARID_SET;
-				SegProcessParID[SegIndex].NumberOfParIDs := 0;
-				SegProcessParID[SegIndex].Execute := TRUE;
+				DiagFbs.Seg.ProcessParID[SegIndex].DataAddress := ADR(SegWarningCmdIDInfo);
+				DiagFbs.Seg.ProcessParID[SegIndex].ChannelIndex := 0;
+				DiagFbs.Seg.ProcessParID[SegIndex].Mode := mcACPTRAK_SEG_PARID_SET;
+				DiagFbs.Seg.ProcessParID[SegIndex].NumberOfParIDs := 0;
+				DiagFbs.Seg.ProcessParID[SegIndex].Execute := TRUE;
 				
-				IF SegProcessParID[SegIndex].Done THEN
+				IF DiagFbs.Seg.ProcessParID[SegIndex].Done THEN
 					//return to wait state
-					SegProcessParID[SegIndex].Execute := FALSE;
+					DiagFbs.Seg.ProcessParID[SegIndex].Execute := FALSE;
 					SegErrorCheck[SegIndex].CheckState := WAIT_FOR_CHECK;
 					
-				ELSIF SegProcessParID[SegIndex].Error THEN
+				ELSIF DiagFbs.Seg.ProcessParID[SegIndex].Error THEN
 					SegErrorCheck[SegIndex].CheckState := READ_EXEC_ERROR;
 				END_IF		
 			READ_EXEC_ERROR:
-				SegProcessParID[SegIndex].Execute := FALSE;
+				DiagFbs.Seg.ProcessParID[SegIndex].Execute := FALSE;
 				SegErrorCheck[SegIndex].DataReadExecutionError := TRUE;
 			
-				IF SegProcessParID[SegIndex].Error = FALSE THEN
+				IF DiagFbs.Seg.ProcessParID[SegIndex].Error = FALSE THEN
 					SegErrorCheck[SegIndex].CheckState := WAIT_FOR_CHECK;
 				END_IF
 		END_CASE
-	SegProcessParID[SegIndex]();	
+	DiagFbs.Seg.ProcessParID[SegIndex]();	
 	END_FOR
 END_ACTION

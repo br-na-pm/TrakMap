@@ -1,0 +1,21 @@
+VAR
+	SegIndex : USINT;
+	ErrorCodeIDInfo : ARRAY[0..NUM_SEG] OF McAcpTrakSegProcessParIDType;
+	SegWarningCmdIDInfo : McAcpTrakSegProcessParIDType;
+	SegErrorCheck : ARRAY[0..NUM_SEG] OF SegErrorCheckType;
+	CmdWarning : UINT;
+	CpuSim : BOOL;
+END_VAR
+(*For testing only*)
+VAR
+	MC_BR_SegCommandError_AcpTrak_0 : MC_BR_SegCommandError_AcpTrak;
+END_VAR
+(*Declarations for TrackMap*)
+VAR
+	paperCore : TrkPaperCore;
+	paperOptions : TrkPaperCoreOptionsType;
+	clickId : STRING[160];
+	clickedSegment : TrkDiagSegmentType;
+	TrackDiag : TrkDiagStatusType;
+	DiagFbs : DiagFbsType;
+END_VAR

@@ -3,7 +3,7 @@ FUNCTION_BLOCK TrkPaperCore (*Core Track Paper Function Block*)
 	VAR_INPUT
 		Enable : BOOL; (*Enables the core functionality*)
 		ErrorRest : BOOL; (*Reset any present errors*)
-		Segments : REFERENCE TO TrkPaperCoreSegmentType; (*Address of the segment list for the system*)
+		Segments : REFERENCE TO TrkDiagSegmentType; (*Address of the segment list for the system*)
 		SegmentCount : USINT; (*Count of the segments in the system*)
 		ViewBoxCfg : TrkPaperCoreViewBoxCfgType; (*View box configuration for the SVG*)
 		Options : REFERENCE TO TrkPaperCoreOptionsType; (*Options for the core fb*)

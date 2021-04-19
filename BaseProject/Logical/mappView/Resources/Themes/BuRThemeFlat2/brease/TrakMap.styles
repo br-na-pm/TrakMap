@@ -1,17 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Styles id="BuRThemeFlat2customStyles" xmlns="http://www.br-automation.com/iat2015/styles/engineering/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Styles id="TrakMapWidgetStyles" xmlns="http://www.br-automation.com/iat2015/styles/engineering/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-	<Style id="NavLabel" xsi:type="widgets.brease.Label" 
-		fontSize="12px" 
-		textColor="rgba(255, 255, 255, 1)" 
-		backColor="rgba(128, 128, 128, 1)" 
-		borderColor="rgba(180, 180, 180, 1)" 
-		borderStyle="solid" 
-		borderWidth="5px 0px 0px 0px"
-		rotation="270deg"
-		padding="5px" />
-		
-			
 	<Style id="GreenIndicator" xsi:type="widgets.brease.ToggleButton"
 		backColor="rgba(245, 245, 245, 1)"
 		borderColor="rgba(40,40,45,1)"
@@ -41,6 +30,4 @@
 		textColor="rgba(67,78,84,1)"
 		fontSize="15px"
 		/>
-
-	
 </Styles>

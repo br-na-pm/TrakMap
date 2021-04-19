@@ -29,24 +29,6 @@ TYPE
 		Color : TrkPaperCoreColorOptionType; (*Shuttle Color Option*)
 		Shuttle : TrkPaperCoreShuttleOptionType; (*Shuttle Option*)
 	END_STRUCT;
-	TrkPaperCoreSegmentStatusType : 	STRUCT 
-		CommunicationReady : BOOL; (*Communication ready on the segment*)
-		ReadyForPowerOn : BOOL; (*Segment is ready for power on*)
-		PowerOn : BOOL; (*Segment is powered*)
-		StartupCount : UDINT; (*Number of startups on the segment*)
-		CommunicationState : McCommunicationStateEnum; (*Communication state of the segment*)
-		SegmentDisabled : BOOL; (*Segment is disabled*)
-		SegmentReady : BOOL; (*Segment is Ready*)
-		SegmentStopping : BOOL; (*Segment is in the Stopping State*)
-		SegmentErrorStop : BOOL; (*Segment is in an error stop state*)
-		Error : BOOL;
-		ErrorCode : UINT; (*Error code of the segment*)
-	END_STRUCT;
-	TrkPaperCoreSegmentType : 	STRUCT 
-		Name : STRING[32]; (*Name of the segment in the SVG*)
-		McType : McSegmentType; (*Segment Reference*)
-		Status : TrkPaperCoreSegmentStatusType; (*Status Information for the segment*)
-	END_STRUCT;
 	TrkPaperCoreShuttleOptionType : 	STRUCT  (*Shuttle Option*)
 		Enabled : BOOL; (*Option is enabled*)
 	END_STRUCT;
@@ -88,14 +70,6 @@ TYPE
 		ElMoveAbs : MC_BR_ElasticMoveAbs_AcpTrak; (*Elastic move absolute command*)
 		ElMoveAdd : MC_BR_ElasticMoveAdd_AcpTrak; (*Elastic move addtive command*)
 	END_STRUCT;
-	TrkPaperShuttleCtrlInternalType : 	STRUCT  (*Internal data type*)
-		State : TrkPaperShuttleControlStatesEnum; (*State of execution*)
-		CoreInt : REFERENCE TO TrkPaperCoreInternalType; (*Internal data for the Core function block*)
-		CurrentAxis : McAxisType; (*Current selected Axis*)
-		Fbs : TrkPaperShuttleControlFbType; (*Internal function blocks*)
-		Idx : USINT; (*Selected Index for the axis lookup table*)
-		LastIdx : USINT; (*Last cycle selected index for the axis lookup table*)
-	END_STRUCT;
 END_TYPE
 
 (*Track Master Shuttle Control Types*)
@@ -118,4 +92,12 @@ TYPE
 		trkPAPER_SH_CONTROL_MOVE_DONE, (*Move has completed*)
 		trkPAPER_SH_CONTROL_ERROR (*Error present on the FB*)
 		);
+	TrkPaperShuttleCtrlInternalType : 	STRUCT  (*Internal data type*)
+		State : TrkPaperShuttleControlStatesEnum; (*State of execution*)
+		CoreInt : REFERENCE TO TrkPaperCoreInternalType; (*Internal data for the Core function block*)
+		CurrentAxis : McAxisType; (*Current selected Axis*)
+		Fbs : TrkPaperShuttleControlFbType; (*Internal function blocks*)
+		Idx : USINT; (*Selected Index for the axis lookup table*)
+		LastIdx : USINT; (*Last cycle selected index for the axis lookup table*)
+	END_STRUCT;
 END_TYPE
