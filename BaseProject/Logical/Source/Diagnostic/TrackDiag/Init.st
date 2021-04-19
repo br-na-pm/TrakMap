@@ -1,7 +1,9 @@
 
 PROGRAM _INIT
 
-
+	SegDefinition;
+	
+	(* Auto Generation Start *)
 	(* parameter setup for TrackDiag *)	
 	//Replace with your segment names!
 	TrackDiag.Seg.SegList[0].Name  := 'gSeg_A_1'; 		TrackDiag.Seg.SegList[0].McType := gSeg_A_1 ;
@@ -25,7 +27,8 @@ PROGRAM _INIT
 	DiagFbs.Asm.ReadInfo.Assembly := ADR(DiagInterface.SampleTrak);//Replace with your assembly name
 	DiagFbs.Asm.ReadStatus.Assembly 	:= ADR(DiagInterface.SampleTrak);
 	
-
+	(* Auto Generation End *)
+	
 	paperCore.SegmentCount := TrackDiag.Seg.SegCount;
 	paperCore.Segments := ADR(TrackDiag.Seg.SegList);
 	paperCore.Options := ADR(paperOptions);
