@@ -104,7 +104,7 @@ Section # Remove old
 	RMDir /r "$INSTDIR\${ProductNameShort}"
 
 	SetOutPath "$VersionBaseFolder\AS\TechnologySolutions\TrackMap"
-	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\TrackMap\V1.0.9.000"
+	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\TrackMap\V1.0.9.001"
 SectionEnd
 
 ; Dummy section for the start of the root group
