@@ -1,0 +1,153 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Usage</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 6.4.0.357">
+	<meta name="description" content="This is a brief overview of how to implement the track paper widget." /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+
+	
+	
+</head>
+
+<body>
+
+
+
+	
+	
+	<div id="topic_content">
+		
+<p></p>
+<h1 class="rvps4"><span class="rvts0"><span class="rvts13">Usage</span></span></h1>
+<p class="rvps2"><span class="rvts23">Import the TrakMap Technology Solution</span></p>
+<p class="rvps2"><span class="rvts14">Place the provided technology solution in the Automation Studio technology solutions folder (BrAutomationInstallationFolder)/(AutomationStudioVersion)/AS/TechnologySolutions. In your project, select the root node in the logical view, in the toolbox select to add a Technology Solution package and select the TrakMap application package that appears.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts23">Running the TrakMapImporter program</span></p>
+<p class="rvps2"><span class="rvts12">We have created a simple tool to help assist in the parsing of the SVG and other steps needed to use the track map.</span></p>
+<p class="rvps2"><span class="rvts12">Download and run the provided </span><a class="rvts20" href="../../../technologysolutions/ts_trackmapwidgetlibrary/TrakMapImporter.exe">.exe</a></p>
+<p class="rvps2"><span class="rvts12"><br/></span></p>
+<p class="rvps2"><span class="rvts12">There is a prompt for 4 inputs:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: decimal;">
+<li value="1" style="margin-left: 0px" class="rvps6"><span class="rvts0"><span class="rvts12">Initial SVG </span></span></li>
+<li value="2" style="margin-left: 0px" class="rvps6"><span class="rvts0"><span class="rvts12">Export Folder </span></span></li>
+<li value="3" style="margin-left: 0px" class="rvps6"><span class="rvts0"><span class="rvts12">Export File Name </span></span></li>
+<li value="4" style="margin-left: 0px" class="rvps6"><span class="rvts0"><span class="rvts12">TrackDiag SegDefine.st action file path </span></span></li>
+</ol>
+<p class="rvps2"><span class="rvts12"><br/></span></p>
+<p class="rvps2"><span class="rvts12">The initial SVG should be the file name for the exported SVG from Automation Runtime. The export folder is the location in which you'd like to generate the SVG for the paper widget itself. The Export file name is the name of the exported SVG you'd like to have. The final input is the file location of the SegDefine.st action under the provided TrackDiag task.</span></p>
+<p class="rvps2"><span class="rvts12">The program when </span><span class="rvts19">Generate</span><span class="rvts12">&nbsp;is pressed, will process the provided SVG and create a formatted SVG for the paper widget. Additionally it will populate the action with the segment names and assembly name. Upon completion of the export, you should validate that the values are correct from your project.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Deploy to your Software Configuration</span></p>
+<p class="rvps2"><span class="rvts14">To your project add the track paper library and the </span><span class="rvts18">TrakDiag</span><span class="rvts14">&nbsp;task. The TrakDiag task is the task that automatically implements the TrakPaper Core function block and supporting function blocks. The TrackDiag task must be added to the cyclic 8 task class (or a large idle time task class)</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Setting up the Paper widget</span></p>
+<p class="rvps2"><span class="rvts14">The final step that must be done is to connect to the paper widget and custom status widget.</span></p>
+<p class="rvps2"><span class="rvts14">You'll need to enable the following local variables in OPC-UA for the TrackDiag task</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: decimal;">
+<li value="1" style="margin-left: 0px" class="rvps6"><span class="rvts0"><span class="rvts14">TrackDiag:clickedSegment </span></span></li>
+<li value="2" style="margin-left: 0px" class="rvps6"><span class="rvts0"><span class="rvts14">TrackDiag:clickId </span></span></li>
+<li value="3" style="margin-left: 0px" class="rvps6"><span class="rvts0"><span class="rvts14">TrackDiag:paperCore.SvgTransform </span></span></li>
+<li value="4" style="margin-left: 0px" class="rvps6"><span class="rvts0"><span class="rvts14">TrackDiag:paperCore.SvgContent </span></span></li>
+</ol>
+<h1 class="rvps6"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
+<p class="rvps2"><span class="rvts21">Paper Widget</span></p>
+<p class="rvps2"><span class="rvts12">To the paper widget, select the SvgFilePath to be the generated SVG from the previous step, map the paperCore variable SvgTransform and SvgContent variables from the TrakDiag task.</span></p>
+<p class="rvps2"><span class="rvts12">The Track paper widget uses the color List property of the paper widget for the segment status colors during operation. The default color values could be the following: </span><span class="rvts12">#c9c9c9,#FF0000,#00FF00,#FFFF80</span></p>
+<p class="rvps2"><span class="rvts12">The important part is that the following indices are used for the styling of the segments</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<div class="rvps2"><table border="0" cellpadding="0" cellspacing="0" style="border-width: 0px; border-spacing: 0px;">
+<tr valign="top">
+<td width="448" valign="middle" style="padding: 0px;"><p class="rvps3"><span class="rvts19">Style Description</span></p>
+</td>
+<td width="64" valign="middle" style="padding: 0px;"><p class="rvps3"><span class="rvts19">Index</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="448" valign="middle" style="padding: 0px;"><p class="rvps2"><span class="rvts12">Segment Default Style</span></p>
+</td>
+<td width="64" valign="middle" style="padding: 0px;"><p class="rvps2"><span class="rvts12">0</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="448" valign="middle" style="padding: 0px;"><p class="rvps2"><span class="rvts12">Segment is in an error state</span></p>
+</td>
+<td width="64" valign="middle" style="padding: 0px;"><p class="rvps2"><span class="rvts12">1</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="448" valign="middle" style="padding: 0px;"><p class="rvps2"><span class="rvts12">Segment is okay style</span></p>
+</td>
+<td width="64" valign="middle" style="padding: 0px;"><p class="rvps2"><span class="rvts12">2</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="448" valign="middle" style="padding: 0px;"><p class="rvps2"><span class="rvts12">Segment is in a warning state style</span></p>
+</td>
+<td width="64" valign="middle" style="padding: 0px;"><p class="rvps2"><span class="rvts12">3</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts12"><br/></span></p>
+<p class="rvps2"><span class="rvts12">Custom styling is possible by changing the color at the defined index.</span></p>
+<p class="rvps2"><span class="rvts12">In order to use the segment details, the </span><span class="rvts19">clickID</span><span class="rvts12">&nbsp;property must be set for the Paper Widget. This can be done by using the below code block in an event binding and setting the </span><span class="rvts19">contentRefId</span><span class="rvts12">&nbsp;and </span><span class="rvts19">widgetRefId</span><span class="rvts12">&nbsp;correctly</span></p>
+<p class="rvps2"><span class="rvts12"><br/></span></p>
+<p class="rvps8"><span class="rvts22">&nbsp; &nbsp; &lt;EventBinding id="content_trackmap.paperTrackMap.Click"&gt;</span></p>
+<p class="rvps8"><span class="rvts22">&nbsp; &nbsp; &nbsp; &lt;Source xsi:type="widgets.brease.Paper.Event" contentRefId="trackmapContent" widgetRefId="paperTrackMap" event="Click" /&gt;</span></p>
+<p class="rvps8"><span class="rvts22">&nbsp; &nbsp; &nbsp; &lt;EventHandler&gt;</span></p>
+<p class="rvps8"><span class="rvts22">&nbsp; &nbsp; &nbsp; &nbsp; &lt;Action&gt;</span></p>
+<p class="rvps8"><span class="rvts22">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Target xsi:type="opcUa.NodeAction" refId="::TrackDiag:clickId"&gt;</span></p>
+<p class="rvps8"><span class="rvts22">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Method xsi:type="opcUa.NodeAction.SetValueString" value="= elementId" /&gt;</span></p>
+<p class="rvps8"><span class="rvts22">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/Target&gt;</span></p>
+<p class="rvps8"><span class="rvts22">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/Action&gt;</span></p>
+<p class="rvps8"><span class="rvts22">&nbsp; &nbsp; &nbsp; &lt;/EventHandler&gt;</span></p>
+<p class="rvps8"><span class="rvts22">&nbsp; &nbsp; &lt;/EventBinding&gt;</span></p>
+<p class="rvps2"><span class="rvts21"><br/></span></p>
+<p class="rvps2"><span class="rvts21">Custom Status Widget</span></p>
+<p class="rvps2"><span class="rvts12">To use the custom widget,after importing that technology solution you will need to "Build Widget Library" in Automation Studio, Project-&gt;"Build Widget Library". Add the SegmentStatus widget into your content wherever you desire. Connect the </span><span class="rvts12">TrackDiag:clickedSegment</span><span class="rvts12">&nbsp;variable to the widget. That is all that is needed for the custom widget</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts21">Theme Definitions</span></p>
+<p class="rvps2"><span class="rvts12">The custom widget utilizes some custom themes for the toggle buttons present. You can use your own themes should you like, or you can add the provided style file to your existing theme for styling.</span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts21">Text Files</span></p>
+<p class="rvps2"><span class="rvts12">In the provided files there are the text files. These can be included to populate the error texts and segment statuses in the status widget. Add the provided text files located in the Widget Library Resources package to the text definition for the project.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;Dates&gt; by &lt;Authors&gt;. All Rights Reserved.
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
