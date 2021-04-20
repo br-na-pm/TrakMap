@@ -53,15 +53,15 @@ class TrakMap:
     def exportSegDefine(self,FilePath):
         path = Path(FilePath)
         with open(path, 'w') as file:
-            file.write("//This file was automatically generated using the TrakMapImporter program. Verify that the segment names and assembly name match your project values correctly")
+            file.write("//This file was automatically generated using the TrakMapImporter program. Verify that the segment names and assembly name match your project values correctly\n")
             file.write("ACTION SegDefinition: \n")
             for idx,seg in enumerate(self.segList):
                 file.write("\tTrackDiag.Seg.SegList[{indx}].Name  := '{segName}';\t\tTrackDiag.Seg.SegList[{indx}].McType := {segName};\n".format(
                     indx = idx,
                     segName = seg
                 ))
-
-            file.write("\n\tTrackDiag.Seg.SegCount := {length};\n".format(length = self.segList.count))
+            print(len(self.segList))
+            file.write("\n\tTrackDiag.Seg.SegCount := {length};\n".format(length = len(self.segList)))
             file.write("\n\tTrackDiag.Seg.SegListAdr := ADR(TrackDiag.Seg.SegList);\n")
             file.write("\n\tDiagFbs.Asm.ReadInfo.Assembly := ADR({assName});\n".format(assName = self._assemblyName))
             file.write("\tDiagFbs.Asm.ReadStatus.Assembly := ADR({assName});\n".format(assName = self._assemblyName))
@@ -71,6 +71,7 @@ def ValidateInputs(values) -> bool:
     if values["-Input SVG-"] != "" and values["-Output SVG-"] != "" and values["-OutputPath-"] != "" and values["-TrackDiagAction-"] != "" :
         return True
     else:
+
         return False
 
 def CreateLayout():
