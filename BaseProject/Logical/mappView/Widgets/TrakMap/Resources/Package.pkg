@@ -4,5 +4,6 @@
   <Objects>
     <Object Type="Package" Description="Texts">Texts</Object>
     <Object Type="Package" Description="Library Media">Media</Object>
+    <Object Type="Package" Description="Library Media">Snippets</Object>
   </Objects>
 </Package>

@@ -69,7 +69,7 @@
   </Contents>
   <SnippetsSets>
     <SnippetsSet refId="snippetsForStates"/>
-	<SnippetsSet refId="IndexTextTrakInfo"/>
+	<SnippetsSet refId="TrackMapSnippets"/>
   </SnippetsSets>
   <ExpressionsSets>
     <!--<ExpressionsSet refId=""/>-->
