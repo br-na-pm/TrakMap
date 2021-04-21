@@ -39,20 +39,4 @@
       </Group>
     </Selector>
   </Element>
-  <Element ID="SampleTrak_AsmPwr_STO1" Type="assemblyfeature">
-    <Selector ID="Type" Value="ExcludeFromAssembly">
-      <Selector ID="Exclusion" Value="AsmPowerOn">
-        <Property ID="SegmentRef[1]" Value="::gSeg_A_1" />
-        <Property ID="SegmentRef[2]" Value="::gSeg_A_2" />
-      </Selector>
-    </Selector>
-  </Element>
-  <Element ID="SampleTrak_AsmPwr_STO2" Type="assemblyfeature">
-    <Selector ID="Type" Value="ExcludeFromAssembly">
-      <Selector ID="Exclusion" Value="AsmPowerOn">
-        <Property ID="SegmentRef[1]" Value="::gSeg_A_3" />
-        <Property ID="SegmentRef[2]" Value="::gSeg_A_4" />
-      </Selector>
-    </Selector>
-  </Element>
 </Configuration>

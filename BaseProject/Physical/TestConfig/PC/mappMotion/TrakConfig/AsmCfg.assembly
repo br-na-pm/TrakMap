@@ -96,8 +96,6 @@
       <Property ID="AssemblyFeatureRef[1]" Value="SampleTrak_AutoAttach" />
       <Property ID="AssemblyFeatureRef[2]" Value="SampleTrak_LocalLimits" />
       <Property ID="AssemblyFeatureRef[3]" Value="SampleTrak_SimShuttle" />
-      <Property ID="AssemblyFeatureRef[4]" Value="SampleTrak_AsmPwr_STO1" />
-      <Property ID="AssemblyFeatureRef[5]" Value="SampleTrak_AsmPwr_STO2" />
     </Group>
     <Group ID="Visualization">
       <Property ID="MonitoringPv" Value="gSampleTrakMon" />
