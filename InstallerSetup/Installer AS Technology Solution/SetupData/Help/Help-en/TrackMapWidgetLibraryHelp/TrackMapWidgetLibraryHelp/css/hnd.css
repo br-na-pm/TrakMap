@@ -85,54 +85,89 @@ span.rvts15
 {
  font-size: 14pt;
  font-family: 'Verdana', 'Geneva', sans-serif;
- font-weight: bold;
 }
-span.rvts16 /* Font Style */
+span.rvts16
+{
+ font-size: 9pt;
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ color: #0000ff;
+}
+span.rvts17 /* Font Style */
 {
  font-family: 'Tahoma', 'Geneva', sans-serif;
  font-style: italic;
  color: #c0c0c0;
 }
-a.rvts17, span.rvts17 /* Font Style */
+a.rvts18, span.rvts18 /* Font Style */
 {
  font-family: 'Tahoma', 'Geneva', sans-serif;
  font-style: italic;
  color: #6666ff;
  text-decoration: underline;
 }
-span.rvts18
+span.rvts19
 {
  font-family: 'Verdana', 'Geneva', sans-serif;
  font-weight: bold;
 }
-span.rvts19
+span.rvts20
 {
  font-size: 9pt;
  font-family: 'Verdana', 'Geneva', sans-serif;
  font-weight: bold;
 }
-a.rvts20, span.rvts20
+a.rvts21, span.rvts21
 {
  font-size: 9pt;
  font-family: 'Verdana', 'Geneva', sans-serif;
  color: #0000ff;
  text-decoration: underline;
 }
-span.rvts21
-{
- font-size: 14pt;
- font-family: 'Verdana', 'Geneva', sans-serif;
-}
 span.rvts22
-{
- font-family: 'Verdana', 'Geneva', sans-serif;
- font-style: italic;
-}
-span.rvts23
 {
  font-size: 14pt;
  font-family: 'Verdana', 'Geneva', sans-serif;
  font-weight: bold;
+}
+span.rvts23
+{
+ font-size: 11pt;
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ font-weight: bold;
+}
+span.rvts24
+{
+ font-family: 'Courier New', 'Courier', monospace;
+ color: #0000ff;
+}
+span.rvts25
+{
+ font-family: 'Courier New', 'Courier', monospace;
+ font-weight: bold;
+ color: #800000;
+}
+span.rvts26
+{
+ font-family: 'Courier New', 'Courier', monospace;
+ color: #000000;
+}
+span.rvts27
+{
+ font-family: 'Courier New', 'Courier', monospace;
+ color: #800000;
+}
+span.rvts28
+{
+ font-family: 'Courier New', 'Courier', monospace;
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts29
+{
+ font-family: 'Courier New', 'Courier', monospace;
+ font-weight: bold;
+ color: #000000;
 }
 /* ========== Para Styles ========== */
 p,ul,ol /* Paragraph Style */
@@ -170,18 +205,10 @@ p,ul,ol /* Paragraph Style */
 {
  text-align: left;
  text-indent: 0px;
- page-break-after: avoid;
- padding: 0px 0px 0px 0px;
- margin: 0px 0px 0px 0px;
-}
-.rvps6
-{
- text-align: left;
- text-indent: 0px;
  padding: 0px 0px 0px 0px;
  margin: 0px 0px 0px 48px;
 }
-.rvps7 /* Paragraph Style */
+.rvps6 /* Paragraph Style */
 {
  text-align: center;
  border-color: #c0c0c0;
@@ -192,8 +219,16 @@ p,ul,ol /* Paragraph Style */
  padding: 2px 0px 2px 0px;
  margin: 7px 0px 7px 0px;
 }
+.rvps7
+{
+}
 .rvps8
 {
+ text-align: left;
+ text-indent: 0px;
+ page-break-after: avoid;
+ padding: 0px 0px 0px 0px;
+ margin: 16px 0px 4px 0px;
 }
 /* ========== Lists ========== */
 .list0 {text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: decimal;}
