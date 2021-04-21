@@ -116,8 +116,8 @@ Section "$(TrackMapBaseShortText)" TrackMapBase
 
 	;!insertmacro WaitForProcessToClose "TrackMap2.exe" "mappView Import Tool"
 
-	SetOutPath "$INSTDIR\${ProductNameShort}"
-	File /r "SetupData\TrackMapLogo.ico"
+;	SetOutPath "$INSTDIR\${ProductNameShort}"
+;	File /r "SetupData\TrackMapLogo.ico"
 ;	File /r "SetupData\Launch Simulation.exe"
 ;	File /r "SetupData\VisuKioskMode.exe"
 
