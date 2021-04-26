@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CompoundWidget id="SegmentStatus" width="1060" height="100" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+  	<Widget xsi:type="widgets.brease.TextOutput" 	id="txtItemClicked" 		top="0" left="10"  width="90" 			zIndex="0" />
+    <Widget xsi:type="widgets.brease.ToggleButton" 	id="btnCommunicationReady" 	top="0" left="115" width="180" 			zIndex="1" text="Communication Ready" enable="false" style="GreenIndicator" />
+    <Widget xsi:type="widgets.brease.ToggleButton" 	id="btnReadyForPowerOn" 	top="35" left="115" width="180" 		zIndex="2" text="Ready For PowerOn" enable="false" style="GreenIndicator" />
+    <Widget xsi:type="widgets.brease.ToggleButton" 	id="btnSegmentDisabled" 	top="0" left="505" width="180" 			zIndex="3" text="Segment Disabled" enable="false" style="RedIndicator" />
+    <Widget xsi:type="widgets.brease.ToggleButton" 	id="btnPowerOn" 			top="70" left="115" width="180" 		zIndex="4" text="PowerOn" enable="false" style="GreenIndicator" />
+    <Widget xsi:type="widgets.brease.ToggleButton" 	id="btnSegmentReady" 		top="35" left="505" width="180" 		zIndex="5" text="Segment Ready" enable="false" style="GreenIndicator" />
+    <Widget xsi:type="widgets.brease.ToggleButton" 	id="btnSegmentErrorStop" 	top="0" left="690" width="180" 			zIndex="6" text="Segment ErrorStop" enable="false" style="RedIndicator" />
+    <Widget xsi:type="widgets.brease.ToggleButton" 	id="btnSegmentStopping" 	top="70" left="505" width="180" 		zIndex="7" text="Segment Stopping" enable="false" style="RedIndicator" />
+    <Widget xsi:type="widgets.brease.Label" 		id="lblErrorCode" 			top="35" left="690" width="100" 		zIndex="8" text="ErrorCode" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="numOutErrorCode" 		top="70" left="690" width="180" 		zIndex="9" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" />
+	<Widget xsi:type="widgets.brease.TextOutput" 	id="txtOutSegComState" 		top="35" left="300" width="200" 		zIndex="12" />
+    <Widget xsi:type="widgets.brease.Label" 		id="lblSegComState" 		top="0" left="300" width="100" 			zIndex="11" text="SegComState" />
+	<Widget xsi:type="widgets.brease.ImageList" 	id="numInComState" 			top="0" left="0" width="1" height="1" 	zIndex="10" imageList="['']"  visible="false" />
+	<Widget xsi:type="widgets.brease.TextOutput" 	id="txtOutErrorText" 		top="0" left="880" width="180" height="100" zIndex="13" breakWord="true" multiLine="true"  />
+	<Widget xsi:type="widgets.brease.ImageList" 	id="numErrorCode"			top="0" left="0" width="1" height="1" zIndex="14" imageList="['']" visible="false" />
+
+  </Widgets>
+  <Properties>
+    <!-- 
+    Simple non bindable property:
+    Property Attributes
+    xsi:type: NonBindableProperty
+    name: name of the property (not allowed: width, height, top, left, id, enable, visible, zindex, margin, premissionview, permissionoperate, description)
+    <Property xsi:type="NonBindableProperty" name="" type="" defaultValue="" required="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" property=""/>
+        <Mapping widget="" property=""/>
+      </Mappings>
+    </Property>
+	   -->
+	
+	<Property xsi:type="BindableProperty" name="segErrorText" type="String" defaultValue="default" readOnly="false" category="Data" localizable="true" >
+      <Description>Segment error text</Description>
+      <Mappings>
+        <Mapping widget="txtOutErrorText" property="value" mode="oneWay"/>
+      </Mappings>
+    </Property>
+
+	<Property xsi:type="StructureBindableProperty" name="statusStructure" type="TrkDiagSegmentType" category="Data" readOnly="true" required="false">
+		<Description>Segment Status </Description>
+		<Mappings>
+			<Mapping widget="txtItemClicked" type="String" property="value" mode="oneWay" memberPath="Name" mapToNode="false"/>			
+			<Mapping widget="btnCommunicationReady" type="Boolean" property="value" mode="oneWay" memberPath="Status.CommunicationReady" mapToNode="false"/>
+			<Mapping widget="btnReadyForPowerOn" type="Boolean" property="value" mode="oneWay" memberPath="Status.ReadyForPowerOn" mapToNode="false"/>
+			<Mapping widget="btnSegmentDisabled" type="Boolean" property="value" mode="oneWay" memberPath="Status.SegmentDisabled" mapToNode="false"/>
+			<Mapping widget="btnPowerOn" type="Boolean" property="value" mode="oneWay" memberPath="Status.PowerOn" mapToNode="false"/>
+			<Mapping widget="btnSegmentReady" type="Boolean" property="value" mode="oneWay" memberPath="Status.SegmentReady" mapToNode="false"/>
+			<Mapping widget="btnSegmentErrorStop" type="Boolean" property="value" mode="oneWay" memberPath="Status.SegmentErrorStop" mapToNode="false"/>
+			<Mapping widget="btnSegmentStopping" type="Boolean" property="value" mode="oneWay" memberPath="Status.SegmentStopping" mapToNode="false"/>
+			<Mapping widget="numOutErrorCode" type="Number" property="value" mode="oneWay" memberPath="Status.ErrorCode" mapToNode="false"/>
+			<Mapping widget="numInComState" type="Number" property="selectedIndex" mode="twoWay" memberPath="Status.CommunicationState" mapToNode="false"/>
+			<Mapping widget="numErrorCode" type="Number" property="selectedIndex" mode="twoWay" memberPath="Status.ErrorCode" mapToNode="false"/>
+		</Mappings>
+	</Property>
+	
+  </Properties>
+
+  <Events>
+    <!--
+    <Event name="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" event="" />
+      </Mappings>
+    </Event>
+    -->
+  </Events>
+
+  <Actions>
+    <!--
+    <Action name="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" action="" />
+      </Mappings>
+    </Action> 
+    -->
+  </Actions>
+
+  <EventBindings>
+     
+    <EventBinding id="ComStateText">
+      <Source xsi:type="widget.Event" widgetRefId="numInComState" event="SelectedIndexChanged" />
+      <EventHandler condition="selectedIndex = 0">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutSegComState">
+            <Method name="SetValue" value="$IAT/SEGSTATE.0" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 100">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutSegComState">
+            <Method name="SetValue" value="$IAT/SEGSTATE.100" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 200">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutSegComState">
+            <Method name="SetValue" value="$IAT/SEGSTATE.200" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 300">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutSegComState">
+            <Method name="SetValue" value="$IAT/SEGSTATE.300" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 400">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutSegComState">
+            <Method name="SetValue" value="$IAT/SEGSTATE.400" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 500">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutSegComState">
+            <Method name="SetValue" value="$IAT/SEGSTATE.500" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 600">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutSegComState">
+            <Method name="SetValue" value="$IAT/SEGSTATE.600" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 700">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutSegComState">
+            <Method name="SetValue" value="$IAT/SEGSTATE.700" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 1000">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutSegComState">
+            <Method name="SetValue" value="$IAT/SEGSTATE.1000" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    
+	<!--<EventBinding id="ErrorText">
+      <Source xsi:type="widget.Event" widgetRefId="numErrorCode" event="SelectedIndexChanged" />
+	  
+      <EventHandler condition="">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutErrorText">
+            <Method name="SetValue" value="$IAT/TrakError/Code.0" />
+          </Target>
+        </Action>
+      </EventHandler>
+	</EventBinding>-->
+	
+  </EventBindings>
+
+</CompoundWidget>

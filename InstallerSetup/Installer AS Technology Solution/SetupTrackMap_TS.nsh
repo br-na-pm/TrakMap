@@ -3,7 +3,7 @@
 
 !define ProductNameLong "Track Map Widget Library"
 !define ProductNameShort "TrackMap"
-!define Version "1.00.9.004"
+!define Version "1.00.9.005"
 !define VersionAsString "${Version}"
 !define ProductVersion "4.4.4.0001"
 !define ASBaseVersion "4.4.4.0001"
