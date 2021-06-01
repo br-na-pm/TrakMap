@@ -1,5 +1,7 @@
 
 #include <bur/plctypes.h>
+#include <stdint.h>
+#include <AsBrStr.h>
 
 #define TRUE 1
 #define FALSE 0
@@ -16,9 +18,9 @@
 plcbit CheckValidity(char* selectedElem){
 	char buf[2];
 	//Get a substring of the first 3 characters
-	brdkStrSubStr((UDINT)&buf,selectedElem,0,3);
+	brdkStrSubStr((uintptr_t)&buf,(uintptr_t)selectedElem,0,3);
 	//Look at the start of the selectedID, if it starts with #ID then we know a shuttle has been clicked
-	if(0 == brsstrcmp(&buf,&"#ID")){
+	if(0 == brsstrcmp((uintptr_t)&buf,(uintptr_t)&"#ID")){
 		return TRUE;
 	}
 	else{
@@ -27,8 +29,8 @@ plcbit CheckValidity(char* selectedElem){
 }
 USINT GetIndex(char* selectedElem){
 	char buf[3];
-	brdkStrSubStr(&buf,selectedElem,3,brdkStrLen(selectedElem) - 3);
-	return (USINT)brdkStrAToUdint(&buf,BRDK_STR_CONVERT_DECIMAL);
+	brdkStrSubStr((uintptr_t)&buf,(uintptr_t)selectedElem,3,brdkStrLen((uintptr_t)selectedElem) - 3);
+	return (USINT)brdkStrAToUdint((uintptr_t)&buf,BRDK_STR_CONVERT_DECIMAL);
 }
 /* Function block for handling a shuttle control provided from the paper element's selected element ID. Must be paired with the tmCore FB */
 void TrkPaperShuttleControl(struct TrkPaperShuttleControl* inst)
