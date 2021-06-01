@@ -31,8 +31,8 @@ struct TrkPaperCoreViewBoxCfgType* viewBox){
 	
 	char tmp[150];
 	
-	brsmemset(svgContent,0,sizeof(svgContent));
-	brsmemset(svgTransform,0,sizeof(svgTransform));
+	brsmemset(svgContent,0,sizeof(*svgContent));
+	brsmemset(svgTransform,0,sizeof(*svgTransform));
 	
 	snprintf2(tmp,150,"<svg viewBox=\"%f %f %f %f\">",
 		viewBox->MinX,
