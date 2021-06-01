@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
-  <Element ID="gAlarmXCore_TrackModule" Type="mpalarmxcore">
+  <Element ID="gAlarmXCore_TrakModule" Type="mpalarmxcore">
     <Group ID="mapp.AlarmX.Core">
       <Group ID="Mapping">
         <Group ID="[0]">
@@ -37,7 +37,7 @@
         <Property ID="Code" Value="1000" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
-            <Property ID="MonitoredPV" Value="TrackMod::AsmSampleT:fbAsmReadStatus.AssemblyErrorStop" />
+            <Property ID="MonitoredPV" Value="TrakMod::AsmSampleT:fbAsmReadStatus.AssemblyErrorStop" />
             <Group ID="TriggerValues">
               <Property ID="[0]" Value="TRUE" />
             </Group>
@@ -49,7 +49,7 @@
         <Property ID="Message" Value="{$TrakAssembly/TrakPowerOn}" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
-            <Property ID="MonitoredPV" Value="TrackMod::AsmSampleT:fbAsmReadInfo.AssemblyInfo.PowerOn" />
+            <Property ID="MonitoredPV" Value="TrakMod::AsmSampleT:fbAsmReadInfo.AssemblyInfo.PowerOn" />
             <Group ID="TriggerValues">
               <Property ID="[0]" Value="TRUE" />
             </Group>
@@ -62,7 +62,7 @@
         <Property ID="Severity" Value="0" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
-            <Property ID="MonitoredPV" Value="TrackMod::AsmAlarm:TriggerTestInformation" />
+            <Property ID="MonitoredPV" Value="TrakMod::AsmAlarm:TriggerTestInformation" />
             <Group ID="TriggerValues">
               <Property ID="[0]" Value="TRUE" />
             </Group>
@@ -76,7 +76,7 @@
         <Property ID="Severity" Value="50" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
-            <Property ID="MonitoredPV" Value="TrackMod::AsmAlarm:TriggerTestWarning" />
+            <Property ID="MonitoredPV" Value="TrakMod::AsmAlarm:TriggerTestWarning" />
             <Group ID="TriggerValues">
               <Property ID="[0]" Value="TRUE" />
             </Group>
@@ -90,7 +90,7 @@
         <Property ID="Severity" Value="100" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
-            <Property ID="MonitoredPV" Value="TrackMod::AsmAlarm:TriggerTestAlarm" />
+            <Property ID="MonitoredPV" Value="TrakMod::AsmAlarm:TriggerTestAlarm" />
             <Group ID="TriggerValues">
               <Property ID="[0]" Value="TRUE" />
             </Group>
@@ -100,26 +100,26 @@
       <Group ID="[5]">
         <Property ID="Name" Value="TrakModuleInfo" />
         <Property ID="Message" Value="{$TrakAssembly/Module.Info}" />
-        <Property ID="AdditionalInformation1" Value="trackAlarmContent" />
+        <Property ID="AdditionalInformation1" Value="trakAlarmContent" />
       </Group>
       <Group ID="[6]">
         <Property ID="Name" Value="TrakModuleWarning" />
         <Property ID="Message" Value="{$TrakAssembly/Module.Warning}" />
         <Property ID="Code" Value="100" />
-        <Property ID="AdditionalInformation1" Value="trackAlarmContent" />
+        <Property ID="AdditionalInformation1" Value="trakAlarmContent" />
       </Group>
       <Group ID="[7]">
         <Property ID="Name" Value="TrakModuleAlarm" />
         <Property ID="Message" Value="{$TrakAssembly/Module.Alarm}" />
         <Property ID="Code" Value="1000" />
-        <Property ID="AdditionalInformation1" Value="trackAlarmContent" />
+        <Property ID="AdditionalInformation1" Value="trakAlarmContent" />
       </Group>
     </Group>
     <Group ID="mapp.AlarmX.Core.Snippets">
       <Group ID="[0]">
         <Property ID="Key" Value="ModuleName" />
         <Selector ID="Value">
-          <Property ID="PV" Value="TrackMod::ModuleName" />
+          <Property ID="PV" Value="TrakMod::ModuleName" />
         </Selector>
       </Group>
     </Group>

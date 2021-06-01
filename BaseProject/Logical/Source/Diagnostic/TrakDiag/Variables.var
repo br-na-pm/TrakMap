@@ -9,12 +9,12 @@ END_VAR
 VAR
 	MC_BR_SegCommandError_AcpTrak_0 : MC_BR_SegCommandError_AcpTrak;
 END_VAR
-(*Declarations for TrackMap*)
+(*Declarations for TrakMap*)
 VAR
 	paperCore : TrkPaperCore;
 	paperOptions : TrkPaperCoreOptionsType;
 	clickId : STRING[160];
 	clickedSegment : TrkDiagSegmentType;
-	TrackDiag : TrkDiagStatusType;
+	TrakDiag : TrkDiagStatusType;
 	DiagFbs : DiagFbsType;
 END_VAR

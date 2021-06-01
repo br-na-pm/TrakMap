@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="trackLogbookContent" height="1080" width="1440" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
+<Content id="trakLogbookContent" height="1080" width="1440" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
   <Widgets>
     <Widget xsi:type="widgets.brease.ToggleButton" id="btnRefresh" top="990" left="20" width="160" height="70" zIndex="0" mouseDownText="Abort" text="Refresh" cornerRadius="5px" fontSize="26px" />
     <Widget xsi:type="widgets.brease.Button" id="btnResetError" top="990" left="543" width="160" height="70" zIndex="1" text="Reset Error" cornerRadius="5px" fontSize="20px" />

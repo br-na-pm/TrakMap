@@ -25,7 +25,7 @@
         <seg>Active Module 2 Alarm</seg>
       </tuv>
     </tu>
-    <tu tuid="TrackActiveAlarm">
+    <tu tuid="TrakActiveAlarm">
       <tuv xml:lang="en">
         <seg>Active Trak Module  Alarm</seg>
       </tuv>
@@ -45,14 +45,14 @@
         <seg>Audit</seg>
       </tuv>
     </tu>
-    <tu tuid="TrackMap">
+    <tu tuid="TrakMap">
       <tuv xml:lang="en">
-        <seg>Interactive Trackmap</seg>
+        <seg>Interactive Trakmap</seg>
       </tuv>
     </tu>
-    <tu tuid="TrackStatus">
+    <tu tuid="TrakStatus">
       <tuv xml:lang="en">
-        <seg>Main Track Status</seg>
+        <seg>Main Trak Status</seg>
       </tuv>
     </tu>
     <tu tuid="SystemLogbook">

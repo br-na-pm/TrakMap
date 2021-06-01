@@ -6,7 +6,7 @@
     <Object Type="File">OpcUaServer.uaserver</Object>
     <Object Type="File">Visualizat.vis</Object>
     <Object Type="Package">General</Object>
-    <Object Type="Package">Track</Object>
+    <Object Type="Package">Trak</Object>
     <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EM2</Object>
     <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EM3</Object>
     <Object Type="Package" Description="Package for MpAlarmX value and event-binding files">EMx</Object>

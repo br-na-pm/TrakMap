@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
-  <Element ID="gTrackModule" Type="mppackmlmodule">
+  <Element ID="gTrakModule" Type="mppackmlmodule">
     <Group ID="Module">
-      <Property ID="Name" Value="TrackAssembly" />
+      <Property ID="Name" Value="TrakAssembly" />
       <Selector ID="Parent">
         <Property ID="Parent" Value="gMainModule" />
         <Selector ID="Activation" Value="0" />

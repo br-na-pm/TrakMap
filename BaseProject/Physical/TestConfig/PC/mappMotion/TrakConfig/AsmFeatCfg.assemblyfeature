@@ -4,7 +4,7 @@
   <Element ID="SampleTrak_AutoAttach" Type="assemblyfeature">
     <Selector ID="Type" Value="ShtSectorAutoAttach">
       <Group ID="Priority[1]">
-        <Property ID="SectorRef" Value="gSampleTrak_SectorTrackA" />
+        <Property ID="SectorRef" Value="gSampleTrak_SectorTrakA" />
         <Property ID="Orientation" Value="KeepSegment" />
       </Group>
     </Selector>
@@ -13,7 +13,7 @@
     <Selector ID="Type" Value="LocalLimits">
       <Group ID="LocalLimit[1]">
         <Selector ID="Location">
-          <Property ID="SectorRef" Value="gSampleTrak_SectorTrackA" />
+          <Property ID="SectorRef" Value="gSampleTrak_SectorTrakA" />
         </Selector>
         <Group ID="MotionLimits">
           <Selector ID="Velocity" Value="Basic">
@@ -29,7 +29,7 @@
   <Element ID="SampleTrak_SimShuttle" Type="assemblyfeature">
     <Selector ID="Type" Value="InitShuttleSim">
       <Group ID="InitShuttleSim[1]">
-        <Property ID="SectorRef" Value="gSampleTrak_SectorTrackA" />
+        <Property ID="SectorRef" Value="gSampleTrak_SectorTrakA" />
         <Property ID="Orientation" Value="Positive" />
         <Selector ID="ShuttleDefinition" Value="ShuttleSetDefinition">
           <Property ID="StartPosition" Value="0.0" />

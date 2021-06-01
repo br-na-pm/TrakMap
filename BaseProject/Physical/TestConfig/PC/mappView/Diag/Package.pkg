@@ -4,8 +4,8 @@
   <Objects>
     <Object Type="File">logbookContent.binding</Object>
     <Object Type="File">logbookContent.eventbinding</Object>
-    <Object Type="File">trackmapContent.binding</Object>
-    <Object Type="File">trackmapContent.eventbinding</Object>
+    <Object Type="File">trakmapContent.binding</Object>
+    <Object Type="File">trakmapContent.eventbinding</Object>
     <Object Type="File">segmentDetailsContent.binding</Object>
     <Object Type="File">diagAlarmContent.binding</Object>
     <Object Type="File">diagAlarmContent.eventbinding</Object>

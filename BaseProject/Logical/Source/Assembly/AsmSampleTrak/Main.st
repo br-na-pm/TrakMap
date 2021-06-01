@@ -13,7 +13,7 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 
-	fbTrakModule(MpLink := ADR(TrackInterface.ModulePml), 
+	fbTrakModule(MpLink := ADR(TrakInterface.ModulePml), 
 					Enable := TRUE, 
 					Parameters := ADR(parTrakModule));
 	
@@ -97,7 +97,7 @@ PROGRAM _CYCLIC
 			ELSIF gTrakSystem.Asm.Cmd.Power AND gTrakSystem.Asm.Cmd.Stop = FALSE // Read input commands
 			  AND gTrakSystem.Asm.Status.Disabled AND gTrakSystem.Asm.Status.ReadyForPowerOn // Check assembly statuses
 			  AND fbAsmPowerOff.Execute = FALSE AND fbAsmReset.Execute = FALSE 
-			  (*AND MpPackMLStateIsActive(TrackInterface.ModulePml,mpPACKML_STATE_EXECUTE,1)*)
+			  (*AND MpPackMLStateIsActive(TrakInterface.ModulePml,mpPACKML_STATE_EXECUTE,1)*)
 			  	THEN // Check other function block execution
 				// Power on the assembly
 				fbAsmPowerOn.Execute := TRUE;
@@ -225,11 +225,11 @@ PROGRAM _CYCLIC
 	END_CASE // Assembly state machine
 	
 	// Call all mapp Trak function blocks
-	fbAsmReadStatus(Assembly := ADR(TrackInterface.SampleTrak), Enable := TRUE); // Always enable to reduce logger entries
-	fbAsmReadInfo(Assembly := ADR(TrackInterface.SampleTrak), Enable := TRUE); // Always enable to reduce logger entries
-	fbAsmPowerOn(Assembly := ADR(TrackInterface.SampleTrak));
-	fbAsmPowerOff(Assembly := ADR(TrackInterface.SampleTrak));
-	fbAsmReset(Assembly := ADR(TrackInterface.SampleTrak));
+	fbAsmReadStatus(Assembly := ADR(TrakInterface.SampleTrak), Enable := TRUE); // Always enable to reduce logger entries
+	fbAsmReadInfo(Assembly := ADR(TrakInterface.SampleTrak), Enable := TRUE); // Always enable to reduce logger entries
+	fbAsmPowerOn(Assembly := ADR(TrakInterface.SampleTrak));
+	fbAsmPowerOff(Assembly := ADR(TrakInterface.SampleTrak));
+	fbAsmReset(Assembly := ADR(TrakInterface.SampleTrak));
 	
 	// Update the global status information
 	gTrakSystem.Asm.Status.Disabled					:= fbAsmReadStatus.Valid AND fbAsmReadStatus.AssemblyDisabled;

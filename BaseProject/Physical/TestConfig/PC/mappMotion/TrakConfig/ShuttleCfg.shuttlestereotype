@@ -17,6 +17,7 @@
       <Selector ID="Deceleration">
         <Property ID="Deceleration" Value="40" />
       </Selector>
+      <Property ID="UpdateMode" Value="Immediately" />
     </Selector>
     <Selector ID="JerkFilter" Value="Used">
       <Property ID="JerkTime" Value="0.02" />

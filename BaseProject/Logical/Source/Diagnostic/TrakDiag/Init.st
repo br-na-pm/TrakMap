@@ -3,8 +3,8 @@ PROGRAM _INIT
 
 	SegDefinition;
 	
-	paperCore.SegmentCount := TrackDiag.Seg.SegCount;
-	paperCore.Segments := ADR(TrackDiag.Seg.SegList);
+	paperCore.SegmentCount := TrakDiag.Seg.SegCount;
+	paperCore.Segments := ADR(TrakDiag.Seg.SegList);
 	paperCore.Options := ADR(paperOptions);
 	paperCore.Enable := TRUE;
 

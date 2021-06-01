@@ -2,9 +2,9 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package SubType="ApplicationModule" PackageType="ApplicationModule" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="File" Description="Software configuration">TrackMod.sw</Object>
-    <Object Type="File" Description="Variable mapping">TrackMod.vvm</Object>
-    <Object Type="File" Description="I/O mapping">TrackMod.iom</Object>
+    <Object Type="File" Description="Software configuration">TrakMod.sw</Object>
+    <Object Type="File" Description="Variable mapping">TrakMod.vvm</Object>
+    <Object Type="File" Description="I/O mapping">TrakMod.iom</Object>
     <Object Type="Package">mappServices</Object>
     <Object Type="Package">Connectivity</Object>
   </Objects>
