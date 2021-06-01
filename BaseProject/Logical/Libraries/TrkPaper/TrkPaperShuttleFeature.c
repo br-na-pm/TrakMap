@@ -1,5 +1,7 @@
 
 #include <bur/plctypes.h>
+#include <stdint.h>
+#include <AsBrStr.h>
 
 #define TRUE 1
 #define FALSE 0
@@ -12,6 +14,12 @@
 #ifdef __cplusplus
 	};
 #endif
+
+//Function Declaration to remove compiler warnings
+
+//Verify that the two string lengths do not exceed a length
+plcbit CheckStrLen(char* dest,char* source,UDINT length);
+
 void TrkPaperShuttleFeature(struct TrkPaperShuttleFeature* inst)
 {
 	DINT BuildShuttlePolygon(char* dest,
@@ -35,9 +43,9 @@ void TrkPaperShuttleFeature(struct TrkPaperShuttleFeature* inst)
 				width); //p3.y
 		}
 		else{
-			brsmemcpy((UDINT)&red,userDataAdr + colorOption->Offsets.Red,sizeof(USINT));
-			brsmemcpy(&green,userDataAdr + colorOption->Offsets.Green,sizeof(USINT));
-			brsmemcpy(&blue,userDataAdr + colorOption->Offsets.Blue,sizeof(USINT));
+			brsmemcpy((uintptr_t)&red,userDataAdr + colorOption->Offsets.Red,sizeof(USINT));
+			brsmemcpy((uintptr_t)&green,userDataAdr + colorOption->Offsets.Green,sizeof(USINT));
+			brsmemcpy((uintptr_t)&blue,userDataAdr + colorOption->Offsets.Blue,sizeof(USINT));
 		
 			snprintf2(tmp,150,"<polygon id=\"sh%d\" points=\"0,0 %0f,0 , %f,%f %f,%f 0,%f\" style=\"fill:rgb(%d,%d,%d);\"/>",
 				idx,	//polygon index
@@ -51,8 +59,8 @@ void TrkPaperShuttleFeature(struct TrkPaperShuttleFeature* inst)
 				green,
 				blue); //p3.y
 		}
-		if(CheckStrLen(dest,&tmp,trkPAPER_CORE_MAX_STR_LEN)){
-			brsstrcat(dest,&tmp);
+		if(CheckStrLen(dest,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
+			brsstrcat((uintptr_t)dest,(uintptr_t)&tmp);
 			return trkPAPER_CORE_ERR_OK;
 		}
 		else 
@@ -70,7 +78,7 @@ void TrkPaperShuttleFeature(struct TrkPaperShuttleFeature* inst)
 	
 		for (i = 0; i < trkPAPER_MAX_SHUTTLE_COUNT; i++){
 			if(mon->Shuttle[i].Available){
-				brsmemset(&tmp,0,sizeof(tmp));
+				brsmemset((uintptr_t)&tmp,0,sizeof(tmp));
 		
 				LREAL width;
 				LREAL length;
@@ -83,8 +91,8 @@ void TrkPaperShuttleFeature(struct TrkPaperShuttleFeature* inst)
 				shCenterY = -(mon->Shuttle[i].Position.Y / 1000.0 + width / 2.0);
 	
 				snprintf2(tmp,150,"<g id=\"Shuttle%d\">",mon->Shuttle[i].Index);
-				if(CheckStrLen(svgContent,&tmp,trkPAPER_CORE_MAX_STR_LEN)){
-					brsstrcat(svgContent,&tmp);
+				if(CheckStrLen(svgContent,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
+					brsstrcat((uintptr_t)svgContent,(uintptr_t)&tmp);
 				}
 				else 
 					return trkPAPER_CORE_ERR_STR_LEN_EXCD;
@@ -98,8 +106,8 @@ void TrkPaperShuttleFeature(struct TrkPaperShuttleFeature* inst)
 					mon->Shuttle[i].ExtentToBack / 2000.0,
 					width * 3.0 / 4.0,
 					mon->Shuttle[i].Index);
-				if(CheckStrLen(svgContent,&tmp,trkPAPER_CORE_MAX_STR_LEN)){
-					brsstrcat(svgContent,&tmp);
+				if(CheckStrLen(svgContent,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
+					brsstrcat((uintptr_t)svgContent,(uintptr_t)&tmp);
 				}
 				else 
 					return trkPAPER_CORE_ERR_STR_LEN_EXCD;
@@ -111,15 +119,15 @@ void TrkPaperShuttleFeature(struct TrkPaperShuttleFeature* inst)
 					mon->Shuttle[i].Index,
 					length,
 					width);
-				if(CheckStrLen(svgContent,&tmp,trkPAPER_CORE_MAX_STR_LEN)){
-					brsstrcat(svgContent,&tmp);
+				if(CheckStrLen(svgContent,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
+					brsstrcat((uintptr_t)svgContent,(uintptr_t)&tmp);
 				}
 				else 
 					return trkPAPER_CORE_MAX_STR_LEN;
 			
 			
-				if(CheckStrLen(svgContent,&"</g>",trkPAPER_CORE_MAX_STR_LEN)){
-					brsstrcat(svgContent,&"</g>");
+				if(CheckStrLen(svgContent,(char*)&"</g>",trkPAPER_CORE_MAX_STR_LEN)){
+					brsstrcat((uintptr_t)svgContent,(uintptr_t)&"</g>");
 				}
 				else 
 					return trkPAPER_CORE_ERR_STR_LEN_EXCD;
@@ -127,8 +135,8 @@ void TrkPaperShuttleFeature(struct TrkPaperShuttleFeature* inst)
 			
 				//Check to see if we've had more transforms to add a comma between the units
 				if(transCounter>0){
-					if(CheckStrLen(svgTransform,&",",trkPAPER_CORE_MAX_STR_LEN)){
-						brsstrcat(svgTransform,&",");
+					if(CheckStrLen(svgTransform,(char*)&",",trkPAPER_CORE_MAX_STR_LEN)){
+						brsstrcat((uintptr_t)svgTransform,(uintptr_t)&",");
 					}
 					else 
 						return trkPAPER_CORE_ERR_STR_LEN_EXCD;	
@@ -141,8 +149,8 @@ void TrkPaperShuttleFeature(struct TrkPaperShuttleFeature* inst)
 					-mon->Shuttle[i].Orientation.Angle1,
 					length/2.0,
 					width/2.0);
-				if(CheckStrLen(svgTransform,&tmp,trkPAPER_CORE_MAX_STR_LEN)){
-					brsstrcat(svgTransform,&tmp);
+				if(CheckStrLen(svgTransform,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
+					brsstrcat((uintptr_t)svgTransform,(uintptr_t)&tmp);
 				}
 				else 
 					return trkPAPER_CORE_ERR_STR_LEN_EXCD;
@@ -152,8 +160,8 @@ void TrkPaperShuttleFeature(struct TrkPaperShuttleFeature* inst)
 					-mon->Shuttle[i].Orientation.Angle1, //Spin amount
 					length/2.0,	//Spin center x
 					width/2.0); //Spin center y
-				if(CheckStrLen(svgTransform,&tmp,trkPAPER_CORE_MAX_STR_LEN)){
-					brsstrcat(svgTransform,&tmp);
+				if(CheckStrLen(svgTransform,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
+					brsstrcat((uintptr_t)svgTransform,(uintptr_t)&tmp);
 				}
 				else 
 					return trkPAPER_CORE_ERR_STR_LEN_EXCD;	
