@@ -18,5 +18,22 @@
     <EURangesAliases />
     <EngineeringUnitAliases />
   </Aliases>
-  <DefaultView AclId="2" />
+  <DefaultView AclId="2">
+    <Module Name="TrakMod">
+      <GlobalVariables Name="Global Variables">
+        <Variable Name="gTrakSystem">
+          <Variable Name="Asm" AutomaticEnable="True" />
+        </Variable>
+      </GlobalVariables>
+      <Task Name="AsmAlarm">
+        <Variable Name="FilterConfiguration" />
+        <Variable Name="HistoryFilter" />
+        <Variable Name="HistorySort" />
+        <Variable Name="SortConfiguration" />
+        <Variable Name="TriggerTestAlarm" />
+        <Variable Name="TriggerTestInformation" />
+        <Variable Name="TriggerTestWarning" />
+      </Task>
+    </Module>
+  </DefaultView>
 </OpcUaSource>
