@@ -7,6 +7,7 @@
     <File Description="Init, cyclic, exit code">Exit.st</File>
     <File Description="Local data types" Private="true">Types.typ</File>
     <File Description="Local variables" Private="true">Variables.var</File>
+    <File>SegDefinition.st</File>
     <File>CheckErrorCode.st</File>
   </Files>
 </Program>
