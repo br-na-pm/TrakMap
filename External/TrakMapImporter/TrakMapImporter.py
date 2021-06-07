@@ -56,19 +56,19 @@ class TrakMap:
             file.write("//This file was automatically generated using the TrakMapImporter program. Verify that the segment names and assembly name match your project values correctly\n")
             file.write("ACTION SegDefinition: \n")
             for idx,seg in enumerate(self.segList):
-                file.write("\tTrackDiag.Seg.SegList[{indx}].Name  := '{segName}';\t\tTrackDiag.Seg.SegList[{indx}].McType := {segName};\n".format(
+                file.write("\tTrakDiag.Seg.SegList[{indx}].Name  := '{segName}';\t\tTrakDiag.Seg.SegList[{indx}].McType := {segName};\n".format(
                     indx = idx,
                     segName = seg
                 ))
             print(len(self.segList))
-            file.write("\n\tTrackDiag.Seg.SegCount := {length};\n".format(length = len(self.segList)))
-            file.write("\n\tTrackDiag.Seg.SegListAdr := ADR(TrackDiag.Seg.SegList);\n")
+            file.write("\n\tTrakDiag.Seg.SegCount := {length};\n".format(length = len(self.segList)))
+            file.write("\n\tTrakDiag.Seg.SegListAdr := ADR(TrakDiag.Seg.SegList);\n")
             file.write("\n\tDiagFbs.Asm.ReadInfo.Assembly := ADR({assName});\n".format(assName = self._assemblyName))
             file.write("\tDiagFbs.Asm.ReadStatus.Assembly := ADR({assName});\n".format(assName = self._assemblyName))
             file.write("END_ACTION \n")
 
 def ValidateInputs(values) -> bool:
-    if values["-Input SVG-"] != "" and values["-Output SVG-"] != "" and values["-OutputPath-"] != "" and values["-TrackDiagAction-"] != "" :
+    if values["-Input SVG-"] != "" and values["-Output SVG-"] != "" and values["-OutputPath-"] != "" and values["-TrakDiagAction-"] != "" :
         return True
     else:
 
@@ -93,8 +93,8 @@ def CreateLayout():
             sg.In(size=(100, 1), enable_events=True, key="-Output SVG-")
         ],
         [
-            sg.Text("TrackDiag SegDefine Action"),
-            sg.In(size=(100, 1), enable_events=True, key="-TrackDiagAction-"),
+            sg.Text("TrakDiag SegDefine Action"),
+            sg.In(size=(100, 1), enable_events=True, key="-TrakDiagAction-"),
             sg.FileBrowse(file_types=(("Structured Text", "*.st"),))
         ],
         [
@@ -125,7 +125,7 @@ def main() -> None:
             else:
                 trakMap = TrakMap(values["-Input SVG-"])
                 trakMap.writeTrakMapSVG(values["-OutputPath-"]+"/"+values["-Output SVG-"])
-                trakMap.exportSegDefine(values["-TrackDiagAction-"])
+                trakMap.exportSegDefine(values["-TrakDiagAction-"])
                 sg.Popup("Files Prepared successfully")
 
 if __name__ == '__main__':
