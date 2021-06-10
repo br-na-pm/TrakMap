@@ -4,6 +4,7 @@ PROGRAM _INIT
 	gSampleTrak;
 	gTrakModule;
 	gSampleTrak_SectorTrakA;
+	gSampleTrakMon;
 		
 	#ifdef ASSEMBLY_STANDARD
 	(*All segment references must be included in the following segment array*)

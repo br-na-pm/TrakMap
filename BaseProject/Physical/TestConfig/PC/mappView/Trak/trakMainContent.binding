@@ -1,36 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <BindingsSet id="trakMainContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Bindings>
   
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="NS7|String|trakMod::AsGlobalPV:gTrakSystem.Asm.Status.PowerOn" attribute="value" />
+			<Source xsi:type="opcUa" refId="NS7|String|TrakMod::AsGlobalPV:gTrakSystem.Asm.Status.PowerOn" attribute="value" />
 			<Target xsi:type="session" refId="AsmPowerOn" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="NS7|String|trakMod::AsGlobalPV:gTrakSystem.Asm.Status.ErrorStop" attribute="value" />
+			<Source xsi:type="opcUa" refId="NS7|String|TrakMod::AsGlobalPV:gTrakSystem.Asm.Status.ErrorStop" attribute="value" />
 			<Target xsi:type="session" refId="AsmErrorStop" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="NS7|String|trakMod::AsGlobalPV:gTrakSystem.Asm.Status.Disabled" attribute="value" />
+			<Source xsi:type="opcUa" refId="NS7|String|TrakMod::AsGlobalPV:gTrakSystem.Asm.Status.Disabled" attribute="value" />
 			<Target xsi:type="session" refId="AsmDisabled" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="NS7|String|trakMod::AsGlobalPV:gTrakSystem.Asm.Status.Ready" attribute="value" />
+			<Source xsi:type="opcUa" refId="NS7|String|TrakMod::AsGlobalPV:gTrakSystem.Asm.Status.Ready" attribute="value" />
 			<Target xsi:type="session" refId="AsmReady" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">			 
-			<Source xsi:type="opcUa" refId="NS7|String|trakMod::AsGlobalPV:gTrakSystem.Asm.Status.ReadyForPowerOn" attribute="value" />
+			<Source xsi:type="opcUa" refId="NS7|String|TrakMod::AsGlobalPV:gTrakSystem.Asm.Status.ReadyForPowerOn" attribute="value" />
 			<Target xsi:type="session" refId="AsmRdyToPwrOn" attribute="value" />
 		</Binding>
   
   
 		
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="NS7|String|trakMod::AsGlobalPV:gTrakSystem.Asm.Cmd.ErrorReset" attribute="value" />
+			<Source xsi:type="opcUa" refId="NS7|String|TrakMod::AsGlobalPV:gTrakSystem.Asm.Cmd.ErrorReset" attribute="value" />
 			<Target xsi:type="brease" contentRefId="trakMainContent" widgetRefId="MomentaryPushButton1" attribute="value" />
 		</Binding>
 	<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="NS7|String|trakMod::AsGlobalPV:gTrakSystem.Asm.Cmd.Power" attribute="value" />
+<Source xsi:type="opcUa" refId="NS7|String|TrakMod::AsGlobalPV:gTrakSystem.Asm.Cmd.Power" attribute="value" />
 <Target xsi:type="brease" contentRefId="trakMainContent" widgetRefId="ToggleSwitch1" attribute="value" />
 </Binding>
 </Bindings>
