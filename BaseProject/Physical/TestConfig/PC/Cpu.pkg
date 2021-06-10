@@ -18,9 +18,6 @@
     <Object Type="Package">mappVision</Object>
     <Object Type="Package">mappCockpit</Object>
     <Object Type="Package">TrackMod</Object>
-    <Object Type="Package">EM2</Object>
-    <Object Type="Package">EM3</Object>
-    <Object Type="Package">EMx</Object>
     <Object Type="Package">Diag</Object>
   </Objects>
   <Configuration ModuleId="PC_any">

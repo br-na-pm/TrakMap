@@ -125,8 +125,8 @@ PROGRAM _CYCLIC
 				// Reset the assembly get shuttle next command
 				fbAsmGetShuttle.Next := FALSE;
 				
-				// Go to UPDATE
-				ShInitState := 40;
+				// Go to MOVE
+				ShInitState := 35;
 			
 			ELSIF fbShCopyUserData.Error THEN
 				// Log event
@@ -143,6 +143,22 @@ PROGRAM _CYCLIC
 				ShuttleUserData.ID := fbAsmGetShuttle.AdditionalInfo.ShuttleID;
 				
 			END_IF
+			
+		// ----------------------------------------------------------------------------------------------------
+		// MOVE
+		35:
+			fbRoutedMoveVel_AcpTrak.Axis			:= ADR(fbAsmGetShuttle.Axis);
+			fbRoutedMoveVel_AcpTrak.Execute			:= TRUE;
+			fbRoutedMoveVel_AcpTrak.Sector			:= ADR(TrackInterface.SectorTrackA);
+			fbRoutedMoveVel_AcpTrak.Position		:= 1;
+			fbRoutedMoveVel_AcpTrak.Acceleration	:= 10.0;
+			fbRoutedMoveVel_AcpTrak.Deceleration	:= 10.0;
+			fbRoutedMoveVel_AcpTrak.Jerk			:= 0.0;
+			fbRoutedMoveVel_AcpTrak.BufferMode		:= mcABORTING;
+			fbRoutedMoveVel_AcpTrak.RouteVelocity	:= 2;
+			fbRoutedMoveVel_AcpTrak.Velocity		:= 2;
+			fbRoutedMoveVel_AcpTrak.AdvancedParameters.StartDirection := mcDIR_POSITIVE;
+			ShInitState := 40;
 		
 		// ----------------------------------------------------------------------------------------------------
 		// UPDATE
@@ -213,6 +229,9 @@ PROGRAM _CYCLIC
 	// Call mapp Trak function blocks
 	fbAsmGetShuttle();
 	fbShCopyUserData();
+	fbShCopyUserData();
+	fbRoutedMoveVel_AcpTrak();
+	fbRoutedMoveVel_AcpTrak.Execute := FALSE;
 	 
 END_PROGRAM
 

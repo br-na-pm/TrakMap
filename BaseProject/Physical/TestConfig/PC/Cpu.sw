@@ -2,6 +2,7 @@
 <?AutomationStudio FileVersion="4.9"?>
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Cyclic#1">
+    <Task Name="sceneVi" Source="Source.SceneViewer.sceneVi.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="GlobalSetu" Source="Source.GlobalSetup.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="TSM" Source="Source.TSM.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
@@ -33,6 +34,7 @@
     <BinaryObject Name="arcoal" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="arsvcreg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="McMechSys" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="OpcUaSrv" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="sysconf" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="Settings" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="FileCfg" Source="" Memory="UserROM" Language="Binary" />
@@ -109,5 +111,6 @@
     <LibraryObject Name="asmem" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="brsystem" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asarlog" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="asio" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
   </Libraries>
 </SwConfiguration>

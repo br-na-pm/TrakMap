@@ -26,6 +26,7 @@ END_TYPE
 
 TYPE
 	ModuleInterfaceType : 	STRUCT 
+		ShuttleMon : McAcpTrakAssemblyMonData;
 		SampleTrak : McAssemblyType;
 		MainPml : MpComIdentType;
 		ModulePml : MpComIdentType;
@@ -33,5 +34,6 @@ TYPE
 		AuditCore : MpComIdentType;
 		RecipeCore : MpComIdentType;
 		TrakInterface : TrakType;
+		SectorTrackA : McSectorType;
 	END_STRUCT;
 END_TYPE

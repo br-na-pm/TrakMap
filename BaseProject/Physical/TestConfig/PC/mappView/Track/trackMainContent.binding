@@ -33,5 +33,9 @@
 <Source xsi:type="opcUa" refId="NS7|String|TrackMod::AsGlobalPV:gTrakSystem.Asm.Cmd.Power" attribute="value" />
 <Target xsi:type="brease" contentRefId="trackMainContent" widgetRefId="ToggleSwitch1" attribute="value" />
 </Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="TrackMod::AsGlobalPV:ShInit.Cmd.Start" attribute="value" />
+<Target xsi:type="brease" contentRefId="trackMainContent" widgetRefId="MomentaryPushButton2" attribute="value" />
+</Binding>
 </Bindings>
 </BindingsSet>

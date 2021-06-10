@@ -98,7 +98,7 @@
       <Property ID="AssemblyFeatureRef[3]" Value="SampleTrak_SimShuttle" />
     </Group>
     <Group ID="Visualization">
-      <Property ID="MonitoringPv" Value="gSampleTrakMon" />
+      <Property ID="MonitoringPv" Value="::gSampleTrakMon" />
       <Property ID="ProcessingTaskClass" Value="1" />
     </Group>
   </Element>

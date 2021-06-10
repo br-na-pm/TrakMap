@@ -17,6 +17,6 @@ ACTION SegDefinition:
 
 	TrackDiag.Seg.SegListAdr := ADR(TrackDiag.Seg.SegList);
 
-	DiagFbs.Asm.ReadInfo.Assembly := ADR(gSampleTrak);
-	DiagFbs.Asm.ReadStatus.Assembly := ADR(gSampleTrak);
+	DiagFbs.Asm.ReadInfo.Assembly := ADR(DiagInterface.SampleTrak);
+	DiagFbs.Asm.ReadStatus.Assembly := ADR(DiagInterface.SampleTrak);
 END_ACTION 

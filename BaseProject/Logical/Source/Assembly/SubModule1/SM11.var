@@ -3,4 +3,5 @@ VAR
 	BufferReturnIndex : TrBaseErrorCodeEnum;
 	fbAsmGetShuttle : MC_BR_AsmGetShuttle_AcpTrak;
 	fbShCopyUserData : MC_BR_ShCopyUserData_AcpTrak;
+	fbRoutedMoveVel_AcpTrak : MC_BR_RoutedMoveVel_AcpTrak;
 END_VAR

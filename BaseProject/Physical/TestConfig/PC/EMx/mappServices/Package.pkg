@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio FileVersion="4.9"?>
-<Package SubType="mappServices" PackageType="mappServices" xmlns="http://br-automation.co.at/AS/Package">
-  <Objects>
-    <Object Type="File">EMxALM.mpalarmxcore</Object>
-    <Object Type="File">EMxPML.mppackmlmodule</Object>
-    <Object Type="File">EMxCFG.mprecipexml</Object>
-  </Objects>
-</Package>

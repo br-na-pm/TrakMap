@@ -24,6 +24,12 @@ TYPE
 	TrkPaperCoreInternalType : 	STRUCT  (*Internal Datatype*)
 		TypeID : UDINT; (*TypeID to help with handle application*)
 		State : USINT; (*State of execution*)
+		Axes : ARRAY[0..trkPAPER_MAX_SHUTLE_ARRAY]OF TrkPaperCoreAxisLookupType; (*Axis Lookup table based on the current Shuttle Index*)
+		Fbs : TrkPaperCoreFbTyps; (*Internal Function blocks*)
+		ShCount : USINT; (*Shuttle Count*)
+	END_STRUCT;
+	TrkPaperCoreFbTyps : 	STRUCT  (*Internal Function blocks*)
+		AsmGetShuttle : MC_BR_AsmGetShuttle_AcpTrak;
 	END_STRUCT;
 	TrkPaperCoreOptionsType : 	STRUCT  (*Options for Core Function Block*)
 		Color : TrkPaperCoreColorOptionType; (*Shuttle Color Option*)
@@ -36,6 +42,8 @@ TYPE
 		( (*State of execution*)
 		trkPAPER_CORE_OFF, (*Waiting for enable command*)
 		trkPAPER_CORE_INIT, (*Initialization state*)
+		trkPAPER_CORE_GET_SH, (*Waiting for enable command*)
+		trkPAPER_CORE_GET_NEXT, (*Waiting for enable command*)
 		trkPAPER_CORE_RUNNING, (*Running state*)
 		trkPAPER_CORE_RESET, (*Resetting state*)
 		trkPAPER_CORE_ERROR (*Error state*)

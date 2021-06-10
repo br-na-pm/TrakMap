@@ -1,6 +1,0 @@
-VAR_CONFIG
-	Cyclic#1.::gMainModule AT %Q.EMx::ModuleInterface.MainPml; (*Insert your comment here...*)
-	EMx::gAlarmXCore_EMx AT %Q.EMx::ModuleInterface.AlarmCore; (*Insert your comment here...*)
-	EMx::gPackMLModule_EMx AT %Q.EMx::ModuleInterface.ModulePml; (*Insert your comment here...*)
-	EMx::gRecipeXml_EMx AT %Q.EMx::ModuleInterface.RecipeCore; (*Insert your comment here...*)
-END_VAR
