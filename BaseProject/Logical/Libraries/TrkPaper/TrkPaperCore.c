@@ -155,7 +155,7 @@ DINT BuildShuttlePolygon(char* dest,
 	char tmp[150];
 	
 
-	snprintf2(tmp,150,"<circle id=\"sh%d\" x=\"1.322\" y=\"-0.249\" r=\"0.05\" cx=\"0.007\" style=\"fill:rgb(150,150,150);\"/>",
+	snprintf2(tmp,150,"<circle id=\"sh%d\" r=\"0.05\" style=\"fill:rgb(150,150,150);\"/>",
 		idx); //circle index
 	
 	if(CheckStrLen(dest,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
@@ -195,9 +195,7 @@ DINT BuildShuttleStrings(struct McAcpTrakAssemblyMonData* mon,
 		if(returnVal!= trkPAPER_CORE_ERR_OK)
 			return returnVal;
 			
-		snprintf2(tmp,150,"<text x=\"%f\" y=\"%f\" text-decoration=\"underline\" font-weight=\"bold\" font-size=\"0.035px\">%d</text>",
-			mon->Shuttle[i].ExtentToBack / 2000.0,
-			width * 0.4,
+		snprintf2(tmp,150,"<text  x=\"0\" y=\"0\" dominant-baseline=\"middle\" text-anchor=\"middle\" text-decoration=\"underline\" font-weight=\"bold\" font-size=\"0.035px\">%d</text>",
 			i);
 		if(CheckStrLen(svgContent,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
 			brsstrcat((uintptr_t)svgContent,(uintptr_t)&tmp);
