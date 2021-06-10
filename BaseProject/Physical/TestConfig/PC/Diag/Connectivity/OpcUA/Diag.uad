@@ -49,16 +49,10 @@
         <Variable Name="TriggerTestInformation" />
         <Variable Name="TriggerTestWarning" />
       </Task>
-      <Task Name="TrackDiag">
-        <Variable Name="clickedSegment">
-          <Variable Name="Name" />
-          <Variable Name="Status" AutomaticEnable="True" />
-        </Variable>
+      <Task Name="TrakDiag">
+        <Variable Name="clickedSegment" AutomaticEnable="True" />
         <Variable Name="clickId" />
-        <Variable Name="paperCore">
-          <Variable Name="SvgTransform" />
-          <Variable Name="SvgContent" />
-        </Variable>
+        <Variable Name="paperCore" AutomaticEnable="True" />
       </Task>
     </Module>
   </DefaultView>

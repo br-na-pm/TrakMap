@@ -2,15 +2,15 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
-    <Object Type="File" Private="true">TrackDiagGlobal.typ</Object>
-    <Object Type="File" Private="true">TrackDiagGlobal.var</Object>
+    <Object Type="File" Private="true">TrakDiagGlobal.typ</Object>
+    <Object Type="File" Private="true">TrakDiagGlobal.var</Object>
     <Object Type="Program" Language="IEC">DiagConfig</Object>
     <Object Type="Program" Language="IEC">DiagAlarm</Object>
     <Object Type="File">DiagInfo.tmx</Object>
     <Object Type="File">DiagWarning.tmx</Object>
     <Object Type="File">DiagAlarm.tmx</Object>
     <Object Type="File">DiagError.tmx</Object>
-    <Object Type="Program" Language="IEC">TrackDiag</Object>
+    <Object Type="Program" Language="IEC">TrakDiag</Object>
     <Object Type="Program" Language="IEC">Logbook</Object>
   </Objects>
 </Package>

@@ -134,7 +134,7 @@ USINT SegmentCount){
 
 }
 
-/* Core Track Master function blocks. Handles the building of the SVG string */
+/* Core Trak Master function blocks. Handles the building of the SVG string */
 void TrkPaperCore(struct TrkPaperCore* inst)
 {
 	switch (inst->Internal.State){

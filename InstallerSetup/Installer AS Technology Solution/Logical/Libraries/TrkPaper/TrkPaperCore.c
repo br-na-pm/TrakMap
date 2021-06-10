@@ -1,5 +1,7 @@
 
 #include <bur/plctypes.h>
+#include <stdint.h>
+#include <AsBrStr.h>
 
 #define TRUE 1
 #define FALSE 0
@@ -17,7 +19,7 @@
 
 //Verify that the two string lengths do not exceed a length
 plcbit CheckStrLen(char* dest,char* source,UDINT length){
-	if(brdkStrLen(dest) + brdkStrLen(source) >= length){
+	if(brdkStrLen((uintptr_t)dest) + brdkStrLen((uintptr_t)source) >= length){
 		return FALSE;
 	}
 	else{
@@ -31,21 +33,21 @@ struct TrkPaperCoreViewBoxCfgType* viewBox){
 	
 	char tmp[150];
 	
-	brsmemset(svgContent,0,sizeof(svgContent));
-	brsmemset(svgTransform,0,sizeof(svgTransform));
+	brsmemset((uintptr_t)svgContent,0,sizeof(svgContent));
+	brsmemset((uintptr_t)svgTransform,0,sizeof(svgTransform));
 	
 	snprintf2(tmp,150,"<svg viewBox=\"%f %f %f %f\">",
 		viewBox->MinX,
 		viewBox->MinY,
 		viewBox->Width,
 		viewBox->Height);
-	if(CheckStrLen(svgContent,&tmp,trkPAPER_CORE_MAX_STR_LEN)){
-		brsstrcat(svgContent,&tmp);
+	if(CheckStrLen(svgContent,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
+		brsstrcat((uintptr_t)svgContent,(uintptr_t)&tmp);
 	}
 	else 
 		return trkPAPER_CORE_ERR_STR_LEN_EXCD;
-	if(CheckStrLen(svgTransform,&"[",trkPAPER_CORE_MAX_STR_LEN)){
-		brsstrcat(svgTransform,&"[");
+	if(CheckStrLen(svgTransform,(char*)&"[",trkPAPER_CORE_MAX_STR_LEN)){
+		brsstrcat((uintptr_t)svgTransform,(uintptr_t)&"[");
 	}
 	else 
 		return trkPAPER_CORE_ERR_STR_LEN_EXCD;
@@ -57,13 +59,13 @@ struct TrkPaperCoreViewBoxCfgType* viewBox){
 //Closes the Transform and Content strings with the appropriate tags
 DINT CloseSVGStrings(char* svgContent,
 char* svgTransform){
-	if(CheckStrLen(svgContent,&"</svg>",trkPAPER_CORE_MAX_STR_LEN)){
-		brsstrcat(svgContent,&"</svg>");
+	if(CheckStrLen(svgContent,(char*)&"</svg>",trkPAPER_CORE_MAX_STR_LEN)){
+		brsstrcat((uintptr_t)svgContent,(uintptr_t)&"</svg>");
 	}
 	else 
 		return trkPAPER_CORE_ERR_STR_LEN_EXCD;
-	if(CheckStrLen(svgTransform,&"]",trkPAPER_CORE_MAX_STR_LEN)){
-		brsstrcat(svgTransform,&"]");
+	if(CheckStrLen(svgTransform,(char*)&"]",trkPAPER_CORE_MAX_STR_LEN)){
+		brsstrcat((uintptr_t)svgTransform,(uintptr_t)&"]");
 	}
 	else 
 		return trkPAPER_CORE_ERR_STR_LEN_EXCD;
@@ -111,12 +113,12 @@ USINT SegmentCount){
 				);
 		}
 		
-		if(CheckStrLen(svgTransform,&tmp,trkPAPER_CORE_MAX_STR_LEN)){
-			brsstrcat(svgTransform,&tmp);
-			if(CheckStrLen(svgTransform,&",",trkPAPER_CORE_MAX_STR_LEN)){
+		if(CheckStrLen(svgTransform,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
+			brsstrcat((uintptr_t)svgTransform,(uintptr_t)&tmp);
+			if(CheckStrLen(svgTransform,(char*)&",",trkPAPER_CORE_MAX_STR_LEN)){
 				//Every one except for the last index add a comma
 				if(i != SegmentCount-1){
-					brsstrcat(svgTransform,&",");
+					brsstrcat((uintptr_t)svgTransform,(uintptr_t)&",");
 				}
 			}
 			else{
@@ -132,7 +134,7 @@ USINT SegmentCount){
 
 }
 
-/* Core Track Master function blocks. Handles the building of the SVG string */
+/* Core Trak Master function blocks. Handles the building of the SVG string */
 void TrkPaperCore(struct TrkPaperCore* inst)
 {
 	switch (inst->Internal.State){
@@ -140,7 +142,7 @@ void TrkPaperCore(struct TrkPaperCore* inst)
 			//******************************************************************************** Off state
 			if(inst->Enable){
 				inst->Internal.TypeID = trkPAPER_CORE_CORE_TYPE_ID;
-				inst->Handle = &inst->Internal;
+				inst->Handle = (uintptr_t)&inst->Internal;
 				
 				inst->Active = TRUE;
 				inst->Internal.State = trkPAPER_CORE_INIT;
@@ -151,13 +153,13 @@ void TrkPaperCore(struct TrkPaperCore* inst)
 			break;
 		
 		case trkPAPER_CORE_RUNNING:
-			StartSVGStrings(&inst->SvgContent,&inst->SvgTransform,&inst->ViewBoxCfg);
+			StartSVGStrings((char*)&inst->SvgContent,(char*)&inst->SvgTransform,&inst->ViewBoxCfg);
 			
-			inst->ErrorID = BuildSegmentStrings(&inst->SvgContent,&inst->SvgTransform,inst->Segments,inst->SegmentCount);
+			inst->ErrorID = BuildSegmentStrings((char*)&inst->SvgContent,(char*)&inst->SvgTransform,inst->Segments,inst->SegmentCount);
 			
-			CloseSVGStrings(&inst->SvgContent,&inst->SvgTransform);
-			inst->StrLengths.ContentLength = brdkStrLen(&inst->SvgContent);
-			inst->StrLengths.TransformLength = brdkStrLen(&inst->SvgTransform);
+			CloseSVGStrings((char*)&inst->SvgContent,(char*)&inst->SvgTransform);
+			inst->StrLengths.ContentLength = brdkStrLen((uintptr_t)&inst->SvgContent);
+			inst->StrLengths.TransformLength = brdkStrLen((uintptr_t)&inst->SvgTransform);
 			
 			if(inst->ErrorID != trkPAPER_CORE_ERR_OK){
 				inst->Error = TRUE;

@@ -1,4 +1,4 @@
-(*Track Master Core Types*)
+(*Trak Master Core Types*)
 
 TYPE
 	TrkPaperCoreAxisLookupType : 	STRUCT  (*Lookup table datatype*)
@@ -51,7 +51,7 @@ TYPE
 		Height : REAL; (*Height of viewbox*)
 	END_STRUCT;
 	TrkPaperSegmentStyleEnumeration : 
-		( (*Style enumeration for the track map strings*)
+		( (*Style enumeration for the trak map strings*)
 		trkPAPER_SEG_STYLE_DEFAULT := 0, (*Segment Default Style*)
 		trkPAPER_SEG_STYLE_ERROR := 1, (*Segment is in error style*)
 		trkPAPER_SEG_STYLE_OKAY := 2, (*Segment is okay style*)
@@ -72,7 +72,7 @@ TYPE
 	END_STRUCT;
 END_TYPE
 
-(*Track Master Shuttle Control Types*)
+(*Trak Master Shuttle Control Types*)
 
 TYPE
 	TrkPaperShuttleControlParsType : 	STRUCT  (*Input parameters for Shuttle Control*)

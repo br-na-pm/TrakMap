@@ -1,5 +1,5 @@
 ;!include "SetupPC.nsh"
-!include "SetupTrackMap_TS.nsh"
+!include "SetupTrakMap_TS.nsh"
 
 Var nsiPVI_OptionsFileName
 Var nsiPVI_ErrorText
@@ -14,40 +14,40 @@ LangString ARsimEndShortText ${LANG_ENGLISH} "ARsim end"
 LangString ARsimEndLongText ${LANG_GERMAN} "ARsim Ende"
 LangString ARsimEndLongText ${LANG_ENGLISH} "ARsim end"
 
-LangString TrackMapShortText ${LANG_GERMAN} "${ProductNameShort} ${Version}"
-LangString TrackMapShortText ${LANG_ENGLISH} "${ProductNameShort} ${Version}"
-LangString TrackMapLongText ${LANG_GERMAN} "${ProductNameLong} ${Version}"
-LangString TrackMapLongText ${LANG_ENGLISH} "${ProductNameLong} ${Version}"
+LangString TrakMapShortText ${LANG_GERMAN} "${ProductNameShort} ${Version}"
+LangString TrakMapShortText ${LANG_ENGLISH} "${ProductNameShort} ${Version}"
+LangString TrakMapLongText ${LANG_GERMAN} "${ProductNameLong} ${Version}"
+LangString TrakMapLongText ${LANG_ENGLISH} "${ProductNameLong} ${Version}"
 
-LangString TrackMapBaseShortText ${LANG_GERMAN} "Solution Hauptpaket"
-LangString TrackMapBaseShortText ${LANG_ENGLISH} "Solution main package"
-LangString TrackMapBaseLongText ${LANG_GERMAN} "Track Map Widget - Technology Solution / Hilfe"
-LangString TrackMapBaseLongText ${LANG_ENGLISH} "Track Map Widget - Technology Solution / Help"
+LangString TrakMapBaseShortText ${LANG_GERMAN} "Solution Hauptpaket"
+LangString TrakMapBaseShortText ${LANG_ENGLISH} "Solution main package"
+LangString TrakMapBaseLongText ${LANG_GERMAN} "Trak Map Widget - Technology Solution / Hilfe"
+LangString TrakMapBaseLongText ${LANG_ENGLISH} "Trak Map Widget - Technology Solution / Help"
 
-;LangString TrackMapSampleShortText ${LANG_GERMAN} "Beispiel"
-;LangString TrackMapSampleShortText ${LANG_ENGLISH} "Sample"
-;LangString TrackMapSampleLongText ${LANG_GERMAN} "Change Your View - Beispiel Projekt"
-;LangString TrackMapSampleLongText ${LANG_ENGLISH} "Change Your View - Sample Project"
+;LangString TrakMapSampleShortText ${LANG_GERMAN} "Beispiel"
+;LangString TrakMapSampleShortText ${LANG_ENGLISH} "Sample"
+;LangString TrakMapSampleLongText ${LANG_GERMAN} "Change Your View - Beispiel Projekt"
+;LangString TrakMapSampleLongText ${LANG_ENGLISH} "Change Your View - Sample Project"
 
-;LangString TrackMapTSShortText ${LANG_GERMAN} "TechnologySolution"
-;LangString TrackMapTSShortText ${LANG_ENGLISH} "TechnologySolution"
-;LangString TrackMapTSLongText ${LANG_GERMAN} "Change Your View - TechnologySolution"
-;LangString TrackMapTSLongText ${LANG_ENGLISH} "Change Your View - TechnologySolution"
+;LangString TrakMapTSShortText ${LANG_GERMAN} "TechnologySolution"
+;LangString TrakMapTSShortText ${LANG_ENGLISH} "TechnologySolution"
+;LangString TrakMapTSLongText ${LANG_GERMAN} "Change Your View - TechnologySolution"
+;LangString TrakMapTSLongText ${LANG_ENGLISH} "Change Your View - TechnologySolution"
 
-;LangString TrackMapLibShortText ${LANG_GERMAN} "TrackMap Library"
-;LangString TrackMapLibShortText ${LANG_ENGLISH} "TrackMap Library"
-;LangString TrackMapLibLongText ${LANG_GERMAN} "TrackMap Runtime Library"
-;LangString TrackMapLibLongText ${LANG_ENGLISH} "TrackMap Runtime Library"
+;LangString TrakMapLibShortText ${LANG_GERMAN} "TrakMap Library"
+;LangString TrakMapLibShortText ${LANG_ENGLISH} "TrakMap Library"
+;LangString TrakMapLibLongText ${LANG_GERMAN} "TrakMap Runtime Library"
+;LangString TrakMapLibLongText ${LANG_ENGLISH} "TrakMap Runtime Library"
 
 LangString MenuShortText ${LANG_GERMAN} "Start Menü Eintrag"
 LangString MenuShortText ${LANG_ENGLISH} "Start Menu entry"
 LangString MenuLongText ${LANG_GERMAN} "Eintrag in das Startmenü"
 LangString MenuLongText ${LANG_ENGLISH} "Entry into the start menu"
 
-LangString TrackMapEndShortText ${LANG_GERMAN} "TrackMap Ende"
-LangString TrackMapEndShortText ${LANG_ENGLISH} "TrackMap end"
-LangString TrackMapEndLongText ${LANG_GERMAN} "TrackMap Ende"
-LangString TrackMapEndLongText ${LANG_ENGLISH} "TrackMap end"
+LangString TrakMapEndShortText ${LANG_GERMAN} "TrakMap Ende"
+LangString TrakMapEndShortText ${LANG_ENGLISH} "TrakMap end"
+LangString TrakMapEndLongText ${LANG_GERMAN} "TrakMap Ende"
+LangString TrakMapEndLongText ${LANG_ENGLISH} "TrakMap end"
 
 LangString PanelSetupPkgShortText ${LANG_ENGLISH} "Panel Setup Package"
 LangString PanelSetupPkgShortText ${LANG_GERMAN} "Panel Setup Package"
@@ -80,8 +80,8 @@ LangString PanelEndLongText ${LANG_ENGLISH} "Panel end"
 
 
 ; Variable declarationen for sections
-!insertmacro VariableForSection "TrackMap"
-	!insertmacro VariableForSection "TrackMapBase"
+!insertmacro VariableForSection "TrakMap"
+	!insertmacro VariableForSection "TrakMapBase"
 	;!insertmacro VariableForSection "Sample"
 	;!insertmacro VariableForSection "TS"
 	;!insertmacro VariableForSection "Lib"
@@ -97,27 +97,27 @@ LangString PanelEndLongText ${LANG_ENGLISH} "Panel end"
 		!insertmacro VariableForSection "PanelSetupPkg"
 	!insertmacro VariableForSection "PanelEnd"
 
-!insertmacro VariableForSection "TrackMapEnd"
+!insertmacro VariableForSection "TrakMapEnd"
 
 Section # Remove old
 	SetOutPath "$INSTDIR\${ProductNameShort}"
 	RMDir /r "$INSTDIR\${ProductNameShort}"
 
-	SetOutPath "$VersionBaseFolder\AS\TechnologySolutions\TrackMap"
-	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\TrackMap\V1.0.9.001"
+	SetOutPath "$VersionBaseFolder\AS\TechnologySolutions\TrakMap"
+	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\TrakMap\V1.0.9.001"
 SectionEnd
 
 ; Dummy section for the start of the root group
-Section "$(TrackMapLongText)" TrackMap
+Section "$(TrakMapLongText)" TrakMap
 SectionEnd
 
 
-Section "$(TrackMapBaseShortText)" TrackMapBase
+Section "$(TrakMapBaseShortText)" TrakMapBase
 
-	;!insertmacro WaitForProcessToClose "TrackMap2.exe" "mappView Import Tool"
+	;!insertmacro WaitForProcessToClose "TrakMap2.exe" "mappView Import Tool"
 
 ;	SetOutPath "$INSTDIR\${ProductNameShort}"
-;	File /r "SetupData\TrackMapLogo.ico"
+;	File /r "SetupData\TrakMapLogo.ico"
 ;	File /r "SetupData\Launch Simulation.exe"
 ;	File /r "SetupData\VisuKioskMode.exe"
 
@@ -137,30 +137,30 @@ Section "$(TrackMapBaseShortText)" TrackMapBase
 
 SectionEnd
 
-;Section "$(TrackMapSampleShortText)" Sample
+;Section "$(TrakMapSampleShortText)" Sample
 ;	SetOutPath "$VersionBaseFolder\Samples"
 ;	File /r "Sample\*.*"
 ;SectionEnd
 
-;Section "$(TrackMapTSShortText)" TS
+;Section "$(TrakMapTSShortText)" TS
 ;	SetOutPath "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}"
 ;	File /r "TechnologySolution\*.*"
 ;SectionEnd
 
-;Section "$(TrackMapLibShortText)" Lib
+;Section "$(TrakMapLibShortText)" Lib
 ;	SetOutPath "$INSTDIR\AS\Library"
 ;	File /r "Compiled Library\*.*"
 ;SectionEnd
 
 
 ; Dummy section for the end of the root group
-Section "$(TrackMapEndShortText)" TrackMapEnd
+Section "$(TrakMapEndShortText)" TrakMapEnd
 SectionEnd
 
 ; description text (LongText) for component selection
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-	!insertmacro SetDescriptionTextforMUI "TrackMap"
-	!insertmacro SetDescriptionTextforMUI "TrackMapBase"
+	!insertmacro SetDescriptionTextforMUI "TrakMap"
+	!insertmacro SetDescriptionTextforMUI "TrakMapBase"
 ;	!insertmacro SetDescriptionTextforMUI "Sample"
 ;	!insertmacro SetDescriptionTextforMUI "TS"
 ;	!insertmacro SetDescriptionTextforMUI "Lib"
@@ -214,9 +214,9 @@ Function OnInit
 	; SF_RO         16  ReadOnly
 	; SF_EXPAND     32
 	; SF_PSELECTED  64
-	StrCpy $TrackMapSectionRO 3
+	StrCpy $TrakMapSectionRO 3
 
-		StrCpy $TrackMapBaseSectionRO 17
+		StrCpy $TrakMapBaseSectionRO 17
 	;	StrCpy $SampleSectionRO 1
 	;	StrCpy $TSSectionRO 1
 	;	StrCpy $LibSectionRO 17
@@ -229,11 +229,11 @@ Function OnInit
 	;	StrCpy $PanelSetupSectionRO 2
 	;		StrCpy $PanelSetupPkgSectionRO 0
 	;	StrCpy $PanelEndSectionRO 4
-	StrCpy $TrackMapEndSectionRO 4
+	StrCpy $TrakMapEndSectionRO 4
 
 	; initializing Selection IDs for Sections
-	StrCpy $TrackMapSelectionID "TrackMap"
-	StrCpy $TrackMapBaseSelectionID "TrackMapBase"
+	StrCpy $TrakMapSelectionID "TrakMap"
+	StrCpy $TrakMapBaseSelectionID "TrakMapBase"
 	;StrCpy $SampleSelectionID "Sample"
 	;StrCpy $TSSelectionID "TS"
 	;StrCpy $LibSelectionID "Lib"
@@ -248,24 +248,24 @@ Function OnInit
 	StrCpy $PanelSetupPkgSelectionID "PanelSetupPkg"
 
 	; initializing Section Flags
-	!insertmacro ReadAndSetSectionFlag "TrackMap" "TrackMap"
-	!insertmacro ReadAndSetSectionFlag "TrackMapBase" "TrackMap"
-	;!insertmacro ReadAndSetSectionFlag "Sample" "TrackMap"
-	;!insertmacro ReadAndSetSectionFlag "TS" "TrackMap"
-	;!insertmacro ReadAndSetSectionFlag "Lib" "TrackMap"
-	;!insertmacro ReadAndSetSectionFlag "Menu" "TrackMap"
+	!insertmacro ReadAndSetSectionFlag "TrakMap" "TrakMap"
+	!insertmacro ReadAndSetSectionFlag "TrakMapBase" "TrakMap"
+	;!insertmacro ReadAndSetSectionFlag "Sample" "TrakMap"
+	;!insertmacro ReadAndSetSectionFlag "TS" "TrakMap"
+	;!insertmacro ReadAndSetSectionFlag "Lib" "TrakMap"
+	;!insertmacro ReadAndSetSectionFlag "Menu" "TrakMap"
 
-	;!insertmacro ReadAndSetSectionFlag "ARsim" "TrackMap"
-	;!insertmacro ReadAndSetSectionFlag "PanelSetupPkg" "TrackMap"
-	;!insertmacro ReadAndSetSectionFlag "StarterProjectSim" "TrackMap"
-	;!insertmacro ReadAndSetSectionFlag "ARsimShortcut" "TrackMap"
-	;!insertmacro ReadAndSetSectionFlag "ARsimStart" "TrackMap"
-	;!insertmacro ReadAndSetSectionFlag "ARsimEnd" "TrackMap"
+	;!insertmacro ReadAndSetSectionFlag "ARsim" "TrakMap"
+	;!insertmacro ReadAndSetSectionFlag "PanelSetupPkg" "TrakMap"
+	;!insertmacro ReadAndSetSectionFlag "StarterProjectSim" "TrakMap"
+	;!insertmacro ReadAndSetSectionFlag "ARsimShortcut" "TrakMap"
+	;!insertmacro ReadAndSetSectionFlag "ARsimStart" "TrakMap"
+	;!insertmacro ReadAndSetSectionFlag "ARsimEnd" "TrakMap"
 
-	;!insertmacro ReadAndSetSectionFlag "PanelSetup" "TrackMap"
-	;!insertmacro ReadAndSetSectionFlag "PanelSetupPkg" "TrackMap"
-	;!insertmacro ReadAndSetSectionFlag "PanelEnd" "TrackMap"
-	!insertmacro ReadAndSetSectionFlag "TrackMapEnd" "TrackMap"
+	;!insertmacro ReadAndSetSectionFlag "PanelSetup" "TrakMap"
+	;!insertmacro ReadAndSetSectionFlag "PanelSetupPkg" "TrakMap"
+	;!insertmacro ReadAndSetSectionFlag "PanelEnd" "TrakMap"
+	!insertmacro ReadAndSetSectionFlag "TrakMapEnd" "TrakMap"
 
 	; check command line parameter "-O=" in case it's selected
 	Call DoOptionFileHandling
@@ -275,15 +275,15 @@ Function DoOptionFileHandling
 	${GetOptions} $CommandLine "-O=" $nsiPVI_OptionsFileName
 	${If} "$nsiPVI_OptionsFileName" != ""
 		${If} ${FileExists} "$nsiPVI_OptionsFileName"
-			!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrackMap" "TrackMapBase"
-			;!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrackMap" "Sample"
-			;!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrackMap" "TS"
-			;!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrackMap" "Lib"
-			;!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrackMap" "Menu"
-			;!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrackMap" "PanelSetupPkg"
-			;!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrackMap" "StarterProjectSim"
-			;!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrackMap" "ARsimShortcut"
-			;!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrackMap" "ARsimStart"
+			!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrakMap" "TrakMapBase"
+			;!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrakMap" "Sample"
+			;!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrakMap" "TS"
+			;!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrakMap" "Lib"
+			;!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrakMap" "Menu"
+			;!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrakMap" "PanelSetupPkg"
+			;!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrakMap" "StarterProjectSim"
+			;!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrakMap" "ARsimShortcut"
+			;!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "TrakMap" "ARsimStart"
 		${Else}
 			!insertmacro FormatString1 "$(ErrorFileNotFound)" "$nsiPVI_OptionsFileName" $nsiPVI_ErrorText
 			!insertmacro GenerateError "${ErrorCode_FileNotFound}" $nsiPVI_ErrorText
@@ -300,17 +300,17 @@ Function .onComponentsPre
 FunctionEnd
 
 Function .onComponentsLeave
-	!insertmacro GetAndWriteSectionFlag "TrackMap" "TrackMap"
-	!insertmacro GetAndWriteSectionFlag "TrackMapBase" "TrackMap"
-	;!insertmacro GetAndWriteSectionFlag "Sample" "TrackMap"
-	;!insertmacro GetAndWriteSectionFlag "TS" "TrackMap"
-	;!insertmacro GetAndWriteSectionFlag "Lib" "TrackMap"
-	;!insertmacro GetAndWriteSectionFlag "Menu" "TrackMap"
-	;!insertmacro GetAndWriteSectionFlag "ARsim" "TrackMap"
-	;!insertmacro GetAndWriteSectionFlag "StarterProjectSim" "TrackMap"
-	;!insertmacro GetAndWriteSectionFlag "ARsimShortcut" "TrackMap"
-	;!insertmacro GetAndWriteSectionFlag "ARsimStart" "TrackMap"
-	;!insertmacro GetAndWriteSectionFlag "PanelSetup" "TrackMap"
-	;!insertmacro GetAndWriteSectionFlag "PanelSetupPkg" "TrackMap"
+	!insertmacro GetAndWriteSectionFlag "TrakMap" "TrakMap"
+	!insertmacro GetAndWriteSectionFlag "TrakMapBase" "TrakMap"
+	;!insertmacro GetAndWriteSectionFlag "Sample" "TrakMap"
+	;!insertmacro GetAndWriteSectionFlag "TS" "TrakMap"
+	;!insertmacro GetAndWriteSectionFlag "Lib" "TrakMap"
+	;!insertmacro GetAndWriteSectionFlag "Menu" "TrakMap"
+	;!insertmacro GetAndWriteSectionFlag "ARsim" "TrakMap"
+	;!insertmacro GetAndWriteSectionFlag "StarterProjectSim" "TrakMap"
+	;!insertmacro GetAndWriteSectionFlag "ARsimShortcut" "TrakMap"
+	;!insertmacro GetAndWriteSectionFlag "ARsimStart" "TrakMap"
+	;!insertmacro GetAndWriteSectionFlag "PanelSetup" "TrakMap"
+	;!insertmacro GetAndWriteSectionFlag "PanelSetupPkg" "TrakMap"
 
 FunctionEnd

@@ -13,7 +13,13 @@
   <TaskClass Name="Cyclic#6" />
   <TaskClass Name="Cyclic#7" />
   <TaskClass Name="Cyclic#8">
-    <Task Name="TrackDiag" Source="Source.Diagnostic.TrackDiag.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="TrakDiag" Source="Source.Diagnostic.TrakDiag.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Logbook" Source="Source.Diagnostic.Logbook.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
+  <Binaries>
+    <BinaryObject Name="DiagREC" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="diag" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="DiagALM" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="DiagAUD" Source="" Memory="UserROM" Language="Binary" />
+  </Binaries>
 </SwConfiguration>

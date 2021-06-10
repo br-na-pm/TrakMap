@@ -12,10 +12,10 @@
 		<BindingsSet refId="alarmMainContent_binding" />
 		<BindingsSet refId="alarmHistoryContent_binding" />
 		<BindingsSet refId="headerContent_binding" />
-		<!--Track ASM-->
-		<BindingsSet refId="trackMainContent_binding" />
-		<BindingsSet refId="trackContent_binding" />
-		<BindingsSet refId="trackAlarmContent_binding" />
+		<!--Trak ASM-->
+		<BindingsSet refId="trakMainContent_binding" />
+		<BindingsSet refId="trakContent_binding" />
+		<BindingsSet refId="trakAlarmContent_binding" />
 		<!--EM2-->
 		<BindingsSet refId="EM2AlarmContent_binding" />
 		<!--EM3-->
@@ -23,8 +23,8 @@
 		<!--EMx-->
 		<BindingsSet refId="EMxAlarmContent_binding" />	
 		<!--Diag-->	
-		<BindingsSet refId="trackLogbookContent_binding" />
-		<BindingsSet refId="trackmapContent_binding" />
+		<BindingsSet refId="trakLogbookContent_binding" />
+		<BindingsSet refId="trakmapContent_binding" />
 		<BindingsSet refId="alarmDetailsContent_binding" />
 		<BindingsSet refId="segmentDetailsContent_binding" />
 		<BindingsSet refId="diagAlarmContent_binding" />
@@ -35,8 +35,8 @@
 		<EventBindingsSet refId="loadContent_eventbinding" />	
 		<EventBindingsSet refId="headerContent_eventbinding" />
 		<EventBindingsSet refId="mainAlarmContent_eventbinding" />
-		<!--Track ASM-->
-		<EventBindingsSet refId="trackAlarmContent_eventbinding" />
+		<!--Trak ASM-->
+		<EventBindingsSet refId="trakAlarmContent_eventbinding" />
 		<!--EM2-->
 		<EventBindingsSet refId="EM2AlarmContent_eventbinding" />
 		<!--EM3-->
@@ -44,8 +44,8 @@
 		<!--EMx-->
 		<EventBindingsSet refId="EMxAlarmContent_eventbinding" />
 		<!--Diag-->
-		<EventBindingsSet refId="trackLogbookContent_eventbinding" />
-		<EventBindingsSet refId="trackmapContent_eventbinding" />
+		<EventBindingsSet refId="trakLogbookContent_eventbinding" />
+		<EventBindingsSet refId="trakmapContent_eventbinding" />
 		<EventBindingsSet refId="diagAlarmContent_eventbinding" />
 	</EventBindingsSets>
 	<Dialogs>
@@ -57,10 +57,10 @@
 		<Content refId="mainAlarmContent" />
 		<Content refId="alarmHistoryContent" />
 		<Content refId="auditContent" />
-		<Content refId="trackAlarmContent" />
-		<Content refId="trackMainContent" />
-		<Content refId="trackLogbookContent" />
-		<Content refId="trackmapContent" />
+		<Content refId="trakAlarmContent" />
+		<Content refId="trakMainContent" />
+		<Content refId="trakLogbookContent" />
+		<Content refId="trakmapContent" />
 		<Content refId="allTrakContent" />
 		<Content refId="EM2AlarmContent" />
 		<Content refId="EM3AlarmContent" />
@@ -69,7 +69,7 @@
   </Contents>
   <SnippetsSets>
     <SnippetsSet refId="snippetsForStates"/>
-	<SnippetsSet refId="TrackMapSnippets"/>
+	<SnippetsSet refId="TrakMapSnippets"/>
   </SnippetsSets>
   <ExpressionsSets>
     <!--<ExpressionsSet refId=""/>-->
