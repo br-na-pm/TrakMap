@@ -149,7 +149,7 @@ PROGRAM _CYCLIC
 		35:
 			fbRoutedMoveVel_AcpTrak.Axis			:= ADR(fbAsmGetShuttle.Axis);
 			fbRoutedMoveVel_AcpTrak.Execute			:= TRUE;
-			fbRoutedMoveVel_AcpTrak.Sector			:= ADR(TrackInterface.SectorTrackA);
+			fbRoutedMoveVel_AcpTrak.Sector			:= ADR(TrakInterface.SectorTrackA);
 			fbRoutedMoveVel_AcpTrak.Position		:= 1;
 			fbRoutedMoveVel_AcpTrak.Acceleration	:= 10.0;
 			fbRoutedMoveVel_AcpTrak.Deceleration	:= 10.0;

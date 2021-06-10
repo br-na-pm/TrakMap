@@ -2,7 +2,6 @@
 <?AutomationStudio FileVersion="4.9"?>
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Cyclic#1">
-    <Task Name="sceneVi" Source="Source.SceneViewer.sceneVi.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="GlobalSetu" Source="Source.GlobalSetup.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="TSM" Source="Source.TSM.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
