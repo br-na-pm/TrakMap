@@ -1,236 +1,236 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BindingsSet id="trackLogbookContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="trakLogbookContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Bindings>				
 
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Status" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numStatus" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numStatus" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterErrorNo" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numFilterErrorNo" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numFilterErrorNo" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.EntriesTotal" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numEntriesTotal" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numEntriesTotal" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntSeverity[0]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntNotifications" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntNotifications" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntSeverity[1]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntInformation" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntInformation" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntSeverity[2]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntWarning" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntWarning" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntSeverity[3]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntError" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntError" attribute="value" />
 		</Binding>	
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterDateStart" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="dtDateStart" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="dtDateStart" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterDateEnd" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="dtDateEnd" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="dtDateEnd" attribute="value" />
 		</Binding>	
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.Sorting" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="btnTimestampSorting" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="btnTimestampSorting" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.StatusText" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="txtStatusText" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="txtStatusText" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntLogbook[0]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntAccessSecurity" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntAccessSecurity" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntLogbook[1]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntCommissioning" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntCommissioning" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntLogbook[2]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntConnectivity" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntConnectivity" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntLogbook[3]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntFieldbus" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntFieldbus" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntLogbook[4]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntFirewall" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntFirewall" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntLogbook[5]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntMapp" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntMapp" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntLogbook[6]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntMotion" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntMotion" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntLogbook[7]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntSafety" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntSafety" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntLogbook[8]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntSystem" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntSystem" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntLogbook[9]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntTextSystem" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntTextSystem" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntLogbook[10]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntUnitSystem" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntUnitSystem" attribute="value" />
 		</Binding>	
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntLogbook[11]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntUser" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntUser" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntLogbook[12]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntVision" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntVision" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.CntLogbook[13]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCntVisualization" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCntVisualization" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterErrorText" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="txtFilterErrorText" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="txtFilterErrorText" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.AbortOnEntriesLimit" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkStopMaxEntries" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkStopMaxEntries" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Cmd.Refresh" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="btnRefresh" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="btnRefresh" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterLogbook[0]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterAccSec" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterAccSec" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterLogbook[1]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterCommissioning" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterCommissioning" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterLogbook[2]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterConnectivity" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterConnectivity" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterLogbook[3]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterFieldbus" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterFieldbus" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterLogbook[4]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterFirewall" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterFirewall" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterLogbook[5]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterMapp" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterMapp" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterLogbook[6]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterMotion" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterMotion" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterLogbook[7]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterSafety" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterSafety" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterLogbook[8]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterSystem" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterSystem" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterLogbook[9]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterTextSystem" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterTextSystem" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterLogbook[10]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterUnitSystem" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterUnitSystem" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterLogbook[11]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterUser" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterUser" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterLogbook[12]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterVision" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterVision" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterLogbook[13]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterVisualization" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterVisualization" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterSeverity[3]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterError" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterError" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterSeverity[2]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterWarning" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterWarning" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterSeverity[1]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterInformation" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterInformation" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.FilterSeverity[0]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkFilterNotification" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkFilterNotification" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.EntriesMax" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numEntriesTotalMax" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numEntriesTotalMax" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.AutoUpdate" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="chkAutoUpdate" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="chkAutoUpdate" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.AutoUpdateInterval" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numAutoUpdate" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numAutoUpdate" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.CreateErrorNo" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="numCreateErrorNo" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="numCreateErrorNo" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.CreateErrorText" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="txtCreateErrorText" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="txtCreateErrorText" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Par.CreateSeverity" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="ddbSeverity" attribute="selectedIndex" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="ddbSeverity" attribute="selectedIndex" />
 		</Binding>
 
 
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.Entries.Severity" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="tblSeverity" attribute="selectedIndex" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="tblSeverity" attribute="selectedIndex" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.Entries.Timestamp" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="tblTimestamp" attribute="stringValue" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="tblTimestamp" attribute="stringValue" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.Entries.ErrorNo" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="tblErrorNo" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="tblErrorNo" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.Entries.ErrorText" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="tblErrorText" attribute="stringValue" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="tblErrorText" attribute="stringValue" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::AsGlobalPV:LogbookInterface.Data.Entries.LogbookName" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trackLogbookContent" widgetRefId="tblLogbookName" attribute="stringValue" />
+			<Target xsi:type="brease" contentRefId="trakLogbookContent" widgetRefId="tblLogbookName" attribute="stringValue" />
 		</Binding>
 </Bindings>
 </BindingsSet>

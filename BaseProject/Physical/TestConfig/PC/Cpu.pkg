@@ -17,7 +17,7 @@
     <Object Type="Package">mappView</Object>
     <Object Type="Package">mappVision</Object>
     <Object Type="Package">mappCockpit</Object>
-    <Object Type="Package">TrackMod</Object>
+    <Object Type="Package">TrakMod</Object>
     <Object Type="Package">Diag</Object>
   </Objects>
   <Configuration ModuleId="PC_any">

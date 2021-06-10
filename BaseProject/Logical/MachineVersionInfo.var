@@ -1,4 +1,4 @@
 VAR
-	MachineSoftwareVersion : STRING[80] := 'dev-trackmap-1.0.0-9-a95ed10';
-	MachineLastRevisionDate : DATE_AND_TIME := DT#2021-06-02-09:17;
+	MachineSoftwareVersion : STRING[80] := 'dev-trackmap-1.0.0-4-3792ac1';
+	MachineLastRevisionDate : DATE_AND_TIME := DT#2021-04-30-11:50;
 END_VAR

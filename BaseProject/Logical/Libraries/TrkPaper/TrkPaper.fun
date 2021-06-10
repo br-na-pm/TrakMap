@@ -1,5 +1,5 @@
 
-FUNCTION_BLOCK TrkPaperCore (*Core Track Paper Function Block*)
+FUNCTION_BLOCK TrkPaperCore (*Core Trak Paper Function Block*)
 	VAR_INPUT
 		Enable : BOOL; (*Enables the core functionality*)
 		ErrorRest : BOOL; (*Reset any present errors*)
@@ -17,7 +17,7 @@ FUNCTION_BLOCK TrkPaperCore (*Core Track Paper Function Block*)
 		SvgTransform : STRING[trkPAPER_CORE_MAX_STR_LEN]; (*SVG Transform string to tie to a paper widget*)
 		SvgContent : STRING[trkPAPER_CORE_MAX_STR_LEN]; (*SVG Content string to tie to a Paper widget*)
 		StrLengths : TrkPaperCoreSvgLengthsType; (*Diagnostic viewer to see current lengths of SVG Content/Transform*)
-		Handle : UDINT; (*Handle used for other Track Master Function Blocks*)
+		Handle : UDINT; (*Handle used for other Trak Master Function Blocks*)
 	END_VAR
 	VAR
 		Internal : TrkPaperCoreInternalType; (*Internal data type*)
@@ -27,7 +27,7 @@ END_FUNCTION_BLOCK
 FUNCTION_BLOCK TrkPaperShuttleControl (*Shuttle Control Function Block*)
 	VAR_INPUT
 		Enable : BOOL; (*Enables the shuttle controller*)
-		Handle : UDINT; (*Handle of the Core Track Master Function Block*)
+		Handle : UDINT; (*Handle of the Core Trak Master Function Block*)
 		SelectedElem : STRING[80]; (*Selected Element String that is populated from a Paper Widget*)
 		ElasticMoveAbs : BOOL; (*Command to send shuttle on Elastic Move Absolute*)
 		ElasticMoveAdd : BOOL; (*Command to send shuttle on Elastic Move Additive*)

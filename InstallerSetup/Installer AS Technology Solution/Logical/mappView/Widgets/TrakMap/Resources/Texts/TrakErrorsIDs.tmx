@@ -367,12 +367,12 @@
     </tu>
     <tu tuid="Code.12296">
       <tuv xml:lang="en">
-        <seg>The track containing the base segment must be configured prior to the track positioned relatively to that.</seg>
+        <seg>The Trak containing the base segment must be configured prior to the Trak positioned relatively to that.</seg>
       </tuv>
     </tu>
     <tu tuid="Code.12297">
       <tuv xml:lang="en">
-        <seg>Track wrong anchor segment</seg>
+        <seg>Trak wrong anchor segment</seg>
       </tuv>
     </tu>
     <tu tuid="Code.12298">
@@ -407,12 +407,12 @@
     </tu>
     <tu tuid="Code.12304">
       <tuv xml:lang="en">
-        <seg>Value for track separation not possible</seg>
+        <seg>Value for Trak separation not possible</seg>
       </tuv>
     </tu>
     <tu tuid="Code.12305">
       <tuv xml:lang="en">
-        <seg>Anchor segment has to be an element of track.</seg>
+        <seg>Anchor segment has to be an element of Trak.</seg>
       </tuv>
     </tu>
     <tu tuid="Code.12307">
@@ -482,7 +482,7 @@
     </tu>
     <tu tuid="Code.12333">
       <tuv xml:lang="en">
-        <seg>Faulty positioning of track cannot be positioned.</seg>
+        <seg>Faulty positioning of Trak cannot be positioned.</seg>
       </tuv>
     </tu>
     <tu tuid="Code.12334">
@@ -537,22 +537,22 @@
     </tu>
     <tu tuid="Code.12345">
       <tuv xml:lang="en">
-        <seg>Faulty assembly - the arrangement of segments leads to a junction node without dual-track area.</seg>
+        <seg>Faulty assembly - the arrangement of segments leads to a junction node without dual-Trak area.</seg>
       </tuv>
     </tu>
     <tu tuid="Code.12346">
       <tuv xml:lang="en">
-        <seg>Faulty assembly - segments are parallel. Only single- and double-track areas are permitted.</seg>
+        <seg>Faulty assembly - segments are parallel. Only single- and double-Trak areas are permitted.</seg>
       </tuv>
     </tu>
     <tu tuid="Code.12347">
       <tuv xml:lang="en">
-        <seg>Faulty assembly - dual-track areas are incident to a junction node, but exactly one should be.</seg>
+        <seg>Faulty assembly - dual-Trak areas are incident to a junction node, but exactly one should be.</seg>
       </tuv>
     </tu>
     <tu tuid="Code.12348">
       <tuv xml:lang="en">
-        <seg>Faulty assembly - a dual-track area comb has insufficient length.</seg>
+        <seg>Faulty assembly - a dual-Trak area comb has insufficient length.</seg>
       </tuv>
     </tu>
     <tu tuid="Code.4007">

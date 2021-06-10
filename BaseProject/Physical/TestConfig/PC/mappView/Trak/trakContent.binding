@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="trakContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Bindings>
+	
+		<Binding mode="twoWay">
+			<Source xsi:type="session" refId="AsmPowerOn" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakMainContent" widgetRefId="ToggleButton10" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="session" refId="AsmRdyToPwrOn" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakMainContent" widgetRefId="ToggleButton5" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="session" refId="AsmDisabled" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakMainContent" widgetRefId="ToggleButton8" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="session" refId="AsmReady" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakMainContent" widgetRefId="ToggleButton7" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="session" refId="AsmErrorStop" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakMainContent" widgetRefId="ToggleButton9" attribute="value" />
+		</Binding>
+	</Bindings>
+</BindingsSet>

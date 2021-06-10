@@ -10,8 +10,8 @@
     <Object Type="Package">SVG</Object>
     <Object Type="Package">Logbook</Object>
     <Object Type="File">SampleTrackMap.svg</Object>
-    <Object Type="File">TrackMap.svg</Object>
-    <Object Type="File">TrackMapLogo.svg</Object>
-    <Object Type="File">TrackMapLogo.png</Object>
+    <Object Type="File">TrakMap.svg</Object>
+    <Object Type="File">TrakMapLogo.svg</Object>
+    <Object Type="File">TrakMapLogo.png</Object>
   </Objects>
 </Package>
