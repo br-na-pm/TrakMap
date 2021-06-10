@@ -51,8 +51,6 @@ struct TrkPaperCoreViewBoxCfgType* viewBox){
 
 DINT StartSVGTransformStrings(char* svgTransform){
 	
-	char tmp[150];
-	
 	brsmemset((uintptr_t)svgTransform,0,sizeof(*svgTransform));
 	
 	if(CheckStrLen(svgTransform,(char*)&"[",trkPAPER_CORE_MAX_STR_LEN)){
@@ -152,22 +150,13 @@ USINT SegmentCount){
 }
 
 DINT BuildShuttlePolygon(char* dest,
-	USINT idx, 
-	LREAL length,
-	LREAL width,
-	UDINT userDataAdr){
+	USINT idx){
 	
 	char tmp[150];
 	
 
-	snprintf2(tmp,150,"<polygon id=\"sh%d\" points=\"0,0 %0f,0 , %f,%f %f,%f 0,%f\" style=\"fill:rgb(150,150,150);\"/>",
-		idx,	//polygon index
-		(length-width/2.0),//p1.x
-		(length),	//p1.y
-		(width/2.0), //p2.x
-		(length-width/2.0),//p2.y
-		(width),//p2.x
-		(width)); //p3.y
+	snprintf2(tmp,150,"<circle id=\"sh%d\" x=\"1.322\" y=\"-0.249\" r=\"0.05\" cx=\"0.007\" style=\"fill:rgb(150,150,150);\"/>",
+		idx); //circle index
 	
 	if(CheckStrLen(dest,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
 		brsstrcat((uintptr_t)dest,(uintptr_t)&tmp);
@@ -189,12 +178,10 @@ DINT BuildShuttleStrings(struct McAcpTrakAssemblyMonData* mon,
 		
 		LREAL width;
 		LREAL length;
-		LREAL shCenterX;
-		LREAL shCenterY;
 		
-		//Initialize Dimensions for polygons
-		width = 40.0 / 1000.0;
-		length = 50.0 / 1000.0;
+		//Init Dimensions
+		width = 0.04;
+		length = 0.05;
 	
 		snprintf2(tmp,150,"<g id=\"Shuttle%d\">",i);
 		if(CheckStrLen(svgContent,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
@@ -204,13 +191,13 @@ DINT BuildShuttleStrings(struct McAcpTrakAssemblyMonData* mon,
 			return trkPAPER_CORE_ERR_STR_LEN_EXCD;
 			
 		DINT returnVal;
-		returnVal = BuildShuttlePolygon(svgContent,i,length,width,mon->Shuttle[i].UserData);
+		returnVal = BuildShuttlePolygon(svgContent,i);
 		if(returnVal!= trkPAPER_CORE_ERR_OK)
 			return returnVal;
 			
 		snprintf2(tmp,150,"<text x=\"%f\" y=\"%f\" text-decoration=\"underline\" font-weight=\"bold\" font-size=\"0.035px\">%d</text>",
 			mon->Shuttle[i].ExtentToBack / 2000.0,
-			width * 3.0 / 4.0,
+			width * 0.4,
 			i);
 		if(CheckStrLen(svgContent,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
 			brsstrcat((uintptr_t)svgContent,(uintptr_t)&tmp);
@@ -257,35 +244,18 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,char* svg
 		if(mon->Shuttle[i].Available){
 			brsmemset((uintptr_t)&tmp,0,sizeof(tmp));
 		
-			LREAL width;
-			LREAL length;
 			LREAL shCenterX;
 			LREAL shCenterY;
 			
-			width = mon->Shuttle[i].Width / 1000.0;
-			length = (mon->Shuttle[i].ExtentToBack + mon->Shuttle[i].ExtentToFront)/ 1000.0;
-			shCenterX = mon->Shuttle[i].Position.X / 1000.0 - mon->Shuttle[i].ExtentToBack / 1000.0;
-			shCenterY = -(mon->Shuttle[i].Position.Y / 1000.0 + width / 2.0);
+			shCenterX = mon->Shuttle[i].Position.X / 1000.0;
+			shCenterY = -(mon->Shuttle[i].Position.Y / 1000.0);
 	
 			//Preform translation
-			snprintf2(tmp,150,",{\"select\":\"#Shuttle%d\",\"duration\":200,\"display\":true,\"translate\":[%f,%f]}",
+			snprintf2(tmp,150,",{\"select\":\"#Shuttle%d\",\"duration\":100,\"display\":true,\"translate\":[%f,%f]}",
 				i,
 				shCenterX,
 				shCenterY
-				); //Spin center y);
-			if(CheckStrLen(svgTransform,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
-				brsstrcat((uintptr_t)svgTransform,(uintptr_t)&tmp);
-			}
-			else 
-				return trkPAPER_CORE_ERR_STR_LEN_EXCD;
-			
-			//Preform rotation
-			snprintf2(tmp,150,",{\"select\":\"#sh%d\",\"duration\":1,\"display\":true,\"spin\":[%f,%f,%f]}",
-				i,
-				-mon->Shuttle[i].Orientation.Angle1,
-				length/2.0,
-				width/2.0
-				); //Spin center y);
+				);
 			if(CheckStrLen(svgTransform,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
 				brsstrcat((uintptr_t)svgTransform,(uintptr_t)&tmp);
 			}

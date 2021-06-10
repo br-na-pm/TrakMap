@@ -1,4 +1,4 @@
 VAR
-	MachineSoftwareVersion : STRING[80] := 'VTLO-14_Shuttle_Implementation-1.0.0-21-f710e81';
-	MachineLastRevisionDate : DATE_AND_TIME := DT#2021-06-10-11:49;
+	MachineSoftwareVersion : STRING[80] := 'VTLO-14_Shuttle_Implementation-1.0.0-22-e27f69f';
+	MachineLastRevisionDate : DATE_AND_TIME := DT#2021-06-10-12:32;
 END_VAR
