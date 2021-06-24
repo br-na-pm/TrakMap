@@ -10,6 +10,11 @@ PROGRAM _INIT
 	paperCore.Assembly := ADR(DiagInterface.SampleTrak);
 	paperCore.ShuttleMon := ADR(DiagInterface.ShuttleMon);
 	
+	paperOptions.Color.Offset := SIZEOF(UDINT);
+	paperOptions.Segment.Enabled := TRUE;
+	paperOptions.Shuttle.Enabled := TRUE;
+	paperOptions.Color.Enabled := TRUE;
+	
 	//Replace with generated SVG ViewBox Values in format viewBox="MinX MinY Width Height"
 	paperCore.ViewBoxCfg.MinX := -0.735577;
 	paperCore.ViewBoxCfg.MinY := -0.115;

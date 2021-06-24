@@ -2,7 +2,21 @@
 TYPE
 	ShuttleUserDataType : 	STRUCT  (*Shuttle data type definition - application specific*)
 		ID : UINT; (*Shuttle ID assigned during homing*)
+		Color : enumUserColor;
 	END_STRUCT;
+	enumUserColor : 
+		(
+		GRAY := 0,
+		BLUE := 1,
+		RED := 2,
+		GREEN := 3,
+		YELLOW := 4,
+		ORANGE := 5,
+		WHITE := 6,
+		BLACK := 7,
+		PINK := 8,
+		PURPLE := 9
+		);
 	SubroutineSequenceType : 	STRUCT  (*Subroutine sequence structure for a module*)
 		Cmd : SubroutineSequenceCommandType; (*Subroutine commands (inputs)*)
 		Status : SubroutineSequenceStatusType; (*Subroutine statuses (outputs)*)
@@ -11,6 +25,7 @@ TYPE
 		Start : BOOL; (*Initiate the subroutine execution when the status reports ready*)
 		Stop : BOOL; (*If the main routine is no longer in a proper state to execute the subroutine, stop the subroutine*)
 		ErrorReset : BOOL; (*Command to reset the subroutine if in error*)
+		Cycle : BOOL;
 	END_STRUCT;
 	SubroutineSequenceStatusType : 	STRUCT  (*Subroutine segeuqnce status variables*)
 		Ready : BOOL; (*The subroutine is ready to start*)

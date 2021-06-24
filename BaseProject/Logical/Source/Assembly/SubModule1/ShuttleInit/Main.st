@@ -39,7 +39,7 @@ PROGRAM _CYCLIC
 			ShInit.Status.Ready := TRUE;
 			
 			// Wait to start
-			IF ShInit.Cmd.Start AND ShInit.Cmd.Stop = FALSE THEN
+			IF (ShInit.Cmd.Start OR ShInit.Cmd.Cycle) AND ShInit.Cmd.Stop = FALSE THEN
 				// Clear the shuttle buffer
 				BufferReturnIndex := TrBaseClearShBuffer(ADR(gTrakSystem.Buffer), SIZEOF(gTrakSystem.Buffer));
 				IF BufferReturnIndex = trBASE_NO_ERROR THEN
@@ -141,6 +141,8 @@ PROGRAM _CYCLIC
 				
 				// Set the shuttle ID (if not already set)
 				ShuttleUserData.ID := fbAsmGetShuttle.AdditionalInfo.ShuttleID;
+				ShuttleUserData.Color := (colorIndex / 200) MOD 10;
+				colorIndex := colorIndex + 1;
 				
 			END_IF
 			
@@ -204,7 +206,7 @@ PROGRAM _CYCLIC
 			ShInit.Status.Complete := TRUE;
 			
 			// Return to INIT when the state command is reset
-			IF ShInit.Cmd.Start = FALSE THEN
+			IF ShInit.Cmd.Start = FALSE OR ShInit.Cmd.Cycle THEN
 				// Go to INIT
 				ShInitState := 0;
 			END_IF

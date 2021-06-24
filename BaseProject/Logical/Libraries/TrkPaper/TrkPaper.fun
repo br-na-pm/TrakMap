@@ -46,6 +46,3 @@ FUNCTION_BLOCK TrkPaperShuttleControl (*Shuttle Control Function Block*)
 		Internal : TrkPaperShuttleCtrlInternalType; (*Internal data type*)
 	END_VAR
 END_FUNCTION_BLOCK
-
-FUNCTION_BLOCK TrkPaperShuttleFeature (*Shuttle Feature Function Block*)
-END_FUNCTION_BLOCK

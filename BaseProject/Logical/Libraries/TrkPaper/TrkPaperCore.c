@@ -232,14 +232,25 @@ DINT BuildShuttleStrings(struct McAcpTrakAssemblyMonData* mon,
 
 //This function loops through the assembly monitor data and builds a Transform string. Will return 0 if succesful
 //Will monitor to make sure the string lengths are not exceeded
-DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,char* svgTransform){
+DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
+	char* svgTransform,
+	struct TrkPaperCoreOptionsType* trkOptions){
+	
 	USINT i;
-	USINT transCounter;
-	transCounter = 0;
+	UDINT fillIndex;
 	char tmp[150];
 	
 	for (i = 0; i < trkPAPER_MAX_SHUTTLE_COUNT; i++){
-		if(mon->Shuttle[i].Available){
+		
+		if(trkOptions->Segment.Enabled){
+			if(CheckStrLen(svgTransform,(char*)&",",trkPAPER_CORE_MAX_STR_LEN)){
+				brsstrcat((uintptr_t)svgTransform,(uintptr_t)&",");
+			}
+			else 
+				return trkPAPER_CORE_MAX_STR_LEN;	
+		}
+		
+		if(mon->Shuttle[i].Available && trkOptions->Shuttle.Enabled){
 			brsmemset((uintptr_t)&tmp,0,sizeof(tmp));
 		
 			LREAL shCenterX;
@@ -248,8 +259,8 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,char* svg
 			shCenterX = mon->Shuttle[i].Position.X / 1000.0;
 			shCenterY = -(mon->Shuttle[i].Position.Y / 1000.0);
 	
-			//Preform translation
-			snprintf2(tmp,150,",{\"select\":\"#Shuttle%d\",\"duration\":100,\"display\":true,\"translate\":[%f,%f]}",
+			//Perform translation
+			snprintf2(tmp,150,"{\"select\":\"#Shuttle%d\",\"duration\":100,\"display\":true,\"translate\":[%f,%f]}",
 				i,
 				shCenterX,
 				shCenterY
@@ -259,11 +270,26 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,char* svg
 			}
 			else 
 				return trkPAPER_CORE_ERR_STR_LEN_EXCD;
-			transCounter++;
+			
+			//Perform fill
+			if(trkOptions->Color.Enabled){
+				//Grab Fill Index
+				brsmemcpy(&fillIndex,mon->Shuttle[i].UserData + trkOptions->Color.Offset,sizeof(UDINT));
+				snprintf2(tmp,150,",{\"select\":\"#sh%d\",\"fill\":%d,\"duration\":1}",
+					i,
+					fillIndex + trkPAPER_SEG_COLOR_OFFSET//offset shuttle fill index by segment colors
+					);
+				if(CheckStrLen(svgTransform,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
+					brsstrcat((uintptr_t)svgTransform,(uintptr_t)&tmp);
+				}
+				else 
+					return trkPAPER_CORE_ERR_STR_LEN_EXCD;
+			}
+			
 				
 		}else{
 			//Hide Shuttle
-			snprintf2(tmp,150,",{\"select\":\"#Shuttle%d\",\"display\":false,\"duration\":1}",
+			snprintf2(tmp,150,"{\"select\":\"#Shuttle%d\",\"display\":false,\"duration\":1}",
 				i);
 			if(CheckStrLen(svgTransform,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
 				brsstrcat((uintptr_t)svgTransform,(uintptr_t)&tmp);
@@ -272,6 +298,14 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,char* svg
 				return trkPAPER_CORE_ERR_STR_LEN_EXCD;
 
 		
+		}
+		
+		if(!trkOptions->Segment.Enabled && i < (trkPAPER_MAX_SHUTTLE_COUNT - 1)){
+			if(CheckStrLen(svgTransform,(char*)&",",trkPAPER_CORE_MAX_STR_LEN)){
+				brsstrcat((uintptr_t)svgTransform,(uintptr_t)&",");
+			}
+			else 
+				return trkPAPER_CORE_ERR_STR_LEN_EXCD;	
 		}
 	}
 	//No Error, finished everything return OK
@@ -358,8 +392,11 @@ void TrkPaperCore(struct TrkPaperCore* inst)
 		case trkPAPER_CORE_RUNNING:
 			StartSVGTransformStrings((char*)&inst->SvgTransform);
 			
-			inst->ErrorID = BuildSegmentStrings((char*)&inst->SvgContent,(char*)&inst->SvgTransform,inst->Segments,inst->SegmentCount);
-			inst->ErrorID = BuildShuttleTransformStrings(inst->ShuttleMon,(char*)&inst->SvgTransform);
+			if(inst->Options->Segment.Enabled){
+				inst->ErrorID = BuildSegmentStrings((char*)&inst->SvgContent,(char*)&inst->SvgTransform,inst->Segments,inst->SegmentCount);
+			}
+		
+			inst->ErrorID = BuildShuttleTransformStrings(inst->ShuttleMon,(char*)&inst->SvgTransform,inst->Options);
 			
 			CloseSVGTransformStrings((char*)&inst->SvgTransform);
 			inst->StrLengths.ContentLength = brdkStrLen((uintptr_t)&inst->SvgContent);

@@ -5,14 +5,9 @@ TYPE
 		Present : BOOL; (*Axis is present and a valid reference exists*)
 		Axis : McAxisType; (*Axis information*)
 	END_STRUCT;
-	TrkPaperCoreColorOffsetsType : 	STRUCT  (*Userdata color offsets*)
-		Red : UDINT; (*Offset for UserData address for the Red color in USINT*)
-		Green : UDINT; (*Offset for UserData address for the Green color in USINT*)
-		Blue : UDINT; (*Offset for UserData address for the Blue color in USINT*)
-	END_STRUCT;
 	TrkPaperCoreColorOptionType : 	STRUCT  (*Shuttle Color Option*)
 		Enabled : BOOL; (*Option is enabled*)
-		Offsets : TrkPaperCoreColorOffsetsType; (*Userdata color offsets*)
+		Offset : UDINT; (*Userdata color offsets*)
 	END_STRUCT;
 	TrkPaperCoreErrorEnum : 
 		( (*Error Enumeration*)
@@ -32,8 +27,12 @@ TYPE
 		AsmGetShuttle : MC_BR_AsmGetShuttle_AcpTrak;
 	END_STRUCT;
 	TrkPaperCoreOptionsType : 	STRUCT  (*Options for Core Function Block*)
-		Color : TrkPaperCoreColorOptionType; (*Shuttle Color Option*)
+		Segment : TrkPaperCoreSegmentOptionType;
 		Shuttle : TrkPaperCoreShuttleOptionType; (*Shuttle Option*)
+		Color : TrkPaperCoreColorOptionType; (*Shuttle Color Option*)
+	END_STRUCT;
+	TrkPaperCoreSegmentOptionType : 	STRUCT  (*Shuttle Option*)
+		Enabled : BOOL; (*Option is enabled*)
 	END_STRUCT;
 	TrkPaperCoreShuttleOptionType : 	STRUCT  (*Shuttle Option*)
 		Enabled : BOOL; (*Option is enabled*)

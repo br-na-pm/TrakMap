@@ -1,5 +1,6 @@
 (*Shuttle initialization variables*)
 VAR
+	colorIndex : UDINT;
 	BufferReturnIndex : TrBaseErrorCodeEnum;
 	fbAsmGetShuttle : MC_BR_AsmGetShuttle_AcpTrak;
 	fbShCopyUserData : MC_BR_ShCopyUserData_AcpTrak;
