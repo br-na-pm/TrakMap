@@ -107,4 +107,17 @@ TYPE
 		Idx : USINT; (*Selected Index for the axis lookup table*)
 		LastIdx : USINT; (*Last cycle selected index for the axis lookup table*)
 	END_STRUCT;
+	TrkPaperColorEnum : 
+		(
+		GRAY := 0,
+		BLUE := 1,
+		RED := 2,
+		GREEN := 3,
+		YELLOW := 4,
+		ORANGE := 5,
+		WHITE := 6,
+		BLACK := 7,
+		PINK := 8,
+		PURPLE := 9
+		);
 END_TYPE

@@ -2,21 +2,8 @@
 TYPE
 	ShuttleUserDataType : 	STRUCT  (*Shuttle data type definition - application specific*)
 		ID : UINT; (*Shuttle ID assigned during homing*)
-		Color : enumUserColor;
+		Color : TrkPaperColorEnum;
 	END_STRUCT;
-	enumUserColor : 
-		(
-		GRAY := 0,
-		BLUE := 1,
-		RED := 2,
-		GREEN := 3,
-		YELLOW := 4,
-		ORANGE := 5,
-		WHITE := 6,
-		BLACK := 7,
-		PINK := 8,
-		PURPLE := 9
-		);
 	SubroutineSequenceType : 	STRUCT  (*Subroutine sequence structure for a module*)
 		Cmd : SubroutineSequenceCommandType; (*Subroutine commands (inputs)*)
 		Status : SubroutineSequenceStatusType; (*Subroutine statuses (outputs)*)
