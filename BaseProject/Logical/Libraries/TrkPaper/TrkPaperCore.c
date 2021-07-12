@@ -305,6 +305,14 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
 	}
 	
 	for (i = maxIndex; i < trkPAPER_MAX_SHUTTLE_COUNT; i++){
+		
+		if(trkOptions->Segment.Enabled && i != maxIndex){
+			if(CheckStrLen(svgTransform,(char*)&",",trkPAPER_CORE_MAX_STR_LEN)){
+				brsstrcat((uintptr_t)svgTransform,(uintptr_t)&",");
+			}
+			else 
+				return trkPAPER_CORE_MAX_STR_LEN;	
+		}
 	
 		//Hide Shuttle
 		snprintf2(tmp,150,"{\"select\":\"#Shuttle%d\",\"display\":false,\"duration\":1}",
