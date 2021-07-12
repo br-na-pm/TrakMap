@@ -173,7 +173,7 @@ DINT BuildShuttleStrings(struct McAcpTrakAssemblyMonData* mon,
 	USINT i;
 	char tmp[150];
 	
-	for (i = 0; i < trkPAPER_MAX_SHUTTLE_COUNT; i++){
+	for (i = 1; i < trkPAPER_MAX_SHUTTLE_COUNT; i++){
 		brsmemset((uintptr_t)&tmp,0,sizeof(tmp));
 		
 		LREAL width;
@@ -195,7 +195,8 @@ DINT BuildShuttleStrings(struct McAcpTrakAssemblyMonData* mon,
 		if(returnVal!= trkPAPER_CORE_ERR_OK)
 			return returnVal;
 			
-		snprintf2(tmp,150,"<text  x=\"0\" y=\"0\" dominant-baseline=\"middle\" text-anchor=\"middle\" text-decoration=\"underline\" font-weight=\"bold\" font-size=\"0.035px\">%d</text>",
+		snprintf2(tmp,150,"<text id=\"tx%d\" x=\"0\" y=\"0\" dominant-baseline=\"middle\" text-anchor=\"middle\" text-decoration=\"underline\" font-weight=\"bold\" font-size=\"0.035px\">%d</text>",
+			i,
 			i);
 		if(CheckStrLen(svgContent,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
 			brsstrcat((uintptr_t)svgContent,(uintptr_t)&tmp);
@@ -239,6 +240,7 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
 	USINT i;
 	UDINT fillIndex;
 	char tmp[150];
+	UDINT maxIndex;
 	
 	for (i = 0; i < trkPAPER_MAX_SHUTTLE_COUNT; i++){
 		
@@ -261,7 +263,7 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
 	
 			//Perform translation
 			snprintf2(tmp,150,"{\"select\":\"#Shuttle%d\",\"duration\":100,\"display\":true,\"translate\":[%f,%f]}",
-				i,
+				mon->Shuttle[i].Index,
 				shCenterX,
 				shCenterY
 				);
@@ -276,7 +278,7 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
 				//Grab Fill Index
 				brsmemcpy(&fillIndex,mon->Shuttle[i].UserData + trkOptions->Color.Offset,sizeof(UDINT));
 				snprintf2(tmp,150,",{\"select\":\"#sh%d\",\"fill\":%d,\"duration\":1}",
-					i,
+					mon->Shuttle[i].Index,
 					fillIndex + trkPAPER_SEG_COLOR_OFFSET//offset shuttle fill index by segment colors
 					);
 				if(CheckStrLen(svgTransform,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
@@ -288,16 +290,8 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
 			
 				
 		}else{
-			//Hide Shuttle
-			snprintf2(tmp,150,"{\"select\":\"#Shuttle%d\",\"display\":false,\"duration\":1}",
-				i);
-			if(CheckStrLen(svgTransform,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
-				brsstrcat((uintptr_t)svgTransform,(uintptr_t)&tmp);
-			}
-			else 
-				return trkPAPER_CORE_ERR_STR_LEN_EXCD;
-
-		
+			maxIndex = i;
+			break;
 		}
 		
 		if(!trkOptions->Segment.Enabled && i < (trkPAPER_MAX_SHUTTLE_COUNT - 1)){
@@ -307,7 +301,29 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
 			else 
 				return trkPAPER_CORE_ERR_STR_LEN_EXCD;	
 		}
+		
 	}
+	
+	for (i = maxIndex; i < trkPAPER_MAX_SHUTTLE_COUNT; i++){
+	
+		//Hide Shuttle
+		snprintf2(tmp,150,"{\"select\":\"#Shuttle%d\",\"display\":false,\"duration\":1}",
+			i);
+		if(CheckStrLen(svgTransform,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
+			brsstrcat((uintptr_t)svgTransform,(uintptr_t)&tmp);
+		}
+		else 
+			return trkPAPER_CORE_ERR_STR_LEN_EXCD;
+		
+		if(!trkOptions->Segment.Enabled && i < (trkPAPER_MAX_SHUTTLE_COUNT - 1)){
+			if(CheckStrLen(svgTransform,(char*)&",",trkPAPER_CORE_MAX_STR_LEN)){
+				brsstrcat((uintptr_t)svgTransform,(uintptr_t)&",");
+			}
+			else 
+				return trkPAPER_CORE_ERR_STR_LEN_EXCD;	
+		}
+	}
+		
 	//No Error, finished everything return OK
 	return trkPAPER_CORE_ERR_OK;
 }
