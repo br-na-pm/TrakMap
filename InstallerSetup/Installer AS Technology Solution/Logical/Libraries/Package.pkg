@@ -6,5 +6,7 @@
     <Object Type="Library" Language="ANSIC">brdkSTR</Object>
     <Object Type="Library" Language="ANSIC">TrkDiag</Object>
     <Object Type="Library" Language="ANSIC">TrkPaper</Object>
+    <Object Type="Library" Language="binary" Description="The AsIODiag library provides functions for creating and evaluating I/O module information.">AsIODiag</Object>
+    <Object Type="Library" Language="binary" Description="This library contains standard function blocks and functions for IEC 61131-3.">standard</Object>
   </Objects>
 </Package>

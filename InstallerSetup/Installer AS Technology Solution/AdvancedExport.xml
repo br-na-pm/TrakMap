@@ -5,7 +5,7 @@
   <Property Name="Height" Value="0" />
   <Property Name="AvailableForAllResolutions" Value="false" />
   <Descriptions>
-    <Description Language="en" Value="The track paper widget library provides a convenient wrapper to automatically build the SVG strings for an entire track system for the paper widget. The library utilizes the prebuilt SVG from the track system (post processed) in combination with acp trak status blocks to build a simple drop in widget to show the status of an acp trak system.
+    <Description Language="en" Value="The trak paper widget library provides a convenient wrapper to automatically build the SVG strings for an entire trak system for the paper widget. The library utilizes the prebuilt SVG from the trak system (post processed) in combination with acp trak status blocks to build a simple drop in widget to show the status of an acp trak system.
 
 " />
   </Descriptions>

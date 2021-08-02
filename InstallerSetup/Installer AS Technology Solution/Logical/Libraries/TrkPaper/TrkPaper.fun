@@ -3,6 +3,8 @@ FUNCTION_BLOCK TrkPaperCore (*Core Trak Paper Function Block*)
 	VAR_INPUT
 		Enable : BOOL; (*Enables the core functionality*)
 		ErrorRest : BOOL; (*Reset any present errors*)
+		Assembly : REFERENCE TO McAssemblyType; (*Assembly reference to monitor*)
+		ShuttleMon : REFERENCE TO McAcpTrakAssemblyMonData; (*Shuttle Monitor structure for the assembly*)
 		Segments : REFERENCE TO TrkDiagSegmentType; (*Address of the segment list for the system*)
 		SegmentCount : USINT; (*Count of the segments in the system*)
 		ViewBoxCfg : TrkPaperCoreViewBoxCfgType; (*View box configuration for the SVG*)
@@ -43,7 +45,4 @@ FUNCTION_BLOCK TrkPaperShuttleControl (*Shuttle Control Function Block*)
 	VAR
 		Internal : TrkPaperShuttleCtrlInternalType; (*Internal data type*)
 	END_VAR
-END_FUNCTION_BLOCK
-
-FUNCTION_BLOCK TrkPaperShuttleFeature (*Shuttle Feature Function Block*)
 END_FUNCTION_BLOCK

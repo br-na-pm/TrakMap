@@ -5,14 +5,9 @@ TYPE
 		Present : BOOL; (*Axis is present and a valid reference exists*)
 		Axis : McAxisType; (*Axis information*)
 	END_STRUCT;
-	TrkPaperCoreColorOffsetsType : 	STRUCT  (*Userdata color offsets*)
-		Red : UDINT; (*Offset for UserData address for the Red color in USINT*)
-		Green : UDINT; (*Offset for UserData address for the Green color in USINT*)
-		Blue : UDINT; (*Offset for UserData address for the Blue color in USINT*)
-	END_STRUCT;
 	TrkPaperCoreColorOptionType : 	STRUCT  (*Shuttle Color Option*)
 		Enabled : BOOL; (*Option is enabled*)
-		Offsets : TrkPaperCoreColorOffsetsType; (*Userdata color offsets*)
+		Offset : UDINT; (*Userdata color offsets*)
 	END_STRUCT;
 	TrkPaperCoreErrorEnum : 
 		( (*Error Enumeration*)
@@ -24,10 +19,20 @@ TYPE
 	TrkPaperCoreInternalType : 	STRUCT  (*Internal Datatype*)
 		TypeID : UDINT; (*TypeID to help with handle application*)
 		State : USINT; (*State of execution*)
+		Axes : ARRAY[0..trkPAPER_MAX_SHUTLE_ARRAY]OF TrkPaperCoreAxisLookupType; (*Axis Lookup table based on the current Shuttle Index*)
+		Fbs : TrkPaperCoreFbTyps; (*Internal Function blocks*)
+		ShCount : USINT; (*Shuttle Count*)
+	END_STRUCT;
+	TrkPaperCoreFbTyps : 	STRUCT  (*Internal Function blocks*)
+		AsmGetShuttle : MC_BR_AsmGetShuttle_AcpTrak;
 	END_STRUCT;
 	TrkPaperCoreOptionsType : 	STRUCT  (*Options for Core Function Block*)
-		Color : TrkPaperCoreColorOptionType; (*Shuttle Color Option*)
+		Segment : TrkPaperCoreSegmentOptionType;
 		Shuttle : TrkPaperCoreShuttleOptionType; (*Shuttle Option*)
+		Color : TrkPaperCoreColorOptionType; (*Shuttle Color Option*)
+	END_STRUCT;
+	TrkPaperCoreSegmentOptionType : 	STRUCT  (*Shuttle Option*)
+		Enabled : BOOL; (*Option is enabled*)
 	END_STRUCT;
 	TrkPaperCoreShuttleOptionType : 	STRUCT  (*Shuttle Option*)
 		Enabled : BOOL; (*Option is enabled*)
@@ -36,6 +41,8 @@ TYPE
 		( (*State of execution*)
 		trkPAPER_CORE_OFF, (*Waiting for enable command*)
 		trkPAPER_CORE_INIT, (*Initialization state*)
+		trkPAPER_CORE_GET_SH, (*Waiting for enable command*)
+		trkPAPER_CORE_GET_NEXT, (*Waiting for enable command*)
 		trkPAPER_CORE_RUNNING, (*Running state*)
 		trkPAPER_CORE_RESET, (*Resetting state*)
 		trkPAPER_CORE_ERROR (*Error state*)
@@ -100,4 +107,17 @@ TYPE
 		Idx : USINT; (*Selected Index for the axis lookup table*)
 		LastIdx : USINT; (*Last cycle selected index for the axis lookup table*)
 	END_STRUCT;
+	TrkPaperColorEnum : 
+		(
+		GRAY := 0,
+		BLUE := 1,
+		RED := 2,
+		GREEN := 3,
+		YELLOW := 4,
+		ORANGE := 5,
+		WHITE := 6,
+		BLACK := 7,
+		PINK := 8,
+		PURPLE := 9
+		);
 END_TYPE
