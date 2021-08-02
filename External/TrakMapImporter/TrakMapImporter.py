@@ -22,6 +22,8 @@ class TrakMap:
         tree = ET.parse(self._inputSvgPath)
         self.root = tree.getroot()
         
+        self.viewBox = self.root.attrib['viewBox'].split(' ')
+        
         self.segList = []
         for group in self.root.findall('./{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g'):
             group_text = group.find('{http://www.w3.org/2000/svg}text')
@@ -60,11 +62,14 @@ class TrakMap:
                     indx = idx,
                     segName = seg
                 ))
-            print(len(self.segList))
             file.write("\n\tTrakDiag.Seg.SegCount := {length};\n".format(length = len(self.segList)))
             file.write("\n\tTrakDiag.Seg.SegListAdr := ADR(TrakDiag.Seg.SegList);\n")
             file.write("\n\tDiagFbs.Asm.ReadInfo.Assembly := ADR({assName});\n".format(assName = self._assemblyName))
-            file.write("\tDiagFbs.Asm.ReadStatus.Assembly := ADR({assName});\n".format(assName = self._assemblyName))
+            file.write("\tDiagFbs.Asm.ReadStatus.Assembly := ADR({assName});\n\n".format(assName = self._assemblyName))
+            file.write("\tpaperCore.ViewBoxCfg.MinX := {};\n".format(self.viewBox[0]))
+            file.write("\tpaperCore.ViewBoxCfg.MinY := {};\n".format(self.viewBox[1]))
+            file.write("\tpaperCore.ViewBoxCfg.Width := {};\n".format(self.viewBox[2]))
+            file.write("\tpaperCore.ViewBoxCfg.Height := {};\n".format(self.viewBox[3]))
             file.write("END_ACTION \n")
 
 def ValidateInputs(values) -> bool:

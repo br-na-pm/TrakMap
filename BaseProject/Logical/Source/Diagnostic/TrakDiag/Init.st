@@ -14,13 +14,5 @@ PROGRAM _INIT
 	paperOptions.Segment.Enabled := TRUE;
 	paperOptions.Shuttle.Enabled := TRUE;
 	paperOptions.Color.Enabled := TRUE;
-	
-	//Replace with generated SVG ViewBox Values in format viewBox="MinX MinY Width Height"
-	paperCore.ViewBoxCfg.MinX := -0.735577;
-	paperCore.ViewBoxCfg.MinY := -0.115;
-	paperCore.ViewBoxCfg.Width := 2.13115;
-	paperCore.ViewBoxCfg.Height := 0.86;
-	
-
-	
+		
 END_PROGRAM
