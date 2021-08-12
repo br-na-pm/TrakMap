@@ -1,4 +1,5 @@
 VAR
+	fbSecAddShuttle : MC_BR_SecAddShuttle_AcpTrak;
 	AssemblyState : TrBaseAsmStateEnum;
 	fbAsmReadStatus : MC_BR_AsmReadStatus_AcpTrak;
 	fbAsmReadInfo : MC_BR_AsmReadInfo_AcpTrak;

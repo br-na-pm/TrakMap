@@ -32,6 +32,7 @@ PROGRAM _CYCLIC
 		TrakDiag.Asm.CommunicationReady 	:= DiagFbs.Asm.ReadInfo.AssemblyInfo.CommunicationReady;
 		TrakDiag.Asm.PowerOn				:= DiagFbs.Asm.ReadInfo.AssemblyInfo.PowerOn;
 		TrakDiag.Asm.ReadyForPowerOn		:= DiagFbs.Asm.ReadInfo.AssemblyInfo.ReadyForPowerOn;
+		TrakDiag.Asm.ShuttlesCount 			:= DiagFbs.Asm.ReadInfo.AssemblyInfo.ShuttlesCount;
 		TrakDiag.Asm.ShuttleInErrorStopCount := DiagFbs.Asm.ReadInfo.AssemblyInfo.ShuttlesInErrorStopCount;
 		TrakDiag.Asm.StartupCount			:= DiagFbs.Asm.ReadInfo.AssemblyInfo.StartupCount;	
 	END_IF
@@ -93,18 +94,10 @@ PROGRAM _CYCLIC
 	END_IF	
 		
 	(***********************************TRAKMAP******************************)
-	
+	IF EDGEPOS(paperCore.ClickData.Segment.Valid) THEN
+		VisCtrl.OpenSegDialog := TRUE;
+	END_IF
 	paperCore();
-
-	// compare the elementID clicked on in paper with the configured ID to find and set the array index for the list binding
-	FOR SegIndex:= 0 TO NUM_SEG DO 
-		
-		// clickId contains a leading # which needs to be removed, 
-		// the second compare checks against the text and arrow and deletes the first two letters because the SVG elements text and arrow have an added x leading the name
-		IF TrakDiag.Seg.SegList[SegIndex].Name = DELETE(clickId,1,1) OR TrakDiag.Seg.SegList[SegIndex].Name = DELETE(clickId,2,1)THEN  
-			clickedSegment := TrakDiag.Seg.SegList[SegIndex];
-			EXIT;
-		END_IF	
-	END_FOR	
+	
 END_PROGRAM
 

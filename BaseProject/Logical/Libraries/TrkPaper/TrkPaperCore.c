@@ -195,7 +195,7 @@ DINT BuildShuttleStrings(struct McAcpTrakAssemblyMonData* mon,
 		if(returnVal!= trkPAPER_CORE_ERR_OK)
 			return returnVal;
 			
-		snprintf2(tmp,150,"<text id=\"tx%d\" x=\"0\" y=\"0\" dominant-baseline=\"middle\" text-anchor=\"middle\" text-decoration=\"underline\" font-weight=\"bold\" font-size=\"0.035px\">%d</text>",
+		snprintf2(tmp,150,"<text id=\"tsh%d\" x=\"0\" y=\"0\" dominant-baseline=\"middle\" text-anchor=\"middle\" text-decoration=\"underline\" font-weight=\"bold\" font-size=\"0.035px\">%d</text>",
 			i,
 			i);
 		if(CheckStrLen(svgContent,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
@@ -207,7 +207,7 @@ DINT BuildShuttleStrings(struct McAcpTrakAssemblyMonData* mon,
 			
 		//Create an invisible bounding rectangle to handle the click event. "Invisible" by using the alpha channel, if you use the 
 		//Vibisility property, the click event will not fire for the SVG
-		snprintf2(tmp,150,"<rect id=\"ID%d\" width=\"%f\" height=\"%f\" style=\"fill:rgba(0,0,0,0)\"/>",
+		snprintf2(tmp,150,"<rect id=\"rsh%d\" width=\"%f\" height=\"%f\" style=\"fill:rgba(0,0,0,0)\"/>",
 			i,
 			length,
 			width);
@@ -336,6 +336,37 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
 	return trkPAPER_CORE_ERR_OK;
 }
 
+
+//Parses ClickID and triggers corresponding function block
+DINT ParseClickID(char* ClickID,
+struct TrkPaperCore* inst){
+	
+	USINT StrIndex;
+	brsmemset(&inst->Internal.Fbs.TrkPaperSegClickInfo.Ident, 0, sizeof(inst->Internal.Fbs.TrkPaperSegClickInfo.Ident));
+	brsmemset(&inst->Internal.Fbs.TrkPaperShuttleClickInfo.Ident, 0, sizeof(inst->Internal.Fbs.TrkPaperSegClickInfo.Ident));
+	
+	//Segment
+	StrIndex = FIND(ClickID, "gSeg");
+	if (StrIndex != 0) {
+		brsmemcpy(&inst->Internal.Fbs.TrkPaperSegClickInfo.Ident, ClickID + StrIndex - 1, LEN(ClickID) - StrIndex + 1);
+		inst->Internal.Fbs.TrkPaperSegClickInfo.Update = TRUE;
+		return trkPAPER_CORE_ERR_OK;
+
+	}
+	
+	//Shuttle
+	StrIndex = FIND(ClickID, "sh");
+	if (StrIndex != 0) {
+		brsmemcpy(&inst->Internal.Fbs.TrkPaperShuttleClickInfo.Ident, ClickID + StrIndex - 1, LEN(ClickID) - StrIndex + 1);
+		inst->Internal.Fbs.TrkPaperShuttleClickInfo.Update = TRUE;
+		return trkPAPER_CORE_ERR_OK;
+
+	}
+	
+	return trkPAPER_CORE_ERR_OK;
+
+}
+
 /* Core Track Master function blocks. Handles the building of the SVG string */
 void TrkPaperCore(struct TrkPaperCore* inst)
 {
@@ -346,73 +377,32 @@ void TrkPaperCore(struct TrkPaperCore* inst)
 				inst->Internal.TypeID = trkPAPER_CORE_CORE_TYPE_ID;
 				inst->Handle = (uintptr_t)&inst->Internal;
 				
-				inst->Internal.Fbs.AsmGetShuttle.Assembly = inst->Assembly;
-				inst->Internal.Fbs.AsmGetShuttle.Enable = TRUE;
+				inst->Internal.Fbs.TrkPaperSegClickInfo.Enable = TRUE;
+				inst->Internal.Fbs.TrkPaperSegClickInfo.Handle = inst->Handle;
+				
+				inst->Internal.Fbs.TrkPaperShuttleClickInfo.Enable = TRUE;
+				inst->Internal.Fbs.TrkPaperShuttleClickInfo.Handle = inst->Handle;
+			
+				
 				inst->Active = TRUE;
 				inst->Internal.State = trkPAPER_CORE_INIT;
+				
+				inst->Internal.TrakStatus = inst->TrakStatus;
+				inst->Internal.Assembly = inst->Assembly;
 			}
 			break;
 		
 		case trkPAPER_CORE_INIT:
-			//Reset the lookup array just for safety
-			brsmemset((uintptr_t)&inst->Internal.Axes,0,sizeof(inst->Internal.Axes));
 			
 			//Build Shuttle Strings
 			StartSVGStrings((char*)&inst->SvgContent,&inst->ViewBoxCfg);
 			inst->ErrorID = BuildShuttleStrings(inst->ShuttleMon,(char*)&inst->SvgContent);		
 			CloseSVGStrings((char*)&inst->SvgContent);
 				
-			if(inst->Options->Shuttle.Enabled){
-				inst->Internal.State = trkPAPER_CORE_GET_SH;
-			}
-			else{
-				inst->Internal.State = trkPAPER_CORE_RUNNING;
-			}
+			inst->Internal.State = trkPAPER_CORE_RUNNING;
 			break;
 
-		case trkPAPER_CORE_GET_SH:
-			//******************************************************************************** Get Shuttle state
-			if(inst->Internal.Fbs.AsmGetShuttle.Error){
-				inst->Error = TRUE;
-				inst->ErrorID = trkPAPER_CORE_ERR_INVALID_ASM;
-				
-				inst->Internal.State = trkPAPER_CORE_ERROR;
-			}
-			else if(inst->Internal.Fbs.AsmGetShuttle.Valid){
-				if(inst->Internal.Fbs.AsmGetShuttle.TotalCount >= trkPAPER_MAX_SHUTTLE_COUNT 
-				|| inst->Internal.Fbs.AsmGetShuttle.AdditionalInfo.ShuttleID >= trkPAPER_MAX_SHUTTLE_COUNT){
-					
-					inst->Error = TRUE;
-					inst->ErrorID = trkPAPER_CORE_ERR_SH_CNT_EXCD;
-					
-					inst->Internal.State = trkPAPER_CORE_ERROR;
-				}
-				else{
-					inst->Internal.Axes[inst->Internal.Fbs.AsmGetShuttle.AdditionalInfo.ShuttleID].Present = TRUE;
-					inst->Internal.Axes[inst->Internal.Fbs.AsmGetShuttle.AdditionalInfo.ShuttleID].Axis = inst->Internal.Fbs.AsmGetShuttle.Axis;
-					inst->Internal.Fbs.AsmGetShuttle.Next = FALSE;
-					
-					if(inst->Internal.Fbs.AsmGetShuttle.RemainingCount == 0){
-						//Done populating the lookup array, moving on
-						inst->Internal.Fbs.AsmGetShuttle.Enable = FALSE;
-						
-						inst->Internal.State = trkPAPER_CORE_RUNNING;
-					}
-					else{
-						inst->Internal.ShCount++;
-						
-						inst->Internal.State = trkPAPER_CORE_GET_NEXT;
-					}
-				}
-			}
-			break;
-		
-		case trkPAPER_CORE_GET_NEXT:
-			//******************************************************************************** Get next shuttle state
-			inst->Internal.Fbs.AsmGetShuttle.Next = TRUE;
-			inst->Internal.State = trkPAPER_CORE_GET_SH;
-			break;
-		
+
 		case trkPAPER_CORE_RUNNING:
 			StartSVGTransformStrings((char*)&inst->SvgTransform);
 			
@@ -426,9 +416,28 @@ void TrkPaperCore(struct TrkPaperCore* inst)
 			inst->StrLengths.ContentLength = brdkStrLen((uintptr_t)&inst->SvgContent);
 			inst->StrLengths.TransformLength = brdkStrLen((uintptr_t)&inst->SvgTransform);
 			
+			//SegClickInfo
+			if(inst->ReadClickID){
+				inst->ErrorID = ParseClickID(inst->ClickID, inst);
+				inst->ReadClickID = FALSE;
+			}
+			
+			//Data Assignment for click ID parsing
+			inst->ClickData.Segment.Valid = inst->Internal.Fbs.TrkPaperSegClickInfo.Valid;
+			inst->ClickData.Segment.Data = inst->Internal.Fbs.TrkPaperSegClickInfo.Data;
+			
+			inst->ClickData.Shuttle.Valid = inst->Internal.Fbs.TrkPaperShuttleClickInfo.Valid;
+			inst->ClickData.Shuttle.Data = inst->Internal.Fbs.TrkPaperShuttleClickInfo.Data;
+			
+			//Error and Enable Handling
 			if(inst->ErrorID != trkPAPER_CORE_ERR_OK){
 				inst->Error = TRUE;
 				
+				inst->Internal.State = trkPAPER_CORE_ERROR;
+			}
+			if(inst->Internal.Fbs.TrkPaperSegClickInfo.ErrorID != trkPAPER_SEG_INFO_ERR_OK){
+				inst->ErrorID = trkPAPER_CORE_ERR_SEG_INFO;
+				inst->Error = TRUE;
 				inst->Internal.State = trkPAPER_CORE_ERROR;
 			}
 			if(!inst->Enable){
@@ -438,6 +447,9 @@ void TrkPaperCore(struct TrkPaperCore* inst)
 			break;
 		case trkPAPER_CORE_RESET:
 			//Try and recover by resetting any blocks
+			inst->Internal.Fbs.TrkPaperSegClickInfo.ErrorReset = TRUE;
+			
+			inst->Internal.State = trkPAPER_CORE_OFF;
 			
 			break;
 		case trkPAPER_CORE_ERROR:
@@ -445,11 +457,15 @@ void TrkPaperCore(struct TrkPaperCore* inst)
 				inst->Error = FALSE;
 				inst->ErrorID = trkPAPER_CORE_ERR_OK;
 				
-				inst->Internal.State = trkPAPER_CORE_OFF;
+				inst->Internal.State = trkPAPER_CORE_RESET;
 			}
 			break;
 	}
-	//FB calls
-	MC_BR_AsmGetShuttle_AcpTrak(&inst->Internal.Fbs.AsmGetShuttle);
+	//FB calls	
+	TrkPaperSegClickInfo(&inst->Internal.Fbs.TrkPaperSegClickInfo);
+	inst->Internal.Fbs.TrkPaperSegClickInfo.Update = FALSE;
+	
+	TrkPaperShuttleClickInfo(&inst->Internal.Fbs.TrkPaperShuttleClickInfo);
+	inst->Internal.Fbs.TrkPaperShuttleClickInfo.Update = FALSE;
 }
 

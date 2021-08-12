@@ -8,6 +8,8 @@
 ********************************************************************************)
 
 PROGRAM _INIT
+	fbSecAddShuttle.Sector := ADR(TrakInterface.SectorTrakA);
+	fbSecAddShuttle.Position := 1000;
 
 END_PROGRAM
 
@@ -38,7 +40,7 @@ PROGRAM _CYCLIC
 		AssemblyState := ASM_STATE_ERROR;
 		
 	// 2. Accept stop command
-	ELSIF gTrakSystem.Asm.Cmd.Stop THEN
+	ELSIF EDGENEG(gTrakSystem.Asm.Cmd.Power) THEN
 		// Power off if powering or powered on
 		IF gTrakSystem.Asm.Status.Homing OR gTrakSystem.Asm.Status.Ready THEN
 			// Execute the power off command. Execute should not be true in either of these states
@@ -230,6 +232,8 @@ PROGRAM _CYCLIC
 	fbAsmPowerOn(Assembly := ADR(TrakInterface.SampleTrak));
 	fbAsmPowerOff(Assembly := ADR(TrakInterface.SampleTrak));
 	fbAsmReset(Assembly := ADR(TrakInterface.SampleTrak));
+	fbSecAddShuttle();
+	fbSecAddShuttle.Execute := FALSE;
 	
 	// Update the global status information
 	gTrakSystem.Asm.Status.Disabled					:= fbAsmReadStatus.Valid AND fbAsmReadStatus.AssemblyDisabled;

@@ -1,5 +1,8 @@
 
 TYPE
+	VisType : 	STRUCT 
+		OpenSegDialog : BOOL;
+	END_STRUCT;
 	CheckStateEnum : 
 		(
 		WAIT_FOR_CHECK,

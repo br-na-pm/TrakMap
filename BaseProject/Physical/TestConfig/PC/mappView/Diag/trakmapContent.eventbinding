@@ -4,18 +4,43 @@
     <EventBinding id="content_trakmap.paperTrakMap.Click">
       <Source xsi:type="widgets.brease.Paper.Event" contentRefId="trakmapContent" widgetRefId="paperTrakMap" event="Click" />
       <EventHandler>
-        <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::TrakDiag:clickId">
-            <Method xsi:type="opcUa.NodeAction.SetValueString" value="= elementId" />
-          </Target>
-        </Action>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::TrakDiag:paperCore.ClickID">
+                <Method xsi:type="opcUa.NodeAction.SetValueString" value="= elementId" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::TrakDiag:paperCore.ReadClickID">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
       </EventHandler>
-      <EventHandler condition="elementId &lt;&gt; &quot;noElementClicked&quot;">
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="segmentDetailsDialog" mode="modeless" horizontalPos="center" verticalPos="110px" headerText="Segment Details" autoClose="true" />
-          </Target>
-        </Action>
+    </EventBinding>
+    <EventBinding id="EventBinding_3">
+      <Source xsi:type="opcUa.Event" refId="NS6|String|Diag::TrakDiag:VisCtrl.OpenSegDialog" event="ValueChanged" />
+      <EventHandler condition="newValue = TRUE">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="segmentDetailsDialog" mode="modeless" horizontalPos="center" verticalPos="110px" headerText="Segment Details" autoClose="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::TrakDiag:VisCtrl.OpenSegDialog">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="false" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
       </EventHandler>
     </EventBinding>
   </Bindings>

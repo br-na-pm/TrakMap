@@ -24,6 +24,7 @@ TYPE
 		ReadyForPowerOn : BOOL;
 		PowerOn : BOOL;
 		StartupCount : UDINT;
+		ShuttlesCount : UINT;
 		ShuttleInErrorStopCount : UINT;
 	END_STRUCT;
 	TrkDiagSegmentStatusType : 	STRUCT 

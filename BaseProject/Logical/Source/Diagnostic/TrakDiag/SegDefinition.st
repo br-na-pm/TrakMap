@@ -17,8 +17,8 @@ ACTION SegDefinition:
 
 	TrakDiag.Seg.SegListAdr := ADR(TrakDiag.Seg.SegList);
 
-	DiagFbs.Asm.ReadInfo.Assembly := ADR(gSampleTrak);
-	DiagFbs.Asm.ReadStatus.Assembly := ADR(gSampleTrak);
+	DiagFbs.Asm.ReadInfo.Assembly := ADR(DiagInterface.SampleTrak);
+	DiagFbs.Asm.ReadStatus.Assembly := ADR(DiagInterface.SampleTrak);
 
 	paperCore.ViewBoxCfg.MinX := -0.735577;
 	paperCore.ViewBoxCfg.MinY := -0.115;

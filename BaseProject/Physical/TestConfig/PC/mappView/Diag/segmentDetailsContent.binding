@@ -2,12 +2,9 @@
 <BindingsSet id="segmentDetailsContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Bindings>
 	
-	<Binding mode="twoWay">
-		<Source xsi:type="opcUaComplexObject" refId="NS6|String|Diag::TrakDiag:clickedSegment" />
-		<Target xsi:type="brease" contentRefId="segmentDetailsContent" widgetRefId="SegmentStatus1" attribute="statusStructure" />
-	</Binding>
+	
 	<Binding mode="oneWay">
-		<Source xsi:type="opcUa" refId="NS6|String|Diag::TrakDiag:clickedSegment.Status.ErrorCode" attribute="value" />
+		<Source xsi:type="opcUa" refId="NS6|String|Diag::TrakDiag:paperCore.ClickData.Segment.Data.Status.ErrorCode" attribute="value" />
 		<Target xsi:type="snippet" refId="SnippetSegError" attribute="value" />
 	</Binding>
 	<Binding mode="oneWay">
@@ -15,5 +12,9 @@
 		<Target xsi:type="brease" contentRefId="segmentDetailsContent" widgetRefId="SegmentStatus1" attribute="segErrorText" />
 	</Binding>
 		
-	</Bindings>
+	<Binding mode="twoWay">
+<Source xsi:type="opcUaComplexObject" refId="NS6|String|Diag::TrakDiag:paperCore.ClickData.Segment.Data" />
+<Target xsi:type="brease" contentRefId="segmentDetailsContent" widgetRefId="SegmentStatus1" attribute="statusStructure" />
+</Binding>
+</Bindings>
 </BindingsSet>

@@ -50,9 +50,8 @@
         <Variable Name="TriggerTestWarning" />
       </Task>
       <Task Name="TrakDiag">
-        <Variable Name="clickedSegment" AutomaticEnable="True" />
-        <Variable Name="clickId" />
         <Variable Name="paperCore" AutomaticEnable="True" />
+        <Variable Name="VisCtrl" AutomaticEnable="True" />
       </Task>
     </Module>
   </DefaultView>
