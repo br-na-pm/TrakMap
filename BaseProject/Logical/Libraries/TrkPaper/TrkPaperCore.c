@@ -290,7 +290,7 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
 			
 				
 		}else{
-			maxIndex = i;
+			maxIndex = i + 1;
 			break;
 		}
 		
