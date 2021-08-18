@@ -1,25 +1,11 @@
-# Trak Framework Project
-**Date created**: *2020-12-14*  
-**Created by**: Marcel Voigt
+# AcpTrak Paper Widget
 
----
-## About
-This project is a framework for any trak project with a modular structure based on Application Modules.
-Each Application Module defines OpcUa variables and mappServices like MpAlarmX, MpReceipe etc.
+The trak paper widget library provides a convenient wrapper to automatically build the SVG strings for an entire trak system for the paper widget. The library utilizes the prebuilt SVG from the trak system (post processed) in combination with acp trak status blocks to build a simple drop in widget to show the status of an acp trak system. Additionally it is augmented with optional features such as showing the location of shuttles on the system.
 
-## Automation Studio
-Version 4.9.2.46 
 
-## Automation Runtime
 
-Component 				| Project 			| Config - Simulation	
-------------------------|-------------------|-----------------------
-Automation Runtime		| x					| C4.90 
-Visual Components		| n/d 				| n/d 
-mapp Motion 			| n/d 				| 5.13.0 
-mapp View 				| n/d 				| 5.13.0 
-mapp Services 			| n/d 				| 5.13.0
-ACP10 ARNC0				| n/d 				| n/d 
-mapp Control 			| n/d 				| x 
-mapp Cockpit 			| n/d 				| 5.13.1 
-Safety Release 			| n/d 				| x 
+
+
+
+
+
