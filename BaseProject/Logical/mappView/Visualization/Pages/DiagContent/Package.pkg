@@ -3,8 +3,5 @@
 <Package SubType="AreaContentsPackage" PackageType="AreaContentsPackage" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="File">trackMap.content</Object>
-    <Object Type="File">logbook.content</Object>
-    <Object Type="File">audit.content</Object>
-    <Object Type="File">diagAlarm.content</Object>
   </Objects>
 </Package>

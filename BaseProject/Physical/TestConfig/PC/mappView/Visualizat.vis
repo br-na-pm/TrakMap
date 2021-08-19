@@ -9,64 +9,28 @@
 	</Navigations>  
 	<BindingsSets>
 		<!--General-->
-		<BindingsSet refId="alarmMainContent_binding" />
-		<BindingsSet refId="alarmHistoryContent_binding" />
 		<BindingsSet refId="headerContent_binding" />
 		<!--Trak ASM-->
 		<BindingsSet refId="trakMainContent_binding" />
 		<BindingsSet refId="trakContent_binding" />
-		<BindingsSet refId="trakAlarmContent_binding" />
-		<!--EM2-->
-		<BindingsSet refId="EM2AlarmContent_binding" />
-		<!--EM3-->
-		<BindingsSet refId="EM3AlarmContent_binding" />
-		<!--EMx-->
-		<BindingsSet refId="EMxAlarmContent_binding" />	
-		<!--Diag-->	
-		<BindingsSet refId="trakLogbookContent_binding" />
-		<BindingsSet refId="trakmapContent_binding" />
-		<BindingsSet refId="alarmDetailsContent_binding" />
 		<BindingsSet refId="segmentDetailsContent_binding" />
-		<BindingsSet refId="diagAlarmContent_binding" />
 	
 	</BindingsSets>
 	<EventBindingsSets>
 		<!--General-->
 		<EventBindingsSet refId="loadContent_eventbinding" />	
 		<EventBindingsSet refId="headerContent_eventbinding" />
-		<EventBindingsSet refId="mainAlarmContent_eventbinding" />
-		<!--Trak ASM-->
-		<EventBindingsSet refId="trakAlarmContent_eventbinding" />
-		<!--EM2-->
-		<EventBindingsSet refId="EM2AlarmContent_eventbinding" />
-		<!--EM3-->
-		<EventBindingsSet refId="EM3AlarmContent_eventbinding" />
-		<!--EMx-->
-		<EventBindingsSet refId="EMxAlarmContent_eventbinding" />
-		<!--Diag-->
-		<EventBindingsSet refId="trakLogbookContent_eventbinding" />
 		<EventBindingsSet refId="trakmapContent_eventbinding" />
-		<EventBindingsSet refId="diagAlarmContent_eventbinding" />
 	</EventBindingsSets>
 	<Dialogs>
-		<Dialog refId="alarmDetailsDialog" />
 		<Dialog refId="segmentDetailsDialog" />
 	</Dialogs>
 	<Contents>
 		<Content refId="navigationContent" />
-		<Content refId="mainAlarmContent" />
-		<Content refId="alarmHistoryContent" />
-		<Content refId="auditContent" />
-		<Content refId="trakAlarmContent" />
 		<Content refId="trakMainContent" />
-		<Content refId="trakLogbookContent" />
 		<Content refId="trakmapContent" />
 		<Content refId="allTrakContent" />
-		<Content refId="EM2AlarmContent" />
-		<Content refId="EM3AlarmContent" />
-		<Content refId="EMxAlarmContent" />
-		<Content refId="diagAlarmContent" />	
-  </Contents>
+	</Contents>
   <SnippetsSets>
     <SnippetsSet refId="snippetsForStates"/>
 	<SnippetsSet refId="TrakMapSnippets"/>

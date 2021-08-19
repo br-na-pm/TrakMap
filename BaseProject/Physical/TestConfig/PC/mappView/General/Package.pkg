@@ -5,9 +5,5 @@
     <Object Type="File">loadContent.eventbinding</Object>
     <Object Type="File">headerContent.eventbinding</Object>
     <Object Type="File">headerContent.binding</Object>
-    <Object Type="File">mainAlarmContent.binding</Object>
-    <Object Type="File">alarmHistoryContent.binding</Object>
-    <Object Type="File">mainAlarmContent.eventbinding</Object>
-    <Object Type="File">alarmDetailsContent.binding</Object>
   </Objects>
 </Package>

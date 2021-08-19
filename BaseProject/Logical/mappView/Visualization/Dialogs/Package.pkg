@@ -3,7 +3,6 @@
 <Package SubType="DialogsPackage" PackageType="DialogsPackage" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="Package" Description="AreaContents">AreaContents</Object>
-    <Object Type="Package">AlarmDetails</Object>
     <Object Type="Package">SegmentDetails</Object>
   </Objects>
 </Package>
