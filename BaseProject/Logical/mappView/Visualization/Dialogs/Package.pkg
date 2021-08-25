@@ -4,6 +4,5 @@
   <Objects>
     <Object Type="Package" Description="AreaContents">AreaContents</Object>
     <Object Type="Package">AlarmDetails</Object>
-    <Object Type="Package">SegmentDetails</Object>
   </Objects>
 </Package>

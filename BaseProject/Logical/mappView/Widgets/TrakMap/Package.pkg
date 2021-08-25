@@ -6,5 +6,6 @@
     <Object Type="Package" Description="Resources">Resources</Object>
     <Object Type="Package">SegFailDetails</Object>
     <Object Type="Package">SegmentStatus</Object>
+    <Object Type="Package">ShuttleStatus</Object>
   </Objects>
 </Package>

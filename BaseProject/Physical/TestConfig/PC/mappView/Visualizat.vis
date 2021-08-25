@@ -26,7 +26,6 @@
 		<BindingsSet refId="trakLogbookContent_binding" />
 		<BindingsSet refId="trakmapContent_binding" />
 		<BindingsSet refId="alarmDetailsContent_binding" />
-		<BindingsSet refId="segmentDetailsContent_binding" />
 		<BindingsSet refId="diagAlarmContent_binding" />
 	
 	</BindingsSets>
@@ -50,7 +49,6 @@
 	</EventBindingsSets>
 	<Dialogs>
 		<Dialog refId="alarmDetailsDialog" />
-		<Dialog refId="segmentDetailsDialog" />
 	</Dialogs>
 	<Contents>
 		<Content refId="navigationContent" />
@@ -66,7 +64,7 @@
 		<Content refId="EM3AlarmContent" />
 		<Content refId="EMxAlarmContent" />
 		<Content refId="diagAlarmContent" />	
-  </Contents>
+	</Contents>
   <SnippetsSets>
     <SnippetsSet refId="snippetsForStates"/>
 	<SnippetsSet refId="TrakMapSnippets"/>

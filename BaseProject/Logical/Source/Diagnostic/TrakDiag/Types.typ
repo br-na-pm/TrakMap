@@ -2,6 +2,7 @@
 TYPE
 	VisType : 	STRUCT 
 		OpenSegDialog : BOOL;
+		OpenShuttleDialog : BOOL;
 	END_STRUCT;
 	CheckStateEnum : 
 		(

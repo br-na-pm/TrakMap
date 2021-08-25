@@ -28,6 +28,10 @@
       <Property ID="TargetFile[15]" Value="Source.Diagnostic.DiagWarning.tmx" />
       <Property ID="TargetFile[16]" Value="Source.Diagnostic.DiagAlarm.tmx" />
       <Property ID="TargetFile[17]" Value="Source.Diagnostic.DiagError.tmx" />
+      <Property ID="TargetFile[18]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleStateText.tmx" />
+      <Property ID="TargetFile[19]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleErrorReasonText.tmx" />
+      <Property ID="TargetFile[20]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleOrientationText.tmx" />
+      <Property ID="TargetFile[21]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleMovementTypeText.tmx" />
     </Group>
   </Element>
 </Configuration>

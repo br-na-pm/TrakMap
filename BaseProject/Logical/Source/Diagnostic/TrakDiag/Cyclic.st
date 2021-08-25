@@ -94,9 +94,7 @@ PROGRAM _CYCLIC
 	END_IF	
 		
 	(***********************************TRAKMAP******************************)
-	IF EDGEPOS(paperCore.ClickData.Segment.Valid) THEN
-		VisCtrl.OpenSegDialog := TRUE;
-	END_IF
+	
 	paperCore();
 	
 END_PROGRAM

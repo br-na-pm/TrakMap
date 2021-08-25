@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CompoundWidget id="ShuttleStatus" width="1060" height="100" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+	
+		<Widget xsi:type="widgets.brease.Label" 		id="lblShuttleID" 			top="0" left="10" width="100" 		zIndex="1" text="ShuttleID" />
+		 <Widget xsi:type="widgets.brease.NumericOutput" id="numOutShuttleID" 		top="0" left="110" width="60" 		zIndex="2" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" />
+		<Widget xsi:type="widgets.brease.Label" 		id="lblShuttleState" 		top="35" left="10" width="100" 		zIndex="3" text="ShuttleState" />
+		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtShuttleState" 		top="35" left="90"  width="200" 		zIndex="4" value="$IAT/SHUTTLESTATE.0" />	
+		<Widget xsi:type="widgets.brease.Label" 		id="lblErrorCode" 			top="70" left="10" width="100" 		zIndex="5" text="ErrorReason" /> 
+		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtErrorReason" 		top="70" left="90"  width="200" 		zIndex="6" value="$IAT/SHUTTLEERRORSTATE.0"/>
+		<Widget xsi:type="widgets.brease.Label" 		id="lblPosition" 			top="0" left="300" width="100" 			zIndex="7" text="Position" />
+		<Widget xsi:type="widgets.brease.NumericOutput" id="numOutPosition" 		top="0" left="400" width="100" 		zIndex="8" format="{'metric':{'decimalPlaces':3,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':3,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':3,'minimumIntegerDigits':1}}" />
+		<Widget xsi:type="widgets.brease.Label" 		id="lblSector" 				top="35" left="300" width="100" 			zIndex="9" text="Sector" />
+		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtSector" 				top="35" left="400"  width="210" 		zIndex="10" />
+		<Widget xsi:type="widgets.brease.Label" 		id="lblVelocity" 			top="70" left="300" width="100" 			zIndex="11" text="Velocity" />
+		<Widget xsi:type="widgets.brease.NumericOutput" id="numOutVelocity" 		top="70" left="400" width="100" 		zIndex="12" format="{'metric':{'decimalPlaces':3,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':3,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':3,'minimumIntegerDigits':1}}" />
+		<Widget xsi:type="widgets.brease.Label" 		id="lblOrientation" 		top="0" left="620" width="100" 			zIndex="13" text="Orientation" />
+		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtOrientation" 		top="0" left="720"  width="250" 		zIndex="14" value="$IAT/SHORIENTATIONSTATE.0"/>  
+		<Widget xsi:type="widgets.brease.Label" 		id="lblMovementType" 		top="35" left="620" width="100" 			zIndex="15" text="Movement Type" />
+		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtMovementType" 		top="35" left="720"  width="250" 		zIndex="16" value="$IAT/SHMOVESTATE.0"/>
+		<Widget xsi:type="widgets.brease.ImageList" 	id="numInShuttleState" 			top="0" left="0" width="1" height="1" 	zIndex="17" imageList="['']"  visible="false" />
+		<Widget xsi:type="widgets.brease.ImageList" 	id="numInShuttleErrorState" 			top="0" left="0" width="1" height="1" 	zIndex="18" imageList="['']"  visible="false" />
+		<Widget xsi:type="widgets.brease.ImageList" 	id="numInShuttleOrientationState" 			top="0" left="0" width="1" height="1" 	zIndex="19" imageList="['']"  visible="false" />
+		<Widget xsi:type="widgets.brease.ImageList" 	id="numInShuttleMoveTypeState" 			top="0" left="0" width="1" height="1" 	zIndex="20" imageList="['']"  visible="false" />
+	</Widgets> 
+  <Properties>
+    <!-- 
+    Simple non bindable property:
+    Property Attributes
+    xsi:type: NonBindableProperty
+    name: name of the property (not allowed: width, height, top, left, id, enable, visible, zindex, margin, premissionview, permissionoperate, description)
+    <Property xsi:type="NonBindableProperty" name="" type="" defaultValue="" required="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" property=""/>
+        <Mapping widget="" property=""/>
+      </Mappings>
+    </Property>
+	   -->
+	
+
+
+	<Property xsi:type="StructureBindableProperty" name="statusStructure" type="McAcpTrakShInfoType" category="Data" readOnly="true" required="false">
+		<Description>Shuttle Status </Description>
+			<Mappings>
+				<Mapping widget="numOutPosition" type="Number" property="value" mode="oneWay" memberPath="CurrentValues.ModuloPosition" mapToNode="false"/>
+				<Mapping widget="numOutVelocity" type="Number" property="value" mode="oneWay" memberPath="CurrentValues.Velocity" mapToNode="false"/>
+				<Mapping widget="numOutShuttleID" type="Number" property="value" mode="oneWay" memberPath="AdditionalInfo.ID" mapToNode="false"/>		
+				<Mapping widget="txtSector" type="String" property="value" mode="oneWay" memberPath="CurrentValues.SectorName" mapToNode="false"/>
+				<Mapping widget="numInShuttleState" type="Number" property="selectedIndex" mode="twoWay" memberPath="AdditionalInfo.PLCopenState" mapToNode="false"/>
+				<Mapping widget="numInShuttleErrorState" type="Number" property="selectedIndex" mode="twoWay" memberPath="AdditionalInfo.ErrorReason" mapToNode="false"/>
+				<Mapping widget="numInShuttleOrientationState" type="Number" property="selectedIndex" mode="twoWay" memberPath="CurrentValues.Orientation" mapToNode="false"/>
+				<Mapping widget="numInShuttleMoveTypeState" type="Number" property="selectedIndex" mode="twoWay" memberPath="CurrentValues.MovementType" mapToNode="false"/>
+			</Mappings>
+	</Property>
+	
+  </Properties>
+
+  <Events>
+    <!--
+    <Event name="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" event="" />
+      </Mappings>
+    </Event>
+    -->
+  </Events>
+
+  <Actions>
+    <!--
+    <Action name="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" action="" />
+      </Mappings>
+    </Action> 
+    -->
+  </Actions> 
+
+  <EventBindings>
+     
+    <EventBinding id="ShuttleStateText">
+      <Source xsi:type="widget.Event" widgetRefId="numInShuttleState" event="SelectedIndexChanged" />
+      <EventHandler condition="selectedIndex = 0">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleState">
+            <Method name="SetValue" value="$IAT/SHUTTLESTATE.0" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 1">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleState">
+            <Method name="SetValue" value="$IAT/SHUTTLESTATE.1" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 2">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleState">
+            <Method name="SetValue" value="$IAT/SHUTTLESTATE.2" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 3">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleState">
+            <Method name="SetValue" value="$IAT/SHUTTLESTATE.3" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 4">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleState">
+            <Method name="SetValue" value="$IAT/SHUTTLESTATE.4" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 5">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleState">
+            <Method name="SetValue" value="$IAT/SHUTTLESTATE.5" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 6">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleState">
+            <Method name="SetValue" value="$IAT/SHUTTLESTATE.6" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 7">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleState">
+            <Method name="SetValue" value="$IAT/SHUTTLESTATE.7" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 8">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleState">
+            <Method name="SetValue" value="$IAT/SHUTTLESTATE.8" />
+          </Target>
+        </Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 9">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtShuttleState">
+						<Method name="SetValue" value="$IAT/SHUTTLESTATE.9" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 10">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtShuttleState">
+						<Method name="SetValue" value="$IAT/SHUTTLESTATE.10" />
+					</Target>
+				</Action>
+			</EventHandler>
+		</EventBinding>
+		
+		<EventBinding id="ShuttleErrorStateText">
+			<Source xsi:type="widget.Event" widgetRefId="numInShuttleErrorState" event="SelectedIndexChanged" />
+			<EventHandler condition="selectedIndex = 0">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtErrorReason">
+						<Method name="SetValue" value="$IAT/SHUTTLEERRORSTATE.0" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 1">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtErrorReason">
+						<Method name="SetValue" value="$IAT/SHUTTLEERRORSTATE.1" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 2">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtErrorReason">
+						<Method name="SetValue" value="$IAT/SHUTTLEERRORSTATE.2" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 3">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtErrorReason">
+						<Method name="SetValue" value="$IAT/SHUTTLEERRORSTATE.3" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 4">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtErrorReason">
+						<Method name="SetValue" value="$IAT/SHUTTLEERRORSTATE.4" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 5">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtErrorReason">
+						<Method name="SetValue" value="$IAT/SHUTTLEERRORSTATE.5" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 6">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtErrorReason">
+						<Method name="SetValue" value="$IAT/SHUTTLEERRORSTATE.6" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 7">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtErrorReason">
+						<Method name="SetValue" value="$IAT/SHUTTLEERRORSTATE.7" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 8">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtErrorReason">
+						<Method name="SetValue" value="$IAT/SHUTTLEERRORSTATE.8" />
+					</Target>
+				</Action>
+			</EventHandler>
+		</EventBinding>
+		
+		<EventBinding id="ShuttleOrientationStateText">
+			<Source xsi:type="widget.Event" widgetRefId="numInShuttleOrientationState" event="SelectedIndexChanged" />
+			<EventHandler condition="selectedIndex = 0">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOrientation">
+						<Method name="SetValue" value="$IAT/SHORIENTATIONSTATE.0" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 1">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOrientation">
+						<Method name="SetValue" value="$IAT/SHORIENTATIONSTATE.1" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 2">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOrientation">
+						<Method name="SetValue" value="$IAT/SHORIENTATIONSTATE.2" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 3">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOrientation">
+						<Method name="SetValue" value="$IAT/SHORIENTATIONSTATE.3" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 8">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOrientation">
+						<Method name="SetValue" value="$IAT/SHORIENTATIONSTATE.8" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 9">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOrientation">
+						<Method name="SetValue" value="$IAT/SHORIENTATIONSTATE.9" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 10">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOrientation">
+						<Method name="SetValue" value="$IAT/SHORIENTATIONSTATE.10" />
+					</Target>
+				</Action>
+			</EventHandler>
+		</EventBinding>
+		
+		<EventBinding id="ShuttleMoveStateText">
+			<Source xsi:type="widget.Event" widgetRefId="numInShuttleMoveTypeState" event="SelectedIndexChanged" />
+			<EventHandler condition="selectedIndex = 0">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtMovementType">
+						<Method name="SetValue" value="$IAT/SHMOVESTATE.0" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 1">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtMovementType">
+						<Method name="SetValue" value="$IAT/SHMOVESTATE.1" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 2">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtMovementType">
+						<Method name="SetValue" value="$IAT/SHMOVESTATE.2" />
+					</Target>
+				</Action>
+			</EventHandler>
+		</EventBinding>
+		
+		
+    
+		<!--<EventBinding id="ErrorText">
+		<Source xsi:type="widget.Event" widgetRefId="numErrorCode" event="SelectedIndexChanged" />
+	  
+      <EventHandler condition="">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutErrorText">
+            <Method name="SetValue" value="$IAT/TrakError/Code.0" />
+          </Target>
+        </Action>
+      </EventHandler>
+	</EventBinding>-->
+	
+  </EventBindings>
+
+</CompoundWidget>

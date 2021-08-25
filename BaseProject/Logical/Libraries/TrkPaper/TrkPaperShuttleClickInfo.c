@@ -89,16 +89,25 @@ void TrkPaperShuttleClickInfo(struct TrkPaperShuttleClickInfo* inst)
 		
 		case trkPAPER_SH_CLICK_INFO_RUN:
 			
+			//Cyclicly read shuttle data
+			inst->Data.ShInfo = inst->Internal.Fbs.ShReadInfo.ShuttleInfo;
+			
 			if(!inst->Internal.CoreInt->TrakStatus->Asm.PowerOn || inst->Internal.ShuttleCount != inst->Internal.CoreInt->TrakStatus->Asm.ShuttlesCount){
 				inst->Internal.State = trkPAPER_SH_CLICK_INFO_WAIT;
+				inst->Internal.Fbs.ShReadInfo.Enable = FALSE;
+				inst->Valid = FALSE;
 			}
 			else if(!inst->Enable){
 				inst->Active = FALSE;
+				inst->Valid = FALSE;
 				inst->Internal.State = trkPAPER_CORE_OFF;
+				inst->Internal.Fbs.ShReadInfo.Enable = FALSE;
 			}
 			else if(inst->Update){
 				inst->Valid = FALSE;
+				inst->Update = FALSE;
 				inst->Internal.State = trkPAPER_SH_CLICK_INFO_LOOKUP;
+				inst->Internal.Fbs.ShReadInfo.Enable = FALSE;
 			}
 			
 			break;
@@ -180,9 +189,7 @@ void TrkPaperShuttleClickInfo(struct TrkPaperShuttleClickInfo* inst)
 				
 				inst->Internal.State = trkPAPER_SH_CLICK_INFO_ERROR;
 			}else if(inst->Internal.Fbs.ShReadInfo.Valid){
-				inst->Data.ShInfo = inst->Internal.Fbs.ShReadInfo.ShuttleInfo;
 				inst->Valid = TRUE;
-				inst->Internal.Fbs.ShReadInfo.Enable = FALSE;
 				inst->Internal.State = trkPAPER_SH_CLICK_INFO_RUN;
 			}
 			

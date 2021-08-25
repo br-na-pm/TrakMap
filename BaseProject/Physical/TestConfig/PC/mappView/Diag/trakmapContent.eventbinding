@@ -22,26 +22,5 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_3">
-      <Source xsi:type="opcUa.Event" refId="NS6|String|Diag::TrakDiag:VisCtrl.OpenSegDialog" event="ValueChanged" />
-      <EventHandler condition="newValue = TRUE">
-        <Sequence>
-          <Step order="0">
-            <Action>
-              <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="segmentDetailsDialog" mode="modeless" horizontalPos="center" verticalPos="110px" headerText="Segment Details" autoClose="true" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="1">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::TrakDiag:VisCtrl.OpenSegDialog">
-                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="false" />
-              </Target>
-            </Action>
-          </Step>
-        </Sequence>
-      </EventHandler>
-    </EventBinding>
   </Bindings>
 </EventBindingSet>

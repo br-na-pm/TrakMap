@@ -25,7 +25,7 @@ DINT SegmentLookup(	struct TrkDiagSegmentType* segList,
 	
 	
 	for (i = 0; i < SegmentCount; i++){
-		if (brsmemcmp(segList[i].Name, SegmentID, 32) == 0){
+		if (brsstrcmp(segList[i].Name, SegmentID) == 0){
 			brsmemcpy(Data, &segList[i], sizeof(segList[i]));
 			return trkPAPER_SEG_INFO_ERR_OK;
 		}	
@@ -72,9 +72,11 @@ void TrkPaperSegClickInfo(struct TrkPaperSegClickInfo* inst)
 			
 			if(!inst->Enable){
 				inst->Active = FALSE;
+				inst->Valid = FALSE;
 				inst->Internal.State = trkPAPER_SEG_CLICK_INFO_OFF;
 			}else if(inst->Update){
 				inst->Valid = FALSE;
+				inst->Update = FALSE;
 				inst->Internal.State = trkPAPER_SEG_CLICK_INFO_LOOKUP;
 			}
 			

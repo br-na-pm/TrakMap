@@ -95,36 +95,38 @@ DINT CloseSVGTransformStrings(char* svgTransform){
 DINT BuildSegmentStrings(char* svgContent,
 	char* svgTransform,
 	struct TrkDiagSegmentType* segList,
-USINT SegmentCount){
+USINT SegmentCount,
+BOOL SegClickValid,
+char* currSegIdent){
 	
 	USINT i;
+	DINT fillIndex;
 	char tmp[200];
 		
 	//{"select":"#Segment","fill":1"}
 	for (i = 0; i < SegmentCount; i++){
 		if(segList[i].Status.ErrorCode > 0){
-			snprintf2(tmp,200,"{\"select\":\"#%s\",\"style\":\"fill:%d\"}",
-				segList[i].Name, //Segment Name
-				trkPAPER_SEG_STYLE_ERROR //Segment Style Color index
-				);
-			
+			fillIndex = trkPAPER_SEG_STYLE_ERROR; //Segment Style Color index	
 		}
 		else if(!segList[i].Status.CommunicationReady || !segList[i].Status.ReadyForPowerOn){
-			snprintf2(tmp,200,"{\"select\":\"#%s\",\"style\":\"fill:%d\"}",
-				segList[i].Name, //Segment Name
-				trkPAPER_SEG_STYLE_WARNING //Segment Style Color index
-				);
+			fillIndex = trkPAPER_SEG_STYLE_WARNING;
 		}
 		else if(segList[i].Status.PowerOn){
-			snprintf2(tmp,200,"{\"select\":\"#%s\",\"style\":\"fill:%d\"}",
-				segList[i].Name, //Segment Name
-				trkPAPER_SEG_STYLE_OKAY //Segment Style Color index
-				);
+			fillIndex = trkPAPER_SEG_STYLE_OKAY;
 		}
 		else{
-			snprintf2(tmp,200,"{\"select\":\"#%s\",\"style\":\"fill:%d\"}",
+			fillIndex = trkPAPER_SEG_STYLE_DEFAULT;
+		}
+		
+		if(SegClickValid && brsstrcmp(segList[i].Name, currSegIdent) == 0){
+			snprintf2(tmp,200,"{\"select\":\"#%s\",\"fill\":%d,\"style\":\"stroke:11;stroke-width:0.008%;stroke-opacity:1\",\"duration\":1}",
 				segList[i].Name, //Segment Name
-				trkPAPER_SEG_STYLE_DEFAULT //Segment Style Color index
+				fillIndex //Segment Style Color index
+				);
+		}else{
+			snprintf2(tmp,200,"{\"select\":\"#%s\",\"fill\":%d,\"style\":\"stroke:11;stroke-width:0.005%;stroke-opacity:0.05\",\"duration\":1}",
+				segList[i].Name, //Segment Name
+				fillIndex //Segment Style Color index
 				);
 		}
 		
@@ -235,12 +237,15 @@ DINT BuildShuttleStrings(struct McAcpTrakAssemblyMonData* mon,
 //Will monitor to make sure the string lengths are not exceeded
 DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
 	char* svgTransform,
-	struct TrkPaperCoreOptionsType* trkOptions){
+	struct TrkPaperCoreOptionsType* trkOptions,
+	BOOL ShuttleClickValid,
+	char* Ident){
 	
 	USINT i;
 	UDINT fillIndex;
 	char tmp[150];
 	UDINT maxIndex;
+	USINT currShIdent;
 	
 	for (i = 0; i < trkPAPER_MAX_SHUTTLE_COUNT; i++){
 		
@@ -273,20 +278,33 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
 			else 
 				return trkPAPER_CORE_ERR_STR_LEN_EXCD;
 			
-			//Perform fill
+			//Perform fill and style change
+			currShIdent = atoi(DELETE(Ident, 2, 1));
+			
 			if(trkOptions->Color.Enabled){
 				//Grab Fill Index
 				brsmemcpy(&fillIndex,mon->Shuttle[i].UserData + trkOptions->Color.Offset,sizeof(UDINT));
-				snprintf2(tmp,150,",{\"select\":\"#sh%d\",\"fill\":%d,\"duration\":1}",
+			}else{
+				fillIndex = 0;
+			}
+			
+			if(ShuttleClickValid && mon->Shuttle[i].Index == currShIdent){
+				snprintf2(tmp,150,",{\"select\":\"#sh%d\",\"fill\":%d,\"style\":\"stroke:11;stroke-width:0.015%;stroke-opacity:1\",\"duration\":1}",
 					mon->Shuttle[i].Index,
 					fillIndex + trkPAPER_SEG_COLOR_OFFSET//offset shuttle fill index by segment colors
 					);
-				if(CheckStrLen(svgTransform,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
-					brsstrcat((uintptr_t)svgTransform,(uintptr_t)&tmp);
-				}
-				else 
-					return trkPAPER_CORE_ERR_STR_LEN_EXCD;
+			}else{
+				snprintf2(tmp,150,",{\"select\":\"#sh%d\",\"fill\":%d,\"style\":\"stroke:11;stroke-width:0;stroke-opacity:1\",\"duration\":1}",
+					mon->Shuttle[i].Index,
+					fillIndex + trkPAPER_SEG_COLOR_OFFSET//offset shuttle fill index by segment colors
+					);
 			}
+			
+			if(CheckStrLen(svgTransform,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
+				brsstrcat((uintptr_t)svgTransform,(uintptr_t)&tmp);
+			}
+			else 
+				return trkPAPER_CORE_ERR_STR_LEN_EXCD;
 			
 				
 		}else{
@@ -331,6 +349,7 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
 				return trkPAPER_CORE_ERR_STR_LEN_EXCD;	
 		}
 	}
+	
 		
 	//No Error, finished everything return OK
 	return trkPAPER_CORE_ERR_OK;
@@ -341,16 +360,21 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
 DINT ParseClickID(char* ClickID,
 struct TrkPaperCore* inst){
 	
-	USINT StrIndex;
+	USINT StrIndex; 
+	char tmp[150];
+	
 	brsmemset(&inst->Internal.Fbs.TrkPaperSegClickInfo.Ident, 0, sizeof(inst->Internal.Fbs.TrkPaperSegClickInfo.Ident));
 	brsmemset(&inst->Internal.Fbs.TrkPaperShuttleClickInfo.Ident, 0, sizeof(inst->Internal.Fbs.TrkPaperSegClickInfo.Ident));
+	
+	inst->Internal.Fbs.TrkPaperShuttleClickInfo.Enable = FALSE;
+	inst->Internal.Fbs.TrkPaperSegClickInfo.Enable = FALSE;
 	
 	//Segment
 	StrIndex = FIND(ClickID, "gSeg");
 	if (StrIndex != 0) {
 		brsmemcpy(&inst->Internal.Fbs.TrkPaperSegClickInfo.Ident, ClickID + StrIndex - 1, LEN(ClickID) - StrIndex + 1);
+		inst->Internal.Fbs.TrkPaperSegClickInfo.Enable = TRUE;
 		inst->Internal.Fbs.TrkPaperSegClickInfo.Update = TRUE;
-		return trkPAPER_CORE_ERR_OK;
 
 	}
 	
@@ -358,8 +382,8 @@ struct TrkPaperCore* inst){
 	StrIndex = FIND(ClickID, "sh");
 	if (StrIndex != 0) {
 		brsmemcpy(&inst->Internal.Fbs.TrkPaperShuttleClickInfo.Ident, ClickID + StrIndex - 1, LEN(ClickID) - StrIndex + 1);
+		inst->Internal.Fbs.TrkPaperShuttleClickInfo.Enable = TRUE;
 		inst->Internal.Fbs.TrkPaperShuttleClickInfo.Update = TRUE;
-		return trkPAPER_CORE_ERR_OK;
 
 	}
 	
@@ -377,10 +401,8 @@ void TrkPaperCore(struct TrkPaperCore* inst)
 				inst->Internal.TypeID = trkPAPER_CORE_CORE_TYPE_ID;
 				inst->Handle = (uintptr_t)&inst->Internal;
 				
-				inst->Internal.Fbs.TrkPaperSegClickInfo.Enable = TRUE;
-				inst->Internal.Fbs.TrkPaperSegClickInfo.Handle = inst->Handle;
 				
-				inst->Internal.Fbs.TrkPaperShuttleClickInfo.Enable = TRUE;
+				inst->Internal.Fbs.TrkPaperSegClickInfo.Handle = inst->Handle;
 				inst->Internal.Fbs.TrkPaperShuttleClickInfo.Handle = inst->Handle;
 			
 				
@@ -404,23 +426,26 @@ void TrkPaperCore(struct TrkPaperCore* inst)
 
 
 		case trkPAPER_CORE_RUNNING:
-			StartSVGTransformStrings((char*)&inst->SvgTransform);
 			
-			if(inst->Options->Segment.Enabled){
-				inst->ErrorID = BuildSegmentStrings((char*)&inst->SvgContent,(char*)&inst->SvgTransform,inst->Segments,inst->SegmentCount);
-			}
-		
-			inst->ErrorID = BuildShuttleTransformStrings(inst->ShuttleMon,(char*)&inst->SvgTransform,inst->Options);
-			
-			CloseSVGTransformStrings((char*)&inst->SvgTransform);
-			inst->StrLengths.ContentLength = brdkStrLen((uintptr_t)&inst->SvgContent);
-			inst->StrLengths.TransformLength = brdkStrLen((uintptr_t)&inst->SvgTransform);
-			
-			//SegClickInfo
+			//ClickInfo
 			if(inst->ReadClickID){
 				inst->ErrorID = ParseClickID(inst->ClickID, inst);
 				inst->ReadClickID = FALSE;
 			}
+			
+			
+			StartSVGTransformStrings((char*)&inst->SvgTransform);
+			
+			if(inst->Options->Segment.Enabled){
+				inst->ErrorID = BuildSegmentStrings((char*)&inst->SvgContent,(char*)&inst->SvgTransform,inst->Segments,inst->SegmentCount, inst->Internal.Fbs.TrkPaperSegClickInfo.Valid, (char*)&inst->Internal.Fbs.TrkPaperSegClickInfo.Ident);
+			}
+		
+			inst->ErrorID = BuildShuttleTransformStrings(inst->ShuttleMon,(char*)&inst->SvgTransform,inst->Options,inst->Internal.Fbs.TrkPaperShuttleClickInfo.Valid,(char*)&inst->Internal.Fbs.TrkPaperShuttleClickInfo.Ident);
+			
+			CloseSVGTransformStrings((char*)&inst->SvgTransform);
+			
+			inst->StrLengths.ContentLength = brdkStrLen((uintptr_t)&inst->SvgContent);
+			inst->StrLengths.TransformLength = brdkStrLen((uintptr_t)&inst->SvgTransform);
 			
 			//Data Assignment for click ID parsing
 			inst->ClickData.Segment.Valid = inst->Internal.Fbs.TrkPaperSegClickInfo.Valid;
@@ -435,12 +460,17 @@ void TrkPaperCore(struct TrkPaperCore* inst)
 				
 				inst->Internal.State = trkPAPER_CORE_ERROR;
 			}
-			if(inst->Internal.Fbs.TrkPaperSegClickInfo.ErrorID != trkPAPER_SEG_INFO_ERR_OK){
+			else if(inst->Internal.Fbs.TrkPaperSegClickInfo.ErrorID != trkPAPER_SEG_INFO_ERR_OK){
 				inst->ErrorID = trkPAPER_CORE_ERR_SEG_INFO;
 				inst->Error = TRUE;
 				inst->Internal.State = trkPAPER_CORE_ERROR;
 			}
-			if(!inst->Enable){
+			else if(inst->Internal.Fbs.TrkPaperShuttleClickInfo.ErrorID != trkPAPER_SH_INFO_ERR_OK){
+				inst->ErrorID = trkPAPER_CORE_ERR_SH_INFO;
+				inst->Error = TRUE;
+				inst->Internal.State = trkPAPER_CORE_ERROR;
+			}
+			else if(!inst->Enable){
 				inst->Active = FALSE;
 				inst->Internal.State = trkPAPER_CORE_OFF;
 			}
@@ -463,9 +493,6 @@ void TrkPaperCore(struct TrkPaperCore* inst)
 	}
 	//FB calls	
 	TrkPaperSegClickInfo(&inst->Internal.Fbs.TrkPaperSegClickInfo);
-	inst->Internal.Fbs.TrkPaperSegClickInfo.Update = FALSE;
-	
 	TrkPaperShuttleClickInfo(&inst->Internal.Fbs.TrkPaperShuttleClickInfo);
-	inst->Internal.Fbs.TrkPaperShuttleClickInfo.Update = FALSE;
 }
 

@@ -30,7 +30,8 @@ TYPE
 		trkPAPER_CORE_ERR_OK := 0, (*No error present*)
 		trkPAPER_CORE_ERR_INVALID_ASM := -61000, (*Invalid input assembly reference*)
 		trkPAPER_CORE_ERR_STR_LEN_EXCD := -61001, (*The built string is too long, need to increase the maximum size to prevent page faulting*)
-		trkPAPER_CORE_ERR_SEG_INFO := -61002
+		trkPAPER_CORE_ERR_SEG_INFO := -61002,
+		trkPAPER_CORE_ERR_SH_INFO := -61003
 		);
 	TrkPaperCoreInternalType : 	STRUCT  (*Internal Datatype*)
 		TypeID : UDINT; (*TypeID to help with handle application*)

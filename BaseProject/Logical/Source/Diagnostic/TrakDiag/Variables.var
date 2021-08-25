@@ -1,4 +1,6 @@
 VAR
+	ShuttleDialogState : USINT;
+	SegmentDialogState : USINT;
 	ErrorCodeIDInfo : ARRAY[0..NUM_SEG] OF McAcpTrakSegProcessParIDType;
 	SegWarningCmdIDInfo : McAcpTrakSegProcessParIDType;
 	SegErrorCheck : ARRAY[0..NUM_SEG] OF SegErrorCheckType;
