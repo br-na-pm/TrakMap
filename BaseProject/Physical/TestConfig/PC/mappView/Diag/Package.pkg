@@ -4,6 +4,5 @@
   <Objects>
     <Object Type="File">trakmapContent.binding</Object>
     <Object Type="File">trakmapContent.eventbinding</Object>
-    <Object Type="File">segmentDetailsContent.binding</Object>
   </Objects>
 </Package>

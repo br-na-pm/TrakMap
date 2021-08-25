@@ -14,8 +14,6 @@
 		<BindingsSet refId="trakMainContent_binding" />
 		<BindingsSet refId="trakContent_binding" />
 		<BindingsSet refId="trakmapContent_binding" />
-		<BindingsSet refId="segmentDetailsContent_binding" />
-	
 	</BindingsSets>
 	<EventBindingsSets>
 		<!--General-->
@@ -24,7 +22,6 @@
 		<EventBindingsSet refId="trakmapContent_eventbinding" />
 	</EventBindingsSets>
 	<Dialogs>
-		<Dialog refId="segmentDetailsDialog" />
 	</Dialogs>
 	<Contents>
 		<Content refId="navigationContent" />
