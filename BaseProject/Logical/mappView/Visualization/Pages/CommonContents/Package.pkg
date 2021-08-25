@@ -4,8 +4,6 @@
   <Objects>
     <Object Type="File">header.content</Object>
     <Object Type="File">navigation.content</Object>
-    <Object Type="File">currentMainAlarm.content</Object>
-    <Object Type="File">historyAlarm.content</Object>
     <Object Type="File">allTrak.content</Object>
   </Objects>
 </Package>

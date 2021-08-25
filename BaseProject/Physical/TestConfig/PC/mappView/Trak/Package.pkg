@@ -4,9 +4,5 @@
   <Objects>
     <Object Type="File">trakMainContent.binding</Object>
     <Object Type="File">trakContent.binding</Object>
-    <Object Type="File">winderLogContent.binding</Object>
-    <Object Type="File">winderLogContent.eventbinding</Object>
-    <Object Type="File">trakAlarmContent.binding</Object>
-    <Object Type="File">trakAlarmContent.eventbinding</Object>
   </Objects>
 </Package>

@@ -4,9 +4,6 @@
   <Objects>
     <Object Type="Package" Description="AreaContents">CommonContents</Object>
     <Object Type="Package">TrakContent</Object>
-    <Object Type="Package">EM2Content</Object>
-    <Object Type="Package">EM3Content</Object>
-    <Object Type="Package">EMxContent</Object>
     <Object Type="Package">DiagContent</Object>
     <Object Type="Package">Main</Object>
   </Objects>
