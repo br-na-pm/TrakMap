@@ -2,10 +2,10 @@
 <Object objecttypeid="1" name="ACOPOStrak Scene" visible="1">
 	<ParID parid="80" val="0"/>
 	<ParID parid="81" val="60.0"/>
-	<ParID parid="82" val="0.40733955158798285"/>
+	<ParID parid="82" val="0.53500000000000048"/>
 	<ParID parid="90" val="0.0"/>
-	<ParID parid="100" val="329.99999999999983"/>
-	<ParID parid="101" val="-315.00000000000028"/>
+	<ParID parid="100" val="329.99999999999966"/>
+	<ParID parid="101" val="-645.00000000000068"/>
 	<ParID parid="102" val="1.0"/>
 	<ParID parid="103" val="0.0"/>
 	<ParID parid="104" val="0.0"/>
@@ -144,6 +144,105 @@
 			<ParID parid="101" val="-32.683210712447121"/>
 			<ParID parid="102" val="5.473429582931002e-14"/>
 			<ParID parid="103" val="22.500000000000046"/>
+			<ParID parid="104" val="-0"/>
+			<ParID parid="105" val="180"/>
+			<ParID parid="120" val="6"/>
+		</Object>
+		<Object objecttypeid="450" name="gSeg_B_1" visible="1">
+			<ParID parid="100" val="660"/>
+			<ParID parid="101" val="-660.00000000000034"/>
+			<ParID parid="102" val="-8.0826688743725324e-14"/>
+			<ParID parid="103" val="0"/>
+			<ParID parid="104" val="-0"/>
+			<ParID parid="105" val="180"/>
+			<ParID parid="120" val="5"/>
+		</Object>
+		<Object objecttypeid="450" name="gSeg_B_2" visible="1">
+			<ParID parid="100" val="1106.9394430085322"/>
+			<ParID parid="101" val="-692.68321071244691"/>
+			<ParID parid="102" val="-1.3556098457303531e-13"/>
+			<ParID parid="103" val="157.50000000000003"/>
+			<ParID parid="104" val="-180"/>
+			<ParID parid="105" val="0"/>
+			<ParID parid="120" val="1"/>
+		</Object>
+		<Object objecttypeid="450" name="gSeg_B_3" visible="1">
+			<ParID parid="100" val="1272.3167892875535"/>
+			<ParID parid="101" val="-858.06055699146827"/>
+			<ParID parid="102" val="-1.55813868350244e-13"/>
+			<ParID parid="103" val="112.50000000000006"/>
+			<ParID parid="104" val="-180"/>
+			<ParID parid="105" val="0"/>
+			<ParID parid="120" val="1"/>
+		</Object>
+		<Object objecttypeid="450" name="gSeg_B_4" visible="1">
+			<ParID parid="100" val="1272.3167892875535"/>
+			<ParID parid="101" val="-1091.9394430085322"/>
+			<ParID parid="102" val="-1.5581386835024402e-13"/>
+			<ParID parid="103" val="67.500000000000043"/>
+			<ParID parid="104" val="180"/>
+			<ParID parid="105" val="-0"/>
+			<ParID parid="120" val="1"/>
+		</Object>
+		<Object objecttypeid="450" name="gSeg_B_5" visible="1">
+			<ParID parid="100" val="1106.9394430085324"/>
+			<ParID parid="101" val="-1257.3167892875538"/>
+			<ParID parid="102" val="-1.3556098457303533e-13"/>
+			<ParID parid="103" val="22.500000000000025"/>
+			<ParID parid="104" val="180"/>
+			<ParID parid="105" val="-0"/>
+			<ParID parid="120" val="6"/>
+		</Object>
+		<Object objecttypeid="450" name="gSeg_B_6" visible="1">
+			<ParID parid="100" val="660.00000000000023"/>
+			<ParID parid="101" val="-1290.0000000000007"/>
+			<ParID parid="102" val="-8.0826688743725362e-14"/>
+			<ParID parid="103" val="2.5444437451708134e-14"/>
+			<ParID parid="104" val="180"/>
+			<ParID parid="105" val="-0"/>
+			<ParID parid="120" val="4"/>
+		</Object>
+		<Object objecttypeid="450" name="gSeg_B_7" visible="1">
+			<ParID parid="100" val="0"/>
+			<ParID parid="101" val="-1290.0000000000014"/>
+			<ParID parid="102" val="-2.4651903288156619e-29"/>
+			<ParID parid="103" val="2.5444437451708134e-14"/>
+			<ParID parid="104" val="180"/>
+			<ParID parid="105" val="-0"/>
+			<ParID parid="120" val="5"/>
+		</Object>
+		<Object objecttypeid="450" name="gSeg_B_8" visible="1">
+			<ParID parid="100" val="-446.93944300853218"/>
+			<ParID parid="101" val="-1257.3167892875547"/>
+			<ParID parid="102" val="5.4734295829309963e-14"/>
+			<ParID parid="103" val="157.50000000000006"/>
+			<ParID parid="104" val="-0"/>
+			<ParID parid="105" val="180"/>
+			<ParID parid="120" val="1"/>
+		</Object>
+		<Object objecttypeid="450" name="gSeg_B_9" visible="1">
+			<ParID parid="100" val="-612.31678928755377"/>
+			<ParID parid="101" val="-1091.9394430085333"/>
+			<ParID parid="102" val="7.4987179606518699e-14"/>
+			<ParID parid="103" val="112.50000000000006"/>
+			<ParID parid="104" val="-0"/>
+			<ParID parid="105" val="180"/>
+			<ParID parid="120" val="1"/>
+		</Object>
+		<Object objecttypeid="450" name="gSeg_B_10" visible="1">
+			<ParID parid="100" val="-612.31678928755423"/>
+			<ParID parid="101" val="-858.06055699146964"/>
+			<ParID parid="102" val="7.498717960651875e-14"/>
+			<ParID parid="103" val="67.500000000000057"/>
+			<ParID parid="104" val="-0"/>
+			<ParID parid="105" val="180"/>
+			<ParID parid="120" val="1"/>
+		</Object>
+		<Object objecttypeid="450" name="gSeg_B_11" visible="1">
+			<ParID parid="100" val="-446.93944300853281"/>
+			<ParID parid="101" val="-692.68321071244782"/>
+			<ParID parid="102" val="5.4734295829310039e-14"/>
+			<ParID parid="103" val="22.500000000000064"/>
 			<ParID parid="104" val="-0"/>
 			<ParID parid="105" val="180"/>
 			<ParID parid="120" val="6"/>

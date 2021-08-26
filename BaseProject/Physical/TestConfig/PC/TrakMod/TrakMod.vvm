@@ -3,5 +3,7 @@ VAR_CONFIG
 	Cyclic#1.TrakMod::gTrakModule AT %Q.TrakMod::TrakInterface.ModulePml; (*Insert your comment here...*)
 	Cyclic#1.TrakMod::gAlarmXCore_TrakModule AT %Q.TrakMod::TrakInterface.AlarmCore; (*Insert your comment here...*)
 	Cyclic#1.TrakMod::gRecipeXml_TrakModule AT %Q.TrakMod::TrakInterface.RecipeCore; (*Insert your comment here...*)
+	Cyclic#1.::gSampleTrak_SectorTrakAll AT %Q.TrakMod::TrakInterface.SectorTrakAll; (*Insert your comment here...*)
+	Cyclic#1.::gSampleTrak_SectorTrakB AT %Q.TrakMod::TrakInterface.SectorTrakB; (*Insert your comment here...*)
 	Cyclic#1.::gSampleTrak_SectorTrakA AT %Q.TrakMod::TrakInterface.SectorTrakA; (*Insert your comment here...*)
 END_VAR

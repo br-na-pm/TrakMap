@@ -34,6 +34,29 @@
           </Group>
         </Selector>
       </Group>
+      <Group ID="Track[2]">
+        <Group ID="Segments">
+          <Property ID="SegmentRef[1]" Value="::gSeg_B_1" />
+          <Property ID="SegmentRef[2]" Value="::gSeg_B_2" />
+          <Property ID="SegmentRef[3]" Value="::gSeg_B_3" />
+          <Property ID="SegmentRef[4]" Value="::gSeg_B_4" />
+          <Property ID="SegmentRef[5]" Value="::gSeg_B_5" />
+          <Property ID="SegmentRef[6]" Value="::gSeg_B_6" />
+          <Property ID="SegmentRef[7]" Value="::gSeg_B_7" />
+          <Property ID="SegmentRef[8]" Value="::gSeg_B_8" />
+          <Property ID="SegmentRef[9]" Value="::gSeg_B_9" />
+          <Property ID="SegmentRef[10]" Value="::gSeg_B_10" />
+          <Property ID="SegmentRef[11]" Value="::gSeg_B_11" />
+        </Group>
+        <Selector ID="Position" Value="RelativeToOne">
+          <Group ID="TrackSegmentPosition">
+            <Property ID="SegmentRef" Value="::gSeg_B_1" />
+          </Group>
+          <Group ID="Base">
+            <Property ID="SegmentRef" Value="::gSeg_A_7" />
+          </Group>
+        </Selector>
+      </Group>
     </Group>
     <Group ID="CommonSegmentSettings">
       <Property ID="SegmentSimulationOnPLC" Value="Off" />
@@ -50,10 +73,10 @@
               <Property ID="IntegrationTime" Value="0.0" />
             </Group>
             <Group ID="FeedForward">
-              <Property ID="TotalMass" Value="1" />
-              <Property ID="ForcePositive" Value="0.0" />
-              <Property ID="ForceNegative" Value="0.0" />
-              <Property ID="SpeedForceFactor" Value="0.0" />
+              <Property ID="TotalMass" Value="1.3" />
+              <Property ID="ForcePositive" Value="4.0" />
+              <Property ID="ForceNegative" Value="4.0" />
+              <Property ID="SpeedForceFactor" Value="1.3" />
               <Property ID="ForceLoad" Value="0.0" />
             </Group>
           </Group>
@@ -68,7 +91,7 @@
       <Property ID="ShuttleIdentificationTime" Value="0" />
     </Group>
     <Group ID="Shuttles">
-      <Property ID="MaxShuttleCount" Value="150" />
+      <Property ID="MaxShuttleCount" Value="20" />
       <Group ID="DistanceReserve">
         <Property ID="Collision" Value="0.002" />
         <Property ID="ErrorStop" Value="0.006" />

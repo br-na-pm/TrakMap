@@ -1,6 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
+  <Element ID="gSampleTrak_SectorTrakB" Type="sector">
+    <Selector ID="Type" Value="Composed">
+      <Group ID="StartSegment">
+        <Property ID="SegmentRef" Value="::gSeg_B_1" />
+      </Group>
+      <Group ID="IntermediateSegments">
+        <Property ID="SegmentRef[1]" Value="::gSeg_B_2" />
+        <Property ID="SegmentRef[2]" Value="::gSeg_B_3" />
+        <Property ID="SegmentRef[3]" Value="::gSeg_B_4" />
+        <Property ID="SegmentRef[4]" Value="::gSeg_B_5" />
+        <Property ID="SegmentRef[5]" Value="::gSeg_B_6" />
+        <Property ID="SegmentRef[6]" Value="::gSeg_B_7" />
+        <Property ID="SegmentRef[7]" Value="::gSeg_B_8" />
+        <Property ID="SegmentRef[8]" Value="::gSeg_B_9" />
+        <Property ID="SegmentRef[9]" Value="::gSeg_B_10" />
+      </Group>
+      <Group ID="EndSegment">
+        <Property ID="SegmentRef" Value="::gSeg_B_11" />
+        <Property ID="PositionRelativeTo" Value="FromEnd" />
+      </Group>
+    </Selector>
+  </Element>
+  <Element ID="gSampleTrak_SectorTrakAll" Type="sector">
+    <Selector ID="Type" Value="Composed">
+      <Group ID="StartSegment">
+        <Property ID="SegmentRef" Value="::gSeg_B_4" />
+      </Group>
+      <Group ID="IntermediateSegments">
+        <Property ID="SegmentRef[1]" Value="::gSeg_B_5" />
+        <Property ID="SegmentRef[2]" Value="::gSeg_B_6" />
+        <Property ID="SegmentRef[3]" Value="::gSeg_B_7" />
+        <Property ID="SegmentRef[4]" Value="::gSeg_B_8" />
+        <Property ID="SegmentRef[5]" Value="::gSeg_B_9" />
+        <Property ID="SegmentRef[6]" Value="::gSeg_B_10" />
+        <Property ID="SegmentRef[7]" Value="::gSeg_B_11" />
+        <Property ID="SegmentRef[8]" Value="::gSeg_A_7" />
+        <Property ID="SegmentRef[9]" Value="::gSeg_A_6" />
+        <Property ID="SegmentRef[10]" Value="::gSeg_A_5" />
+        <Property ID="SegmentRef[11]" Value="::gSeg_A_4" />
+        <Property ID="SegmentRef[12]" Value="::gSeg_A_3" />
+        <Property ID="SegmentRef[13]" Value="::gSeg_A_2" />
+        <Property ID="SegmentRef[14]" Value="::gSeg_A_1" />
+        <Property ID="SegmentRef[15]" Value="::gSeg_A_12" />
+        <Property ID="SegmentRef[16]" Value="::gSeg_A_11" />
+        <Property ID="SegmentRef[17]" Value="::gSeg_A_10" />
+        <Property ID="SegmentRef[18]" Value="::gSeg_A_9" />
+        <Property ID="SegmentRef[19]" Value="::gSeg_A_8" />
+        <Property ID="SegmentRef[20]" Value="::gSeg_A_7" />
+        <Property ID="SegmentRef[21]" Value="::gSeg_B_1" />
+        <Property ID="SegmentRef[22]" Value="::gSeg_B_2" />
+        <Property ID="SegmentRef[23]" Value="::gSeg_B_3" />
+      </Group>
+      <Group ID="EndSegment">
+        <Property ID="SegmentRef" Value="::gSeg_B_4" />
+      </Group>
+    </Selector>
+  </Element>
   <Element ID="gSampleTrak_SectorTrakA" Type="sector">
     <Selector ID="Type" Value="Composed">
       <Group ID="StartSegment">

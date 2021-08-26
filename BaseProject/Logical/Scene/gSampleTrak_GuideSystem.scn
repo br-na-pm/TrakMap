@@ -2,10 +2,10 @@
 <Object objecttypeid="1" name="ACOPOStrak Scene" visible="1">
 	<ParID parid="80" val="0"/>
 	<ParID parid="81" val="60.0"/>
-	<ParID parid="82" val="0.31500000000000017"/>
+	<ParID parid="82" val="0.53500000000000048"/>
 	<ParID parid="90" val="0.0"/>
-	<ParID parid="100" val="329.99999999999994"/>
-	<ParID parid="101" val="-815.00000000000045"/>
+	<ParID parid="100" val="330.00000000000006"/>
+	<ParID parid="101" val="-1145.0000000000009"/>
 	<ParID parid="102" val="866.02540378443859"/>
 	<ParID parid="103" val="0.0"/>
 	<ParID parid="104" val="0.50000000000000011"/>
@@ -82,6 +82,33 @@
 				<ParID parid="103" val="180"/>
 				<ParID parid="104" val="-0"/>
 				<ParID parid="105" val="180"/>
+				<ParID parid="120" val="9"/>
+			</Object>
+			<Object objecttypeid="550" name="GuideSystem (gSeg_B_1, gSeg_B_2, gSeg_B_3, gSeg_B_4, gSeg_B_5)" visible="1">
+				<ParID parid="100" val="660"/>
+				<ParID parid="101" val="-660.00000000000034"/>
+				<ParID parid="102" val="-8.0826688743725324e-14"/>
+				<ParID parid="103" val="0"/>
+				<ParID parid="104" val="-0"/>
+				<ParID parid="105" val="180"/>
+				<ParID parid="120" val="9"/>
+			</Object>
+			<Object objecttypeid="550" name="GuideSystem (gSeg_B_6)" visible="1">
+				<ParID parid="100" val="660.00000000000023"/>
+				<ParID parid="101" val="-1290.0000000000007"/>
+				<ParID parid="102" val="-8.0826688743725362e-14"/>
+				<ParID parid="103" val="2.5444437451708134e-14"/>
+				<ParID parid="104" val="180"/>
+				<ParID parid="105" val="-0"/>
+				<ParID parid="120" val="5"/>
+			</Object>
+			<Object objecttypeid="550" name="GuideSystem (gSeg_B_7, gSeg_B_8, gSeg_B_9, gSeg_B_10, gSeg_B_11)" visible="1">
+				<ParID parid="100" val="0"/>
+				<ParID parid="101" val="-1290.0000000000014"/>
+				<ParID parid="102" val="-2.4651903288156619e-29"/>
+				<ParID parid="103" val="2.5444437451708134e-14"/>
+				<ParID parid="104" val="180"/>
+				<ParID parid="105" val="-0"/>
 				<ParID parid="120" val="9"/>
 			</Object>
 		</Object>

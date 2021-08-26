@@ -34,6 +34,8 @@ TYPE
 		AuditCore : MpComIdentType;
 		RecipeCore : MpComIdentType;
 		TrakInterface : TrakType;
+		SectorTrakAll : McSectorType;
+		SectorTrakB : McSectorType;
 		SectorTrakA : McSectorType;
 	END_STRUCT;
 END_TYPE
