@@ -24,4 +24,5 @@ ACTION SegDefinition:
 	paperCore.ViewBoxCfg.MinY := -0.115;
 	paperCore.ViewBoxCfg.Width := 2.13115;
 	paperCore.ViewBoxCfg.Height := 0.86;
+	
 END_ACTION 
