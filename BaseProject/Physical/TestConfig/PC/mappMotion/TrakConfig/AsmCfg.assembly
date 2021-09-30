@@ -61,28 +61,30 @@
     <Group ID="CommonSegmentSettings">
       <Property ID="SegmentSimulationOnPLC" Value="Off" />
       <Selector ID="StopReaction" Value="InductionHalt" />
-      <Selector ID="SpeedFilter" Value="NotUsed" />
+      <Selector ID="SpeedFilter" Value="Lowpass">
+        <Property ID="FilterTime" Value="0.0008" />
+      </Selector>
       <Group ID="ControllerParameters">
         <Group ID="DefaultParameter">
           <Group ID="Controller">
             <Group ID="Position">
-              <Property ID="ProportionalGain" Value="200" />
+              <Property ID="ProportionalGain" Value="150" />
             </Group>
             <Group ID="Speed">
               <Property ID="ProportionalGain" Value="80" />
               <Property ID="IntegrationTime" Value="0.0" />
             </Group>
             <Group ID="FeedForward">
-              <Property ID="TotalMass" Value="1.3" />
-              <Property ID="ForcePositive" Value="4.0" />
-              <Property ID="ForceNegative" Value="4.0" />
-              <Property ID="SpeedForceFactor" Value="1.3" />
+              <Property ID="TotalMass" Value="0.7" />
+              <Property ID="ForcePositive" Value="1.5" />
+              <Property ID="ForceNegative" Value="1.5" />
+              <Property ID="SpeedForceFactor" Value="1.4" />
               <Property ID="ForceLoad" Value="0.0" />
             </Group>
           </Group>
           <Group ID="MovementErrorLimits">
-            <Property ID="PositionError" Value="0.001" />
-            <Property ID="VelocityError" Value="0.05" />
+            <Property ID="PositionError" Value="20" />
+            <Property ID="VelocityError" Value="2000" />
           </Group>
         </Group>
         <Selector ID="AdditionalParameterSets" Value="NotUsed" />

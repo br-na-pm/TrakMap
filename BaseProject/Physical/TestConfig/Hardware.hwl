@@ -2,7 +2,7 @@
 <?AutomationStudio FileVersion="4.9"?>
 <BR.AS.HardwareTopology>
   <TimeStamps>
-    <TimeStamp LogicalPath="TestConfig.Hardware.hw" LastWriteTime="08/25/2021 14:15:27" />
+    <TimeStamp LogicalPath="TestConfig.Hardware.hw" LastWriteTime="09/02/2021 09:56:52" />
   </TimeStamps>
   <Modules>
     <Module Name="SegAA_7" Type="8F1I01.AA66.xxxx-1" X="484" Y="569" />
@@ -134,6 +134,16 @@
       <Point X="835.0321" Y="160.345337" />
       <Point X="835.0321" Y="160.345337" />
     </Link>
+    <Link From="SegAA_1" To="SegBA_12" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
+      <Point X="430" Y="411" />
+      <Point X="430" Y="411" />
+      <Point X="430" Y="425" />
+      <Point X="430" Y="435" />
+      <Point X="584.5" Y="435" />
+      <Point X="584.5" Y="415" />
+      <Point X="584.5" Y="408" />
+      <Point X="584.5" Y="408" />
+    </Link>
     <Link From="SegAA_1" To="SegAB_2" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
       <Point X="798" Y="411" />
       <Point X="798" Y="411" />
@@ -149,9 +159,9 @@
       <Point X="613.5" Y="408" />
       <Point X="613.5" Y="415" />
       <Point X="613.5" Y="539" />
-      <Point X="10.5" Y="539" />
-      <Point X="10.5" Y="529" />
-      <Point X="10.5" Y="529" />
+      <Point X="11" Y="539" />
+      <Point X="11" Y="529" />
+      <Point X="11" Y="529" />
     </Link>
     <Link From="SegAA_18" To="SegBA_17" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
       <Point X="657.232056" Y="889.828064" />
@@ -240,13 +250,13 @@
       <Point X="374.600037" Y="568.4" />
     </Link>
     <Link From="SegBA_12" To="SegBB_11" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
-      <Point X="373.8" Y="416" />
-      <Point X="373.8" Y="416" />
-      <Point X="373.8" Y="425" />
-      <Point X="373.8" Y="433.599976" />
-      <Point X="334.4" Y="433.599976" />
-      <Point X="307.4" Y="433.599976" />
-      <Point X="307.4" Y="433.599976" />
+      <Point X="307" Y="433" />
+      <Point X="307" Y="433" />
+      <Point X="335" Y="433" />
+      <Point X="373" Y="433" />
+      <Point X="373" Y="425" />
+      <Point X="373" Y="416" />
+      <Point X="373" Y="416" />
     </Link>
     <Link From="SegBA_17" To="SegBB_16" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
       <Point X="879.2001" Y="882.2281" />
@@ -265,15 +275,6 @@
       <Point X="327.161133" Y="721.9682" />
       <Point X="299.161133" Y="721.9682" />
       <Point X="299.161133" Y="721.9682" />
-    </Link>
-    <Link From="SegBA_6" To="SegBB_5" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
-      <Point X="857.2" Y="567" />
-      <Point X="857.2" Y="567" />
-      <Point X="857.2" Y="558" />
-      <Point X="857.2" Y="552.2" />
-      <Point X="895" Y="552.2" />
-      <Point X="923" Y="552.2" />
-      <Point X="923" Y="552.2" />
     </Link>
     <Link From="SegBB_10" To="SegBB_9" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
       <Point X="275.999969" Y="502" />

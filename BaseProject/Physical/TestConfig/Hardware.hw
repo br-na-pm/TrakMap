@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio Version=4.9.2.46 FileVersion="4.9"?>
 <Hardware xmlns="http://br-automation.co.at/AS/Hardware">
   <Module Name="5AC901.BX02-00" Type="5AC901.BX02-00" Version="1.0.1.0">
@@ -138,6 +138,9 @@
     <Parameter ID="OpcUaInformationModels_PV_Version" Value="2" />
   </Module>
   <Module Name="SegAA_1" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SegBA_12" TargetConnector="PLK2" NodeNumber="130">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
     <Connection Connector="PLK2" TargetModule="SegAB_2" TargetConnector="PLK1" NodeNumber="130">
       <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
     </Connection>
@@ -232,6 +235,9 @@
     <Connection Connector="PLK1" TargetModule="SegBB_11" TargetConnector="PLK2" NodeNumber="141">
       <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
     </Connection>
+    <Connection Connector="PLK2" TargetModule="SegAA_1" TargetConnector="PLK1" NodeNumber="141">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
     <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
     <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR_TO_STRAIGHT105" />
     <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="gSeg_A_12" />
@@ -262,9 +268,6 @@
     <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
   </Module>
   <Module Name="SegBA_6" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
-    <Connection Connector="PLK1" TargetModule="SegBB_5" TargetConnector="PLK2" NodeNumber="135">
-      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
-    </Connection>
     <Connection Connector="PLK2" TargetModule="SegAA_7" TargetConnector="PLK1" NodeNumber="135">
       <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
     </Connection>
@@ -406,9 +409,6 @@
   </Module>
   <Module Name="SegBB_5" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
     <Connection Connector="PLK1" TargetModule="SegBB_4" TargetConnector="PLK2" NodeNumber="134">
-      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
-    </Connection>
-    <Connection Connector="PLK2" TargetModule="SegBA_6" TargetConnector="PLK1" NodeNumber="134">
       <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
     </Connection>
     <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
