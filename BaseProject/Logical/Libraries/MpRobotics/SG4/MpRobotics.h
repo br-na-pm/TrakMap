@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpRobotics 5.14.0 */
+/* MpRobotics 5.14.2 */
 
 #ifndef _MPROBOTICS_
 #define _MPROBOTICS_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpRobotics_VERSION
-#define _MpRobotics_VERSION 5.14.0
+#define _MpRobotics_VERSION 5.14.2
 #endif
 
 #include <bur/plctypes.h>

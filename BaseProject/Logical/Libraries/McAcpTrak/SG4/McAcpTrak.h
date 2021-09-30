@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McAcpTrak 5.14.0 */
+/* McAcpTrak 5.14.2 */
 
 #ifndef _MCACPTRAK_
 #define _MCACPTRAK_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McAcpTrak_VERSION
-#define _McAcpTrak_VERSION 5.14.0
+#define _McAcpTrak_VERSION 5.14.2
 #endif
 
 #include <bur/plctypes.h>
