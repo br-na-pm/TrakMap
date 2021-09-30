@@ -95,8 +95,8 @@ DINT CloseSVGTransformStrings(char* svgTransform){
 DINT BuildSegmentStrings(char* svgContent,
 	char* svgTransform,
 	struct TrkDiagSegmentType* segList,
-USINT SegmentCount,
-BOOL SegClickValid,
+	USINT SegmentCount,
+	BOOL SegClickValid,
 char* currSegIdent){
 	
 	USINT i;
@@ -152,12 +152,12 @@ char* currSegIdent){
 }
 
 DINT BuildShuttlePolygon(char* dest,
-	USINT idx){
+USINT idx){
 	
 	char tmp[150];
 	
 
-	snprintf2(tmp,150,"<circle id=\"sh%d\" r=\"0.05\" style=\"fill:rgb(150,150,150);\"/>",
+	snprintf2(tmp,150,"<circle id=\"sh%d\" r=\"0.05\" style=\"fill:rgb(150,150,150)\"/>",
 		idx); //circle index
 	
 	if(CheckStrLen(dest,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
@@ -171,63 +171,51 @@ DINT BuildShuttlePolygon(char* dest,
 //This function loops through the assembly monitor data and builds a SVG string. Will return 0 if succesful
 //Will monitor to make sure the string lengths are not exceeded
 DINT BuildShuttleStrings(struct McAcpTrakAssemblyMonData* mon,
-	char* svgContent){
+	char* svgContent,
+struct TrkPaperCoreViewBoxCfgType* viewBoxCfg){
+	
 	USINT i;
-	char tmp[150];
+	char tmp[200];
 	
-	for (i = 1; i < trkPAPER_MAX_SHUTTLE_COUNT; i++){
-		brsmemset((uintptr_t)&tmp,0,sizeof(tmp));
+	for (i = 0; i < trkPAPER_MAX_SHUTTLE_COUNT; i++){
+		if(mon->Shuttle[i].Available){
+			brsmemset((uintptr_t)&tmp,0,sizeof(tmp));
+			snprintf2(tmp,200,"<g id=\"Shuttle%d\" transform=\"translate(%d,%d)\">",
+				mon->Shuttle[i].Index,
+				viewBoxCfg->Width * 10,
+				viewBoxCfg->Height * 10);
+			if(CheckStrLen(svgContent,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
+				brsstrcat((uintptr_t)svgContent,(uintptr_t)&tmp);
+			}
+			else 
+				return trkPAPER_CORE_ERR_STR_LEN_EXCD;
+			
+			DINT returnVal;
+			returnVal = BuildShuttlePolygon(svgContent,	mon->Shuttle[i].Index);
+			if(returnVal!= trkPAPER_CORE_ERR_OK)
+				return returnVal;
+			
+			snprintf2(tmp,200,"<text id=\"tsh%d\" x=\"0\" y=\"0\" dominant-baseline=\"middle\" text-anchor=\"middle\" text-decoration=\"underline\" font-weight=\"bold\" font-size=\"0.035px\">%d</text>",
+				mon->Shuttle[i].Index,
+				mon->Shuttle[i].Index);
+			if(CheckStrLen(svgContent,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
+				brsstrcat((uintptr_t)svgContent,(uintptr_t)&tmp);
+			}
+			else 
+				return trkPAPER_CORE_ERR_STR_LEN_EXCD;
+			
+			
+			if(CheckStrLen(svgContent,(char*)&"</g>",trkPAPER_CORE_MAX_STR_LEN)){
+				brsstrcat((uintptr_t)svgContent,(uintptr_t)&"</g>");
+			}
+			else 
+				return trkPAPER_CORE_ERR_STR_LEN_EXCD;
 		
-		LREAL width;
-		LREAL length;
 		
-		//Init Dimensions
-		width = 0.04;
-		length = 0.05;
-	
-		snprintf2(tmp,150,"<g id=\"Shuttle%d\">",i);
-		if(CheckStrLen(svgContent,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
-			brsstrcat((uintptr_t)svgContent,(uintptr_t)&tmp);
 		}
-		else 
-			return trkPAPER_CORE_ERR_STR_LEN_EXCD;
-			
-		DINT returnVal;
-		returnVal = BuildShuttlePolygon(svgContent,i);
-		if(returnVal!= trkPAPER_CORE_ERR_OK)
-			return returnVal;
-			
-		snprintf2(tmp,150,"<text id=\"tsh%d\" x=\"0\" y=\"0\" dominant-baseline=\"middle\" text-anchor=\"middle\" text-decoration=\"underline\" font-weight=\"bold\" font-size=\"0.035px\">%d</text>",
-			i,
-			i);
-		if(CheckStrLen(svgContent,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
-			brsstrcat((uintptr_t)svgContent,(uintptr_t)&tmp);
-		}
-		else 
-			return trkPAPER_CORE_ERR_STR_LEN_EXCD;
-	
-			
-		//Create an invisible bounding rectangle to handle the click event. "Invisible" by using the alpha channel, if you use the 
-		//Vibisility property, the click event will not fire for the SVG
-		snprintf2(tmp,150,"<rect id=\"rsh%d\" width=\"%f\" height=\"%f\" style=\"fill:rgba(0,0,0,0)\"/>",
-			i,
-			length,
-			width);
-		if(CheckStrLen(svgContent,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
-			brsstrcat((uintptr_t)svgContent,(uintptr_t)&tmp);
-		}
-		else 
-			return trkPAPER_CORE_ERR_STR_LEN_EXCD;
-			
-			
-		if(CheckStrLen(svgContent,(char*)&"</g>",trkPAPER_CORE_MAX_STR_LEN)){
-			brsstrcat((uintptr_t)svgContent,(uintptr_t)&"</g>");
-		}
-		else 
-			return trkPAPER_CORE_ERR_STR_LEN_EXCD;
-		
 		
 	}
+	
 	
 	//No Error, finished everything return OK
 	return trkPAPER_CORE_ERR_OK;
@@ -239,24 +227,14 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
 	char* svgTransform,
 	struct TrkPaperCoreOptionsType* trkOptions,
 	BOOL ShuttleClickValid,
-	char* Ident){
+char* Ident){
 	
 	USINT i;
 	UDINT fillIndex;
 	char tmp[150];
-	UDINT maxIndex;
 	USINT currShIdent;
 	
 	for (i = 0; i < trkPAPER_MAX_SHUTTLE_COUNT; i++){
-		
-		if(trkOptions->Segment.Enabled){
-			if(CheckStrLen(svgTransform,(char*)&",",trkPAPER_CORE_MAX_STR_LEN)){
-				brsstrcat((uintptr_t)svgTransform,(uintptr_t)&",");
-			}
-			else 
-				return trkPAPER_CORE_MAX_STR_LEN;	
-		}
-		
 		if(mon->Shuttle[i].Available && trkOptions->Shuttle.Enabled){
 			brsmemset((uintptr_t)&tmp,0,sizeof(tmp));
 		
@@ -265,6 +243,14 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
 			
 			shCenterX = mon->Shuttle[i].Position.X / 1000.0;
 			shCenterY = -(mon->Shuttle[i].Position.Y / 1000.0);
+			
+			if(trkOptions->Segment.Enabled){
+				if(CheckStrLen(svgTransform,(char*)&",",trkPAPER_CORE_MAX_STR_LEN)){
+					brsstrcat((uintptr_t)svgTransform,(uintptr_t)&",");
+				}
+				else 
+					return trkPAPER_CORE_MAX_STR_LEN;	
+			}
 	
 			//Perform translation
 			snprintf2(tmp,150,"{\"select\":\"#Shuttle%d\",\"duration\":100,\"display\":true,\"translate\":[%f,%f]}",
@@ -279,7 +265,7 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
 				return trkPAPER_CORE_ERR_STR_LEN_EXCD;
 			
 			//Perform fill and style change
-			currShIdent = atoi(DELETE(Ident, 2, 1));
+			currShIdent = atoi(Ident);
 			
 			if(trkOptions->Color.Enabled){
 				//Grab Fill Index
@@ -306,49 +292,17 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
 			else 
 				return trkPAPER_CORE_ERR_STR_LEN_EXCD;
 			
+			if(!trkOptions->Segment.Enabled && i < (trkPAPER_MAX_SHUTTLE_COUNT - 1)){
+				if(CheckStrLen(svgTransform,(char*)&",",trkPAPER_CORE_MAX_STR_LEN)){
+					brsstrcat((uintptr_t)svgTransform,(uintptr_t)&",");
+				}
+				else 
+					return trkPAPER_CORE_ERR_STR_LEN_EXCD;	
+			}
 				
-		}else{
-			maxIndex = i + 1;
-			break;
-		}
-		
-		if(!trkOptions->Segment.Enabled && i < (trkPAPER_MAX_SHUTTLE_COUNT - 1)){
-			if(CheckStrLen(svgTransform,(char*)&",",trkPAPER_CORE_MAX_STR_LEN)){
-				brsstrcat((uintptr_t)svgTransform,(uintptr_t)&",");
-			}
-			else 
-				return trkPAPER_CORE_ERR_STR_LEN_EXCD;	
-		}
-		
-	}
-	
-	for (i = maxIndex; i < trkPAPER_MAX_SHUTTLE_COUNT; i++){
-		
-		if(trkOptions->Segment.Enabled && i != maxIndex){
-			if(CheckStrLen(svgTransform,(char*)&",",trkPAPER_CORE_MAX_STR_LEN)){
-				brsstrcat((uintptr_t)svgTransform,(uintptr_t)&",");
-			}
-			else 
-				return trkPAPER_CORE_MAX_STR_LEN;	
-		}
-	
-		//Hide Shuttle
-		snprintf2(tmp,150,"{\"select\":\"#Shuttle%d\",\"display\":false,\"duration\":1}",
-			i);
-		if(CheckStrLen(svgTransform,(char*)&tmp,trkPAPER_CORE_MAX_STR_LEN)){
-			brsstrcat((uintptr_t)svgTransform,(uintptr_t)&tmp);
-		}
-		else 
-			return trkPAPER_CORE_ERR_STR_LEN_EXCD;
-		
-		if(!trkOptions->Segment.Enabled && i < (trkPAPER_MAX_SHUTTLE_COUNT - 1)){
-			if(CheckStrLen(svgTransform,(char*)&",",trkPAPER_CORE_MAX_STR_LEN)){
-				brsstrcat((uintptr_t)svgTransform,(uintptr_t)&",");
-			}
-			else 
-				return trkPAPER_CORE_ERR_STR_LEN_EXCD;	
 		}
 	}
+	
 	
 		
 	//No Error, finished everything return OK
@@ -360,8 +314,10 @@ DINT BuildShuttleTransformStrings(struct McAcpTrakAssemblyMonData* mon,
 DINT ParseClickID(char* ClickID,
 struct TrkPaperCore* inst){
 	
-	USINT StrIndex; 
+	DINT StrIndex; 
 	char tmp[150];
+	char shIdent[] = "sh";
+	char segIdent[] = "gSeg"; //TODO: change to sg following python script change
 	
 	brsmemset(&inst->Internal.Fbs.TrkPaperSegClickInfo.Ident, 0, sizeof(inst->Internal.Fbs.TrkPaperSegClickInfo.Ident));
 	brsmemset(&inst->Internal.Fbs.TrkPaperShuttleClickInfo.Ident, 0, sizeof(inst->Internal.Fbs.TrkPaperSegClickInfo.Ident));
@@ -370,24 +326,26 @@ struct TrkPaperCore* inst){
 	inst->Internal.Fbs.TrkPaperSegClickInfo.Enable = FALSE;
 	
 	//Segment
-	StrIndex = FIND(ClickID, "gSeg");
-	if (StrIndex != 0) {
-		brsmemcpy(&inst->Internal.Fbs.TrkPaperSegClickInfo.Ident, ClickID + StrIndex - 1, LEN(ClickID) - StrIndex + 1);
+	StrIndex = brdkStrSearch(ClickID, segIdent);
+	if (StrIndex != -1) {
+		brsmemcpy(&inst->Internal.Fbs.TrkPaperSegClickInfo.Ident, ClickID + StrIndex, brdkStrLen(ClickID) - StrIndex);
 		inst->Internal.Fbs.TrkPaperSegClickInfo.Enable = TRUE;
 		inst->Internal.Fbs.TrkPaperSegClickInfo.Update = TRUE;
-
+		return trkPAPER_CORE_ERR_OK;
 	}
 	
 	//Shuttle
-	StrIndex = FIND(ClickID, "sh");
-	if (StrIndex != 0) {
-		brsmemcpy(&inst->Internal.Fbs.TrkPaperShuttleClickInfo.Ident, ClickID + StrIndex - 1, LEN(ClickID) - StrIndex + 1);
+	StrIndex = brdkStrSearch(ClickID, shIdent);
+	if (StrIndex != -1) {
+		brsmemcpy(&inst->Internal.Fbs.TrkPaperShuttleClickInfo.Ident, ClickID + StrIndex + 2, brdkStrLen(ClickID) - StrIndex);
 		inst->Internal.Fbs.TrkPaperShuttleClickInfo.Enable = TRUE;
 		inst->Internal.Fbs.TrkPaperShuttleClickInfo.Update = TRUE;
+		return trkPAPER_CORE_ERR_OK;
 
 	}
 	
 	return trkPAPER_CORE_ERR_OK;
+	
 
 }
 
@@ -415,11 +373,6 @@ void TrkPaperCore(struct TrkPaperCore* inst)
 			break;
 		
 		case trkPAPER_CORE_INIT:
-			
-			//Build Shuttle Strings
-			StartSVGStrings((char*)&inst->SvgContent,&inst->ViewBoxCfg);
-			inst->ErrorID = BuildShuttleStrings(inst->ShuttleMon,(char*)&inst->SvgContent);		
-			CloseSVGStrings((char*)&inst->SvgContent);
 				
 			inst->Internal.State = trkPAPER_CORE_RUNNING;
 			break;
@@ -433,6 +386,10 @@ void TrkPaperCore(struct TrkPaperCore* inst)
 				inst->ReadClickID = FALSE;
 			}
 			
+			//Build Shuttle Strings
+			StartSVGStrings((char*)&inst->SvgContent,&inst->ViewBoxCfg);
+			inst->ErrorID = BuildShuttleStrings(inst->ShuttleMon,(char*)&inst->SvgContent, &inst->ViewBoxCfg);		
+			CloseSVGStrings((char*)&inst->SvgContent);
 			
 			StartSVGTransformStrings((char*)&inst->SvgTransform);
 			
@@ -478,6 +435,7 @@ void TrkPaperCore(struct TrkPaperCore* inst)
 		case trkPAPER_CORE_RESET:
 			//Try and recover by resetting any blocks
 			inst->Internal.Fbs.TrkPaperSegClickInfo.ErrorReset = TRUE;
+			inst->Internal.Fbs.TrkPaperShuttleClickInfo.ErrorReset = TRUE;
 			
 			inst->Internal.State = trkPAPER_CORE_OFF;
 			
@@ -494,5 +452,7 @@ void TrkPaperCore(struct TrkPaperCore* inst)
 	//FB calls	
 	TrkPaperSegClickInfo(&inst->Internal.Fbs.TrkPaperSegClickInfo);
 	TrkPaperShuttleClickInfo(&inst->Internal.Fbs.TrkPaperShuttleClickInfo);
+	inst->Internal.Fbs.TrkPaperSegClickInfo.ErrorReset = FALSE;
+	inst->Internal.Fbs.TrkPaperShuttleClickInfo.ErrorReset = FALSE;
 }
 

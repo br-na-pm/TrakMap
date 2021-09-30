@@ -43,3 +43,4 @@ BaseProject/Diagnosis/
 **/__pycache__/**
 External/**/build/**
 External/**/dist/**
+BaseProject/Physical/SingleSegment/

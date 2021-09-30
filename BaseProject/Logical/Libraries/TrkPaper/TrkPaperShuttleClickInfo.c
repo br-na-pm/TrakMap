@@ -19,12 +19,11 @@
 DINT ShuttleLookup(struct TrkPaperCoreAxisLookupType* Axes, 
 	char* ShuttleID,
 	TrkPaperShClickInfoDataType* Data,
-	struct MC_BR_ShReadInfo_AcpTrak* ShReadInfo){
+struct MC_BR_ShReadInfo_AcpTrak* ShReadInfo){
 	
 	USINT ShuttleIndex;
-	
-	
-	ShuttleIndex = atoi(DELETE(ShuttleID, 2, 1));
+
+	ShuttleIndex = atoi(ShuttleID);
 	
 	if (ShuttleIndex >= trkPAPER_MAX_SHUTTLE_COUNT){
 		return trkPAPER_SH_INFO_ERR_SH_CNT_EXCD;
