@@ -1,4 +1,6 @@
 VAR
+	MC_BR_ShCopyUserData_AcpTrak_0 : MC_BR_ShCopyUserData_AcpTrak;
+	ShuttleUserData : ShuttleUserDataType;
 	ShuttleDialogState : USINT;
 	SegmentDialogState : USINT;
 	ErrorCodeIDInfo : ARRAY[0..NUM_SEG] OF McAcpTrakSegProcessParIDType;

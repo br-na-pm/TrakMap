@@ -95,7 +95,19 @@ PROGRAM _CYCLIC
 		
 	(***********************************TRAKMAP******************************)
 	
+	//Fetch ShuttleUserData Example
+	IF EDGEPOS(paperCore.ClickData.Shuttle.Valid) THEN
+		MC_BR_ShCopyUserData_AcpTrak_0.Axis         := ADR(paperCore.ClickData.Shuttle.Data.Axis);
+		MC_BR_ShCopyUserData_AcpTrak_0.Execute      := TRUE;
+		MC_BR_ShCopyUserData_AcpTrak_0.DataAddress  := ADR(ShuttleUserData);
+		MC_BR_ShCopyUserData_AcpTrak_0.DataSize     := SIZEOF(ShuttleUserData);
+		MC_BR_ShCopyUserData_AcpTrak_0.Mode         := mcACPTRAK_USERDATA_GET;
+	END_IF
+	
 	paperCore();
+	
+	MC_BR_ShCopyUserData_AcpTrak_0();
+	MC_BR_ShCopyUserData_AcpTrak_0.Execute := FALSE;
 	
 END_PROGRAM
 

@@ -1,4 +1,4 @@
 VAR
-	MachineSoftwareVersion : STRING[80] := 'Shuttle_Click_Implementation-1.0.0-49-74adc4c';
-	MachineLastRevisionDate : DATE_AND_TIME := DT#2021-09-30-14:41;
+	MachineSoftwareVersion : STRING[80] := 'Shuttle_Click_Implementation-1.0.0-50-52bae79';
+	MachineLastRevisionDate : DATE_AND_TIME := DT#2021-09-30-14:51;
 END_VAR

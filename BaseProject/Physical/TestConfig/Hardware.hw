@@ -27,14 +27,15 @@
       <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
       <Parameter ID="ActivateDevice" Value="1" />
       <Parameter ID="HostName" Value="atldemo2019" />
-      <Parameter ID="Mode" Value="Manual" />
-      <Parameter ID="InternetAddress" Value="10.1.13.45" />
-      <Parameter ID="SubnetMask" Value="255.255.255.0" />
+      <Parameter ID="Mode" Value="DHCP Server" />
     </Connector>
     <Connector Name="IF4">
       <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
       <Parameter ID="ActivateDevice" Value="1" />
       <Parameter ID="HostName" Value="atldemo2019" />
+      <Parameter ID="Mode" Value="Manual" />
+      <Parameter ID="InternetAddress" Value="10.1.13.45" />
+      <Parameter ID="SubnetMask" Value="255.255.255.0" />
     </Connector>
     <Connector Name="IF5">
       <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
@@ -135,7 +136,7 @@
     <Parameter ID="FtpUserSalt1" Value="Ims2GQYk" />
     <Parameter ID="FTPAccessRight1" Value="0" />
     <Parameter ID="ActivateOpcUa" Value="1" />
-    <Parameter ID="OpcUaInformationModels_PV_Version" Value="2" />
+    <Parameter ID="OpcUaInformationModels_PV_Version" Value="1" />
   </Module>
   <Module Name="SegAA_1" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
     <Connection Connector="PLK1" TargetModule="SegBA_12" TargetConnector="PLK2" NodeNumber="130">
@@ -442,41 +443,19 @@
     <Parameter ID="Supervision" Value="off" />
     <Parameter ID="EnableDNA" Value="on" />
   </Module>
-  <Module Name="X20BM11" Type="X20BM11" Version="1.0.0.1">
-    <Connection Connector="X2X1" TargetModule="X20BM11a" TargetConnector="X2X2" />
-  </Module>
   <Module Name="X20BM11a" Type="X20BM11" Version="1.0.0.1">
     <Connection Connector="X2X1" TargetModule="X20BB82a" TargetConnector="IF1" />
   </Module>
-  <Module Name="X20BM11c" Type="X20BM11" Version="1.0.0.1">
-    <Connection Connector="X2X1" TargetModule="X20BM11" TargetConnector="X2X2" />
-  </Module>
-  <Module Name="X20BM11d" Type="X20BM11" Version="1.0.0.1">
-    <Connection Connector="X2X1" TargetModule="X20BM11c" TargetConnector="X2X2" />
-  </Module>
   <Module Name="X20BM11e" Type="X20BM11" Version="1.0.0.1">
-    <Connection Connector="X2X1" TargetModule="X20BM11d" TargetConnector="X2X2" />
+    <Connection Connector="X2X1" TargetModule="X20BM11a" TargetConnector="X2X2" />
   </Module>
   <Module Name="X20BT9400" Type="X20BT9400" Version="1.2.0.0">
     <Connection Connector="SS1" TargetModule="X20TB12g" TargetConnector="SS" />
     <Connection Connector="SL" TargetModule="X20BM11e" TargetConnector="SL1" />
   </Module>
-  <Module Name="X20DI6371" Type="X20DI6371" Version="1.0.2.0">
-    <Connection Connector="SS1" TargetModule="X20TB12e" TargetConnector="SS" />
-    <Connection Connector="SL" TargetModule="X20BM11c" TargetConnector="SL1" />
-  </Module>
   <Module Name="X20DI9371" Type="X20DI9371" Version="1.0.2.0">
     <Connection Connector="SS1" TargetModule="X20TB12b" TargetConnector="SS" />
     <Connection Connector="SL" TargetModule="X20BM11a" TargetConnector="SL1" />
-  </Module>
-  <Module Name="X20DO8322" Type="X20DO8322" Version="1.3.0.0">
-    <Connection Connector="SS1" TargetModule="X20TB12f" TargetConnector="SS" />
-    <Connection Connector="SL" TargetModule="X20BM11d" TargetConnector="SL1" />
-  </Module>
-  <Module Name="X20DS1319" Type="X20DS1319" Version="1.3.1.0">
-    <Connection Connector="SS1" TargetModule="X20TB12a" TargetConnector="SS" />
-    <Connection Connector="SL" TargetModule="X20BM11" TargetConnector="SL1" />
-    <Parameter ID="Supervision" Value="off" />
   </Module>
   <Module Name="X20HB2880" Type="X20HB2880" Version="1.2.0.0">
     <Connection Connector="ETH2" TargetModule="SegAA_18" TargetConnector="PLK3">
@@ -493,9 +472,6 @@
     <Parameter ID="Supervision" Value="off" />
   </Module>
   <Module Name="X20TB12" Type="X20TB12" Version="1.0.0.0" />
-  <Module Name="X20TB12a" Type="X20TB12" Version="1.0.0.0" />
   <Module Name="X20TB12b" Type="X20TB12" Version="1.0.0.0" />
-  <Module Name="X20TB12e" Type="X20TB12" Version="1.0.0.0" />
-  <Module Name="X20TB12f" Type="X20TB12" Version="1.0.0.0" />
   <Module Name="X20TB12g" Type="X20TB12" Version="1.0.0.0" />
 </Hardware>

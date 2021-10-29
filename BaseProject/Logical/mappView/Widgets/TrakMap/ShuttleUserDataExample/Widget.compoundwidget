@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CompoundWidget id="ShuttleUserDataExample" width="1060" height="100" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+	
+		<Widget xsi:type="widgets.brease.Label" 		id="lblShuttleID" 			top="0" left="10" width="100" 		zIndex="1" text="Shuttle Color" />
+		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtShuttleColor" 		top="35" left="90"  width="200" 		zIndex="2" value="$IAT/SHUTTLECOLOR.0" />	
+		<Widget xsi:type="widgets.brease.ImageList" 	id="numInShuttleColor" 			top="0" left="0" width="1" height="1" 	zIndex="3" imageList="['']"  visible="false" />
+		<Widget xsi:type="widgets.brease.ImageList" 	id="numInShuttleID" 			top="0" left="0" width="1" height="1" 	zIndex="4" imageList="['']"  visible="false" />
+	</Widgets> 
+  <Properties>
+    <!-- 
+    Simple non bindable property:
+    Property Attributes
+    xsi:type: NonBindableProperty
+    name: name of the property (not allowed: width, height, top, left, id, enable, visible, zindex, margin, premissionview, permissionoperate, description)
+    <Property xsi:type="NonBindableProperty" name="" type="" defaultValue="" required="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" property=""/>
+        <Mapping widget="" property=""/>
+      </Mappings>
+    </Property>
+	   -->
+	
+
+
+	<Property xsi:type="StructureBindableProperty" name="userData" type="ShuttleUserDataType" category="Data" readOnly="true" required="false">
+		<Description>Shuttle Status </Description>
+			<Mappings>
+				<Mapping widget="numInShuttleID" type="Number" property="selectedIndex" mode="twoWay" memberPath="ID" mapToNode="false"/>
+				<Mapping widget="numInShuttleColor" type="Number" property="selectedIndex" mode="twoWay" memberPath="Color" mapToNode="false"/>
+			</Mappings>
+	</Property>
+	
+  </Properties>
+
+  <Events>
+    <!--
+    <Event name="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" event="" />
+      </Mappings>
+    </Event>
+    -->
+  </Events>
+
+  <Actions>
+    <!--
+    <Action name="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" action="" />
+      </Mappings>
+    </Action> 
+    -->
+  </Actions> 
+
+  <EventBindings>
+     
+    <EventBinding id="ShuttleStateText">
+      <Source xsi:type="widget.Event" widgetRefId="numInShuttleColor" event="SelectedIndexChanged" />
+      <EventHandler condition="selectedIndex = 0">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleColor">
+            <Method name="SetValue" value="$IAT/SHUTTLECOLOR.0" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 1">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleColor">
+            <Method name="SetValue" value="$IAT/SHUTTLECOLOR.1" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 2">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleColor">
+            <Method name="SetValue" value="$IAT/SHUTTLECOLOR.2" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 3">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleColor">
+            <Method name="SetValue" value="$IAT/SHUTTLECOLOR.3" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 4">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleColor">
+            <Method name="SetValue" value="$IAT/SHUTTLECOLOR.4" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 5">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleColor">
+            <Method name="SetValue" value="$IAT/SHUTTLECOLOR.5" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 6">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleColor">
+            <Method name="SetValue" value="$IAT/SHUTTLECOLOR.6" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 7">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleColor">
+            <Method name="SetValue" value="$IAT/SHUTTLECOLOR.7" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 8">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtShuttleColor">
+            <Method name="SetValue" value="$IAT/SHUTTLECOLOR.8" />
+          </Target>
+        </Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 9">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtShuttleColor">
+						<Method name="SetValue" value="$IAT/SHUTTLECOLOR.9" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<EventHandler condition="selectedIndex = 10">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtShuttleColor">
+						<Method name="SetValue" value="$IAT/SHUTTLECOLOR.10" />
+					</Target>
+				</Action>
+			</EventHandler>
+		</EventBinding>
+		
+		
+		
+    
+		<!--<EventBinding id="ErrorText">
+		<Source xsi:type="widget.Event" widgetRefId="numErrorCode" event="SelectedIndexChanged" />
+	  
+		<EventHandler condition="">
+		<Action>
+		<Target xsi:type="widget.Action" widgetRefId="txtOutErrorText">
+		<Method name="SetValue" value="$IAT/TrakError/Code.0" />
+		</Target>
+		</Action>
+		</EventHandler>
+		</EventBinding>-->
+	
+	</EventBindings>
+
+</CompoundWidget>
