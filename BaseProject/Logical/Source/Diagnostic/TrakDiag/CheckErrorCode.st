@@ -11,7 +11,14 @@ ACTION actCheckErrorCode:
 				DiagFbs.Seg.ProcessParID[SegIndex].Execute := FALSE;
 				
 				IF SegErrorCheck[SegIndex].CmdCheckErrorCode THEN
+					ErrorCodeIDInfo[SegIndex].DataType := mcACPTRAK_SEG_PARTYPE_UINT;
+					ErrorCodeIDInfo[SegIndex].ParID := mcACPPAR_ERROR_NUMBER;
+					ErrorCodeIDInfo[SegIndex].VariableAddress := ADR(SegErrorCheck[SegIndex].ErrorNumber);
+					
 					DiagFbs.Seg.ProcessParID[SegIndex].Execute := TRUE;
+					DiagFbs.Seg.ProcessParID[SegIndex].Segment := ADR(TrakDiag.Seg.SegList[SegIndex].McType);
+					DiagFbs.Seg.ProcessParID[SegIndex].ChannelIndex := 0;
+					DiagFbs.Seg.ProcessParID[SegIndex].NumberOfParIDs := 1;
 					DiagFbs.Seg.ProcessParID[SegIndex].Mode := mcACPTRAK_SEG_PARID_GET_NO_NCT;
 					DiagFbs.Seg.ProcessParID[SegIndex].DataAddress := ADR(ErrorCodeIDInfo[SegIndex]);
 					SegErrorCheck[SegIndex].CheckState := READ_DATA_SEG_ERROR;			
