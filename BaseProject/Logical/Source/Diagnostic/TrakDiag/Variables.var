@@ -1,8 +1,6 @@
 VAR
 	MC_BR_ShCopyUserData_AcpTrak_0 : MC_BR_ShCopyUserData_AcpTrak;
 	ShuttleUserData : ShuttleUserDataType;
-	ShuttleDialogState : USINT;
-	SegmentDialogState : USINT;
 	ErrorCodeIDInfo : ARRAY[0..NUM_SEG] OF McAcpTrakSegProcessParIDType;
 	SegWarningCmdIDInfo : McAcpTrakSegProcessParIDType;
 	SegErrorCheck : ARRAY[0..NUM_SEG] OF SegErrorCheckType;
@@ -19,5 +17,4 @@ VAR
 	TrakDiag : TrkDiagStatusType;
 	DiagFbs : DiagFbsType;
 	SegIndex : USINT;
-	VisCtrl : VisType;
 END_VAR

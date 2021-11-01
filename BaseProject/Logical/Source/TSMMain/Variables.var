@@ -1,4 +1,2 @@
 VAR
-	fbMainTsm : MpPackMLModule;
-	parMainTsm : MpPackMLModuleParType;
 END_VAR

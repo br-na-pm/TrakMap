@@ -25,8 +25,8 @@ DINT SegmentLookup(	struct TrkDiagSegmentType* segList,
 	
 	
 	for (i = 0; i < SegmentCount; i++){
-		if (brsstrcmp(segList[i].Name, SegmentID) == 0){
-			brsmemcpy(Data, &segList[i], sizeof(segList[i]));
+		if (brsstrcmp((uintptr_t)segList[i].Name, (uintptr_t)SegmentID) == 0){
+			brsmemcpy((uintptr_t)Data, (uintptr_t)&segList[i], sizeof(segList[i]));
 			return trkPAPER_SEG_INFO_ERR_OK;
 		}	
 	}

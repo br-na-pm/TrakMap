@@ -33,16 +33,17 @@ class TrakMap:
                     txt = txt[:txt.find(' (')]
                 self.segList.append(txt)
                 id_num = 0
+                idStr = 'psg'
                 for polygon in group.findall('{http://www.w3.org/2000/svg}polygon'):
-                    idStr = ''
                     if id_num != 0:
-                        idStr = 'x'
+                        idStr = 'bsg'
                     polygon.set('id', idStr + txt)
                     id_num += 1
+                idStr = 'psg'
                 for polyline in group.findall('{http://www.w3.org/2000/svg}polyline'):
-                    polyline.set('id', txt)
+                    polyline.set('id', idStr + txt)
                     id_num += 1
-                group_text.set('id', 'x' + txt)
+                group_text.set('id', 'tsg' + txt)
     
     def writeTrakMapSVG(self,FilePath):
         if not FilePath.endswith(".svg"):

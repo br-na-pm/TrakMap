@@ -2,6 +2,7 @@
 #include <bur/plctypes.h>
 #include <stdint.h>
 #include <AsBrStr.h>
+#include <asstring.h>
 
 #define TRUE 1
 #define FALSE 0
@@ -23,7 +24,7 @@ struct MC_BR_ShReadInfo_AcpTrak* ShReadInfo){
 	
 	USINT ShuttleIndex;
 
-	ShuttleIndex = atoi(ShuttleID);
+	ShuttleIndex = atoi((uintptr_t)ShuttleID);
 	
 	if (ShuttleIndex >= trkPAPER_MAX_SHUTTLE_COUNT){
 		return trkPAPER_SH_INFO_ERR_SH_CNT_EXCD;
@@ -113,7 +114,7 @@ void TrkPaperShuttleClickInfo(struct TrkPaperShuttleClickInfo* inst)
 		
 		case trkPAPER_SH_BUILD_TABLE:
 			//Initialize Table
-			brsmemset(&inst->Internal.Axes, 0, sizeof(inst->Internal.Axes));
+			brsmemset((uintptr_t)&inst->Internal.Axes, 0, sizeof(inst->Internal.Axes));
 			inst->Internal.ShuttleCount = 0;
 			inst->Internal.Fbs.AsmGetShuttle.Enable = TRUE;
 			

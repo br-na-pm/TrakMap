@@ -2,6 +2,7 @@
 #include <bur/plctypes.h>
 #include <stdint.h>
 #include <AsBrStr.h>
+#include <asstring.h>
 
 #define TRUE 1
 #define FALSE 0
@@ -118,13 +119,13 @@ char* currSegIdent){
 			fillIndex = trkPAPER_SEG_STYLE_DEFAULT;
 		}
 		
-		if(SegClickValid && brsstrcmp(segList[i].Name, currSegIdent) == 0){
-			snprintf2(tmp,200,"{\"select\":\"#%s\",\"fill\":%d,\"style\":\"stroke:11;stroke-width:0.008%;stroke-opacity:1\",\"duration\":1}",
+		if(SegClickValid && brsstrcmp((uintptr_t)segList[i].Name, (uintptr_t)currSegIdent) == 0){
+			snprintf2(tmp,200,"{\"select\":\"#psg%s\",\"fill\":%d,\"style\":\"stroke:11;stroke-width:0.008%;stroke-opacity:1\",\"duration\":1}",
 				segList[i].Name, //Segment Name
 				fillIndex //Segment Style Color index
 				);
 		}else{
-			snprintf2(tmp,200,"{\"select\":\"#%s\",\"fill\":%d,\"style\":\"stroke:11;stroke-width:0.005%;stroke-opacity:0.05\",\"duration\":1}",
+			snprintf2(tmp,200,"{\"select\":\"#psg%s\",\"fill\":%d,\"style\":\"stroke:11;stroke-width:0.005%;stroke-opacity:0.05\",\"duration\":1}",
 				segList[i].Name, //Segment Name
 				fillIndex //Segment Style Color index
 				);
@@ -265,11 +266,11 @@ char* Ident){
 				return trkPAPER_CORE_ERR_STR_LEN_EXCD;
 			
 			//Perform fill and style change
-			currShIdent = atoi(Ident);
+			currShIdent = atoi((uintptr_t)Ident);
 			
 			if(trkOptions->Color.Enabled){
 				//Grab Fill Index
-				brsmemcpy(&fillIndex,mon->Shuttle[i].UserData + trkOptions->Color.Offset,sizeof(UDINT));
+				brsmemcpy((uintptr_t)&fillIndex,(uintptr_t)(mon->Shuttle[i].UserData + trkOptions->Color.Offset),sizeof(UDINT));
 			}else{
 				fillIndex = 0;
 			}
@@ -315,29 +316,28 @@ DINT ParseClickID(char* ClickID,
 struct TrkPaperCore* inst){
 	
 	DINT StrIndex; 
-	char tmp[150];
 	char shIdent[] = "sh";
-	char segIdent[] = "gSeg"; //TODO: change to sg following python script change
+	char segIdent[] = "sg"; //TODO: change to sg following python script change
 	
-	brsmemset(&inst->Internal.Fbs.TrkPaperSegClickInfo.Ident, 0, sizeof(inst->Internal.Fbs.TrkPaperSegClickInfo.Ident));
-	brsmemset(&inst->Internal.Fbs.TrkPaperShuttleClickInfo.Ident, 0, sizeof(inst->Internal.Fbs.TrkPaperSegClickInfo.Ident));
+	brsmemset((uintptr_t)&inst->Internal.Fbs.TrkPaperSegClickInfo.Ident, 0, sizeof(inst->Internal.Fbs.TrkPaperSegClickInfo.Ident));
+	brsmemset((uintptr_t)&inst->Internal.Fbs.TrkPaperShuttleClickInfo.Ident, 0, sizeof(inst->Internal.Fbs.TrkPaperSegClickInfo.Ident));
 	
 	inst->Internal.Fbs.TrkPaperShuttleClickInfo.Enable = FALSE;
 	inst->Internal.Fbs.TrkPaperSegClickInfo.Enable = FALSE;
 	
 	//Segment
-	StrIndex = brdkStrSearch(ClickID, segIdent);
+	StrIndex = brdkStrSearch((uintptr_t)ClickID, (uintptr_t)segIdent);
 	if (StrIndex != -1) {
-		brsmemcpy(&inst->Internal.Fbs.TrkPaperSegClickInfo.Ident, ClickID + StrIndex, brdkStrLen(ClickID) - StrIndex);
+		brsmemcpy((uintptr_t)&inst->Internal.Fbs.TrkPaperSegClickInfo.Ident, (uintptr_t)(ClickID + StrIndex + 2), brdkStrLen((uintptr_t)ClickID) - StrIndex);
 		inst->Internal.Fbs.TrkPaperSegClickInfo.Enable = TRUE;
 		inst->Internal.Fbs.TrkPaperSegClickInfo.Update = TRUE;
 		return trkPAPER_CORE_ERR_OK;
 	}
 	
 	//Shuttle
-	StrIndex = brdkStrSearch(ClickID, shIdent);
+	StrIndex = brdkStrSearch((uintptr_t)ClickID, (uintptr_t)shIdent);
 	if (StrIndex != -1) {
-		brsmemcpy(&inst->Internal.Fbs.TrkPaperShuttleClickInfo.Ident, ClickID + StrIndex + 2, brdkStrLen(ClickID) - StrIndex);
+		brsmemcpy((uintptr_t)&inst->Internal.Fbs.TrkPaperShuttleClickInfo.Ident, (uintptr_t)(ClickID + StrIndex + 2), brdkStrLen((uintptr_t)ClickID) - StrIndex);
 		inst->Internal.Fbs.TrkPaperShuttleClickInfo.Enable = TRUE;
 		inst->Internal.Fbs.TrkPaperShuttleClickInfo.Update = TRUE;
 		return trkPAPER_CORE_ERR_OK;

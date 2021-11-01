@@ -1,7 +1,3 @@
-VAR CONSTANT
-	NUM_HUBS : USINT := 5;
-	NUM_PS : USINT := 5;
-END_VAR
 (*LogBook variables*)
 VAR
 	LogbookInterface : LogBookCtrlType; (*Logbook main structure*)

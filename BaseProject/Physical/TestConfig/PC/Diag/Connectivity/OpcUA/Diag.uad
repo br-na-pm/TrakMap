@@ -51,7 +51,6 @@
       </Task>
       <Task Name="TrakDiag">
         <Variable Name="paperCore" AutomaticEnable="True" />
-        <Variable Name="VisCtrl" AutomaticEnable="True" />
         <Variable Name="ShuttleUserData">
           <Variable Name="ID" />
           <Variable Name="Color" />

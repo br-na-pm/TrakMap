@@ -1,9 +1,9 @@
 VAR_CONFIG
-	Cyclic#1.Diag::gRecipeXml_DiagModule AT %Q.Diag::DiagInterface.RecipeCore; (*Insert your comment here...*)
-	Cyclic#1.Diag::gAuditTrail_DiagModule AT %Q.Diag::DiagInterface.AuditCore; (*Insert your comment here...*)
-	Cyclic#1.Diag::gAlarmXCore_DiagModule AT %Q.Diag::DiagInterface.AlarmCore; (*Insert your comment here...*)
-	Cyclic#1.::gSampleTrak AT %Q.Diag::DiagInterface.SampleTrak; (*Insert your comment here...*)
+	Cyclic#1.Diag::gRecipeXml_DiagModule AT %Q.Cyclic#1.Diag::DiagInterface.RecipeCore; (*Insert your comment here...*)
+	Cyclic#1.Diag::gAuditTrail_DiagModule AT %Q.Cyclic#1.Diag::DiagInterface.AuditCore; (*Insert your comment here...*)
+	Cyclic#1.Diag::gAlarmXCore_DiagModule AT %Q.Cyclic#1.Diag::DiagInterface.AlarmCore; (*Insert your comment here...*)
+	Cyclic#1.::gSampleTrak AT %Q.Cyclic#1.Diag::DiagInterface.SampleTrak; (*Insert your comment here...*)
 	Cyclic#1.::gSampleTrakMon AT %Q.Cyclic#1.Diag::DiagInterface.ShuttleMon; (*Insert your comment here...*)
-	Cyclic#1.::gTrakData.Seg AT %Q.Diag::TrakDiag:TrakDiag.Seg; (*Insert your comment here...*)
-	Cyclic#1.TrakMod::gTrakSystem AT %Q.Diag::DiagInterface.TrakInterface; (*Insert your comment here...*)
+	Cyclic#1.::gTrakData.Seg AT %Q.Cyclic#1.Diag::TrakDiag:TrakDiag.Seg; (*Insert your comment here...*)
+	Cyclic#1.TrakMod::gTrakSystem AT %Q.Cyclic#1.Diag::DiagInterface.TrakInterface; (*Insert your comment here...*)
 END_VAR

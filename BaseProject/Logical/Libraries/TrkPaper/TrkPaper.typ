@@ -167,7 +167,6 @@ TYPE
 		trkPAPER_SH_CLICK_INFO_LOOKUP, (*Init/Waiting for valid ShElement state*)
 		trkPAPER_SH_CLICK_INFO_WAIT, (*Init/Waiting for valid ShElement state*)
 		trkPAPER_SH_CLICK_INFO_RESET, (*Init/Waiting for valid ShElement state*)
-		trkPAPER_SH_CLICK_INFO_INIT, (*Init/Waiting for valid ShElement state*)
 		trkPAPER_SH_CLICK_INFO_ERROR, (*Error present on the FB*)
 		trkPAPER_SH_CLICK_INFO_RUN,
 		trkPAPER_SH_CLICK_GET_NEXT,
@@ -180,8 +179,6 @@ TYPE
 		trkPAPER_SEG_CLICK_INFO_OFF, (*Off State*)
 		trkPAPER_SEG_CLICK_INFO_LOOKUP, (*Init/Waiting for valid ShElement state*)
 		trkPAPER_SEG_CLICK_INFO_WAIT, (*Init/Waiting for valid ShElement state*)
-		trkPAPER_SEG_CLICK_INFO_RESET, (*Init/Waiting for valid ShElement state*)
-		trkPAPER_SEG_CLICK_INFO_INIT, (*Init/Waiting for valid ShElement state*)
 		trkPAPER_SEG_CLICK_INFO_ERROR (*Error present on the FB*)
 		);
 	TrkPaperShClickInfoInternalType : 	STRUCT  (*Internal data type*)
