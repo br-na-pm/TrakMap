@@ -1,5 +1,9 @@
 
 TYPE
+	VisType : 	STRUCT 
+		OpenSegDialog : BOOL;
+		OpenShuttleDialog : BOOL;
+	END_STRUCT;
 	CheckStateEnum : 
 		(
 		WAIT_FOR_CHECK,

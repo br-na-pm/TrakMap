@@ -1,4 +1,44 @@
 
+FUNCTION_BLOCK TrkPaperShuttleClickInfo
+	VAR_INPUT
+		Enable : BOOL; (*Enables the Function Block*)
+		Handle : UDINT; (*Handle of the Core Trak Master Function Block*)
+		ErrorReset : BOOL; (*Resets Error on FB*)
+		Update : BOOL; (*Triggers FUB to update based on current Ident*)
+		Ident : {REDUND_UNREPLICABLE} STRING[80]; (*Ident of clicked segment*)
+	END_VAR
+	VAR_OUTPUT
+		ErrorID : TrkPaperShClickInfoErrorEnum; (*Error ID of current error*)
+		Error : BOOL; (*Error present on FB*)
+		Data : TrkPaperShClickInfoDataType; (*Data of Clicked Shuttle*)
+		Valid : BOOL; (*Output data is valid*)
+		Active : BOOL; (*Function Block is active*)
+	END_VAR
+	VAR
+		Internal : TrkPaperShClickInfoInternalType; (*Internal Data Type*)
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK TrkPaperSegClickInfo
+	VAR_INPUT
+		Enable : BOOL; (*Enables the Function Block*)
+		Handle : UDINT; (*Handle of the Core Trak Master Function Block*)
+		ErrorReset : BOOL; (*Resets Error on FB*)
+		Update : BOOL; (*Triggers FUB to update based on current Ident*)
+		Ident : {REDUND_UNREPLICABLE} STRING[80]; (*Ident of clicked segment*)
+	END_VAR
+	VAR_OUTPUT
+		ErrorID : TrkPaperSegClickInfoErrorEnum; (*Error ID of current error*)
+		Error : BOOL; (*Error present on FB*)
+		Data : TrkDiagSegmentType; (*Data of Clicked Segment*)
+		Valid : BOOL; (*Output data is valid*)
+		Active : BOOL; (*Function Block is active*)
+	END_VAR
+	VAR
+		Internal : TrkPaperSegClickInfoInternalType; (*Internal Data Type*)
+	END_VAR
+END_FUNCTION_BLOCK
+
 FUNCTION_BLOCK TrkPaperCore (*Core Trak Paper Function Block*)
 	VAR_INPUT
 		Enable : BOOL; (*Enables the core functionality*)
@@ -8,6 +48,9 @@ FUNCTION_BLOCK TrkPaperCore (*Core Trak Paper Function Block*)
 		Segments : REFERENCE TO TrkDiagSegmentType; (*Address of the segment list for the system*)
 		SegmentCount : USINT; (*Count of the segments in the system*)
 		ViewBoxCfg : TrkPaperCoreViewBoxCfgType; (*View box configuration for the SVG*)
+		ReadClickID : {REDUND_UNREPLICABLE} BOOL; (*Triggers Paper Core to read current ClickID*)
+		ClickID : {REDUND_UNREPLICABLE} STRING[100]; (*ClickID from Paper Widget*)
+		TrakStatus : REFERENCE TO TrkDiagStatusType; (*Status of Trak*)
 		Options : REFERENCE TO TrkPaperCoreOptionsType; (*Options for the core fb*)
 	END_VAR
 	VAR_OUTPUT
@@ -16,6 +59,7 @@ FUNCTION_BLOCK TrkPaperCore (*Core Trak Paper Function Block*)
 		Active : BOOL; (*Function block is active*)
 		SvgTransform : STRING[trkPAPER_CORE_MAX_STR_LEN]; (*SVG Transform string to tie to a paper widget*)
 		SvgContent : STRING[trkPAPER_CORE_MAX_STR_LEN]; (*SVG Content string to tie to a Paper widget*)
+		ClickData : TrkPaperCoreClickDataType;
 		StrLengths : TrkPaperCoreSvgLengthsType; (*Diagnostic viewer to see current lengths of SVG Content/Transform*)
 		Handle : UDINT; (*Handle used for other Trak Master Function Blocks*)
 	END_VAR

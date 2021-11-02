@@ -5,5 +5,7 @@
     <Object Type="File" Description="Widget Library Description">Description.widgetlibrary</Object>
     <Object Type="Package" Description="Resources">Resources</Object>
     <Object Type="Package">SegmentStatus</Object>
+    <Object Type="Package">ShuttleStatus</Object>
+    <Object Type="Package">ShuttleUserDataExample</Object>
   </Objects>
 </Package>

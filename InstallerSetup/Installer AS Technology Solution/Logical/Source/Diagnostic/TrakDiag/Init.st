@@ -9,9 +9,10 @@ PROGRAM _INIT
 	paperCore.Enable := TRUE;
 	paperCore.Assembly := ADR(DiagInterface.SampleTrak);
 	paperCore.ShuttleMon := ADR(DiagInterface.ShuttleMon);
+	paperCore.TrakStatus := ADR(TrakDiag);
 	
 	paperOptions.Color.Offset := SIZEOF(UDINT);
 	paperOptions.Segment.Enabled := TRUE;
-	paperOptions.Shuttle.Enabled := FALSE;
-	paperOptions.Color.Enabled := FALSE;
+	paperOptions.Shuttle.Enabled := TRUE;
+	paperOptions.Color.Enabled := TRUE;
 END_PROGRAM

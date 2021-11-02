@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">IAT</prop>
+  </header>
+  <body>
+    <tu tuid="SHUTTLEERRORSTATE.8">
+      <tuv xml:lang="en">
+        <seg>INVALIDMOVE</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SHUTTLEERRORSTATE.7">
+      <tuv xml:lang="en">
+        <seg>ASSEMBLY</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SHUTTLEERRORSTATE.6">
+      <tuv xml:lang="en">
+        <seg>SEGMENT</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SHUTTLEERRORSTATE.5">
+      <tuv xml:lang="en">
+        <seg>COMMAND</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SHUTTLEERRORSTATE.4">
+      <tuv xml:lang="en">
+        <seg>NOGRIPPER</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SHUTTLEERRORSTATE.3">
+      <tuv xml:lang="en">
+        <seg>ENCDIFF</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SHUTTLEERRORSTATE.2">
+      <tuv xml:lang="en">
+        <seg>MANEUVER</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SHUTTLEERRORSTATE.1">
+      <tuv xml:lang="en">
+        <seg>UNSPECIFIED</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SHUTTLEERRORSTATE.0">
+      <tuv xml:lang="en">
+        <seg>NONE</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

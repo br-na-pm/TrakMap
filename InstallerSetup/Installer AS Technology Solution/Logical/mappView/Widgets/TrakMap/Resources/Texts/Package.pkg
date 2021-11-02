@@ -4,5 +4,10 @@
   <Objects>
     <Object Type="File">TrakErrorsIDs.tmx</Object>
     <Object Type="File">SegComStateText.tmx</Object>
+    <Object Type="File">ShuttleStateText.tmx</Object>
+    <Object Type="File">ShuttleErrorReasonText.tmx</Object>
+    <Object Type="File">ShuttleOrientationText.tmx</Object>
+    <Object Type="File">ShuttleMovementTypeText.tmx</Object>
+    <Object Type="File">ShuttleColorText.tmx</Object>
   </Objects>
 </Package>

@@ -7,6 +7,8 @@
     <File Description="Exported functions and function blocks">TrkPaper.fun</File>
     <File>TrkPaperCore.c</File>
     <File>TrkPaperShuttleControl.c</File>
+    <File>TrkPaperSegClickInfo.c</File>
+    <File>TrkPaperShuttleClickInfo.c</File>
   </Files>
   <Dependencies>
     <Dependency ObjectName="McAcpTrak" />
