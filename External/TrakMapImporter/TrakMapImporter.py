@@ -117,7 +117,7 @@ def CreateLayout():
 def main() -> None:
     
     layout = CreateLayout()
-    window = sg.Window("TrakMap Builder", layout)
+    window = sg.Window("TrakMap Builder 1.2", layout)
 
     while True:
         val = {}
