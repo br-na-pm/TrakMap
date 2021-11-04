@@ -7,12 +7,18 @@ PROGRAM _INIT
 	paperCore.Segments := ADR(TrakDiag.Seg.SegList);
 	paperCore.Options := ADR(paperOptions);
 	paperCore.Enable := TRUE;
+	paperCore.TrakStatus := ADR(TrakDiag);
+	
+	(****** Change variables to match your project **********)
+	
 	paperCore.Assembly := ADR(DiagInterface.SampleTrak);
 	paperCore.ShuttleMon := ADR(DiagInterface.ShuttleMon);
-	paperCore.TrakStatus := ADR(TrakDiag);
+		
+	
+	(****************************** Change options here ***********************)
 	
 	paperOptions.Color.Offset := SIZEOF(UDINT);
 	paperOptions.Segment.Enabled := TRUE;
-	paperOptions.Shuttle.Enabled := TRUE;
-	paperOptions.Color.Enabled := TRUE;
+	paperOptions.Shuttle.Enabled := FALSE;
+	paperOptions.Color.Enabled := FALSE;
 END_PROGRAM
