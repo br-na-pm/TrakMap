@@ -129,16 +129,16 @@ TYPE
 	END_STRUCT;
 	TrkPaperColorEnum : 
 		(
-		GRAY := 0,
-		BLUE := 1,
-		RED := 2,
-		GREEN := 3,
-		YELLOW := 4,
-		ORANGE := 5,
-		WHITE := 6,
-		BLACK := 7,
-		PINK := 8,
-		PURPLE := 9
+		TP_GRAY := 0,
+		TP_BLUE := 1,
+		TP_RED := 2,
+		TP_GREEN := 3,
+		TP_YELLOW := 4,
+		TP_ORANGE := 5,
+		TP_WHITE := 6,
+		TP_BLACK := 7,
+		TP_PINK := 8,
+		TP_PURPLE := 9
 		);
 END_TYPE
 
