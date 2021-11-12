@@ -95,14 +95,18 @@ PROGRAM _CYCLIC
 		
 	(***********************************TRAKMAP******************************)
 	
-	//Fetch ShuttleUserData Example
-	IF EDGEPOS(paperCore.ClickData.Shuttle.Valid) THEN
-		MC_BR_ShCopyUserData_AcpTrak_0.Axis         := ADR(paperCore.ClickData.Shuttle.Data.Axis);
-		MC_BR_ShCopyUserData_AcpTrak_0.Execute      := TRUE;
-		MC_BR_ShCopyUserData_AcpTrak_0.DataAddress  := ADR(ShuttleUserData);
-		MC_BR_ShCopyUserData_AcpTrak_0.DataSize     := SIZEOF(ShuttleUserData);
-		MC_BR_ShCopyUserData_AcpTrak_0.Mode         := mcACPTRAK_USERDATA_GET;
-	END_IF
+	//Fetch ShuttleUserData Example 
+	
+	(* This will likely change to match your project! This is just an example of how to use the
+		the click to get a shuttle's user data. The inputs to the ShCopyUserData will reflect your own project
+	*)
+//	IF EDGEPOS(paperCore.ClickData.Shuttle.Valid) THEN
+//		MC_BR_ShCopyUserData_AcpTrak_0.Axis         := ADR(paperCore.ClickData.Shuttle.Data.Axis);
+//		MC_BR_ShCopyUserData_AcpTrak_0.Execute      := TRUE;
+//		MC_BR_ShCopyUserData_AcpTrak_0.DataAddress  := ADR(ShuttleUserData);
+//		MC_BR_ShCopyUserData_AcpTrak_0.DataSize     := SIZEOF(ShuttleUserData);
+//		MC_BR_ShCopyUserData_AcpTrak_0.Mode         := mcACPTRAK_USERDATA_GET;
+//	END_IF
 	
 	paperCore();
 	
