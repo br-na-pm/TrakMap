@@ -31,6 +31,7 @@ TYPE
         mpPACKML_INF_PARENT_NOT_ACTIVE := 1083474960, (* Parent not active {1.ErrorCode} [Informational: 33808, 0x40948410] *)
         mpPACKML_WRN_AMBIQUOUS_MODE_INF := -2137750511, (* Wrong mode information added in the configuration: {2.TypeInfo} {1.ErrorCode} [Warning: 33809, 0x80948411] *)
         mpPACKML_ERR_INVALID_STATE_MODE := -1064008686, (* The current state is not enabled in target mode {1.ErrorCode} [Error: 33810, 0xc0948412] *)
-        mpPACKML_ERR_INVALID_STATE_CHLD := -1064008685 (* The hierarchy is not synchronized. Mode change not allowed {1.ErrorCode} [Error: 33811, 0xc0948413] *)
+        mpPACKML_ERR_INVALID_STATE_CHLD := -1064008685, (* The hierarchy is not synchronized. Mode change not allowed {1.ErrorCode} [Error: 33811, 0xc0948413] *)
+        mpPACKML_INF_MODE_CHG_FORBIDDEN := 1083474964 (* Mode change is forbidden: either the related config parameter are set to FALSE or destination State is disabled. [Informational: 33812, 0x40948414] *)
         );
 END_TYPE

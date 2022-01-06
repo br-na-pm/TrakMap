@@ -439,4 +439,147 @@ TYPE
 		Length : LREAL; (*Length of the sub sector [Measurement units]*)
 		Direction : McSSDirEnum; (*Direction of the sub sector*)
 	END_STRUCT;
+	McSSTMeasUnitEnum :
+		( (*Measurement unit for the axis*)
+		mcSSTMU_M := 5067858 (*Meters*)
+		);
+	McSSTMoveLimEnum :
+		( (*Movement limits selector setting*)
+		mcSSTML_INT := 0 (*Internal - Internal definition of limits*)
+		);
+	McSSTMoveLimIntVelEnum :
+		( (*Velocity selector setting*)
+		mcSSTMLIV_BASIC := 0 (*Basic -*)
+		);
+	McSSTMoveLimIntVelBasicType : STRUCT (*Type mcSSTMLIV_BASIC settings*)
+		Velocity : REAL; (*Velocity limit in any movement direction [Measurement units/s]*)
+	END_STRUCT;
+	McSSTMoveLimIntVelType : STRUCT (*Limits for the velocity of the axis*)
+		Type : McSSTMoveLimIntVelEnum; (*Velocity selector setting*)
+		Basic : McSSTMoveLimIntVelBasicType; (*Type mcSSTMLIV_BASIC settings*)
+	END_STRUCT;
+	McSSTMoveLimIntAccEnum :
+		( (*Acceleration selector setting*)
+		mcSSTMLIA_BASIC := 0 (*Basic -*)
+		);
+	McSSTMoveLimIntAccBasicType : STRUCT (*Type mcSSTMLIA_BASIC settings*)
+		Acceleration : REAL; (*Acceleration limit in any movement direction [Measurement units/s²]*)
+	END_STRUCT;
+	McSSTMoveLimIntAccType : STRUCT (*Limits for the acceleration of the axis*)
+		Type : McSSTMoveLimIntAccEnum; (*Acceleration selector setting*)
+		Basic : McSSTMoveLimIntAccBasicType; (*Type mcSSTMLIA_BASIC settings*)
+	END_STRUCT;
+	McSSTMoveLimIntDecEnum :
+		( (*Deceleration selector setting*)
+		mcSSTMLID_BASIC := 0 (*Basic -*)
+		);
+	McSSTMoveLimIntDecBasicType : STRUCT (*Type mcSSTMLID_BASIC settings*)
+		Deceleration : REAL; (*Deceleration limit in any movement direction [Measurement units/s²]*)
+	END_STRUCT;
+	McSSTMoveLimIntDecType : STRUCT (*Limits for the deceleration of the axis*)
+		Type : McSSTMoveLimIntDecEnum; (*Deceleration selector setting*)
+		Basic : McSSTMoveLimIntDecBasicType; (*Type mcSSTMLID_BASIC settings*)
+	END_STRUCT;
+	McSSTMoveLimIntUpdModEnum :
+		( (*Setting for the mode of motion limit (acceleration and deceleration) updates*)
+		mcSSTMLIUM_IMMED := 0, (*Immediately - Accept motion limits immediately*)
+		mcSSTMLIUM_AVOID_ERR_STOP := 1 (*Avoid error stops - Accept motion limits as soon as error stops can be avoided*)
+		);
+	McSSTMoveLimIntType : STRUCT (*Type mcSSTML_INT settings*)
+		Velocity : McSSTMoveLimIntVelType; (*Limits for the velocity of the axis*)
+		Acceleration : McSSTMoveLimIntAccType; (*Limits for the acceleration of the axis*)
+		Deceleration : McSSTMoveLimIntDecType; (*Limits for the deceleration of the axis*)
+		UpdateMode : McSSTMoveLimIntUpdModEnum; (*Setting for the mode of motion limit (acceleration and deceleration) updates*)
+	END_STRUCT;
+	McSSTMoveLimType : STRUCT (*Various limit values that will be considered for axis movements*)
+		Type : McSSTMoveLimEnum; (*Movement limits selector setting*)
+		Internal : McSSTMoveLimIntType; (*Type mcSSTML_INT settings*)
+	END_STRUCT;
+	McSSTJerkFltrEnum :
+		( (*Jerk filter selector setting*)
+		mcSSTJF_USE := 0, (*Used - Jerk filter is applied*)
+		mcSSTJF_NOT_USE := 1 (*Not used - No jerk filter is applied*)
+		);
+	McSSTJerkFltrUseType : STRUCT (*Type mcSSTJF_USE settings*)
+		JerkTime : REAL; (*Jerk filter time [s]*)
+	END_STRUCT;
+	McSSTJerkFltrType : STRUCT (*Jerk filter*)
+		Type : McSSTJerkFltrEnum; (*Jerk filter selector setting*)
+		Used : McSSTJerkFltrUseType; (*Type mcSSTJF_USE settings*)
+	END_STRUCT;
+	McSSTUsrDatType : STRUCT (*Defines the user data*)
+		Size : UINT; (*Size of the user data for one shuttle [Byte]*)
+	END_STRUCT;
+	McSSTCAIMDEnum :
+		( (*Initial model dimensions selector setting*)
+		mcSSTCAIMD_USE_MAX_DIM := 0, (*Use maximum dimensions -*)
+		mcSSTCAIMD_USE_EXP_VAL := 1 (*Use explicit values -*)
+		);
+	McSSTCAIMDUseExpValLenType : STRUCT (*Length of the shuttle model*)
+		ExtentToFront : LREAL; (*Extent from the center point of the magnet plate to the front of the shuttle [Measurement units]*)
+		ExtentToBack : LREAL; (*Extent from the center point of the magnet plate to the back of the shuttle [Measurement units]*)
+	END_STRUCT;
+	McSSTCAIMDUseExpValWidType : STRUCT (*Width of the shuttle model*)
+		Width : LREAL; (*Symmetric width relative to the shuttle center point [Measurement units]*)
+	END_STRUCT;
+	McSSTCAIMDUseExpValType : STRUCT (*Type mcSSTCAIMD_USE_EXP_VAL settings*)
+		Length : McSSTCAIMDUseExpValLenType; (*Length of the shuttle model*)
+		Width : McSSTCAIMDUseExpValWidType; (*Width of the shuttle model*)
+	END_STRUCT;
+	McSSTCAIMDType : STRUCT (*Initial model dimensions for a shuttle*)
+		Type : McSSTCAIMDEnum; (*Initial model dimensions selector setting*)
+		UseExplicitValues : McSSTCAIMDUseExpValType; (*Type mcSSTCAIMD_USE_EXP_VAL settings*)
+	END_STRUCT;
+	McSSTColAvType : STRUCT (*Parameter settings for the collision avoidance*)
+		InitialModelDimensions : McSSTCAIMDType; (*Initial model dimensions for a shuttle*)
+	END_STRUCT;
+	McCfgShStereoTypType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_SH_STEREO_TYP*)
+		MeasurementUnit : McSSTMeasUnitEnum; (*Measurement unit for the axis*)
+		MeasurementResolution : LREAL; (*Possible resolution of measurement unit that can be achieved [Measurement units]*)
+		MovementLimits : McSSTMoveLimType; (*Various limit values that will be considered for axis movements*)
+		JerkFilter : McSSTJerkFltrType; (*Jerk filter*)
+		UserData : McSSTUsrDatType; (*Defines the user data*)
+		CollisionAvoidance : McSSTColAvType; (*Parameter settings for the collision avoidance*)
+	END_STRUCT;
+	McSEGSegSecDirEnum :
+		( (*Direction of the referenced sector component*)
+		mcSEGSSD_POS := 0, (*Positive - Create the segment sector with positive direction*)
+		mcSEGSSD_NEG := 1 (*Negative - Create the semgent sector with negative direction*)
+		);
+	McSEGElongationCompEnum :
+		( (*Compensation of segment elongation due to change of temperature*)
+		mcSEGEC_USE_ASM_SET := 0, (*Use assembly setting - Use the defined setting from the assembly configuration*)
+		mcSEGEC_INACT := 1, (*Inactive - No compensation of segment elongation*)
+		mcSEGEC_ACT := 2 (*Active - Compensation of segment elongation*)
+		);
+	McSEGStopReacEnum :
+		( (*Stop reaction selector setting*)
+		mcSEGSR_USE_ASM_SET := 0, (*Use assembly setting - Use the defined setting from the assembly configuration*)
+		mcSEGSR_INDUCT_HALT := 1, (*Induction halt - Shuttle stop by setting current in all segment coils*)
+		mcSEGSR_COAST_TO_STANDSTILL := 2 (*Coast to standstill - Shuttle stop by reseting current in all segment coils - stop by friction*)
+		);
+	McSEGStopReacType : STRUCT (*Reaction in case of certain stop conditions*)
+		Type : McSEGStopReacEnum; (*Stop reaction selector setting*)
+	END_STRUCT;
+	McSEGSpdFltrEnum :
+		( (*Speed filter selector setting*)
+		mcSEGSF_USE_ASM_SET := 0, (*Use assembly setting - Use the defined setting from the assembly configuration*)
+		mcSEGSF_NOT_USE := 1, (*Not used - Speed filter disabled*)
+		mcSEGSF_LP_1ST_ORD := 2 (*Lowpass 1st order - Lowpass 1st order speed filter*)
+		);
+	McSEGSpdFltrLP1stOrdType : STRUCT (*Type mcSEGSF_LP_1ST_ORD settings*)
+		FilterTime : REAL; (*Filter time constant [s]*)
+	END_STRUCT;
+	McSEGSpdFltrType : STRUCT (*Filter for actual speed calculation*)
+		Type : McSEGSpdFltrEnum; (*Speed filter selector setting*)
+		Lowpass1stOrder : McSEGSpdFltrLP1stOrdType; (*Type mcSEGSF_LP_1ST_ORD settings*)
+	END_STRUCT;
+	McCfgSegType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_SEG*)
+		SegmentReference : STRING[250]; (*Name of the referenced segment component*)
+		SegmentSectorReference : STRING[250]; (*Name of the referenced sector component*)
+		SegmentSectorDirection : McSEGSegSecDirEnum; (*Direction of the referenced sector component*)
+		ElongationCompensation : McSEGElongationCompEnum; (*Compensation of segment elongation due to change of temperature*)
+		StopReaction : McSEGStopReacType; (*Reaction in case of certain stop conditions*)
+		SpeedFilter : McSEGSpdFltrType; (*Filter for actual speed calculation*)
+	END_STRUCT;
 END_TYPE

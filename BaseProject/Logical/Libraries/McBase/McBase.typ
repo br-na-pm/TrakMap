@@ -60,11 +60,12 @@ TYPE
 		mcHOMING_DCM := 7,				 (*Homing using interval-encoded reference marks*)
 		mcHOMING_BLOCK_TORQUE := 9,	     (*Performs homing to mechanical limit, torque as criteria*)
 		mcHOMING_BLOCK_LAG_ERROR := 10,	 (*Performs homing to mechanical limit, lag error as criteria*)
+		mcHOMING_ABSOLUTE_INTERNAL := 11,(*Performs homing with homing offset, which is determined by drive*)
 		mcHOMING_ABSOLUTE_CORRECTION := 133,  (*Homing by setting the "Position" homing offset for an absolute encoder with counter range correction. This mode must be used if the overflow of the absolute encoder is within the axis range of movement*)
 		mcHOMING_DCM_CORRECTION := 135,	 (*Homing using distance-coded reference marks with counting range correction*)
 		mcHOMING_DEFAULT := 140,		 (*All parameters, including "Position", are taken from the initial configuration for the axis*)
 		mcHOMING_INIT,					 (*All parameters, including "Position", are taken from an earlier initialization made using function block MC_BR_InitHome*)
-		mcHOMING_RESTORE_POSITION		 (*Restores position from permanent memory*)
+		mcHOMING_RESTORE_POSITION		 (*Restores position from a remanent variable*)
 	);
 
 	McStopModeEnum :
@@ -132,11 +133,32 @@ TYPE
 
 	McValueSrcEnum :
 	(
-		mcVALUE_SET, 					 (*Position setpoint value [Measurement units]*)
-		mcVALUE_ACTUAL,					 (*Actual position value [Measurement units]*)
-		mcVALUE_SET_AXIS_UNITS,			 (*Position setpoint value [axis units]*)
-		mcVALUE_ACTUAL_AXIS_UNITS,		 (*Actual value for position [axis units]*)
-		mcVALUE_AUTOMATIC_SELECTION		 (*The value for the source is selected automatically in relation to the active controller mode*)
+		mcVALUE_SET, 					(*Position setpoint value [Measurement units]*)
+		mcVALUE_ACTUAL,					(*Actual position value [Measurement units]*)
+		mcVALUE_SET_AXIS_UNITS,			(*Position setpoint value [axis units]*)
+		mcVALUE_ACTUAL_AXIS_UNITS,		(*Actual value for position [axis units]*)
+		mcVALUE_AUTOMATIC_SELECTION,	(*The value for the source is selected automatically in relation to the active controller mode*)
+		mcVALUE_ALT1,					(*"Value source 1" of the feature "Alternative value source" is used*)
+		mcVALUE_ALT2,					(*"Value source 2" of the feature "Alternative value source" is used*)
+		mcVALUE_ALT3,					(*"Value source 3" of the feature "Alternative value source" is used*)
+		mcVALUE_ALT4,					(*"Value source 4" of the feature "Alternative value source" is used*)
+		mcVALUE_ALT5,					(*"Value source 5" of the feature "Alternative value source" is used*)
+		mcVALUE_ALT6,					(*"Value source 6" of the feature "Alternative value source" is used*)
+		mcVALUE_ALT7,					(*"Value source 7" of the feature "Alternative value source" is used*)
+		mcVALUE_ALT8					(*"Value source 8" of the feature "Alternative value source" is used*)
+	);
+
+	McAltValueSrcEnum :
+	(
+		mcALT_VALUE_NOT_USED := 0,	(*No alternative value source is used*)
+		mcALT_VALUE1 := 1,			(*"Value source 1" of the feature "Alternative value source" is used*)
+		mcALT_VALUE2 := 2,			(*"Value source 2" of the feature "Alternative value source" is used*)
+		mcALT_VALUE3 := 3,			(*"Value source 3" of the feature "Alternative value source" is used*)
+		mcALT_VALUE4 := 4,			(*"Value source 4" of the feature "Alternative value source" is used*)
+		mcALT_VALUE5 := 5,			(*"Value source 5" of the feature "Alternative value source" is used*)
+		mcALT_VALUE6 := 6,			(*"Value source 6" of the feature "Alternative value source" is used*)
+		mcALT_VALUE7 := 7,			(*"Value source 7" of the feature "Alternative value source" is used*)
+		mcALT_VALUE8 := 8			(*"Value source 8" of the feature "Alternative value source" is used*)
 	);
 
 	McSwitchEnum :
@@ -179,7 +201,8 @@ TYPE
 		Acceleration : REAL; (*Maximum acceleration [Measurement units/s]*)
 		Deceleration : REAL; (*Maximum deceleration [Measurement units/s]*)
 		Jerk : REAL; (*Maximum jerk [measurement units / s³]*)
-		DisableJoltLimitation : McSwitchEnum; (**)
+		DisableJoltLimitation : McSwitchEnum; (*Disable jolt limitation on the drive*)
+		AlternativeValueSource : McAltValueSrcEnum; (*If used, defines the alternative source of cyclic: position for MC_BR_MoveCyclicPosition, velocity for MC_BR_MoveCyclicVelocity [axis Units]*)
 	END_STRUCT;
 
 	McOrientType : STRUCT
@@ -232,7 +255,7 @@ TYPE
 	McInternalMappLinkType : 	STRUCT  (*internal variable*)
 		Internal : ARRAY[0..1]OF UDINT; (*Internal data*)
 	END_STRUCT;
-	
+
 	McInternalMotionCfgIfType : 	STRUCT  (*Partial interface type (C only)*)
 		vtable : DWORD; (**)
 	END_STRUCT;

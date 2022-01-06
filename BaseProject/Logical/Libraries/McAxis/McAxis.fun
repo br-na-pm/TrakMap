@@ -490,7 +490,7 @@ FUNCTION_BLOCK MC_ReadParameter (*reads the specified PLCopen Parameter*)
     VAR_INPUT
 	Axis : REFERENCE TO McAxisType; (*axis reference*)
 	Enable : BOOL; (*FB is active as long as input is set*)
-		ParameterNumber : McPlcopenParEnum; (*number of the parameter*)
+	ParameterNumber : McPlcopenParEnum; (*number of the parameter*)
     END_VAR
     VAR_OUTPUT
 	Valid : BOOL; (*the output value of the FB can be used*)
@@ -1473,4 +1473,112 @@ FUNCTION_BLOCK MC_BR_ForceHardwareInputs (*Forces HW inputs of a real axis*)
     VAR
         Internal : McInternalType;(*internal variable*)
     END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MC_BR_TorqueControl (*Starts a movement with a specified torque at a limited velocity*)
+	VAR_INPUT
+        Axis : REFERENCE TO McAxisType; (*Axis reference.*)
+        Enable : BOOL; (*The function block is active as long as this input is set.*)
+        InitData : BOOL; (*Initializes input data on a rising edge (online change of function block input data).*)
+        Torque: REAL; (*Signed torque setpoint for the axis [Nm].*)
+        TorqueRamp : REAL; (*Increase in torque until "Torque" value is reached [Nm/s].*)
+        MaximumVelocity: REAL; (*Signed upper speed limit of rotation [measurement units / s]*)
+        MinimumVelocity: REAL; (*Signed lower speed limit of rotation [measurement units / s].*)
+		Acceleration: REAL; (* Maximum acceleration [measurement units / s^2] or maximum deceleration when the "NegMaxVelocity" or "PosMaxVelocity" value changes [measurement units / s^2].*)
+		Jerk : REAL; (*Maximum jerk [measurement units / s^3].*)
+		AdvancedParameters : McAdvBrTorqueControlParType; (*Additional input parameters for optional use with the function block.*)
+        Start : BOOL; (*Signal to start the torque controlled movement.*)
+        Stop : BOOL; (*Signal to stop the torque controlled movement.*)
+	END_VAR
+	VAR_OUTPUT
+		InTorque : BOOL; (*Torque setpoint reached.*)
+		Busy : BOOL; (*FB is active and needs to be called.*)
+		Active : BOOL; (*FB has control over the axis.*)
+		CommandAborted : BOOL; (*Command was aborted by another command.*)
+		Error : BOOL; (*Error occurred during operation.*)
+		ErrorID : DINT; (*Error number.*)
+		DataInitialized : BOOL; (*Changes to function block inputs initialized.*)
+		Ready : BOOL; (*FB is ready for Start or Stop signal.*)
+		AxisLimitActive : BOOL; (*Axis velocity limit is reached or exceeded.*)
+	END_VAR
+	VAR
+        Internal : McInternalType;(*internal variable*)
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MC_WriteParameter (*Writes the value to a specific PLCopen parameter*)
+	VAR_INPUT
+		Axis : REFERENCE TO McAxisType; (*Axis reference*)
+		Execute : BOOL; (*Write the value of the parameter at the rising edge*)
+		ParameterNumber : McPlcopenParEnum; (*Number of the parameter*)
+		Value : LREAL; (*New value of the specified parameter*)
+	END_VAR
+	VAR_OUTPUT
+		Done : BOOL; (*Parameter successfully written*)
+		Busy : BOOL; (*Function block is not finished*)
+		Error : BOOL; (*Error occurred in FB*)
+		ErrorID : DINT; (*Error number*)
+	END_VAR
+	VAR
+		Internal : McInternalType;(*Internal variable*)
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MC_BR_LimitLoadCam (* Enables a cam profile based torque limitation *)
+	VAR_INPUT
+		Axis : REFERENCE TO McAxisType; (*Axis reference *)
+		Enable : BOOL; (*The function block is active as long as this input is set*)
+		InitData : BOOL; (*Initializes input data on a rising edge (online change of function block input data)*)
+		CamIDPos : UINT; (*Index of cam profile for positive direction torque limitation*)
+		CamIDNeg : UINT; (*Index of cam profile for negative direction torque limitation*)
+		Mode : McLimitLoadModeEnum;    (*Torque limitation mode selection *)
+		AdvancedParameters : McAdvBrLimitLoadCamParType; (*Additional parameters*)
+	END_VAR
+	VAR_OUTPUT
+		Busy : BOOL;  (*The function block is enabled ("Enable" = 1)*)
+		Ready : BOOL; (*The parameters on the function block inputs were successfully initialized; the limiter is ready.*)
+ 		Active : BOOL; (*Limiting is active*)
+		Error : BOOL; (*Error during execution*)
+		ErrorID : DINT; (*Error number*)
+		DataInitialized : BOOL; (*The parameter transfer started with "InitData" = TRUE is ended*)
+	END_VAR
+	VAR
+		Internal : McInternalType;
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MC_BR_MechDeviationComp (* handles mechanical position deviation compensation *)
+    VAR_INPUT
+        Axis : REFERENCE TO McAxisType; (*axis reference*)
+        Execute : BOOL; (*Execute the given command at rising edge*)
+        Command : McMechDevCompCmdEnum; (*commands for mechanical deviation compensation*)
+        AdvancedParameters : McMechDevCompAdvParType; (*advanced parameters for mechanics deviation position compensation*)
+    END_VAR
+    VAR_OUTPUT
+        Done : BOOL; (*last given command completed successfully*)
+        Busy : BOOL; (*function block is not finished (must be continuously called)*)
+        Error : BOOL; (*error occurred in FB*)
+        ErrorID : DINT; (*error number*)
+        AdditionalInfo : McMechDevCompAddInfoType; (*structure with extended output information*)
+    END_VAR
+	VAR
+		Internal : McInternalType;
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MC_BR_GetHardwareInfo (* Get information regarding the axis, the drive, the plug in cards and the motors *)
+    VAR_INPUT
+        Axis : REFERENCE TO McAxisType; (*axis reference*)
+        Execute : BOOL; (*Execute the given command at rising edge*)
+    END_VAR
+    VAR_OUTPUT
+        Done : BOOL; (*last given command completed successfully*)
+        Busy : BOOL; (*function block is not finished (must be continuously called)*)
+        Error : BOOL; (*error occurred in FB*)
+        ErrorID : DINT; (*error number*)
+        HardwareInfo : McHardwareInfoType; (*structure with the hardware information*)
+    END_VAR
+	VAR
+		Internal : McInternalType;
+	END_VAR
 END_FUNCTION_BLOCK

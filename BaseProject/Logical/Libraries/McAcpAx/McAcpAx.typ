@@ -19,6 +19,11 @@ TYPE
 		mcACPAX_PARID_GET_NO_NCT  (*Read ParID(s) without entry in the NCT*)
 	);
 
+	McAcpAxProcessParTabModeEnum :
+	(
+		mcACPAX_PARTAB_SET := 0	(*Write parameter(s)*)
+	);
+
 	McAcpAxCycParIDModeEnum :
 	(
 		mcACPAX_CYCLIC_PARID_READ := 0,  (*Read ParID(s) cyclically*)
@@ -58,8 +63,9 @@ TYPE
 
 	McAcpAxAxisTypeEnum :
 	(
-		mcACPAX_AXIS_REAL,	 (*Real axis*)
-		mcACPAX_AXIS_VIRTUAL	 (*Virtual axis*)
+		mcACPAX_AXIS_REAL,		(*Real axis*)
+		mcACPAX_AXIS_VIRTUAL,	(*Virtual axis*)
+		mcACPAX_AXIS_EXT_ENC	(*External encoder axis*)
 	);
 
 	McAcpAxProductFamilyEnum :
@@ -130,26 +136,6 @@ TYPE
 		mcACPAX_TEST_SPEED  (*Controller test (rotary speed controller)*)
 	);
 
-	McAcpAxAutoTuneOrientationEnum:
-	(
-		mcACPAX_ORIENTATION_HORIZONTAL,  (*Horizontal orientation*)
-		mcACPAX_ORIENTATION_VERTICAL     (*Vertical orientation*)
-	);
-
-	McAcpAxFilterTimeModeEnum:
-	(
-		mcACPAX_FILTER_TIME_USE,  (*The determination of filter time constants is disabled; however, filter time constants are taken into account for autotuning*)
-		mcACPAX_FILTER_TIME_TUNE_MODE1,  (*The controlled variable is the unfiltered actual speed n*)
-		mcACPAX_FILTER_TIME_TUNE_MODE2   (*The controlled variable is the filtered actual speed n*)
-	);
-
-	McAcpAxLoopFilterModeEnum:
-	(
-		mcACPAX_LOOP_FILTER_IGNORE,  (*Loop filters are neither taken into account nor calculated. *)
-		mcACPAX_LOOP_FILTER_USE,  (*The parameters for all loop filters are taken into account for autotuning*)
-		mcACPAX_LOOP_FILTER_TUNE_NOTCH  (*The parameters for the loop filter are calculated*)
-	);
-
 	McAcpAxIntegrationTimeModeEnum:
 	(
 		mcACPAX_INTEGRATION_TIME_IGNORE,  (*Integral action time is neither taken into account nor calculated*)
@@ -163,6 +149,26 @@ TYPE
 		mcACPAX_OP_TUNE_V_CONSTANT  (*Autotuning at constant velocity*)
 	);
 
+	McAcpAxAutoTuneMotorModeEnum:
+	(
+		mcACPAX_ATM_IDENTIFICATION := 10,	(*Identification of the parameter on the drive*)
+		mcACPAX_ATM_TEST := 12 				(*Test of the motor to detect aging*)
+	);
+
+	 McAcpAxLoadModelIdentModeEnum:
+	(
+		 mcACPAX_MODEL_IDENT_CLOSED_LOOP := 0, (*Model identification in closed loop, using excitation signal with potentially variable amplitude.*)
+		 mcACPAX_MODEL_IDENT_OPEN_LOOP := 1 (*Model identification in open loop, using excitation signal with constant amplitude.*)
+	);
+
+	McAcpAxAutoTuneMotPhasModeEnum:
+	(
+		mcACPAX_ATMP_SATURATION := 30, (*Saturation*)
+		mcACPAX_ATMP_STEPPER := 31,    (*Stepper*)
+		mcACPAX_ATMP_DITHER := 32,     (*Dither*)
+		mcACPAX_ATMP_SET_OFFSET := 34  (*Set commutation offset*)
+	);
+
 	McAcpAxSimulationModeEnum :
 	(
 		mcACPAX_SIMULATION_1MASS_AUTO,	 (*Standard (1-mass model, parameters determined automatically)*)
@@ -171,12 +177,20 @@ TYPE
 		mcACPAX_SIMULATION_SET_GEN_ONLY		 (*set value generation only*)
 	);
 
+	McAcpAxFeedbackModeEnum:
+	(
+		 mcACPAX_FBCTRL_MODE_STANDARD := 0, (*Standard: ncSTANDARD*)
+		 mcACPAX_FBCTRL_MODE_1MASS_MODEL := 4, (*One mass load model: ncMODEL_1MASS*)
+		 mcACPAX_FBCTRL_MODE_2MASS_MODEL := 3, (*Two mass load model: ncMODEL_2MASS*)
+		 mcACPAX_FBCTRL_MODE_2ENC_SPEED := 5 (*Two encoder speed: nc2ENCOD_SPEED*)
+	);
+
    	McAcpAxHomingParType : STRUCT
         HomingMode : McHomingModeEnum; (*Mode for homing*)
 		Position : LREAL; (*Absolute position or homing offset when homing signal [Measurement units] occurs*)
 		StartVelocity : REAL; (*Velocity for reference switch search [Measurement units/s]*)
 		HomingVelocity : REAL; (*Velocity (after reaching reference switch) [Measurement units/s]*)
-		Acceleration : REAL; (*Maximum acceleration [Measurement units/s²]*)
+		Acceleration : REAL; (*Maximum acceleration [Measurement units/sÂ²]*)
 		SwitchEdge : McDirectionEnum; (*Edge of reference switch*)
 		StartDirection : McDirectionEnum; (*Start direction for searching the reference edge*)
 		HomingDirection : McDirectionEnum; (*Direction for homing (after reaching reference switch)*)
@@ -186,13 +200,21 @@ TYPE
 		TorqueLimit : REAL; (*Torque limit value for homing to blocks [Nm]*)
 		BlockDetectionPositionError : REAL; (*Lag error for block detection [Measurement units]*)
 		PositionErrorStopLimit : REAL; (*Lag error for canceling homing procedure [Measurement units]*)
-		RestorePositionVariableAddress : UDINT; (*Address of a permanent variable of type McAcpAxRestorePosType that is needed for "HomingMode" mcHOMING_RESTORE_POSITION*)
+		RestorePositionVariableAddress : UDINT; (*Address of a remanent variable of type McAcpAxRestorePosType that is needed for "HomingMode" mcHOMING_RESTORE_POSITION*)
 	END_STRUCT;
 
 	McAcpAxProcessParIDType : STRUCT
 		ParID : UINT; (*Parameter ID number to be read or written*)
 		VariableAddress : UDINT; (*Address of the variable that receives the read value or the corresponding value that is to be written*)
 		DataType : McAcpAxDataTypeEnum; (*Data type of the variable:*)
+	END_STRUCT;
+
+	McAcpAxProcessParTabDataType : STRUCT
+		DataObjectName : STRING[12]; (*Name of the ACOPOS parameter table data object*)
+	END_STRUCT;
+
+	McAcpAxProcessParTabAddInfoType : STRUCT
+		NumberOfParameters : UDINT; (*Number of transferred parameters*)
 	END_STRUCT;
 
 	McAcpAxCycParIDType : STRUCT
@@ -237,13 +259,13 @@ TYPE
 	END_STRUCT;
 
 	McAcpAxSimulationMass1Type : STRUCT
-		Inertia : REAL; (*Inertia [kgm²]*)
+		Inertia : REAL; (*Inertia [kgmÂ²]*)
 		StaticFriction : REAL; (*Static friction [Nm]*)
 		ViscousFriction : REAL; (*Viscous friction*)
 	END_STRUCT;
 
 	McAcpAxSimulationMass2Type : STRUCT
-		Inertia : REAL; (*Inertia [kgm²]*)
+		Inertia : REAL; (*Inertia [kgmÂ²]*)
 		StaticFriction : REAL; (*Static friction [Nm]*)
 		ViscousFriction : REAL; (*Viscous friction*)
 		Stiffness : REAL; (*Stiffness to coupled mass 1 [Nm]*)
@@ -293,7 +315,7 @@ TYPE
 		TorquePositive : REAL; (*Torque in positive direction [Nm]*)
 		TorqueNegative : REAL; (*Torque in negative direction [Nm]*)
 		SpeedTorqueFactor : REAL; (*Velocity torque factor [Nms]*)
-		Inertia : REAL; (*Moment of inertia [kgm²]*)
+		Inertia : REAL; (*Moment of inertia [kgmÂ²]*)
 		AccelerationFilterTime : REAL; (*Acceleration filter time constant [s]*)
 	END_STRUCT;
 
@@ -356,6 +378,11 @@ TYPE
 		NormalizedLimit : REAL; (*Normalized limit*)
 	END_STRUCT;
 
+	McAcpAxFeedbackParType : STRUCT
+		SpeedMixRatio : REAL; (*Speed mixing ratio.*)
+		SpeedProportionalGain : REAL; (*Speed proportional gain [As].*)
+	END_STRUCT;
+
 	McAcpAxAutoTuneExSignalType: STRUCT
 		SignalType:  McAcpAxAutoTuneExSignalEnum; (*Type of excitation signal*)
 		SignalOrder : UDINT := 9; (*Order of the excitation signal (only for signal type PRBS)*)
@@ -380,6 +407,8 @@ TYPE
 		FilterTime : REAL; (*Filter time constant [s]*)
 		LoopFilter1 : McAcpAxLoopFilterParType; (*LoopFilter1 settings*)
 		PhaseCrossoverFrequency : REAL; (*Phase crossover frequency of the controlled system [Hz]*)
+		Feedback : McAcpAxFeedbackParType; (*Feedback parameters for one mass model, two mass model and two encoder speed feedback mode*)
+		Parameters : McCfgAcpCtrlType; (*Parameter structure for usage on MC_BR_ProcessConfig and MC_BR_ProcessParam*)
 	END_STRUCT;
 
 	McAcpAxAutoTuneLoopFilterOutType : STRUCT
@@ -387,11 +416,13 @@ TYPE
 		LoopFilter1 : McAcpAxLoopFilterParType; (*Parameter for first control loop filter*)
 		LoopFilter2 : McAcpAxLoopFilterParType; (*Parameter for additional control loop filter*)
 		LoopFilter3 : McAcpAxLoopFilterParType; (*Parameter for additional control loop filter*)
+		Parameters : McCfgAcpCtrlType; (*Parameter structure for usage on MC_BR_ProcessConfig and MC_BR_ProcessParam*)
 	END_STRUCT;
 
 	McAcpAxAutoTunePosCtrlOutType : STRUCT
 		Quality : REAL; (*Quality of parameter identification [%]*)
 		ProportionalGain : REAL; (*Estimated proportional gain factor [As/U]*)
+		Parameters : McCfgAcpCtrlType; (*Parameter structure for usage on MC_BR_ProcessConfig and MC_BR_ProcessParam*)
 	END_STRUCT;
 
 	McAcpAxAutoTuneTestOutType : STRUCT
@@ -405,18 +436,21 @@ TYPE
 	END_STRUCT;
 
 	McAcpAxAdvAutoTuneSpeedCtrlType : STRUCT
+		FeedbackMode : McAcpAxFeedbackModeEnum; (*Defines the controller feedback mode during the tuning process.*)
 	    LoopFilter1Mode : McAcpAxLoopFilterModeEnum; (*Mode for taking LoopFilter1 into account*)
 	    FilterTimeMode : McAcpAxFilterTimeModeEnum; (*Mode for taking the filter time constant into account*)
 	    IntegrationTimeMode : McAcpAxIntegrationTimeModeEnum; (*Mode for taking integral action time into account*)
 	    OperatingPoint : McAcpAxAutoTuneOperatPointEnum; (*Selects the operating point for autotuning*)
-	    Velocity : REAL; (*Maximum velocity applied during autotuning if "OperatingPoint =*)
-	    Acceleration : REAL; (*Acceleration applied during autotuning if "OperatingPoint =*)
+	    Velocity : REAL; (*Note: Not used, should be deprecated.*)
+	    MaxVelocityPercent : REAL := 50.0; (*Maximum velocity, in percent of the the axis velocity limit, applied during autotuning if "OperatingPoint" = mcACPAX_OP_TUNE_V_CONSTANT. [%]*)
+	    Acceleration : REAL; (*Acceleration applied during autotuning if "OperatingPoint" = mcACPAX_OP_TUNE_V_CONSTANT. [Measurement units / s^2]*)
 	    MaxProportionalGain : REAL := 2000; (*Maximum proportional gain [As]*)
 	    ProportionalGainPercent : REAL := 100; (*Percentage of the proportional gain determined during autotuning that will be used for the control parameters [%]*)
 	    ResonanceFactor : REAL := 2; (*Factor for detecting resonance*)
 	    InertiaEstimationLowerFrequency  : REAL := 10; (*Lower frequency for estimating the mass moment of inertia of the drive [Hz]*)
 	    InertiaEstimationUpperFrequency  : REAL := 40; (*Upper frequency for estimating the mass moment of inertia of the drive [Hz]*)
 	    ExcitationSignal : McAcpAxAutoTuneExSignalType; (*Parameter for excitation signal*)
+	    LoadModel : McAcpAxLoadModelType; (*Load model parameters required for autotuning in one mass, two mass and two encoder speed feedback mode.*)
 	END_STRUCT;
 
 	McAcpAxAdvAutoTuneLoopFilterType : STRUCT
@@ -440,6 +474,111 @@ TYPE
 	    ExcitationSignal : McAcpAxAutoTuneExSignalType; (*Parameter for excitation signal*)
 	END_STRUCT;
 
+	McAcpAxAutoTuneIndMotParType : STRUCT
+		NominalVoltage : REAL; (*Nominal voltage (RMS value, phase-phase) [V]*)
+		NominalCurrent : REAL; (*Phase current for generating the nominal torque at nominal speed (RMS value) [A]*)
+		NominalSpeed : REAL;  (*Nominal speed [RPM]*)
+		NominalFrequency : REAL; (*Nominal frequency [Hz]*)
+		PowerFactor : REAL; (*Power factor (cos phi)*)
+		ThermalTrippingTime : REAL; (*Tripping time for thermal overload [s]*)
+	END_STRUCT;
+
+	McAcpAxAdvAutoTuneIndMotType : STRUCT
+		Phase : USINT; (*Motor phase the setup is executed with (1=U, 2=V, 3=W*)
+		NumberOfPolePairs : USINT; (*Number of pole pairs*)
+		MaximumSpeed : REAL; (*Maximal speed [RPM]*)
+		StallTorque : REAL; (*Torque at standstill [Nm]*)
+		NominalTorque : REAL; (*Nominal torque [Nm]*)
+		PeakTorque : REAL; (*Peak torque [Nm]*)
+		StallCurrent : REAL; (*Current at standstill [A]*)
+		PeakCurrent : REAL; (*Peak current [A]*)
+		MagnetizingCurrent : REAL; (*Magnetizing current [A]*)
+		WindingCrossSection : REAL; (*Cunductor cross section of a phase [mm^2]*)
+		InverterCharacteristicGain : REAL; (*Inverter characteristic curve: Gain factor*)
+		InverterCharacteristicExponent : REAL; (*Inverter characteristic curve: Exponent [1/A]*)
+	END_STRUCT;
+
+	McAcpAxAutoTuneIndMotOutType : STRUCT
+		Quality : REAL;
+		Parameters : McCfgMotInductType; (*Parameter structure for usage on MC_BR_ProcessConfig*)
+		NumberOfPolePairs : USINT; (*Number of pole pairs*)
+		MaximumSpeed : REAL; (*Maximal speed [RPM]*)
+		StallTorque : REAL; (*Torque at standstill [Nm]*)
+		NominalTorque : REAL; (*Nominal torque [Nm]*)
+		PeakTorque : REAL; (*Peak torque [Nm]*)
+		StallCurrent : REAL; (*Current at standstill [A]*)
+		PeakCurrent : REAL; (*Peak current [A]*)
+		WindingCrossSection : REAL; (*Cunductor cross section of a phase [mm^2]*)
+		StatorResistance : REAL; (*Stator resistance (phase) [Ohm]*)
+		StatorInductance : REAL; (*Stator leakage inductance (phase) [mH]*)
+		RotorResistance : REAL; (*Rotor resistance (phase) [Ohm]*)
+		RotorInductance : REAL; (*Rotor leakage inductance (phase) [mH]*)
+		MutualInductance : REAL; (*Mutual inductance (phase) [mH]*)
+		MagnetizingCurrent : REAL; (*Magnetizing current [A]*)
+	END_STRUCT;
+
+	McAcpAxAutoTuneSyncMotParType : STRUCT
+		NominalVoltage : REAL; (*Nominal voltage (RMS value, phase-phase) [V]*)
+		NominalCurrent : REAL; (*Phase current for generating the nominal torque at nominal speed (RMS value) [A]*)
+		NominalSpeed : REAL;  (*Nominal speed [RPM]*)
+		NominalTorque : REAL; (*Nominal torque [Nm]*)
+		NumberOfPolePairs : USINT; (*Number of pole pairs*)
+		PeakCurrent : REAL; (*Peak current [A]*)
+		PeakTorque : REAL; (*Peak torque [NM]*)
+		ThermalTrippingTime : REAL; (*Tripping time for thermal overload [s]*)
+	END_STRUCT;
+
+	McAcpAxAdvAutoTuneSyncMotType : STRUCT
+		Phase : USINT; (*Motor phase the setup is executed with (1=U, 2=V, 3=W*)
+		VoltageConstant : REAL; (*Voltage constant [mVmin]*)
+		MaximumSpeed : REAL; (*Maximal speed [RPM]*)
+		StallTorque : REAL; (*Torque at standstill [Nm]*)
+		TorqueConstant : REAL; (*Torque constant [Nm/A]*)
+		StallCurrent : REAL; (*Current at standstill [A]*)
+		WindingCrossSection : REAL; (*Cunductor cross section of a phase [mm^2]*)
+		InverterCharacteristicGain : REAL; (*Inverter characteristic curve: Gain factor*)
+		InverterCharacteristicExponent : REAL; (*Inverter characteristic curve: Exponent [1/A]*)
+	END_STRUCT;
+
+	McAcpAxAutoTuneSyncMotOutType : STRUCT
+		Quality : REAL;
+		Parameters : McCfgMotSynType; (*Parameter structure for usage on MC_BR_ProcessConfig*)
+		VoltageConstant : REAL; (*Voltage constant [mVmin]*)
+		MaximumSpeed : REAL; (*Maximal speed [RPM]*)
+		StallTorque : REAL; (*Torque at standstill [Nm]*)
+		TorqueConstant : REAL; (*Torque constant [Nm/A]*)
+		StallCurrent : REAL; (*Current at standstill [A]*)
+		WindingCrossSection : REAL; (*Cunductor cross section of a phase [mm^2]*)
+		StatorResistance : REAL; (*Stator resistance (phase) [Ohm]*)
+		StatorInductance : REAL; (*Stator leakage inductance (phase) [mH]*)
+	END_STRUCT;
+
+	McAcpAxAutoTuneMotPhasParType : STRUCT
+		PhasingCurrent : REAL; (*Motor current durring phasing [A]*)
+		PhasingTime : REAL; (*Time for phasing the motor [s]*)
+	END_STRUCT;
+
+	McAcpAxAdvAutoTuneMotPhasType : STRUCT
+		CommutationOffset : REAL; (*Commutation offset [rad]*)
+	END_STRUCT;
+
+	McAcpAxAutoTuneMotPhasOutType : STRUCT
+		Quality : REAL;
+		NumberOfPolePairs : USINT; (*Number of pole pairs*)
+		CommutationOffset : REAL; (*Commutation offset [rad]*)
+	END_STRUCT;
+
+	McAcpAxAdvAutoTuneLoadModelType : STRUCT
+		IdentMode : McAcpAxLoadModelIdentModeEnum; (*Load model identification mode, i.e. closed or open loop.*)
+		ExcitationSignal : McAcpAxAutoTuneExSignalType; (*Parameters for excitation signal.*)
+	END_STRUCT;
+
+	McAcpAxAutoTuneLoadModelOutType : STRUCT
+		Quality : REAL; (*Quality of parameter identification [%]*)
+		LoadModel : McAcpAxLoadModelType; (*Load model parameters resulting from the autotuning (identification).*)
+		Parameters : McCfgAcpCtrlType; (*Parameter structure for usage on MC_BR_ProcessConfig and MC_BR_ProcessParam*)
+	END_STRUCT;
+
 	McAcpAxAdvCamAutSetParType : STRUCT
 		ParLock : McCamAutParLockCmdEnum; (*Command for the transfer of the parameter*)
 	END_STRUCT;
@@ -460,8 +599,8 @@ TYPE
 	    MaxSlaveCompDistance : LREAL; (*Maximum compensation distance for the slave axis [Measurement units of slave]*)
 	    MinSlaveCompVelocity : REAL; (*Minimum velocity of the slave axis during compensation [Measurement units of slave/s]*)
 	    MaxSlaveCompVelocity : REAL; (*Maximum velocity of the slave axis during compensation [Measurement units of slave/s]*)
-	    MaxSlaveCompAccel1 : REAL; (*Maximum acceleration of the slave axis during compensation phase 1 [Measurement units of slave/s²]*)
-	    MaxSlaveCompAccel2 : REAL; (*Maximum acceleration of the slave axis during compensation phase 2 [Measurement units of slave/s²]*)
+	    MaxSlaveCompAccel1 : REAL; (*Maximum acceleration of the slave axis during compensation phase 1 [Measurement units of slave/sÂ²]*)
+	    MaxSlaveCompAccel2 : REAL; (*Maximum acceleration of the slave axis during compensation phase 2 [Measurement units of slave/sÂ²]*)
 	    SlaveCompJoltTime : REAL; (*Jerk time of the slave axis during compensation [s]*)
 	END_STRUCT;
 
@@ -568,14 +707,6 @@ TYPE
 	    NegVelocityTriggerParID : UINT; (*ParID controls the subtraction of velocity "CyclicVelocity" or the value of "VelocityParID"*)
 	END_STRUCT;
 	
-	McAcpAxCtrlParType : STRUCT
-		Mode : McAcpAxCtrlModeEnum; (*Controller mode*)
-		PositionController : McAcpAxPosCtrlParType; (*Structure of the parameters for the position controller*)
-		SpeedController : McAcpAxSpeedCtrlParType; (*Structure of the parameters for the velocity controller*)
-		FeedForward : McAcpAxFeedForwardParType; (*Structure of the parameters for feed-forward control*)
-		ParameterSelector : McAcpAxCtrlParSelectEnum; (*Used for selecting the parameter sets that are to be transferred to the axis when there is a rising edge on input "Execute"*)
-	END_STRUCT;
-	
 	McAcpAxAdvAutoTuneFeedFwdType : STRUCT
 	    ExcitationSignal : McAcpAxAutoTuneExSignalType; (*Parameter for excitation signal*)
 	END_STRUCT;
@@ -583,7 +714,24 @@ TYPE
 	McAcpAxLoadSimInputDataType : STRUCT
 		Position : LREAL; (*Position value [rad]*)
 		Velocity : REAL; (*Velocity value [rad/s]*)
- 		Acceleration : REAL; (*Acceleration value [rad/s²] Note: This structure element is not supported currently, and always the value "0.0" is output*)
+ 		Acceleration : REAL; (*Acceleration value [rad/sÂ²] Note: This structure element is not supported currently, and always the value "0.0" is output*)
+	END_STRUCT;
+
+	McAcpAxLoadModelMass1Type : STRUCT
+		Inertia : REAL; (*Mass moment of inertia [kg*m^2].*)
+		ViscousFriction : REAL; (*Viscous friction [Nm*s].*)
+	END_STRUCT;
+
+	McAcpAxLoadModelMass2Type : STRUCT
+		Inertia : REAL; (*Mass moment of inertia [kg*m^2].*)
+		ViscousFriction : REAL; (*Viscous friction [Nm*s].*)
+		Stiffness : REAL; (*Stiffness of the coupling to Mass 1 [Nm/rad].*)
+		Damping : REAL; (*Damping of the coupling to Mass 1 [Nm/(rad/s)].*)
+	END_STRUCT;
+
+	McAcpAxLoadModelType : STRUCT
+		Mass1 : McAcpAxLoadModelMass1Type; (*Mass 1 component of the load model.*)
+		Mass2 : McAcpAxLoadModelMass2Type; (*Mass 2 component of the load model.*)
 	END_STRUCT;
 
 END_TYPE

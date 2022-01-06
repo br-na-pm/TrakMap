@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McBase 5.14.0 */
+/* McBase 5.16.2 */
 
 #ifndef _MCBASE_
 #define _MCBASE_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McBase_VERSION
-#define _McBase_VERSION 5.14.0
+#define _McBase_VERSION 5.16.2
 #endif
 
 #include <bur/plctypes.h>
@@ -72,6 +72,7 @@ typedef enum McHomingModeEnum
 	mcHOMING_DCM = 7,
 	mcHOMING_BLOCK_TORQUE = 9,
 	mcHOMING_BLOCK_LAG_ERROR = 10,
+	mcHOMING_ABSOLUTE_INTERNAL = 11,
 	mcHOMING_ABSOLUTE_CORRECTION = 133,
 	mcHOMING_DCM_CORRECTION = 135,
 	mcHOMING_DEFAULT = 140,
@@ -139,8 +140,28 @@ typedef enum McValueSrcEnum
 	mcVALUE_ACTUAL,
 	mcVALUE_SET_AXIS_UNITS,
 	mcVALUE_ACTUAL_AXIS_UNITS,
-	mcVALUE_AUTOMATIC_SELECTION
+	mcVALUE_AUTOMATIC_SELECTION,
+	mcVALUE_ALT1,
+	mcVALUE_ALT2,
+	mcVALUE_ALT3,
+	mcVALUE_ALT4,
+	mcVALUE_ALT5,
+	mcVALUE_ALT6,
+	mcVALUE_ALT7,
+	mcVALUE_ALT8
 } McValueSrcEnum;
+
+typedef enum McAltValueSrcEnum
+{	mcALT_VALUE_NOT_USED = 0,
+	mcALT_VALUE1 = 1,
+	mcALT_VALUE2 = 2,
+	mcALT_VALUE3 = 3,
+	mcALT_VALUE4 = 4,
+	mcALT_VALUE5 = 5,
+	mcALT_VALUE6 = 6,
+	mcALT_VALUE7 = 7,
+	mcALT_VALUE8 = 8
+} McAltValueSrcEnum;
 
 typedef enum McSwitchEnum
 {	mcSWITCH_OFF,
@@ -189,6 +210,9 @@ typedef enum McCfgTypeEnum
 	mcCFG_AX_FEAT_PROF_GEN = 10102,
 	mcCFG_AX_FEAT_DIG_CAM_SW = 10103,
 	mcCFG_AX_FEAT_CAM_LST = 11102,
+	mcCFG_AX_FEAT_ALT_VAL_SRC = 10104,
+	mcCFG_AX_FEAT_BRK = 10105,
+	mcCFG_AX_FEAT_MECH_DEV_COMP = 10106,
 	mcCFG_MOT_SYN = 10500,
 	mcCFG_MOT_INDUCT = 10501,
 	mcCFG_IO_PL_IN_CARD = 10510,
@@ -214,6 +238,11 @@ typedef enum McCfgTypeEnum
 	mcCFG_ACP_VIRT_JERK_FLTR = 11053,
 	mcCFG_ACP_VIRT_AX_FEAT = 11054,
 	mcCFG_ACP_CH_FEAT = 11060,
+	mcCFG_ACP_EXT_ENC_AX = 11070,
+	mcCFG_ACP_EXT_ENC_AX_REF = 11071,
+	mcCFG_ACP_EXT_ENC_AX_ENC_LINK = 11072,
+	mcCFG_ACP_EXT_ENC_AX_MECH_ELM = 11073,
+	mcCFG_ACP_EXT_ENC_AX_HOME = 11074,
 	mcCFG_AX_FEAT_CAM_AUT_ACP = 11101,
 	mcCFG_AX_FEAT_A_IN = 11103,
 	mcCFG_AX_FEAT_ACP_PAR_TBL = 11104,
@@ -322,10 +351,16 @@ typedef enum McCfgTypeEnum
 	mcCFG_MS_4AX_ROB_A = 52401,
 	mcCFG_MS_4AX_ROB_B = 52402,
 	mcCFG_MS_5AX_ROB_A = 52501,
+	mcCFG_MS_5AX_ROB_B = 52502,
 	mcCFG_MS_6AX_ROB_A = 52601,
 	mcCFG_MS_6AX_ROB_B = 52602,
 	mcCFG_MS_6AX_ROB_C = 52603
 } McCfgTypeEnum;
+
+typedef enum McMMCProcProcTskCEnum
+{	mcMMCPPTC_CYC_1 = 1,
+	mcMMCPPTC_CYC_2 = 2
+} McMMCProcProcTskCEnum;
 
 typedef enum McMMCLogSelEnum
 {	mcMMCLS_NOT_USE = 0,
@@ -354,6 +389,11 @@ typedef enum McMMCLogSelUseInfoCmdEnum
 	mcMMCLSUIC_SUP = 1,
 	mcMMCLSUIC_SEL = 2
 } McMMCLogSelUseInfoCmdEnum;
+
+typedef enum McMMCLogSelUseSupSubcEEnum
+{	mcMMCLSUSSE_INACT = 0,
+	mcMMCLSUSSE_ACT = 1
+} McMMCLogSelUseSupSubcEEnum;
 
 typedef enum McWSHalfSpcPlEnum
 {	mcWSHSP_PL_XY = 0,
@@ -438,7 +478,8 @@ typedef enum McCfgLocRotUnitEnum
 } McCfgLocRotUnitEnum;
 
 typedef enum McPTCEnum
-{	mcPTC_CYC_1 = 1
+{	mcPTC_CYC_1 = 1,
+	mcPTC_USE_MP_MOT_SET = 255
 } McPTCEnum;
 
 typedef enum McCfgVarDatTypEnum
@@ -461,6 +502,7 @@ typedef struct McAdvMoveCycParType
 	float Deceleration;
 	float Jerk;
 	enum McSwitchEnum DisableJoltLimitation;
+	enum McAltValueSrcEnum AlternativeValueSource;
 } McAdvMoveCycParType;
 
 typedef struct McOrientType
@@ -575,6 +617,10 @@ typedef struct McCfgReferenceType
 	enum McCfgTypeEnum ConfigType;
 } McCfgReferenceType;
 
+typedef struct McMMCProcType
+{	enum McMMCProcProcTskCEnum ProcessingTaskClass;
+} McMMCProcType;
+
 typedef struct McMMCLogSelUseAdmCmdSelType
 {	enum McCfgVisEnum CallerInstance;
 	enum McCfgVisEnum ComponentResponse;
@@ -613,6 +659,7 @@ typedef struct McMMCLogSelUseType
 	struct McMMCLogSelUseAdmCmdType AdministrativeCommands;
 	struct McMMCLogSelUseMoveCmdType MovementCommands;
 	struct McMMCLogSelUseInfoCmdType InformationalCommands;
+	enum McMMCLogSelUseSupSubcEEnum SuppressSubcomponentEntries;
 } McMMCLogSelUseType;
 
 typedef struct McMMCLogSelType
@@ -625,7 +672,8 @@ typedef struct McMMCLogType
 } McMMCLogType;
 
 typedef struct McCfgMMCfgType
-{	struct McMMCLogType Logger;
+{	struct McMMCProcType Processing;
+	struct McMMCLogType Logger;
 } McCfgMMCfgType;
 
 typedef struct McCfgTransXYZType

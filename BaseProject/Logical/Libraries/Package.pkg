@@ -26,9 +26,9 @@
     <Object Type="Library" Language="binary" Description="[mapp Motion] PLCopen axes group library">McAxGroup</Object>
     <Object Type="Library" Language="binary" Description="[mapp Motion] ACOPOS axis library">McAcpAx</Object>
     <Object Type="Library" Language="binary" Description="[mapp Motion] PLCopen axis library">McAxis</Object>
-    <Object Type="Library" Language="binary" Description="[mapp Motion] Path generator axes group library">McPathGen</Object>
+    <Object Type="Library" Language="binary" Description="[mapp Motion] Robotics and CNC path generator library">McPathGen</Object>
     <Object Type="Library" Language="binary" Description="[mapp Motion] Program interpreter library">McProgInt</Object>
-    <Object Type="Library" Language="binary" Description="[mapp Motion] mapp Trak Library">McAcpTrak</Object>
+    <Object Type="Library" Language="binary" Description="[mapp Motion] Trak library">McAcpTrak</Object>
     <Object Type="Library" Language="binary" Description="[mapp Motion] Robotics library">MpRobotics</Object>
     <Object Type="Library" Language="binary" Description="[mapp Motion] Axis library">MpAxis</Object>
     <Object Type="Library" Language="Binary" Description="Core library for mapp components">MpBase</Object>

@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpPackML 5.14.0 */
+/* MpPackML 5.16.1 */
 
 #ifndef _MPPACKML_
 #define _MPPACKML_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpPackML_VERSION
-#define _MpPackML_VERSION 5.14.0
+#define _MpPackML_VERSION 5.16.1
 #endif
 
 #include <bur/plctypes.h>
@@ -98,7 +98,8 @@ typedef enum MpPackMLErrorEnum
 	mpPACKML_INF_PARENT_NOT_ACTIVE = 1083474960,
 	mpPACKML_WRN_AMBIQUOUS_MODE_INF = -2137750511,
 	mpPACKML_ERR_INVALID_STATE_MODE = -1064008686,
-	mpPACKML_ERR_INVALID_STATE_CHLD = -1064008685
+	mpPACKML_ERR_INVALID_STATE_CHLD = -1064008685,
+	mpPACKML_INF_MODE_CHG_FORBIDDEN = 1083474964
 } MpPackMLErrorEnum;
 
 typedef enum MpPackMLAlarmEnum
@@ -405,6 +406,7 @@ _BUR_PUBLIC void MpPackMLMode(struct MpPackMLMode* inst);
 _BUR_PUBLIC void MpPackMLBasicUI(struct MpPackMLBasicUI* inst);
 _BUR_PUBLIC void MpPackMLStatisticsUI(struct MpPackMLStatisticsUI* inst);
 _BUR_PUBLIC void MpPackMLModule(struct MpPackMLModule* inst);
+_BUR_PUBLIC signed long MpPackMLModeChangeIsAllowed(struct MpComIdentType* MpLink, signed long ModeID);
 _BUR_PUBLIC signed long MpPackMLChangeMode(struct MpComIdentType* MpLink, signed long ModeID);
 _BUR_PUBLIC signed long MpPackMLModeCurrent(struct MpComIdentType* MpLink);
 _BUR_PUBLIC MpPackMLStateEnum MpPackMLStateCurrent(struct MpComIdentType* MpLink);

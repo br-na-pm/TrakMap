@@ -57,6 +57,9 @@ TYPE
 		UnacknowledgedAlarms : UDINT; (*Number of alarms unacknowledged.*)
 		Diag : MpAlarmXDiagType;
 	END_STRUCT;
+	MpAlarmXControlInfoType : 	STRUCT 
+		Diag : MpAlarmXDiagType;
+	END_STRUCT;
 END_TYPE
 
 (*UIConnect Types*)
@@ -213,6 +216,8 @@ TYPE
 		Acknowledge : MpAlarmXAcknowledgeConfigEnum := mpALARMX_ACK_REQ; (*Acknowledge behavior*)
 		MultipleInstances : BOOL := FALSE; (*Multiple instances of this alarm should be possible.*)
 		ReactionUntilAcknowledged : BOOL := TRUE; (*Any reactions caused by the alarm will remain active until the alarm is acknowledged.*)
+		Retain : BOOL := FALSE; (*Retains the state of the alarm - afte a PLC restart the state is restored*)
+		Async : BOOL := FALSE; (*Alarm is set/reset/acknowledeged in the context of MpAlarmXCore (instead of the Set/Reset/Acknowledge-function)*)
 		HistoryReport : MpAlarmXHistoryReportType; (*Define which state changes should be recorded for historical logging.*)
 		DataUpdate : MpAlarmXUpdateBehaviorType; (*Define when session-data is being updated*)
 	END_STRUCT;

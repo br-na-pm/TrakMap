@@ -19,8 +19,11 @@ TYPE
 		mcCFG_AX_FEAT_PROF_GEN := 10102, (*AxisFeatureProfGen -*)
 		mcCFG_AX_FEAT_DIG_CAM_SW := 10103, (*Associated with data type McCfgAxFeatDigCamSwType*)
 		mcCFG_AX_FEAT_CAM_LST := 11102, (*AxisFeatureCamList -*)
-		mcCFG_MOT_SYN := 10500, (*MotorSynchronous -*)
-		mcCFG_MOT_INDUCT := 10501, (*MotorInduction -*)
+		mcCFG_AX_FEAT_ALT_VAL_SRC := 10104, (*Associated with data type McCfgAxFeatAltValSrcType*)
+		mcCFG_AX_FEAT_BRK := 10105, (*Associated with data type McCfgAxFeatBrkType*)
+		mcCFG_AX_FEAT_MECH_DEV_COMP := 10106, (*Associated with data type McCfgAxFeatMechDevCompType*)
+		mcCFG_MOT_SYN := 10500, (*Associated with data type McCfgMotSynType*)
+		mcCFG_MOT_INDUCT := 10501, (*Associated with data type McCfgMotInductType*)
 		mcCFG_IO_PL_IN_CARD := 10510, (*IOPlugInCard -*)
 		mcCFG_ACP_AX := 11000, (*Associated with data type McCfgAcpAxType*)
 		mcCFG_ACP_AX_REF := 11011, (*Associated with data type McCfgAcpAxRefType*)
@@ -44,6 +47,11 @@ TYPE
 		mcCFG_ACP_VIRT_JERK_FLTR := 11053, (*Associated with data type McCfgAcpVirtJerkFltrType*)
 		mcCFG_ACP_VIRT_AX_FEAT := 11054, (*Associated with data type McCfgAcpVirtAxFeatType*)
 		mcCFG_ACP_CH_FEAT := 11060, (*Associated with data type McCfgAcpChFeatType*)
+		mcCFG_ACP_EXT_ENC_AX := 11070, (*Associated with data type McCfgAcpExtEncAxType*)
+		mcCFG_ACP_EXT_ENC_AX_REF := 11071, (*Associated with data type McCfgAcpExtEncAxRefType*)
+		mcCFG_ACP_EXT_ENC_AX_ENC_LINK := 11072, (*Associated with data type McCfgAcpExtEncAxEncLinkType*)
+		mcCFG_ACP_EXT_ENC_AX_MECH_ELM := 11073, (*Associated with data type McCfgAcpExtEncAxMechElmType*)
+		mcCFG_ACP_EXT_ENC_AX_HOME := 11074, (*Associated with data type McCfgAcpExtEncAxHomeType*)
 		mcCFG_AX_FEAT_CAM_AUT_ACP := 11101, (*AxisFeatureCamAutAcopos -*)
 		mcCFG_AX_FEAT_A_IN := 11103, (*AxisFeatureAInput -*)
 		mcCFG_AX_FEAT_ACP_PAR_TBL := 11104, (*Associated with data type McCfgAxFeatAcpParTblType*)
@@ -126,8 +134,8 @@ TYPE
 		mcCFG_ASM_FEAT_SH_SHP_REG := 31107, (*Associated with data type McCfgAsmFeatShShpRegType*)
 		mcCFG_SEC_COMP := 31301, (*Associated with data type McCfgSecCompType*)
 		mcCFG_SEC_SUB := 31302, (*Associated with data type McCfgSecSubType*)
-		mcCFG_SH_STEREO_TYP := 31400, (*ShuttleStereoType -*)
-		mcCFG_SEG := 31500, (*Segment -*)
+		mcCFG_SH_STEREO_TYP := 31400, (*Associated with data type McCfgShStereoTypType*)
+		mcCFG_SEG := 31500, (*Associated with data type McCfgSegType*)
 		mcCFG_MS_CUS_STD := 50001, (*Associated with data type McCfgMSCusStdType*)
 		mcCFG_MS_2AX_CNC_XY := 51201, (*Associated with data type McCfgMS2AxCncXYType*)
 		mcCFG_MS_2AX_CNC_XZ := 51202, (*Associated with data type McCfgMS2AxCncXZType*)
@@ -152,6 +160,7 @@ TYPE
 		mcCFG_MS_4AX_ROB_A := 52401, (*Associated with data type McCfgMS4AxRobAType*)
 		mcCFG_MS_4AX_ROB_B := 52402, (*Associated with data type McCfgMS4AxRobBType*)
 		mcCFG_MS_5AX_ROB_A := 52501, (*Associated with data type McCfgMS5AxRobAType*)
+		mcCFG_MS_5AX_ROB_B := 52502, (*Associated with data type McCfgMS5AxRobBType*)
 		mcCFG_MS_6AX_ROB_A := 52601, (*Associated with data type McCfgMS6AxRobAType*)
 		mcCFG_MS_6AX_ROB_B := 52602, (*Associated with data type McCfgMS6AxRobBType*)
 		mcCFG_MS_6AX_ROB_C := 52603 (*Associated with data type McCfgMS6AxRobCType*)
@@ -164,6 +173,14 @@ TYPE
 	McCfgReferenceType : STRUCT (*General purpose datatype*)
 		Name : STRING[250];
 		ConfigType : McCfgTypeEnum;
+	END_STRUCT;
+	McMMCProcProcTskCEnum :
+		( (*Cyclic task class for command processing*)
+		mcMMCPPTC_CYC_1 := 1, (*Cyclic #1 - Task class 1*)
+		mcMMCPPTC_CYC_2 := 2 (*Cyclic #2 - Task class 2*)
+		);
+	McMMCProcType : STRUCT
+		ProcessingTaskClass : McMMCProcProcTskCEnum; (*Cyclic task class for command processing*)
 	END_STRUCT;
 	McMMCLogSelEnum :
 		( (*Selective logging selector setting*)
@@ -220,11 +237,17 @@ TYPE
 		Type : McMMCLogSelUseInfoCmdEnum; (*Informational commands selector setting*)
 		Selective : McMMCLogSelUseInfoCmdSelType; (*Type mcMMCLSUIC_SEL settings*)
 	END_STRUCT;
+	McMMCLogSelUseSupSubcEEnum :
+		( (*Suppress entries for internally invoked commands for subcomponents*)
+		mcMMCLSUSSE_INACT := 0, (*Inactive - Entries for internally invoked commands for subcomponents are shown unless the base entries are suppressed*)
+		mcMMCLSUSSE_ACT := 1 (*Active - Entries for internally invoked commands for subcomponents are suppressed*)
+		);
 	McMMCLogSelUseType : STRUCT (*Type mcMMCLS_USE settings*)
 		StateChange : McCfgVisEnum; (*Component state change logger entries (PLCopen state)*)
 		AdministrativeCommands : McMMCLogSelUseAdmCmdType; (*Administrative logger entries*)
 		MovementCommands : McMMCLogSelUseMoveCmdType; (*Movement logger entries*)
 		InformationalCommands : McMMCLogSelUseInfoCmdType; (*Status information logger entries*)
+		SuppressSubcomponentEntries : McMMCLogSelUseSupSubcEEnum; (*Suppress entries for internally invoked commands for subcomponents*)
 	END_STRUCT;
 	McMMCLogSelType : STRUCT (*Define which logging areas should be visible*)
 		Type : McMMCLogSelEnum; (*Selective logging selector setting*)
@@ -234,6 +257,7 @@ TYPE
 		Selective : McMMCLogSelType; (*Define which logging areas should be visible*)
 	END_STRUCT;
 	McCfgMMCfgType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_MMCFG*)
+		Processing : McMMCProcType;
 		Logger : McMMCLogType;
 	END_STRUCT;
 	McCfgTransXYZType : STRUCT (*Translation parameters*)
@@ -515,7 +539,7 @@ TYPE
 	McCfgExtLimRefType : STRUCT (*Type mcAML_EXT settings*)
 		LimitReference : McCfgReferenceType; (*Name of the limit reference*)
 	END_STRUCT;
-	McCfgGearBoxType : STRUCT (*Specifies a gearbox by defining the ratio between a gearbox input and output*)
+	McCfgGearBoxType : STRUCT (*Ratio between a gearbox input and output*)
 		Input : DINT; (*Number of rotations on the encoder side [Revolutions]*)
 		Output : DINT; (*Number of rotations on the load side which correspond to the number of rotations on the encoder side [Revolutions]*)
 	END_STRUCT;
@@ -524,7 +548,8 @@ TYPE
 	END_STRUCT;
 	McPTCEnum :
 		( (*Cyclic task class for command processing*)
-		mcPTC_CYC_1 := 1 (*Cyclic #1 - Task class 1*)
+		mcPTC_CYC_1 := 1, (*Cyclic #1 - Task class 1*)
+		mcPTC_USE_MP_MOT_SET := 255 (*Use mapp Motion setting - Use the defined setting from the mapp Motion configuration or Task class 1 if no mapp Motion Configuration exists*)
 		);
 	McCfgVarDatTypEnum :
 		( (*Data type selector setting*)
