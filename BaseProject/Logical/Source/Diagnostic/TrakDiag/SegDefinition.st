@@ -21,7 +21,7 @@ ACTION SegDefinition:
 	DiagFbs.Asm.ReadStatus.Assembly := ADR(gSampleTrak);
 
 	paperCore.ViewBoxCfg.MinX := -0.735577;
-	paperCore.ViewBoxCfg.MinY := -0.115;
+	paperCore.ViewBoxCfg.MinY := -0.765;
 	paperCore.ViewBoxCfg.Width := 2.13115;
-	paperCore.ViewBoxCfg.Height := 0.86;
+	paperCore.ViewBoxCfg.Height := 2.075;
 END_ACTION 
