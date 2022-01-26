@@ -1,6 +1,4 @@
 import PySimpleGUI as sg
-import os.path
-import argparse
 from pathlib import Path
 
 import xml.etree.ElementTree as ET
@@ -175,7 +173,7 @@ def CreateLayout():
 def main() -> None:
     
     layout = CreateLayout()
-    window = sg.Window("TrakMap Builder", layout)
+    window = sg.Window("TrakMap Builder v1.0", layout)
 
     while True:
         val = {}
