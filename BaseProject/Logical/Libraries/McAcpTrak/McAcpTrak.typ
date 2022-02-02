@@ -48,6 +48,7 @@ TYPE
 		mcACPTRAK_SEG_PARTYPE_UINT, (*data type UINT*)
 		mcACPTRAK_SEG_PARTYPE_UDINT, (*data type UDINT*)
 		mcACPTRAK_SEG_PARTYPE_REAL, (*data type REAL*)
+		mcACPTRAK_SEG_PARTYPE_LREAL := 17, (*data type LREAL*)
 		mcACPTRAK_SEG_PARTYPE_VOID := 65535  (*data type unknown*)
 	);
 
@@ -95,7 +96,12 @@ TYPE
 		mcACPTRAK_REASON_NONE := 7,				(*normal behaviour*)
 		mcACPTRAK_REASON_LOCAL_ACC_LIMIT := 8,	(*maneuver due to an acceleration limit*)
 		mcACPTRAK_REASON_UNCONTROLLED := 9,		(*maneuver due to transition from controlled to uncontrolled*)
-		mcACPTRAK_REASON_RECONTROLLED := 10		(*maneuver due to transition from uncontrolled to controlled*)
+		mcACPTRAK_REASON_RECONTROLLED := 10,	(*maneuver due to transition from uncontrolled to controlled*)
+		mcACPTRAK_REASON_CONVOY := 11,			(*maneuver due to homogeneous behavior within convoy*)
+		mcACPTRAK_REASON_CON_DIFF_SECTOR := 12,	(*maneuver due to being on a different sector than the convoy*)
+		mcACPTRAK_REASON_CON_INV_REF := 13,	(*maneuver due to removal of relative master of a shuttle in a convoy*)
+		mcACPTRAK_REASON_CON_SECSWITCH := 14,	(*maneuver due to not being able to switch sector when convoy is switching sector*)
+		mcACPTRAK_REASON_CON_UNCONTR := 15		(*maneuver due to at least one shuttle of a convoy being uncontrolled*)
 	);
 
 	McAcpTrakBarrierTypeEnum:
@@ -222,6 +228,12 @@ TYPE
 		mcACPTRAK_LL_REMOVE_SHUTTLE
 	);
 
+	 McAcpTrakShShuttleCmdEnum :
+	(
+		mcACPTRAK_SH_ACT_COLLAVOID,
+		mcACPTRAK_SH_DEACT_COLLAVOID
+	);
+
 	McAcpTrakShErrorReasonEnum :
 	(
 		mcACPTRAK_SH_ERROR_NONE,
@@ -231,7 +243,9 @@ TYPE
 		mcACPTRAK_SH_ERROR_NOGRIPPER,
 		mcACPTRAK_SH_ERROR_COMMAND,
 		mcACPTRAK_SH_ERROR_SEGMENT,
-		mcACPTRAK_SH_ERROR_ASSEMBLY
+		mcACPTRAK_SH_ERROR_ASSEMBLY,
+		mcACPTRAK_SH_ERROR_INVALIDMOVE,
+		mcACPTRAK_SH_ERROR_COUPLING
 	);
 
 	McAcpTrakSegTypeEnum :
@@ -277,6 +291,8 @@ TYPE
 		SectorLength : LREAL; 					(*length of the reference sector*)
 		Orientation : McDirectionEnum; 			(*defines the orientation of the shuttle on reference sector*)
 		Velocity : REAL; 						(*current velocity*)
+		Acceleration : REAL; 						(*current acceleration*)
+		SegmentPosition : McAcpTrakSegPositionType; (* Segment position of the shuttle *)
 		MovementType : McAcpTrakShMovementTypeEnum; (*type of movement*)
 		CtrlParSetLeft : USINT;					(*active controller parameter set of the left side of the shuttle*)
 		CtrlParSetRight : USINT;				(*active controller parameter set of the right side of the shuttle*)
@@ -311,17 +327,24 @@ TYPE
 		Position : LREAL; (*position of the shuttle on the segment*)
 	END_STRUCT;
 
+	McAcpTrakShConvoyInfoType : STRUCT
+		ConvoyMaster : McAxisType; (*the master of the shuttle's convoy*)
+		ReferenceShuttle : McAxisType; (*the shuttle's relative master in the convoy*)
+	END_STRUCT;
+
 	McAcpTrakShInfoType	: STRUCT
 		CurrentValues : McAcpTrakShCurrentValuesType; (*info about current values*)
 		RouteDestinationInfo : McAcpTrakShRouteDestInfoType; (*info about destination values*)
 		ManeuverInfo : McAcpTrakShManeuverInfoType; (*info about current maneuver*)
 		LifeCycleInfo : McAcpTrakShLifeCycleInfoType; (*life cycle info*)
+		ConvoyInfo : McAcpTrakShConvoyInfoType; (*life cycle info*)
 		AdditionalInfo : McAcpTrakShAddInfoType; (*additional shuttle info*)
 	END_STRUCT;
 
 	McAcpTrakShAddInfoType : STRUCT
 		ID : UINT; (*ID of the shuttle*)
 		PLCopenState : McAxisPLCopenStateEnum; (*PLC Open state of the shuttle*)
+		Controllable : BOOL; (*true if the shuttle is controllable*)
 		ErrorReason : McAcpTrakShErrorReasonEnum;
 	END_STRUCT;
 
@@ -368,11 +391,17 @@ TYPE
 		InRange : BOOL; (*true iff the error happened in range of the local limit*)
 	END_STRUCT;
 
+	McAcpTrakShErrorConvoyInfoType : STRUCT
+		ConvoyMaster : McAxisType; (*the convoy master*)
+		Shuttle : McAxisType; (*the shuttle causing the error*)
+	END_STRUCT;
+
 	McAcpTrakShErrorManeuverInfoType : STRUCT
 		Reason : McAcpTrakShManeuverReasonEnum; (*the reason for the maneuver*)
 		ShuttleManInfo : McAcpTrakShErrorShuttleInfoType; (*information about maneuver due to shuttle*)
 		BarrierManInfo : McAcpTrakShErrorBarrierInfoType; (*information about maneuver due to barrier*)
 		LocalLimitManInfo : McAcpTrakShErrorLocLimitInfoType; (*information about maneuver due to local limit*)
+		ConvoyManInfo : McAcpTrakShErrorConvoyInfoType; (*information about maneuver due to convoy*)
 	END_STRUCT;
 
 	McAcpTrakShErrorEncdiffInfoType : STRUCT
@@ -404,6 +433,12 @@ TYPE
 
 	McAcpTrakShResizeParamType : STRUCT
 		Mode :  McAcpTrakShResizeModeEnum; (*resize mode selector*)
+		ExtentToFront : LREAL; (*extent from the center point of the magnet plate to the front of the shuttle*)
+		ExtentToBack : LREAL; (*extent from the center point of the magnet plate to the back of the shuttle*)
+		Width : LREAL; (*symmetric width relative to the shuttle center point*)
+	END_STRUCT;
+
+	McAcpTrakShSizeInfoType	: STRUCT
 		ExtentToFront : LREAL; (*extent from the center point of the magnet plate to the front of the shuttle*)
 		ExtentToBack : LREAL; (*extent from the center point of the magnet plate to the back of the shuttle*)
 		Width : LREAL; (*symmetric width relative to the shuttle center point*)
@@ -451,10 +486,34 @@ TYPE
 		CommunicationState : McCommunicationStateEnum; (*State of network communication*)
 	END_STRUCT;
 
+	McAcpTrakSegErrorReasonEnum :
+	(
+		mcACPTRAK_SEG_ERROR_NONE,
+		mcACPTRAK_SEG_ERROR_UNSPECIFIED,
+		mcACPTRAK_SEG_ERROR_NOGRIPPER,
+		mcACPTRAK_SEG_ERROR_COMMAND,
+		mcACPTRAK_SEG_ERROR_SEGMENT,
+		mcACPTRAK_SEG_ERROR_ASSEMBLY
+	);
+
+	McAcpTrakSegErrorGripperInfoType : STRUCT
+		Shuttle : McAxisType; (*the error shuttle*)
+	END_STRUCT;
+
+	McAcpTrakSegErrorInfoType : STRUCT
+		Reason : McAcpTrakSegErrorReasonEnum; (*reason for the error*)
+		GripperErrorInfo : McAcpTrakSegErrorGripperInfoType; (*information about an error where no gripper could be allocated*)
+	END_STRUCT;
+
+	McAcpTrakProcPointGetInfoType : STRUCT
+		SectorPosition : McAcpTrakSecPositionType; (*sector position where the process point was created*)
+	END_STRUCT;
+
 	McAcpTrakTrgPointGetInfoType : STRUCT
 		Axis : McAxisType; (*determined axis reference*)
 		Event : McAcpTrakTrgPointEventEnum; (*direction the shuttle passed*)
 		ShuttleControlled : BOOL; (*shuttle status when passing - controlled/uncontrolled*)
+		ConvoyMaster : McAxisType; (*convoy master of the convoy the shuttle is contained in, if it is contained in any*)
 	END_STRUCT;
 
 	McAcpTrakBarrierInfoType : STRUCT
@@ -507,13 +566,14 @@ TYPE
 
 	McAcpTrakAdvSecAddShWithMovType : STRUCT
 		MoveCmd :  McAcpTrakMoveCmdEnum; (*Specifies the movement type for the shuttle*)
-		Position : LREAL; 		(*target position for the motion*)
-		Velocity : REAL; 		(*maximum velocity*)
+		Position : LREAL; 			(*target position for the motion*)
+		Velocity : REAL; 			(*maximum velocity*)
 		Acceleration : REAL; 		(*maximum acceleration*)
 		Deceleration : REAL; 		(*maximum deceleration*)
-		Jerk : REAL; 			(*maximum jerk*)	
+		Jerk : REAL; 				(*maximum jerk*)
+		Direction : McDirectionEnum; (*movement direction*)
 	END_STRUCT;
-	
+
 	 McAcpTrakSecAddShWithMovInfoType : STRUCT
 	 	PLCopenState : McAxisPLCopenStateEnum; (*PLCopen state*)
 	END_STRUCT;
@@ -529,12 +589,51 @@ TYPE
 		ReadyForPowerOn : BOOL; (*the controllers of all segments of the assembly are ready to be switched on*)
 		PowerOn : BOOL; (*the controllers of all segments of the assembly are switched on*)
 		StartupCount : UDINT; (*number of completed switch-on operations of the assembly*)
+	 	SegmentsInDisabledCount : UINT; (*number of segments in state Disabled*)
+	 	SegmentsInStoppingCount : UINT; (*number of segments in state Stopping*)
+	 	SegmentsInErrorStopCount : UINT; (*number of segments in state ErrorStop*)
 	 	ShuttlesCount : UINT; (*number of shuttles on the assembly*)
 	 	ShuttlesInStandstillCount : UINT; (*number of shuttles without active movement command*)
 	 	ShuttlesInDisabledCount : UINT; (*number of shuttles in state Disabled*)
 	 	ShuttlesInStoppingCount : UINT; (*number of shuttles in state Stopping*)
 	 	ShuttlesInErrorStopCount : UINT; (*number of shuttles in state ErrorStop*)
+	 	ConvoysCount : UINT; (*number of convoys on the assembly*)
 	 END_STRUCT;
+
+	McAcpTrakAsmErrorReasonEnum :
+	(
+		mcACPTRAK_ASM_ERROR_NONE,
+		mcACPTRAK_ASM_ERROR_UNSPECIFIED,
+		mcACPTRAK_ASM_ERROR_ENCDIFF,
+		mcACPTRAK_ASM_ERROR_NOGRIPPER,
+		mcACPTRAK_ASM_ERROR_COMMAND,
+		mcACPTRAK_ASM_ERROR_SEGMENT,
+		mcACPTRAK_ASM_ERROR_UNOBSERVABLE
+	);
+
+	McAcpTrakAsmErrorEncdiffInfoType : STRUCT
+		Difference : LREAL; (*the difference between the encoder positions*)
+		LowPosition : McAcpTrakSegPositionType; (*the shuttle's segment position that implies, after translation to the shuttle's sector, to the lowest sector position*)
+		HighPosition : McAcpTrakSegPositionType; (*the shuttle's segment position that implies, after translation to the shuttle's sector, to the highest sector position*)
+	END_STRUCT;
+
+	McAcpTrakAsmErrorGripperInfoType : STRUCT
+		Shuttle : McAxisType; (*the error shuttle*)
+		Segment : McSegmentType; (*the segment where the shuttle could not allocate a gripper*)
+		SegmentName : STRING[32]; (*the name of the segment where the shuttle could not allocate a gripper*)
+	END_STRUCT;
+
+	McAcpTrakAsmErrorSegmentInfoType : STRUCT
+		Segment : McSegmentType; (*the segment whose error triggered the shuttle error*)
+		SegmentName : STRING[32]; (*the name of the segment whose error triggered the shuttle error*)
+	END_STRUCT;
+
+	McAcpTrakAsmErrorInfoType : STRUCT
+		Reason : McAcpTrakAsmErrorReasonEnum; (*reason for the error*)
+		EncdiffErrorInfo : McAcpTrakAsmErrorEncdiffInfoType; (*information about a encoder discrepancy error*)
+		GripperErrorInfo : McAcpTrakAsmErrorGripperInfoType; (*information about a error where no gripper could be allocated*)
+		SegmentErrorInfo : McAcpTrakAsmErrorSegmentInfoType; (*information about a segment error*)
+	END_STRUCT;
 
 	McAcpTrakGetShuttleModeEnum :
 	(
@@ -548,7 +647,25 @@ TYPE
 		mcACPTRAK_GET_SH_ERROR_NOGRIPPER, (*get shuttles in state error stop with reason 'no gripper available'*)
 		mcACPTRAK_GET_SH_ERROR_COMMAND, (*get shuttles in state error stop with reason user command*)
 		mcACPTRAK_GET_SH_ERROR_SEGMENT, (*get shuttles in state error stop with reason segment failure*)
-		mcACPTRAK_GET_SH_ERROR_ASSEMBLY (*get shuttles in state error stop with reason assembly error stop*)
+		mcACPTRAK_GET_SH_ERROR_ASSEMBLY, (*get shuttles in state error stop with reason assembly error stop*)
+		mcACPTRAK_GET_SH_ERROR_INVMOV, (*get shuttles in state error stop with reason invalid move*)
+		mcACPTRAK_GET_SH_ERROR_COUPLING, (*get shuttles in state error stop with reason coupling*)
+		mcACPTRAK_GET_SH_CONVOYMASTER (*get shuttles that are masters of convoys*)
+	);
+
+	McAcpTrakGetSegmentModeEnum :
+	(
+		mcACPTRAK_GET_SEG_ALL := 0, (*get all segments*)
+		mcACPTRAK_GET_SEG_DISABLED, (*get segments in state disabled*)
+		mcACPTRAK_GET_SEG_STOPPING, (*get segments in state stopping*)
+		mcACPTRAK_GET_SEG_ERRORSTOP (*get segments in state error stop*)
+	);
+
+	McAcpTrakGetSectorModeEnum :
+	(
+		mcACPTRAK_GET_SEC_ALL := 0, (*get all sectors*)
+		mcACPTRAK_GET_SEC_CLOSED, (*get closed sectors*)
+		mcACPTRAK_GET_SEC_NONCLOSED (*get nonclosed sectors*)
 	);
 
 	McAcpTrakAdvAsmGetShParType : STRUCT
@@ -557,6 +674,14 @@ TYPE
 
 	McAcpTrakAsmGetShAddInfoType : STRUCT
 		ShuttleID : UINT; (* Unique shuttle index on the assembly.*)
+	END_STRUCT;
+
+	McAcpTrakAdvAsmGetSegParType : STRUCT
+		SelectionMode : McAcpTrakGetSegmentModeEnum; (*Selector for the segments to output*)
+	END_STRUCT;
+
+	McAcpTrakAdvAsmGetSecParType : STRUCT
+		SelectionMode : McAcpTrakGetSectorModeEnum; (*Selector for the sectors to output*)
 	END_STRUCT;
 
 	McAcpTrakAdvSecGetShParType : STRUCT
@@ -592,6 +717,7 @@ TYPE
 	 	ShuttlesInDisabledCount : UINT; (*number of shuttles in state Disabled*)
 	 	ShuttlesInStoppingCount : UINT; (*number of shuttles in state Stopping*)
 	 	ShuttlesInErrorStopCount : UINT; (*number of shuttles in state ErrorStop*)
+	 	ConvoysCount : UINT; (*number of convoys on the sector*)
 	 END_STRUCT;
 
 	McAcpTrakAdvGetMinShDistParType : STRUCT
@@ -609,8 +735,62 @@ TYPE
 	McAcpTrakConvoyParType : STRUCT
 		PositiveOffset : LREAL;
 		NegativeOffset : LREAL;
-		MasterVelocityAdjustment : BOOL; (*Allow master shuttle adjust velocity to slave convoy members*)
+		Elastic : BOOL; (*Determines whether convoy master is elastic wrt. other shuttles in convoy*)
 		Separable : BOOL; (*Allow shuttles outside of convoy to use the spaces between convoy members*)
+	END_STRUCT;
+
+	 McAcpTrakCouplingModeEnum :
+	(
+		mcACPTRAK_COUPL_DIST
+	);
+
+	McAcpTrakShConvoyParType : STRUCT
+		ReferenceShuttle : REFERENCE TO McAxisType; (*the shuttle whose position the shuttle's position depends on.*)
+		CouplingMode : McAcpTrakCouplingModeEnum;
+		Elastic : BOOL; (*Determines whether shuttle is elastic wrt. other shuttles in convoy*)
+	END_STRUCT;
+
+	McAcpTrakAdvShConvoyParType : STRUCT
+		TargetDistance : LREAL; (*The target distance between the shuttle and its reference shuttle*)
+		Velocity : REAL; 			(*maximum velocity*)
+		Acceleration : REAL; 		(*maximum acceleration*)
+		Deceleration : REAL; 		(*maximum deceleration*)
+	END_STRUCT;
+
+	McAcpTrakAdvShRemoveConParType : STRUCT
+		Deceleration : REAL; 		(*maximum deceleration*)
+	END_STRUCT;
+
+	McAcpTrakConDeleteModeEnum :
+	(
+		mcACPTRAK_CON_DELETE_ANY_CASE, (*delete convoy in any case*)
+		mcACPTRAK_CON_DELETE_EMPTY (*delete convoy if it does not contain other shuttles than the master*)
+	);
+
+	McAcpTrakAdvConDeleteParType : STRUCT
+		Mode : McAcpTrakConDeleteModeEnum; (*deletion mode*)
+	END_STRUCT;
+
+	McAcpTrakConInfoType	: STRUCT
+		ShuttleCount : UINT; (*number of shuttles in the convoy*)
+		ActualPositiveOffset : LREAL; (*actual maximum position offset in positive direction*)
+		ActualNegativeOffset : LREAL; (*actual maximum position offset in negative direction*)
+	END_STRUCT;
+
+	McAcpTrakConGetShuttleModeEnum :
+	(
+		mcACPTRAK_CON_GET_SH_SECPOS_ASC, (*ascending order by position*)
+		mcACPTRAK_CON_GET_SH_SECPOS_DESC (*descending order by position*)
+	);
+
+	McAcpTrakAdvConGetShParType : STRUCT
+		Mode : McAcpTrakConGetShuttleModeEnum; (*Selector for order of the shuttles to output*)
+	END_STRUCT;
+
+	McAcpTrakConGetShAddInfoType : STRUCT
+		ShuttleID : UINT; (* Unique shuttle index on the assembly.*)
+		Position : LREAL; (* Position on the convoy's sector*)
+		Orientation : McDirectionEnum; (* Orientation of the shuttle on the convoy's sector*)
 	END_STRUCT;
 
 	McAcpTrakShSwitchSecInfoType : STRUCT
@@ -668,6 +848,11 @@ TYPE
 		StopMode : McStopModeEnum; (*determines whether jerk limits are used*)
 		StartPosition : LREAL; (*Start position of the sector position interval for search*)
 		EndPosition : LREAL; (*Start position of the sector position interval for search*)
+	END_STRUCT;
+
+	McAcpTrakDiverterInfoType : STRUCT
+		SegmentPosition1 : McAcpTrakSegPositionType; (*first segment position s.t. the diverter diverges in direction of the segment*)
+		SegmentPosition2 : McAcpTrakSegPositionType; (*first segment position s.t. the diverter converges in direction of the segment*)
 	END_STRUCT;
 
 END_TYPE

@@ -10,6 +10,7 @@ TYPE
 		mpALARMX_ERR_MPLINK_CORRUPT := -1064239099, (* Invalid MpLink contents [Error: 5, 0xc0910005] *)
 		mpALARMX_ERR_MPLINK_IN_USE := -1064239098, (* MpLink already in use [Error: 6, 0xc0910006] *)
 		mpALARMX_ERR_CONFIG_NULL := -1064239096, (* Configuration structure is null pointer [Error: 8, 0xc0910008] *)
+		mpALARMX_ERR_CONFIG_NO_PV := -1064239095, (* Configuration pointer not a PV [Error: 9, 0xc0910009] *)
 		mpALARMX_ERR_CONFIG_INVALID := -1064239091, (* Invalid Configuration [Error: 13, 0xc091000d] *)
 		mpALARMX_ERR_NAME_NULL := -1064116224, (* The specified name is NULL [Error: 57344, 0xc092e000] *)
 		mpALARMX_ERR_NAME_EMPTY := -1064116223, (* The specified name is empty [Error: 57345, 0xc092e001] *)

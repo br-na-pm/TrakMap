@@ -1,4 +1,474 @@
 TYPE
+	McMSMotEnum :
+		( (*Motor selector setting*)
+		mcMSM_DEF := 0 (*Default -*)
+		);
+	McMSMotDefVLimEnum :
+		( (*Voltage limitation selector setting*)
+		mcMSMDVL_NOT_USE := 0, (*Not used -*)
+		mcMSMDVL_USE := 1 (*Used -*)
+		);
+	McMSMotDefVLimUseType : STRUCT (*Type mcMSMDVL_USE settings*)
+		MaximumDCBusVoltage : REAL; (*Maximum permissible DC bus voltage [V]*)
+	END_STRUCT;
+	McMSMotDefVLimType : STRUCT (*Voltage limitation (Motor has no protective conductor or windings should be protected)*)
+		Type : McMSMotDefVLimEnum; (*Voltage limitation selector setting*)
+		Used : McMSMotDefVLimUseType; (*Type mcMSMDVL_USE settings*)
+	END_STRUCT;
+	McMMDEMAngEnum :
+		( (*Angle selector setting*)
+		mcMSMDEMA_USRDEF := 0, (*User-defined -*)
+		mcMSMDEMA_UDEF := 1, (*Undefined -*)
+		mcMSMDEMA_VAL_STO_ON_ENC := 2 (*Value stored on encoder -*)
+		);
+	McMMDEMAngUsrDefType : STRUCT (*Type mcMSMDEMA_USRDEF settings*)
+		CommutationOffset : REAL; (*Angle between motor encoder zero point and flux space vector [rad]*)
+	END_STRUCT;
+	McMMDEMAngUdefAutIdentEnum :
+		( (*Automatic identification selector setting*)
+		mcMSMDEMAUAI_NOT_USE := 0, (*Not used -*)
+		mcMSMDEMAUAI_SAT := 1, (*Saturation -*)
+		mcMSMDEMAUAI_DIT := 2, (*Dither -*)
+		mcMSMDEMAUAI_DIT2 := 5 (*Dither2 -*)
+		);
+	McMMDEMAngUdefAutIdentSatType : STRUCT (*Type mcMSMDEMAUAI_SAT settings*)
+		PhasingCurrent : REAL; (*Current for identification (optional) [A]*)
+	END_STRUCT;
+	McMMDEMAngUdefAutIdentDitType : STRUCT (*Type mcMSMDEMAUAI_DIT settings*)
+		PhasingCurrent : REAL; (*Current for identification (optional) [A]*)
+		PhasingTime : REAL; (*Duration of identification (optional) [s]*)
+	END_STRUCT;
+	McMMDEMAngUdefAutIdentDit2Type : STRUCT (*Type mcMSMDEMAUAI_DIT2 settings*)
+		PhasingCurrent : REAL; (*Current for identification (optional) [A]*)
+		PhasingTime : REAL; (*Duration of identification (optional) [s]*)
+	END_STRUCT;
+	McMMDEMAngUdefAutIdentType : STRUCT (*Automatic identification of the angle when switching on the controller*)
+		Type : McMMDEMAngUdefAutIdentEnum; (*Automatic identification selector setting*)
+		Saturation : McMMDEMAngUdefAutIdentSatType; (*Type mcMSMDEMAUAI_SAT settings*)
+		Dither : McMMDEMAngUdefAutIdentDitType; (*Type mcMSMDEMAUAI_DIT settings*)
+		Dither2 : McMMDEMAngUdefAutIdentDit2Type; (*Type mcMSMDEMAUAI_DIT2 settings*)
+	END_STRUCT;
+	McMMDEMAngUdefType : STRUCT (*Type mcMSMDEMA_UDEF settings*)
+		AutomaticIdentification : McMMDEMAngUdefAutIdentType; (*Automatic identification of the angle when switching on the controller*)
+	END_STRUCT;
+	McMMDEMAngType : STRUCT (*Angle between motor encoder zero point and flux space vector*)
+		Type : McMMDEMAngEnum; (*Angle selector setting*)
+		UserDefined : McMMDEMAngUsrDefType; (*Type mcMSMDEMA_USRDEF settings*)
+		Undefined : McMMDEMAngUdefType; (*Type mcMSMDEMA_UDEF settings*)
+	END_STRUCT;
+	McMSMotDefEncMntType : STRUCT (*Encoder mounting*)
+		Angle : McMMDEMAngType; (*Angle between motor encoder zero point and flux space vector*)
+	END_STRUCT;
+	McMMTmpSensEnum :
+		( (*Temperature sensor selector setting*)
+		mcMMTS_THERM := 0, (*Thermistor -*)
+		mcMMTS_SW_PTC_THERM := 1, (*Switching PTC thermistor -*)
+		mcMMTS_THRMSW := 2, (*Thermoswitches -*)
+		mcMMTS_NOT_USE := 3 (*Not used -*)
+		);
+	McMMTSThermTmpSensIfEnum :
+		( (*Temperature sensor configuration*)
+		mcMMTSTTSI_MOT_CON_WRD := 0, (*Motor connector wired*)
+		mcMMTSTTSI_ENC_CON_WRD := 1, (*Encoder connector wired*)
+		mcMMTSTTSI_ENC_DAT_TRAN := 2 (*Encoder data transfer*)
+		);
+	McMMTSThermType : STRUCT (*Type mcMMTS_THERM settings*)
+		LimitTemperature : UINT; (*Maximum permissible temperature [°C]*)
+		TemperatureSensorInterface : McMMTSThermTmpSensIfEnum; (*Temperature sensor configuration*)
+		ResistanceR0 : REAL; (*Resistance at temperature T0 [Ω]*)
+		ResistanceR7 : REAL; (*Resistance at temperature T7 [Ω]*)
+		TemperatureT0 : REAL; (*Temperature at resistance R0 [°C]*)
+		TemperatureT1 : REAL; (*Temperature at resistance R0 + 1/7 * (R7 - R0) [°C]*)
+		TemperatureT2 : REAL; (*Temperature at resistance R0 + 2/7 * (R7 - R0) [°C]*)
+		TemperatureT3 : REAL; (*Temperature at resistance R0 + 3/7 * (R7 - R0) [°C]*)
+		TemperatureT4 : REAL; (*Temperature at resistance R0 + 4/7 * (R7 - R0) [°C]*)
+		TemperatureT5 : REAL; (*Temperature at resistance R0 + 5/7 * (R7 - R0) [°C]*)
+		TemperatureT6 : REAL; (*Temperature at resistance R0 + 6/7 * (R7 - R0) [°C]*)
+		TemperatureT7 : REAL; (*Temperature at resistance R7 [°C]*)
+	END_STRUCT;
+	McMMTSSwPTCThermTmpSensIfEnum :
+		( (*Temperature sensor configuration*)
+		mcMMTSSPTTSI_MOT_CON_WRD := 0, (*Motor connector wired*)
+		mcMMTSSPTTSI_ENC_CON_WRD := 1, (*Encoder connector wired*)
+		mcMMTSSPTTSI_ENC_DAT_TRAN := 2 (*Encoder data transfer*)
+		);
+	McMMTSSwPTCThermType : STRUCT (*Type mcMMTS_SW_PTC_THERM settings*)
+		TemperatureSensorInterface : McMMTSSwPTCThermTmpSensIfEnum; (*Temperature sensor configuration*)
+		NominalResponseResistance : REAL; (*Resistance at Nominal response temperature [Ω]*)
+		MinimumResistance : REAL; (*Minimum permissible resistance [Ω]*)
+		NominalResponseTemperature : REAL; (*Temperature at Nominal response resistance [°C]*)
+	END_STRUCT;
+	McMMTSThrmSwTmpSensIfEnum :
+		( (*Temperature sensor configuration*)
+		mcMMTSTSTSI_MOT_CON_WRD := 0, (*Motor connector wired*)
+		mcMMTSTSTSI_ENC_CON_WRD := 1, (*Encoder connector wired*)
+		mcMMTSTSTSI_ENC_DAT_TRAN := 2 (*Encoder data transfer*)
+		);
+	McMMTSThrmSwSwStatOnOvrTmpEnum :
+		( (*Switching state on overtemperature*)
+		mcMMTSTSSSOO_NORM_CLSD := 0, (*Normally Closed*)
+		mcMMTSTSSSOO_NORM_OP := 1 (*Normally Open*)
+		);
+	McMMTSThrmSwType : STRUCT (*Type mcMMTS_THRMSW settings*)
+		TemperatureSensorInterface : McMMTSThrmSwTmpSensIfEnum; (*Temperature sensor configuration*)
+		NominalResponseTemperature : REAL; (*Temperature at nominal response resistance of 1000 ohms [°C]*)
+		SwitchingStateOnOvertemperature : McMMTSThrmSwSwStatOnOvrTmpEnum; (*Switching state on overtemperature*)
+	END_STRUCT;
+	McMMTmpSensType : STRUCT (*Temperature sensor configuration*)
+		Type : McMMTmpSensEnum; (*Temperature sensor selector setting*)
+		Thermistor : McMMTSThermType; (*Type mcMMTS_THERM settings*)
+		SwitchingPTCThermistor : McMMTSSwPTCThermType; (*Type mcMMTS_SW_PTC_THERM settings*)
+		Thermoswitches : McMMTSThrmSwType; (*Type mcMMTS_THRMSW settings*)
+	END_STRUCT;
+	McMMTmpMdlEnum :
+		( (*Temperature model selector setting*)
+		mcMMTM_CUR_AND_SPDBASED := 0, (*Current- and speed-based -*)
+		mcMMTM_CURBASED := 1, (*Current-based -*)
+		mcMMTM_NOT_USE := 2 (*Not used -*)
+		);
+	McMMTMCSBCalcMethEnum :
+		( (*Calculation method selector setting*)
+		mcMMTMCSBCM_SECORD_THRM_NETW := 0, (*Second-order thermal network -*)
+		mcMMTMCSBCM_FTHORD_THRM_NETW := 1, (*Fourth-order thermal network -*)
+		mcMMTMCSBCM_FTH_ORD_W_CPLG := 2 (*Fourth order with couplings -*)
+		);
+	McMMTMCSBCMRefTmpEnum :
+		( (*Reference temperature selector setting*)
+		mcMMTMCSBCMRT_MOT_TMP_SENS := 0, (*Motor temperature sensor -*)
+		mcMMTMCSBCMRT_NOM_AMB_TMP := 1, (*Nominal ambient temperature -*)
+		mcMMTMCSBCMRT_ENC_TMP_SENS := 2 (*Encoder temperature sensor -*)
+		);
+	McMMTMCSBCMRefTmpEncTmpSensType : STRUCT (*Type mcMMTMCSBCMRT_ENC_TMP_SENS settings*)
+		TemperatureOffset : REAL; (*Temperature offset for reference temperature [°C]*)
+		TimeConstant : REAL; (*Time constant for the reference temperature [s]*)
+	END_STRUCT;
+	McMMTMCSBCMRefTmpType : STRUCT (*Reference temperature of winding temperature monitoring*)
+		Type : McMMTMCSBCMRefTmpEnum; (*Reference temperature selector setting*)
+		EncoderTemperatureSensor : McMMTMCSBCMRefTmpEncTmpSensType; (*Type mcMMTMCSBCMRT_ENC_TMP_SENS settings*)
+	END_STRUCT;
+	McMMTMCSBCMSecOrdType : STRUCT (*Type mcMMTMCSBCM_SECORD_THRM_NETW settings*)
+		WindingCrossSection : REAL; (*Phase conductor cross section [mm²]*)
+		ThermalTrippingTime : REAL; (*Tripping time in the event of overload (not required with known winding cross section) [s]*)
+		ThermalTimeConstant : REAL; (*Thermal time constant [s]*)
+		ReferenceTemperature : McMMTMCSBCMRefTmpType; (*Reference temperature of winding temperature monitoring*)
+	END_STRUCT;
+	McMMTMCSBCMFthOrdType : STRUCT (*Type mcMMTMCSBCM_FTHORD_THRM_NETW settings*)
+		ThermalResistance1 : REAL; (*Thermal resistance 1 [K/W]*)
+		ThermalCapacity1 : REAL; (*Thermal capacity 1 [J/K]*)
+		ThermalResistance2 : REAL; (*Thermal resistance 2 [K/W]*)
+		ThermalCapacity2 : REAL; (*Thermal capacity 2 [J/K]*)
+		StatorThermalLoss1 : REAL; (*Linear coefficient of speed-dependent losses at stator [Ws]*)
+		StatorThermalLoss2 : REAL; (*Quadratic coefficient of speed-dependent losses at stator [Ws²]*)
+		ReferenceTemperature : McMMTMCSBCMRefTmpType; (*Reference temperature of winding temperature monitoring*)
+	END_STRUCT;
+	McMMTMCSBCMFthOrdWCplgType : STRUCT (*Type mcMMTMCSBCM_FTH_ORD_W_CPLG settings*)
+		ThermalResistance1 : REAL; (*Thermal resistance 1 [K/W]*)
+		ThermalCapacity1 : REAL; (*Thermal capacity 1 [J/K]*)
+		ThermalResistance2 : REAL; (*Thermal resistance 2 [K/W]*)
+		ThermalCapacity2 : REAL; (*Thermal capacity 2 [J/K]*)
+		ThermalResistance3 : REAL; (*Thermal resistance 3 [K/W]*)
+		StatorThermalLoss1 : REAL; (*Linear coefficient of speed-dependent losses at stator [Ws]*)
+		StatorThermalLoss2 : REAL; (*Quadratic coefficient of speed-dependent losses at stator [Ws²]*)
+		WindingThermalLoss1 : REAL; (*Linear coefficient of speed-dependent losses at windings [Ws]*)
+		WindingThermalLoss2 : REAL; (*Quadratic coefficient of speed-dependent losses at windings [Ws²]*)
+		ReferenceTemperature : McMMTMCSBCMRefTmpType; (*Reference temperature of winding temperature monitoring*)
+	END_STRUCT;
+	McMMTMCSBCalcMethType : STRUCT
+		Type : McMMTMCSBCalcMethEnum; (*Calculation method selector setting*)
+		SecondOrderThermalNetwork : McMMTMCSBCMSecOrdType; (*Type mcMMTMCSBCM_SECORD_THRM_NETW settings*)
+		FourthOrderThermalNetwork : McMMTMCSBCMFthOrdType; (*Type mcMMTMCSBCM_FTHORD_THRM_NETW settings*)
+		FourthOrderWithCouplings : McMMTMCSBCMFthOrdWCplgType; (*Type mcMMTMCSBCM_FTH_ORD_W_CPLG settings*)
+	END_STRUCT;
+	McMMTMCurSpdBsdType : STRUCT (*Type mcMMTM_CUR_AND_SPDBASED settings*)
+		LimitTemperature : REAL; (*Maximum permissible winding temperature [°C]*)
+		CalculationMethod : McMMTMCSBCalcMethType;
+	END_STRUCT;
+	McMMTMCurBsdType : STRUCT (*Type mcMMTM_CURBASED settings*)
+		LimitTemperature : REAL; (*Maximum permissible winding temperature [°C]*)
+		WindingCrossSection : REAL; (*Phase conductor cross section [mm²]*)
+		ThermalTrippingTime : REAL; (*Tripping time in the event of overload (not required with known winding cross section) [s]*)
+		ThermalTimeConstant : REAL; (*Thermal time constant [s]*)
+	END_STRUCT;
+	McMMTmpMdlType : STRUCT (*Model for winding temperature monitoring*)
+		Type : McMMTmpMdlEnum; (*Temperature model selector setting*)
+		CurrentAndSpeedBased : McMMTMCurSpdBsdType; (*Type mcMMTM_CUR_AND_SPDBASED settings*)
+		CurrentBased : McMMTMCurBsdType; (*Type mcMMTM_CURBASED settings*)
+	END_STRUCT;
+	McMSMotDefType : STRUCT (*Type mcMSM_DEF settings*)
+		NumberOfPolePairs : USINT; (*Number of pole pairs*)
+		NominalSpeed : REAL; (*Nominal speed [rpm]*)
+		MaximumSpeed : REAL; (*Maximum permissible speed [rpm]*)
+		NominalVoltage : REAL; (*Nominal voltage (RMS value, phase-phase) [V]*)
+		NominalCurrent : REAL; (*Phase current for generating the nominal torque at nominal speed (RMS value) [A]*)
+		StallCurrent : REAL; (*Phase current for generating the stall torque (RMS value) [A]*)
+		PeakCurrent : REAL; (*Phase current for generating the peak torque (RMS value) [A]*)
+		NominalTorque : REAL; (*Motor torque at nominal current [Nm]*)
+		StallTorque : REAL; (*Motor torque at stall current [Nm]*)
+		PeakTorque : REAL; (*Motor torque at peak current [Nm]*)
+		VoltageConstant : REAL; (*Induced voltage per speed (RMS value of voltage at 1000 rpm, phase-phase) [mV/rpm]*)
+		TorqueConstant : REAL; (*Torque constant [Nm/A]*)
+		StatorResistance : REAL; (*Stator resistance (phase-phase) [Ω]*)
+		StatorInductance : REAL; (*Stator inductance (phase-phase) [mH]*)
+		MomentOfInertia : REAL; (*Mass moment of inertia [kgcm²]*)
+		NominalAmbientTemperature : REAL; (*Nominal ambient temperature [°C]*)
+		VoltageLimitation : McMSMotDefVLimType; (*Voltage limitation (Motor has no protective conductor or windings should be protected)*)
+		EncoderMounting : McMSMotDefEncMntType; (*Encoder mounting*)
+		TemperatureSensor : McMMTmpSensType; (*Temperature sensor configuration*)
+		TemperatureModel : McMMTmpMdlType; (*Model for winding temperature monitoring*)
+	END_STRUCT;
+	McMSMotType : STRUCT
+		Type : McMSMotEnum; (*Motor selector setting*)
+		Default : McMSMotDefType; (*Type mcMSM_DEF settings*)
+	END_STRUCT;
+	McMSBrkEnum :
+		( (*Brake selector setting*)
+		mcMSB_NOT_USE := 0, (*Not used -*)
+		mcMSB_USE := 1 (*Used -*)
+		);
+	McMSBrkUseCtrlModEnum :
+		( (*Control mode selector setting*)
+		mcMSBUCM_SW := 0, (*Switched -*)
+		mcMSBUCM_V_CTRL := 1 (*Voltage controlled -*)
+		);
+	McMSBrkUseCtrlModVCtrlType : STRUCT (*Type mcMSBUCM_V_CTRL settings*)
+		ReleaseVoltage : REAL; (*Nominal voltage, to release (open) the holding brake [V]*)
+		HoldVoltage : REAL; (*Nominal voltage to ensure the holding brake remains open [V]*)
+	END_STRUCT;
+	McMSBrkUseCtrlModType : STRUCT (*Behaviour of holding brake control*)
+		Type : McMSBrkUseCtrlModEnum; (*Control mode selector setting*)
+		VoltageControlled : McMSBrkUseCtrlModVCtrlType; (*Type mcMSBUCM_V_CTRL settings*)
+	END_STRUCT;
+	McMSBrkUseLimEnum :
+		( (*Limits selector setting*)
+		mcMSBUL_NOT_USE := 0, (*Not used -*)
+		mcMSBUL_USE := 1 (*Used -*)
+		);
+	McMSBrkUseLimUseType : STRUCT (*Type mcMSBUL_USE settings*)
+		MaximumVoltage : REAL; (*Maximum permissible voltage to release (open) the holding brake [V]*)
+	END_STRUCT;
+	McMSBrkUseLimType : STRUCT (*Holding brake limits*)
+		Type : McMSBrkUseLimEnum; (*Limits selector setting*)
+		Used : McMSBrkUseLimUseType; (*Type mcMSBUL_USE settings*)
+	END_STRUCT;
+	McMSBrkUseType : STRUCT (*Type mcMSB_USE settings*)
+		NominalCurrent : REAL; (*Current of the holding brake [A]*)
+		NominalTorque : REAL; (*Minimum holding torque of the holding brake [Nm]*)
+		ActivationDelay : REAL; (*Holding torque build-up time after switching off the operating voltage [s]*)
+		ReleaseDelay : REAL; (*Holding torque decaying time after switching on the operating voltage [s]*)
+		MomentOfInertia : REAL; (*Moment of inertia for the holding brake [kgcm²]*)
+		ControlMode : McMSBrkUseCtrlModType; (*Behaviour of holding brake control*)
+		Limits : McMSBrkUseLimType; (*Holding brake limits*)
+	END_STRUCT;
+	McMSBrkType : STRUCT (*Holding brake*)
+		Type : McMSBrkEnum; (*Brake selector setting*)
+		Used : McMSBrkUseType; (*Type mcMSB_USE settings*)
+	END_STRUCT;
+	McMSEncEnum :
+		( (*Encoder selector setting*)
+		mcMSE_NOT_USE := 0, (*Not used -*)
+		mcMSE_USE := 1 (*Used -*)
+		);
+	McMSEncUseTmpSensEnum :
+		( (*Temperature sensor selector setting*)
+		mcMSEUTS_NOT_USE := 0, (*Not used -*)
+		mcMSEUTS_USE := 1 (*Used -*)
+		);
+	McMSEncUseTmpSensUseType : STRUCT (*Type mcMSEUTS_USE settings*)
+		LimitTemperature : UINT; (*Maximum permissible encoder temperature [°C]*)
+	END_STRUCT;
+	McMSEncUseTmpSensType : STRUCT (*Encoder temperature sensor*)
+		Type : McMSEncUseTmpSensEnum; (*Temperature sensor selector setting*)
+		Used : McMSEncUseTmpSensUseType; (*Type mcMSEUTS_USE settings*)
+	END_STRUCT;
+	McMSEncUseType : STRUCT (*Type mcMSE_USE settings*)
+		MomentOfInertia : REAL; (*Moment of inertia for the encoder [kgcm²]*)
+		TemperatureSensor : McMSEncUseTmpSensType; (*Encoder temperature sensor*)
+	END_STRUCT;
+	McMSEncType : STRUCT (*Motor encoder*)
+		Type : McMSEncEnum; (*Encoder selector setting*)
+		Used : McMSEncUseType; (*Type mcMSE_USE settings*)
+	END_STRUCT;
+	McMSGBEnum :
+		( (*Gearbox selector setting*)
+		mcMSG_NOT_USE := 0, (*Not used -*)
+		mcMSG_USE := 1 (*Used -*)
+		);
+	McMSGBUseType : STRUCT (*Type mcMSG_USE settings*)
+		GearRatio : McCfgGearBoxType; (*Ratio between a gearbox input and output*)
+		MaximumInputSpeed : REAL; (*Maximum permissible speed at gearbox input [rpm]*)
+		NominalOutputTorque : REAL; (*Nominal torque at gearbox output [Nm]*)
+		PeakOutputTorque : REAL; (*Peak torque at gearbox output [Nm]*)
+		MomentOfInertia : REAL; (*Moment of inertia for the gearbox [kgcm²]*)
+	END_STRUCT;
+	McMSGBType : STRUCT (*Gearbox*)
+		Type : McMSGBEnum; (*Gearbox selector setting*)
+		Used : McMSGBUseType; (*Type mcMSG_USE settings*)
+	END_STRUCT;
+	McCfgMotSynType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_MOT_SYN*)
+		Motor : McMSMotType;
+		Brake : McMSBrkType; (*Holding brake*)
+		Encoder : McMSEncType; (*Motor encoder*)
+		Gearbox : McMSGBType; (*Gearbox*)
+	END_STRUCT;
+	McMIMotEnum :
+		( (*Motor selector setting*)
+		mcMIM_PWR_RTG_PLT := 0, (*Power rating plate - Data used for calculation and identification of motor data*)
+		mcMIM_STAR_EQ_CIR := 1 (*Star equivalent circuit -*)
+		);
+	McMIMotPwrRtgPltOptParType : STRUCT
+		NumberOfPolePairs : USINT; (*Number of pole pairs*)
+		MaximumSpeed : REAL; (*Maximum permissible speed [rpm]*)
+		MaximumDCBusVoltage : REAL; (*Maximum permissible DC bus voltage [V]*)
+		StallCurrent : REAL; (*Phase current for generating the stall torque (RMS value) [A]*)
+		PeakCurrent : REAL; (*Phase current for generating the peak torque (RMS value) [A]*)
+		MagnetizingCurrent : REAL; (*Flux-generating current (RMS value, not needed if power factor is available) [A]*)
+		NominalPower : REAL; (*Nominal power (not needed if power factor or magnetizing current is available) [kW]*)
+		NominalTorque : REAL; (*Motor torque at nominal current [Nm]*)
+		StallTorque : REAL; (*Motor torque at stall current [Nm]*)
+		PeakTorque : REAL; (*Motor torque at peak current [Nm]*)
+		MomentOfInertia : REAL; (*Mass moment of inertia [kgcm²]*)
+	END_STRUCT;
+	McMIMotPwrRtgPltType : STRUCT (*Type mcMIM_PWR_RTG_PLT settings*)
+		NominalSpeed : REAL; (*Nominal speed [rpm]*)
+		NominalFrequency : REAL; (*Nominal frequency [Hz]*)
+		NominalVoltage : REAL; (*Nominal voltage (RMS value, phase-phase) [V]*)
+		NominalCurrent : REAL; (*Phase current for generating the nominal torque at nominal speed (RMS value) [A]*)
+		PowerFactor : REAL; (*Power factor (cos φ)*)
+		NominalAmbientTemperature : REAL; (*Nominal ambient temperature [°C]*)
+		OptionalParameter : McMIMotPwrRtgPltOptParType;
+		TemperatureSensor : McMMTmpSensType; (*Temperature sensor configuration*)
+		TemperatureModel : McMMTmpMdlType; (*Model for winding temperature monitoring*)
+	END_STRUCT;
+	McMIMotStarEqCirVLimEnum :
+		( (*Voltage limitation selector setting*)
+		mcMIMSECVL_NOT_USE := 0, (*Not used -*)
+		mcMIMSECVL_USE := 1 (*Used -*)
+		);
+	McMIMotStarEqCirVLimUseType : STRUCT (*Type mcMIMSECVL_USE settings*)
+		MaximumDCBusVoltage : REAL; (*Maximum permissible DC bus voltage [V]*)
+	END_STRUCT;
+	McMIMotStarEqCirVLimType : STRUCT (*Voltage limitation (Motor has no protective conductor or windings should be protected)*)
+		Type : McMIMotStarEqCirVLimEnum; (*Voltage limitation selector setting*)
+		Used : McMIMotStarEqCirVLimUseType; (*Type mcMIMSECVL_USE settings*)
+	END_STRUCT;
+	McMIMotStarEqCirType : STRUCT (*Type mcMIM_STAR_EQ_CIR settings*)
+		NumberOfPolePairs : USINT; (*Number of pole pairs*)
+		NominalSpeed : REAL; (*Nominal speed [rpm]*)
+		MaximumSpeed : REAL; (*Maximum permissible speed [rpm]*)
+		NominalVoltage : REAL; (*Nominal voltage (RMS value, phase-phase) [V]*)
+		NominalCurrent : REAL; (*Phase current for generating the nominal torque at nominal speed (RMS value) [A]*)
+		StallCurrent : REAL; (*Phase current for generating the stall torque (RMS value) [A]*)
+		PeakCurrent : REAL; (*Phase current for generating the peak torque (RMS value) [A]*)
+		MagnetizingCurrent : REAL; (*Flux-generating current (RMS value) [A]*)
+		NominalTorque : REAL; (*Motor torque at nominal current [Nm]*)
+		StallTorque : REAL; (*Motor torque at stall current [Nm]*)
+		PeakTorque : REAL; (*Motor torque at peak current [Nm]*)
+		StatorResistance : REAL; (*Stator resistance (phase) [Ω]*)
+		RotorResistance : REAL; (*Rotor resistance (phase) [Ω]*)
+		StatorInductance : REAL; (*Stator leakage inductance (phase) [mH]*)
+		RotorInductance : REAL; (*Rotor leakage inductance (phase) [mH]*)
+		MutualInductance : REAL; (*Mutual inductance (phase) [mH]*)
+		MomentOfInertia : REAL; (*Mass moment of inertia [kgcm²]*)
+		NominalAmbientTemperature : REAL; (*Nominal ambient temperature [°C]*)
+		VoltageLimitation : McMIMotStarEqCirVLimType; (*Voltage limitation (Motor has no protective conductor or windings should be protected)*)
+		TemperatureSensor : McMMTmpSensType; (*Temperature sensor configuration*)
+		TemperatureModel : McMMTmpMdlType; (*Model for winding temperature monitoring*)
+	END_STRUCT;
+	McMIMotType : STRUCT
+		Type : McMIMotEnum; (*Motor selector setting*)
+		PowerRatingPlate : McMIMotPwrRtgPltType; (*Type mcMIM_PWR_RTG_PLT settings*)
+		StarEquivalentCircuit : McMIMotStarEqCirType; (*Type mcMIM_STAR_EQ_CIR settings*)
+	END_STRUCT;
+	McMIBrkEnum :
+		( (*Brake selector setting*)
+		mcMIB_NOT_USE := 0, (*Not used -*)
+		mcMIB_USE := 1 (*Used -*)
+		);
+	McMIBrkUseCtrlModEnum :
+		( (*Control mode selector setting*)
+		mcMIBUCM_SW := 0, (*Switched -*)
+		mcMIBUCM_V_CTRL := 1 (*Voltage controlled -*)
+		);
+	McMIBrkUseCtrlModVCtrlType : STRUCT (*Type mcMIBUCM_V_CTRL settings*)
+		ReleaseVoltage : REAL; (*Nominal voltage, to release (open) the holding brake [V]*)
+		HoldVoltage : REAL; (*Nominal voltage to ensure the holding brake remains open [V]*)
+	END_STRUCT;
+	McMIBrkUseCtrlModType : STRUCT (*Behaviour of holding brake control*)
+		Type : McMIBrkUseCtrlModEnum; (*Control mode selector setting*)
+		VoltageControlled : McMIBrkUseCtrlModVCtrlType; (*Type mcMIBUCM_V_CTRL settings*)
+	END_STRUCT;
+	McMIBrkUseLimEnum :
+		( (*Limits selector setting*)
+		mcMIBUL_NOT_USE := 0, (*Not used -*)
+		mcMIBUL_USE := 1 (*Used -*)
+		);
+	McMIBrkUseLimUseType : STRUCT (*Type mcMIBUL_USE settings*)
+		MaximumVoltage : REAL; (*Maximum permissible voltage to release (open) the holding brake [V]*)
+	END_STRUCT;
+	McMIBrkUseLimType : STRUCT (*Holding brake limits*)
+		Type : McMIBrkUseLimEnum; (*Limits selector setting*)
+		Used : McMIBrkUseLimUseType; (*Type mcMIBUL_USE settings*)
+	END_STRUCT;
+	McMIBrkUseType : STRUCT (*Type mcMIB_USE settings*)
+		NominalCurrent : REAL; (*Current of the holding brake [A]*)
+		NominalTorque : REAL; (*Minimum holding torque of the holding brake [Nm]*)
+		ActivationDelay : REAL; (*Holding torque build-up time after switching off the operating voltage [s]*)
+		ReleaseDelay : REAL; (*Holding torque decaying time after switching on the operating voltage [s]*)
+		MomentOfInertia : REAL; (*Moment of inertia for the holding brake [kgcm²]*)
+		ControlMode : McMIBrkUseCtrlModType; (*Behaviour of holding brake control*)
+		Limits : McMIBrkUseLimType; (*Holding brake limits*)
+	END_STRUCT;
+	McMIBrkType : STRUCT (*Holding brake*)
+		Type : McMIBrkEnum; (*Brake selector setting*)
+		Used : McMIBrkUseType; (*Type mcMIB_USE settings*)
+	END_STRUCT;
+	McMIEncEnum :
+		( (*Encoder selector setting*)
+		mcMIE_NOT_USE := 0, (*Not used -*)
+		mcMIE_USE := 1 (*Used -*)
+		);
+	McMIEncUseTmpSensEnum :
+		( (*Temperature sensor selector setting*)
+		mcMIEUTS_NOT_USE := 0, (*Not used -*)
+		mcMIEUTS_USE := 1 (*Used -*)
+		);
+	McMIEncUseTmpSensUseType : STRUCT (*Type mcMIEUTS_USE settings*)
+		LimitTemperature : UINT; (*Maximum permissible encoder temperature [°C]*)
+	END_STRUCT;
+	McMIEncUseTmpSensType : STRUCT (*Encoder temperature sensor*)
+		Type : McMIEncUseTmpSensEnum; (*Temperature sensor selector setting*)
+		Used : McMIEncUseTmpSensUseType; (*Type mcMIEUTS_USE settings*)
+	END_STRUCT;
+	McMIEncUseType : STRUCT (*Type mcMIE_USE settings*)
+		MomentOfInertia : REAL; (*Moment of inertia for the encoder [kgcm²]*)
+		TemperatureSensor : McMIEncUseTmpSensType; (*Encoder temperature sensor*)
+	END_STRUCT;
+	McMIEncType : STRUCT (*Motor encoder*)
+		Type : McMIEncEnum; (*Encoder selector setting*)
+		Used : McMIEncUseType; (*Type mcMIE_USE settings*)
+	END_STRUCT;
+	McMIGBEnum :
+		( (*Gearbox selector setting*)
+		mcMIG_NOT_USE := 0, (*Not used -*)
+		mcMIG_USE := 1 (*Used -*)
+		);
+	McMIGBUseType : STRUCT (*Type mcMIG_USE settings*)
+		GearRatio : McCfgGearBoxType; (*Ratio between a gearbox input and output*)
+		MaximumInputSpeed : REAL; (*Maximum permissible speed at gearbox input [rpm]*)
+		NominalOutputTorque : REAL; (*Nominal torque at gearbox output [Nm]*)
+		PeakOutputTorque : REAL; (*Peak torque at gearbox output [Nm]*)
+		MomentOfInertia : REAL; (*Moment of inertia for the gearbox [kgcm²]*)
+	END_STRUCT;
+	McMIGBType : STRUCT (*Gearbox*)
+		Type : McMIGBEnum; (*Gearbox selector setting*)
+		Used : McMIGBUseType; (*Type mcMIG_USE settings*)
+	END_STRUCT;
+	McCfgMotInductType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_MOT_INDUCT*)
+		Motor : McMIMotType;
+		Brake : McMIBrkType; (*Holding brake*)
+		Encoder : McMIEncType; (*Motor encoder*)
+		Gearbox : McMIGBType; (*Gearbox*)
+	END_STRUCT;
 	McAMEType : STRUCT (*Parameter of hardware elements situated between motor encoder and load which influence the scaling*)
 		Gearbox : McCfgGearBoxType; (*Specifies a gearbox by defining the ratio between a gearbox input and output*)
 		RotaryToLinearTransformation : McCfgRotToLinTrfType; (*Specifies a transformation factor between the output of the gear and the actual load movement*)
@@ -64,8 +534,9 @@ TYPE
 	END_STRUCT;
 	McACModEnum :
 		( (*Mode selector setting*)
-		mcACM_POS_CTRL := 0, (*Position controller - Position controller*)
-		mcACM_POS_CTRL_TORQ_FF := 1, (*Position controller torque ff - Position controller with torque feed forward*)
+		mcACM_POS_CTRL := 0, (*Position controller - Position controller with speed feedforward*)
+		mcACM_POS_CTRL_TORQ_FF := 1, (*Position controller torque ff - Position controller with torque feedforward*)
+		mcACM_POS_CTRL_MDL_BASED := 3, (*Position controller model based - Position controller with model based control*)
 		mcACM_V_FREQ_CTRL := 2 (*Voltage frequency control - Voltage/frequency control of induction motor*)
 		);
 	McACPCType : STRUCT (*Position controller parameters*)
@@ -120,7 +591,7 @@ TYPE
 		ParID : UINT; (*ParID*)
 	END_STRUCT;
 	McACLFSLLimFixValType : STRUCT (*Type mcACLFSLLim_FIX_VAL settings*)
-		Value : REAL; (*Value [Nm]*)
+		Value : REAL; (*Value [A]*)
 	END_STRUCT;
 	McACLFSLLimType : STRUCT (*Select if a fixed value for the positive limit or if the value of an ACOPOS ParID is used therefore*)
 		Type : McACLFSLLimEnum; (*Positive limit selector setting*)
@@ -191,6 +662,87 @@ TYPE
 		FeedForward : McACMPCFFFFwdType; (*Torque feed forward control parameters*)
 		LoopFilters : McACLFType; (*Parameters of the loop filters*)
 	END_STRUCT;
+	McACMPCMBCPosType : STRUCT (*Position controller parameters*)
+		ProportionalGain : REAL; (*Proportional amplification [1/s]*)
+		IntegrationTime : REAL; (*Integral action time [s]*)
+		TotalDelayTime : REAL; (*Total delay time [s]*)
+	END_STRUCT;
+	McACMPCMBCFFEnum :
+		( (*Feedforward selector setting*)
+		mcACMPCMBCFF_STD := 0, (*Standard - Based on several parameters the torque feedforward calculation is done on the axis*)
+		mcACMPCMBCFF_PRED_SPD := 1, (*Predictive speed - Predictive speed*)
+		mcACMPCMBCFF_TWO_MASS_MDL_BASED := 2 (*Two mass model based - Two mass model based*)
+		);
+	McACMPCMBCFFStdType : STRUCT (*Type mcACMPCMBCFF_STD settings*)
+		TorqueLoad : REAL; (*Load torque [Nm]*)
+		TorquePositive : REAL; (*Torque in positive direction [Nm]*)
+		TorqueNegative : REAL; (*Torque in negative direction [Nm]*)
+		SpeedTorqueFactor : REAL; (*Speed torque factor [Nms]*)
+		Inertia : REAL; (*Mass moment of inertia [kgm²]*)
+		AccelerationFilterTime : REAL; (*Acceleration filter time constant [s]*)
+	END_STRUCT;
+	McACMPCMBCFFPredSpdType : STRUCT (*Type mcACMPCMBCFF_PRED_SPD settings*)
+		PredictionTime : REAL; (*Prediction time [s]*)
+	END_STRUCT;
+	McACMPCMBCFFTwoMassMdlBasedType : STRUCT (*Type mcACMPCMBCFF_TWO_MASS_MDL_BASED settings*)
+		TorqueLoad : REAL; (*Load torque [Nm]*)
+		TorquePositive : REAL; (*Torque in positive direction [Nm]*)
+		TorqueNegative : REAL; (*Torque in negative direction [Nm]*)
+		AccelerationFilterTime : REAL; (*Acceleration filter time constant [s]*)
+	END_STRUCT;
+	McACMPCMBCFFType : STRUCT (*Feedforward control parameters*)
+		Type : McACMPCMBCFFEnum; (*Feedforward selector setting*)
+		Standard : McACMPCMBCFFStdType; (*Type mcACMPCMBCFF_STD settings*)
+		PredictiveSpeed : McACMPCMBCFFPredSpdType; (*Type mcACMPCMBCFF_PRED_SPD settings*)
+		TwoMassModelBased : McACMPCMBCFFTwoMassMdlBasedType; (*Type mcACMPCMBCFF_TWO_MASS_MDL_BASED settings*)
+	END_STRUCT;
+	McACMPCMBCFdbkEnum :
+		( (*Feedback selector setting*)
+		mcACMPCMBCF_STD := 0, (*Standard - Standard*)
+		mcACMPCMBCF_ONE_MASS_MDL_BASED := 1, (*One mass model based - One mass model based*)
+		mcACMPCMBCF_TWO_MASS_MDL_BASED := 2, (*Two mass model based - Two mass model based*)
+		mcACMPCMBCF_TWO_ENC_SPD_BASED := 3 (*Two encoder speed based - Two encoder speed based*)
+		);
+	McACMPCMBCFdbkOneMassMdlBsdType : STRUCT (*Type mcACMPCMBCF_ONE_MASS_MDL_BASED settings*)
+		SpeedMixingFactor : REAL; (*Speed mixing factor*)
+		SpeedProportionalGain : REAL; (*Speed proportional gain [As]*)
+	END_STRUCT;
+	McACMPCMBCFdbkTwoMassMdlBsdType : STRUCT (*Type mcACMPCMBCF_TWO_MASS_MDL_BASED settings*)
+		SpeedMixingFactor : REAL; (*Speed mixing factor*)
+		SpeedProportionalGain : REAL; (*Speed proportional gain [As]*)
+	END_STRUCT;
+	McACMPCMBCFdbkTwoEncSpdBasedType : STRUCT (*Type mcACMPCMBCF_TWO_ENC_SPD_BASED settings*)
+		SpeedMixingFactor : REAL; (*Speed mixing factor*)
+		SpeedProportionalGain : REAL; (*Speed proportional gain [As]*)
+	END_STRUCT;
+	McACMPCMBCFdbkType : STRUCT (*Feedback control parameters*)
+		Type : McACMPCMBCFdbkEnum; (*Feedback selector setting*)
+		OneMassModelBased : McACMPCMBCFdbkOneMassMdlBsdType; (*Type mcACMPCMBCF_ONE_MASS_MDL_BASED settings*)
+		TwoMassModelBased : McACMPCMBCFdbkTwoMassMdlBsdType; (*Type mcACMPCMBCF_TWO_MASS_MDL_BASED settings*)
+		TwoEncoderSpeedBased : McACMPCMBCFdbkTwoEncSpdBasedType; (*Type mcACMPCMBCF_TWO_ENC_SPD_BASED settings*)
+	END_STRUCT;
+	McACMPCMBCMdlMass1Type : STRUCT (*Mass 1 parameters*)
+		Inertia : REAL; (*Mass moment of inertia [kgm²]*)
+		ViscousFriction : REAL; (*Viscous friction [Nms]*)
+	END_STRUCT;
+	McACMPCMBCMdlMass2Type : STRUCT (*Mass 2 parameters*)
+		Inertia : REAL; (*Mass moment of inertia [kgm²]*)
+		ViscousFriction : REAL; (*Viscous friction [Nms]*)
+		Stiffness : REAL; (*Stiffness of the coupling to mass 1 [Nm/rad]*)
+		Damping : REAL; (*Damping of the coupling to mass 1 [Nms/rad]*)
+	END_STRUCT;
+	McACMPCMBCMdlType : STRUCT (*Load model parameters*)
+		Mass1 : McACMPCMBCMdlMass1Type; (*Mass 1 parameters*)
+		Mass2 : McACMPCMBCMdlMass2Type; (*Mass 2 parameters*)
+	END_STRUCT;
+	McACMPCMBCType : STRUCT (*Type mcACM_POS_CTRL_MDL_BASED settings*)
+		Position : McACMPCMBCPosType; (*Position controller parameters*)
+		Speed : McACSCType; (*Speed controller parameters*)
+		Feedforward : McACMPCMBCFFType; (*Feedforward control parameters*)
+		Feedback : McACMPCMBCFdbkType; (*Feedback control parameters*)
+		Model : McACMPCMBCMdlType; (*Load model parameters*)
+		LoopFilters : McACLFType; (*Parameters of the loop filters*)
+	END_STRUCT;
 	McACMVFCVFTypEnum :
 		( (*Type of characteristic curve*)
 		mcACMVFCVFT_LIN := 129, (*Linear - Linear characteristic curve*)
@@ -224,6 +776,7 @@ TYPE
 		Type : McACModEnum; (*Mode selector setting*)
 		PositionController : McACMPCType; (*Type mcACM_POS_CTRL settings*)
 		PositionControllerTorqueFf : McACMPCFFType; (*Type mcACM_POS_CTRL_TORQ_FF settings*)
+		PositionControllerModelBased : McACMPCMBCType; (*Type mcACM_POS_CTRL_MDL_BASED settings*)
 		VoltageFrequencyControl : McACMVFCType; (*Type mcACM_V_FREQ_CTRL settings*)
 	END_STRUCT;
 	McACType : STRUCT (*Axis controller parameters*)
@@ -236,12 +789,13 @@ TYPE
 		mcAHM_SW_GATE := 2, (*Switch gate - Homing with reference switch gate*)
 		mcAHM_LIM_SW := 3, (*Limit switch - Homing with hardware end switch*)
 		mcAHM_ABS := 4, (*Absolute - Homing by setting the home offset*)
+		mcAHM_ABS_INT := 11, (*Absolute internal - Homing by determining the home offset on drive*)
 		mcAHM_ABS_CORR := 5, (*Absolute correction - Homing by setting the home offset with counting range correction*)
 		mcAHM_DIST_C_MARKS := 6, (*Distance coded marks - Homing with distance coded reference marks*)
 		mcAHM_DIST_C_MARKS_CORR := 7, (*Distance coded marks correction - Homing with distance coded reference marks and counting range correction*)
 		mcAHM_BLK_TORQ := 8, (*Block torque - Homing on block, criterion for homing event: torque*)
 		mcAHM_BLK_LAG_ERR := 9, (*Block lag error - Homing on block, criterion for homing event: lag error*)
-		mcAHM_RES_POS := 10, (*Restore position - Homing by restoring the position from permanent variable data*)
+		mcAHM_RES_POS := 10, (*Restore position - Homing by restoring the position from remanent variable data*)
 		mcAHM_NOT_USE := 100 (*Not used - No preconfigured homing settings used*)
 		);
 	McAHModDirRefPEnum :
@@ -330,6 +884,9 @@ TYPE
 	McAHModAbsType : STRUCT (*Type mcAHM_ABS settings*)
 		Position : LREAL; (*Home offset [Measurement units]*)
 	END_STRUCT;
+	McAHModAbsIntType : STRUCT (*Type mcAHM_ABS_INT settings*)
+		Position : LREAL; (*Home offset [Measurement units]*)
+	END_STRUCT;
 	McAHModAbsCorrType : STRUCT (*Type mcAHM_ABS_CORR settings*)
 		Position : LREAL; (*Home offset [Measurement units]*)
 	END_STRUCT;
@@ -347,6 +904,17 @@ TYPE
 		HomingDirection : McAHModHomeDirEnum; (*Movement direction in which the homing event is evaluated*)
 		KeepDirection : McAHModKeepDirEnum; (*Keep direction (move only in one direction)*)
 	END_STRUCT;
+	McAHModBlkRefPNotUseType : STRUCT (*Type mcAHMRP_NOT_USE settings*)
+		MinimumReturnDistance : LREAL; (*Minimum return distance after the blockade is reached [Measurement units]*)
+	END_STRUCT;
+	McAHModBlkRefPUseType : STRUCT (*Type mcAHMRP_USE settings*)
+		ReferencePulseBlockingDistance : LREAL; (*Distance for blocking the activation of triggering reference pulse [Measurement units]*)
+	END_STRUCT;
+	McAHModBlkRefPType : STRUCT (*Use reference pulse of encoder*)
+		Type : McAHModRefPEnum; (*Reference pulse selector setting*)
+		NotUsed : McAHModBlkRefPNotUseType; (*Type mcAHMRP_NOT_USE settings*)
+		Used : McAHModBlkRefPUseType; (*Type mcAHMRP_USE settings*)
+	END_STRUCT;
 	McAHModBlkTorqType : STRUCT (*Type mcAHM_BLK_TORQ settings*)
 		Position : LREAL; (*Home position [Measurement units]*)
 		StartVelocity : REAL; (*Speed for searching the reference switch [Measurement units/s]*)
@@ -354,7 +922,7 @@ TYPE
 		Acceleration : REAL; (*Acceleration for homing movement [Measurement units/s²]*)
 		StartDirection : McAHModStartDirEnum; (*Start direction of movement for searching the reference switch*)
 		HomingDirection : McAHModHomeDirEnum; (*Movement direction in which the homing event is evaluated*)
-		ReferencePulse : McAHModRefPType; (*Use reference pulse of encoder*)
+		ReferencePulse : McAHModBlkRefPType; (*Use reference pulse of encoder*)
 		TorqueLimit : REAL; (*Torque limit for homing on block [Nm]*)
 		PositionErrorStopLimit : LREAL; (*Lag error for stop of the homing movement [Measurement units]*)
 	END_STRUCT;
@@ -365,7 +933,7 @@ TYPE
 		Acceleration : REAL; (*Acceleration for homing movement [Measurement units/s²]*)
 		StartDirection : McAHModStartDirEnum; (*Start direction of movement for searching the reference switch*)
 		HomingDirection : McAHModHomeDirEnum; (*Movement direction in which the homing event is evaluated*)
-		ReferencePulse : McAHModRefPType; (*Use reference pulse of encoder*)
+		ReferencePulse : McAHModBlkRefPType; (*Use reference pulse of encoder*)
 		TorqueLimit : REAL; (*Torque limit for homing on block [Nm]*)
 		PositionErrorStopLimit : LREAL; (*Lag error for stop of the homing movement [Measurement units]*)
 		BlockDetectionPositionError : LREAL; (*Lag error for block detection [Measurement units]*)
@@ -377,6 +945,7 @@ TYPE
 		SwitchGate : McAHModSwGateType; (*Type mcAHM_SW_GATE settings*)
 		LimitSwitch : McAHModLimSwType; (*Type mcAHM_LIM_SW settings*)
 		Absolute : McAHModAbsType; (*Type mcAHM_ABS settings*)
+		AbsoluteInternal : McAHModAbsIntType; (*Type mcAHM_ABS_INT settings*)
 		AbsoluteCorrection : McAHModAbsCorrType; (*Type mcAHM_ABS_CORR settings*)
 		DistanceCodedMarks : McAHModDistCMarksType; (*Type mcAHM_DIST_C_MARKS settings*)
 		DistanceCodedMarksCorrection : McAHModDistCMarksCorrType; (*Type mcAHM_DIST_C_MARKS_CORR settings*)
@@ -385,7 +954,7 @@ TYPE
 	END_STRUCT;
 	McAHType : STRUCT (*Homing mode and parameters which can be used within the application program as preconfigured setting*)
 		Mode : McAHModType; (*Homing mode*)
-		RestorePositionVariable : STRING[250]; (*Permanent variable used for homing mode: Restore position*)
+		RestorePositionVariable : STRING[250]; (*Remanent variable used for homing mode: Restore position*)
 	END_STRUCT;
 	McASRQstopEnum :
 		( (*Quickstop selector setting*)
@@ -1382,7 +1951,7 @@ TYPE
 	McAVAVirtAxUseHomeModEnum :
 		( (*Mode selector setting*)
 		mcAVAVAUHM_DIR := 0, (*Direct - Direct homing*)
-		mcAVAVAUHM_RES_POS := 1, (*Restore position - Homing by restoring the position from permanent variable data*)
+		mcAVAVAUHM_RES_POS := 1, (*Restore position - Homing by restoring the position from remanent variable data*)
 		mcAVAVAUHM_NOT_USE := 100 (*Not used - No preconfigured homing settings used*)
 		);
 	McAVAVirtAxUseHomeModDirType : STRUCT (*Type mcAVAVAUHM_DIR settings*)
@@ -1394,7 +1963,7 @@ TYPE
 	END_STRUCT;
 	McAVAVirtAxUseHomeType : STRUCT (*Homing mode and parameters which can be used within the application program as preconfigured setting*)
 		Mode : McAVAVirtAxUseHomeModType; (*Homing mode*)
-		RestorePositionVariable : STRING[250]; (*Permanent variable used for homing mode: Restore position*)
+		RestorePositionVariable : STRING[250]; (*Remanent variable used for homing mode: Restore position*)
 	END_STRUCT;
 	McAVAVirtAxUseType : STRUCT (*Type mcAVAVA_USE settings*)
 		AxisReference : McCfgReferenceType; (*Name of the referenced axis component*)
@@ -1415,7 +1984,7 @@ TYPE
 	McAVHHomeModEnum :
 		( (*Mode selector setting*)
 		mcAVHHM_DIR := 0, (*Direct - Direct homing*)
-		mcAVHHM_RES_POS := 1, (*Restore position - Homing by restoring the position from permanent variable data*)
+		mcAVHHM_RES_POS := 1, (*Restore position - Homing by restoring the position from remanent variable data*)
 		mcAVHHM_NOT_USE := 100 (*Not used - No preconfigured homing settings used*)
 		);
 	McAVHHomeModDirType : STRUCT (*Type mcAVHHM_DIR settings*)
@@ -1427,7 +1996,7 @@ TYPE
 	END_STRUCT;
 	McAVHHomeType : STRUCT (*Homing mode and parameters which can be used within the application program as preconfigured setting*)
 		Mode : McAVHHomeModType; (*Homing mode*)
-		RestorePositionVariable : STRING[250]; (*Permanent variable used for homing mode: Restore position*)
+		RestorePositionVariable : STRING[250]; (*Remanent variable used for homing mode: Restore position*)
 	END_STRUCT;
 	McCfgAcpVirtHomeType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_VIRT_HOME*)
 		Homing : McAVHHomeType; (*Homing mode and parameters which can be used within the application program as preconfigured setting*)
@@ -1443,6 +2012,107 @@ TYPE
 	END_STRUCT;
 	McCfgAcpChFeatType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_CH_FEAT*)
 		ChannelFeatures : McACFChFeatType; (*Features for the channel of a module*)
+	END_STRUCT;
+	McAEEAExtEncAxEnum :
+		( (*External encoder axis selector setting*)
+		mcAEEAEEA_NOT_USE := 0, (*Not used - External encoder axis is not used*)
+		mcAEEAEEA_USE := 1 (*Used - External encoder axis is used*)
+		);
+	McAEEAUseEncLinkEnum :
+		( (*Encoder link selector setting*)
+		mcAEEAUEL_ONE_ENC := 0 (*One encoder -*)
+		);
+	McAEEAUseEncLinkOneEncPosEncEnum :
+		( (*Position encoder selector setting*)
+		mcAEEAUELOEPE_ENC_X41 := 0, (*Encoder X41 -*)
+		mcAEEAUELOEPE_ENC_SS1X41X := 1, (*Encoder SS1.X41x - Plug-in module in SS1*)
+		mcAEEAUELOEPE_ENC_X42 := 2, (*Encoder X42 -*)
+		mcAEEAUELOEPE_ENC_SS1X42X := 3, (*Encoder SS1.X42x - Plug-in module in SS1*)
+		mcAEEAUELOEPE_ENC_X43 := 4, (*Encoder X43 -*)
+		mcAEEAUELOEPE_ENC_SS1X43X := 5, (*Encoder SS1.X43x - Plug-in module in SS1*)
+		mcAEEAUELOEPE_ENC_SS1X11 := 6, (*Encoder SS1.X11 - Plug-in module in SS1*)
+		mcAEEAUELOEPE_ENC_SS2X11 := 7, (*Encoder SS2.X11 - Plug-in module in SS2*)
+		mcAEEAUELOEPE_ENC_SS3X11 := 8, (*Encoder SS3.X11 - Plug-in module in SS3*)
+		mcAEEAUELOEPE_ENC_SS4X11 := 9 (*Encoder SS4.X11 - Plug-in module in SS4*)
+		);
+	McAEEAUseEncLinkOneEncPosEncType : STRUCT
+		Type : McAEEAUseEncLinkOneEncPosEncEnum; (*Position encoder selector setting*)
+	END_STRUCT;
+	McAEEAUELOneEncPosFltrEnum :
+		( (*Position filter selector setting*)
+		mcAEEAUELOEPF_EXTPOL_AND_DIST := 0 (*Extrapolation and disturbance - Extrapolation filter and disturbance filter*)
+		);
+	McAEEAUELOEPosFltrExtpolDistType : STRUCT (*Type mcAEEAUELOEPF_EXTPOL_AND_DIST settings*)
+		PositionFilterTimeConstant : REAL; (*Time constant for acutal position filter*)
+		ExtrapolationTime : REAL; (*Extrapolation time for acutal position filter*)
+	END_STRUCT;
+	McAEEAUELOneEncPosFltrType : STRUCT (*Filter for the encoder position*)
+		Type : McAEEAUELOneEncPosFltrEnum; (*Position filter selector setting*)
+		ExtrapolationAndDisturbance : McAEEAUELOEPosFltrExtpolDistType; (*Type mcAEEAUELOEPF_EXTPOL_AND_DIST settings*)
+	END_STRUCT;
+	McAEEAUseEncLinkOneEncType : STRUCT (*Type mcAEEAUEL_ONE_ENC settings*)
+		PositionEncoder : McAEEAUseEncLinkOneEncPosEncType;
+		PositionFilter : McAEEAUELOneEncPosFltrType; (*Filter for the encoder position*)
+	END_STRUCT;
+	McAEEAUseEncLinkType : STRUCT
+		Type : McAEEAUseEncLinkEnum; (*Encoder link selector setting*)
+		OneEncoder : McAEEAUseEncLinkOneEncType; (*Type mcAEEAUEL_ONE_ENC settings*)
+	END_STRUCT;
+	McAEEAHModEnum :
+		( (*Mode selector setting*)
+		mcAEEAHM_DIR := 0, (*Direct - Direct homing*)
+		mcAEEAHM_ABS := 4, (*Absolute - Homing by setting the home offset*)
+		mcAEEAHM_RES_POS := 10, (*Restore position - Homing by restoring the position from remanent variable data*)
+		mcAEEAHM_NOT_USE := 100 (*Not used - No preconfigured homing settings used*)
+		);
+	McAEEAHModDirRefPEnum :
+		( (*Reference pulse selector setting*)
+		mcAEEAHMDRP_NOT_USE := 0, (*Not used - Reference pulse is not used*)
+		mcAEEAHMDRP_USE := 1 (*Used - Reference pulse is used*)
+		);
+	McAEEAHModDirRefPType : STRUCT (*Use reference pulse of encoder*)
+		Type : McAEEAHModDirRefPEnum; (*Reference pulse selector setting*)
+	END_STRUCT;
+	McAEEAHModDirType : STRUCT (*Type mcAEEAHM_DIR settings*)
+		Position : LREAL; (*Home position [Measurement units]*)
+		ReferencePulse : McAEEAHModDirRefPType; (*Use reference pulse of encoder*)
+	END_STRUCT;
+	McAEEAHModAbsType : STRUCT (*Type mcAEEAHM_ABS settings*)
+		Position : LREAL; (*Home offset [Measurement units]*)
+	END_STRUCT;
+	McAEEAHModType : STRUCT (*Homing mode*)
+		Type : McAEEAHModEnum; (*Mode selector setting*)
+		Direct : McAEEAHModDirType; (*Type mcAEEAHM_DIR settings*)
+		Absolute : McAEEAHModAbsType; (*Type mcAEEAHM_ABS settings*)
+	END_STRUCT;
+	McAEEAHType : STRUCT (*Homing mode and parameters which can be used within the application program as preconfigured setting*)
+		Mode : McAEEAHModType; (*Homing mode*)
+		RestorePositionVariable : STRING[250]; (*Remanent variable used for homing mode: Restore position*)
+	END_STRUCT;
+	McAEEAExtEncAxUseType : STRUCT (*Type mcAEEAEEA_USE settings*)
+		AxisReference : McCfgReferenceType; (*Name of the referenced axis component*)
+		EncoderLink : McAEEAUseEncLinkType;
+		MechanicalElements : McAMEType; (*Parameter of hardware elements situated between motor encoder and load which influence the scaling*)
+		Homing : McAEEAHType; (*Homing mode and parameters which can be used within the application program as preconfigured setting*)
+	END_STRUCT;
+	McAEEAExtEncAxType : STRUCT (*Use External encoder axis*)
+		Type : McAEEAExtEncAxEnum; (*External encoder axis selector setting*)
+		Used : McAEEAExtEncAxUseType; (*Type mcAEEAEEA_USE settings*)
+	END_STRUCT;
+	McCfgAcpExtEncAxType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_EXT_ENC_AX*)
+		ExternalEncoderAxis : McAEEAExtEncAxType; (*Use External encoder axis*)
+	END_STRUCT;
+	McCfgAcpExtEncAxRefType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_EXT_ENC_AX_REF*)
+		AxisReference : McCfgReferenceType; (*Name of the referenced axis component*)
+	END_STRUCT;
+	McCfgAcpExtEncAxEncLinkType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_EXT_ENC_AX_ENC_LINK*)
+		EncoderLink : McAEEAUseEncLinkType;
+	END_STRUCT;
+	McCfgAcpExtEncAxMechElmType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_EXT_ENC_AX_MECH_ELM*)
+		MechanicalElements : McAMEType; (*Parameter of hardware elements situated between motor encoder and load which influence the scaling*)
+	END_STRUCT;
+	McCfgAcpExtEncAxHomeType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ACP_EXT_ENC_AX_HOME*)
+		Homing : McAEEAHType; (*Homing mode and parameters which can be used within the application program as preconfigured setting*)
 	END_STRUCT;
 	McCfgAxFeatAcpParTblType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_AX_FEAT_ACP_PAR_TBL*)
 		ACOPOSParameterTableReference : STRING[250]; (*Name of the ACOPOS parameter table*)

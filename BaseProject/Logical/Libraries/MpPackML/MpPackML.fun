@@ -114,6 +114,13 @@ FUNCTION_BLOCK MpPackMLModule (*Synchronized PackML state machine handling*) (* 
 	END_VAR
 END_FUNCTION_BLOCK
 
+FUNCTION MpPackMLModeChangeIsAllowed : DINT (*Indicates whether it is possible to go to the desired Mode from the current State and Mode *)
+	VAR_INPUT
+		MpLink : MpComIdentType; (*Connection to mapp. Must be of type mppackmlcore configuration*) (* *) (*#PAR#;*)
+		ModeID : DINT; (*Desired mode to change to. The mode must be defined in the mppackmlcore configuration*) (* *) (*#PAR#;*)
+	END_VAR
+END_FUNCTION
+
 FUNCTION MpPackMLChangeMode : DINT (*Function changing the mode of a MpPackMLModule*) (* $GROUP=mapp Services,$CAT=OMAC PackML,$GROUPICON=Icon_mapp.png,$CATICON=Icon_MpPackML.png *)
 	VAR_INPUT
 		MpLink : MpComIdentType; (*Connection to mapp. Must be of type mppackmlcore configuration*) (* *) (*#PAR#;*)

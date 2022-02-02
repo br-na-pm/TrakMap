@@ -12,31 +12,16 @@ ACTION SegDefinition:
 	TrakDiag.Seg.SegList[9].Name  := 'gSeg_A_10';		TrakDiag.Seg.SegList[9].McType := gSeg_A_10;
 	TrakDiag.Seg.SegList[10].Name  := 'gSeg_A_11';		TrakDiag.Seg.SegList[10].McType := gSeg_A_11;
 	TrakDiag.Seg.SegList[11].Name  := 'gSeg_A_12';		TrakDiag.Seg.SegList[11].McType := gSeg_A_12;
-	
-	TrakDiag.Seg.SegList[12].Name  := 'gSeg_B_1';		TrakDiag.Seg.SegList[12].McType := gSeg_B_1;
-	TrakDiag.Seg.SegList[13].Name  := 'gSeg_B_2';		TrakDiag.Seg.SegList[13].McType := gSeg_B_2;
-	TrakDiag.Seg.SegList[14].Name  := 'gSeg_B_3';		TrakDiag.Seg.SegList[14].McType := gSeg_B_3;
-	TrakDiag.Seg.SegList[15].Name  := 'gSeg_B_4';		TrakDiag.Seg.SegList[15].McType := gSeg_B_4;
-	TrakDiag.Seg.SegList[16].Name  := 'gSeg_B_5';		TrakDiag.Seg.SegList[16].McType := gSeg_B_5;
-	TrakDiag.Seg.SegList[17].Name  := 'gSeg_B_6';		TrakDiag.Seg.SegList[17].McType := gSeg_B_6;
-	TrakDiag.Seg.SegList[18].Name  := 'gSeg_B_7';		TrakDiag.Seg.SegList[18].McType := gSeg_B_7;
-	TrakDiag.Seg.SegList[19].Name  := 'gSeg_B_8';		TrakDiag.Seg.SegList[19].McType := gSeg_B_8;
-	TrakDiag.Seg.SegList[20].Name  := 'gSeg_B_9';		TrakDiag.Seg.SegList[20].McType := gSeg_B_9;
-	TrakDiag.Seg.SegList[21].Name  := 'gSeg_B_10';		TrakDiag.Seg.SegList[21].McType := gSeg_B_10;
-	TrakDiag.Seg.SegList[22].Name  := 'gSeg_B_11';		TrakDiag.Seg.SegList[22].McType := gSeg_B_11;
-	
 
-
-	TrakDiag.Seg.SegCount := 23;
+	TrakDiag.Seg.SegCount := 12;
 
 	TrakDiag.Seg.SegListAdr := ADR(TrakDiag.Seg.SegList);
 
-	DiagFbs.Asm.ReadInfo.Assembly := ADR(DiagInterface.SampleTrak);
-	DiagFbs.Asm.ReadStatus.Assembly := ADR(DiagInterface.SampleTrak);
+	DiagFbs.Asm.ReadInfo.Assembly := ADR(gSampleTrak);
+	DiagFbs.Asm.ReadStatus.Assembly := ADR(gSampleTrak);
 
 	paperCore.ViewBoxCfg.MinX := -0.735577;
-	paperCore.ViewBoxCfg.MinY := -0.115;
+	paperCore.ViewBoxCfg.MinY := -0.765;
 	paperCore.ViewBoxCfg.Width := 2.13115;
-	paperCore.ViewBoxCfg.Height := 1.52;
-
+	paperCore.ViewBoxCfg.Height := 2.075;
 END_ACTION 

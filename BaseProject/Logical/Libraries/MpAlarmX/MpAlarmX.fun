@@ -237,3 +237,28 @@ FUNCTION_BLOCK MpAlarmXAcknowledgeAll (*Add-on function block that can be used t
 		Internal : {REDUND_UNREPLICABLE} MpComInternalDataType; (*Internal data*) (* *) (*#OMIT#;*)
 	END_VAR
 END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MpAlarmXAlarmControl (*Add-on function block that can be used to control a single alarm.*) (*$GROUP=mapp Services,$CAT=Alarm System,$GROUPICON=Icon_mapp.png,$CATICON=Icon_MpAlarmX.png *)
+	VAR_INPUT
+		MpLink : REFERENCE TO MpComIdentType; (*Incoming communication handle (mapp standard interface)*) (* *) (*#PAR#;*)
+		Enable : BOOL; (*Enables/Disables the function block (mapp standard interface)*) (* *) (*#PAR#;*)
+		ErrorReset : BOOL; (*Resets all function block errors (mapp standard interface)*) (* *) (*#PAR#;*)
+		Name : REFERENCE TO STRING[255]; (*Unique name of the alarm - will only be evaluated during Enable of the FB*) (* *) (*#PAR#;*)
+		ID : UDINT; (*SessionID. When this is set the Reset/Acknowledge will work on the session with this given ID*) (* *) (*#PAR#;*)
+		Set : BOOL; (*Set (raise) the specified alarm (Name). By setting this command the alarm system is informed that the alarm is active. Same behaviour as MpAlarmXSet*) (* *) (*#CMD#;*)
+		Reset : BOOL; (*Reset the specfified alarm (Name or ID when ID != 0). By setting this command the alarm system is informed that the alarm is inactive. Same behaviour as MpAlarmXReset(ID)*) (* *) (*#CMD#;*)
+		Acknowledge : BOOL; (*Acknowledge the speficief alarm (Name or ID when ID != 0). By setting this command the alarm system is informed that the operator has acknowledged the alarm. Same behaviour as MpAlarmXAcknowledge(ID)*) (* *) (*#CMD#;*)
+	END_VAR
+	VAR_OUTPUT
+		Active : BOOL; (*Function block is active (mapp standard interface)*) (* *) (*#PAR#;*)
+		Error : BOOL; (*Indicates an error (mapp standard interface)*) (* *) (*#PAR#;*)
+		StatusID : DINT; (*Error/Status information (mapp standard interface)*) (* *) (*#PAR#; *)
+		CommandBusy : BOOL; (*Function block is busy processing a command.*) (* *) (*#CMD#OPT#;*)
+		CommandDone : BOOL; (*Command has finished and was successful.*) (* *) (*#CMD#;*)
+		InstanceID : UDINT; (*SessionID of the last alarm-session that was set by this FB*) (* *) (*#PAR#;*)
+		Info : MpAlarmXControlInfoType; (*Additional information*) (* *) (*#CMD#;*)
+	END_VAR
+	VAR
+		Internal : {REDUND_UNREPLICABLE} MpComInternalDataType; (*Internal data*) (* *) (*#OMIT#;*)
+	END_VAR
+END_FUNCTION_BLOCK
