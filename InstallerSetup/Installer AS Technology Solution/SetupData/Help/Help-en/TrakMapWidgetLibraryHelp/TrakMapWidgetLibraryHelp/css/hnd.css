@@ -173,54 +173,49 @@ span.rvts30
 {
  font-size: 8pt;
  font-family: 'Courier New', 'Courier', monospace;
- color: #ff00ff;
+ color: #800000;
 }
 span.rvts31
 {
  font-size: 8pt;
  font-family: 'Courier New', 'Courier', monospace;
- color: #0000ff;
+ color: #ff00ff;
 }
 span.rvts32
 {
  font-size: 8pt;
  font-family: 'Courier New', 'Courier', monospace;
+ color: #0000ff;
 }
 span.rvts33
 {
  font-size: 8pt;
  font-family: 'Courier New', 'Courier', monospace;
- color: #008080;
 }
 span.rvts34
 {
  font-size: 8pt;
  font-family: 'Courier New', 'Courier', monospace;
- color: #000000;
+ color: #008080;
 }
 span.rvts35
 {
- font-family: 'Verdana', 'Geneva', sans-serif;
+ font-size: 8pt;
+ font-family: 'Courier New', 'Courier', monospace;
  color: #000000;
 }
 span.rvts36
 {
- font-size: 8pt;
- font-family: 'Courier New', 'Courier', monospace;
- color: #800000;
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ color: #000000;
 }
 span.rvts37
 {
- font-size: 8pt;
- font-family: 'Courier New', 'Courier', monospace;
- color: #008000;
-}
-span.rvts38
-{
- font-size: 9pt;
+ font-size: 14pt;
  font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
  font-weight: bold;
- color: #ff0000;
+ color: #000000;
 }
 /* ========== Para Styles ========== */
 p,ul,ol /* Paragraph Style */
