@@ -3,8 +3,8 @@
   <Widgets>
     <Widget xsi:type="widgets.brease.Paper" id="paperTrakMap" top="105" left="0" width="1080" height="703" zIndex="0" colorList="#c9c9c9,#FF0000,#00FF00,#FFFF80,#808080,#0000CD,#FF0000,#228B22,#FFFF00,#FFA500,#FFFFFF,#000000,#ff9794,#800080 " svgFilePath="Media/InnoTrakSVG_sg.svg" borderStyle="none" />
     <Widget xsi:type="widgets.TrakMap.SegmentStatus" id="SegmentStatus1" top="0" left="10" zIndex="1" />
-    <Widget xsi:type="widgets.TrakMap.ShuttleStatus" id="ShuttleStatus1" top="0" left="10" zIndex="2" />
-    <Widget xsi:type="widgets.brease.Rectangle" id="Rectangle1" top="0" left="10" width="1060" zIndex="3" />
+    <Widget xsi:type="widgets.TrakMap.ShuttleStatus" id="ShuttleStatus1" top="140" left="-60" zIndex="2" />
+    <Widget xsi:type="widgets.brease.Rectangle" id="Rectangle1" top="120" left="-80" width="1060" zIndex="3" />
     <Widget xsi:type="widgets.TrakMap.ShuttleUserDataExample" id="ShuttleUserDataExample1" top="255" left="440" width="200" zIndex="5" />
     <Widget xsi:type="widgets.brease.Rectangle" id="Rectangle2" top="255" left="440" width="200" zIndex="4" />
   </Widgets>
