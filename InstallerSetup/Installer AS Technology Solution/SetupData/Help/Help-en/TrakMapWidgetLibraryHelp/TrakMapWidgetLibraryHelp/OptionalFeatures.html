@@ -99,14 +99,13 @@
 <h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
 <h1 class="rvps5"><img alt="" style="padding : 1px;" src="lib/ShuttleUserDataType.png"></h1>
 <h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<p class="rvps9"><span class="rvts14">As this example structure has the Color offset by the ID variable, we need to inform the paper core of this offset. And here is the offset needed to get the correct color value:</span></p>
-<p class="rvps9"><span class="rvts32"><br/></span></p>
-<p class="rvps9"><span class="rvts32">paperOptions.Color.Offset</span><span class="rvts33">&nbsp;</span><span class="rvts34">:=</span><span class="rvts33">&nbsp;</span><span class="rvts31">SIZEOF</span><span class="rvts34">(</span><span class="rvts30">UDINT</span><span class="rvts34">);</span></p>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14">As a note, the typical behavior for ordering variables within a structure applies here. Even though the sample Shuttle User Data has a UINT before the Color variable, a UDINT offset (4 Bytes) is needed since the variables are word-aligned. </span></span><span class="rvts0"><span class="rvts19">An improper offset will cause the colors to not work!!!</span></span></h1>
+<p class="rvps10"><span class="rvts14">As this example structure has the Color offset by the ID variable, we need to inform the paper core of this offset. And here is the offset needed to get the correct color value:</span></p>
+<p class="rvps10"><span class="rvts32"><br/></span></p>
+<p class="rvps10"><span class="rvts32">paperOptions.Color.Offset</span><span class="rvts33">&nbsp;</span><span class="rvts34">:=</span><span class="rvts33">&nbsp;</span><span class="rvts31">SIZEOF</span><span class="rvts34">(</span><span class="rvts30">UDINT</span><span class="rvts34">);</span></p>
 <h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
 <h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
+<p class="rvps11"><span class="rvts12">&nbsp;</span><span class="rvts14">As a note, the typical behavior for ordering variables within a structure applies here. Even though the sample Shuttle User Data has a UINT before the Color variable, a UDINT offset (4 Bytes) is needed since the variables are word-aligned. </span></p>
+<p class="rvps11"><span class="rvts12">An improper offset can lead to a page fault!</span></p>
 <h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
 <p class="rvps2"><span class="rvts14">After completing the above steps, shuttles should now have color enabled</span></p>
 <p class="rvps2"><span class="rvts14"><br/></span></p>
@@ -120,9 +119,12 @@
 <p class="rvps2"><span class="rvts35"><br/></span></p>
 <p class="rvps2"><span class="rvts15">Custom Shuttle Status Widget</span></p>
 <p class="rvps2"><span class="rvts15"><br/></span></p>
-<p class="rvps2"><span class="rvts12">Add the SegmentStatus widget into your content wherever you desire. Connect the TrakDiag:paperCore.ClickData.Shuttle.Data.ShInfo variable to the widget. Also, connect the TrakDiag:paperCore.ClickData.Shuttle.Valid variable to the visible property of the widget. The shuttle data also outputs the axis of the clicked shuttle in TrakDiag:paperCore.ClickData.Shuttle.Data.Axis. </span></p>
-<p class="rvps2"><span class="rvts12"><br/></span></p>
-<p class="rvps2"><span class="rvts12">If TrakDiag:paperCore.ClickData.Shuttle.Valid is true, then the Axis is valid and is able to be used as an input in function blocks. If the axis is not valid, then a page fault may occur if that address is attempted to be accessed. </span><span class="rvts38">Only use the shuttle axis output when valid is true!</span></p>
+<p class="rvps2"><span class="rvts14">Add the SegmentStatus widget into your content wherever you desire. Connect the TrakDiag:paperCore.ClickData.Shuttle.Data.ShInfo variable to the widget. Also, connect the TrakDiag:paperCore.ClickData.Shuttle.Valid variable to the visible property of the widget. The shuttle data also outputs the axis of the clicked shuttle in TrakDiag:paperCore.ClickData.Shuttle.Data.Axis. </span></p>
+<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts14">If TrakDiag:paperCore.ClickData.Shuttle.Valid is true, then the Axis is valid and is able to be used as an input in function blocks. If the axis is not valid, then a page fault may occur if that address is attempted to be accessed.</span><span class="rvts12">&nbsp;</span></p>
+<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
+<p class="rvps11"><span class="rvts12">Only use the shuttle axis output when Valid is true. Otherwise a page fault can occur.</span></p>
+<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
 <p class="rvps2"><span class="rvts22"><br/></span></p>
 <p class="rvps2"><span class="rvts15">Shuttle User Data Example</span></p>
 <p class="rvps2"><span class="rvts15"><br/></span></p>

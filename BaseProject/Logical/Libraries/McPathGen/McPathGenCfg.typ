@@ -2565,6 +2565,65 @@ TYPE
 		Couplings : McMS5ARACplgType; (*Couplings between selected axes and the joint axis*)
 		JointAxesPositionLimits : McMSJnt5AxPosLimType; (*Position limits for joint axis*)
 	END_STRUCT;
+	McMS5ARBDescEnum :
+		( (*Description selector setting*)
+		mcMS5ARBD_STD := 0 (*Standard - Standard description*)
+		);
+	McMS5ARBDSDimType : STRUCT (*Dimensions of the mechanical system*)
+		TranslationFromBaseToQ1 : McCfgTransXYZType; (*Translation from base of the mechanical system to Q1*)
+		TranslationFromQ1ToQ2 : McCfgTransXYZType; (*Translation from Q1 to Q2*)
+		TranslationFromQ2ToQ3 : McCfgTransXYZType; (*Translation from Q2 to Q3*)
+		TranslationFromQ3ToQ4 : McCfgTransXYZType; (*Translation from Q3 to Q4*)
+		TranslationFromQ4ToQ5 : McCfgTransXYZType; (*Translation from Q4 to Q5*)
+		TranslationFromQ5ToFlange : McCfgTransXYZType; (*Translation from Q5 to flange*)
+	END_STRUCT;
+	McMS5ARBDSType : STRUCT (*Type mcMS5ARBD_STD settings*)
+		Dimensions : McMS5ARBDSDimType; (*Dimensions of the mechanical system*)
+		ModelZeroPositionOffsets : McMSMdl5ZeroPosOffType; (*Offsets between desired and internal zero position*)
+		ModelCountDirections : McMSMdl5CntDirType; (*Count direction for joint axes relative to the internal model*)
+	END_STRUCT;
+	McMS5ARBDescType : STRUCT (*Description of the mechanical system*)
+		Type : McMS5ARBDescEnum; (*Description selector setting*)
+		Standard : McMS5ARBDSType; (*Type mcMS5ARBD_STD settings*)
+	END_STRUCT;
+	McMS5ARBCoorNameCmnType : STRUCT (*Common settings for all Type values*)
+		XCoordinateName : STRING[250]; (*X coordinate name*)
+		YCoordinateName : STRING[250]; (*Y coordinate name*)
+		ZCoordinateName : STRING[250]; (*Z coordinate name*)
+		BCoordinateName : STRING[250]; (*B coordinate name*)
+		CCoordinateName : STRING[250]; (*C coordinate name*)
+	END_STRUCT;
+	McMS5ARBCoorNameType : STRUCT (*Coordinates names*)
+		Type : McMSCNEnum; (*Coordinates names selector setting*)
+		Common : McMS5ARBCoorNameCmnType; (*Common settings for all Type values*)
+	END_STRUCT;
+	McMS5ARBWFrmMdlEnum :
+		( (*Wire frame model selector setting*)
+		mcMS5ARBWFM_STD := 0 (*Standard - Standard wire-frame model*)
+		);
+	McMS5ARBWFrmMdlStdType : STRUCT (*Type mcMS5ARBWFM_STD settings*)
+		Q1ToQ2 : McMSFrmMdlStdEdgeType; (*Wire frame model edge*)
+		Q2ToQ3 : McMSFrmMdlStdEdgeType; (*Wire frame model edge*)
+		Q3ToQ4 : McMSFrmMdlStdEdgeType; (*Wire frame model edge*)
+		Q4ToQ5 : McMSFrmMdlStdEdgeType; (*Wire frame model edge*)
+		Q5ToFlange : McMSFrmMdlStdEdgeType; (*Wire frame model edge*)
+		FlangeToTCP : McMSFrmMdlStdEdgeType; (*Wire frame model edge*)
+	END_STRUCT;
+	McMS5ARBWFrmMdlType : STRUCT (*Wire frame model of mechanical system*)
+		Type : McMS5ARBWFrmMdlEnum; (*Wire frame model selector setting*)
+		Standard : McMS5ARBWFrmMdlStdType; (*Type mcMS5ARBWFM_STD settings*)
+	END_STRUCT;
+	McMS5ARBCplgType : STRUCT (*Couplings between selected axes and the joint axis*)
+		LinearCoupling : McCfgUnboundedArrayType; (*Linear coupling*)
+	END_STRUCT;
+	McCfgMS5AxRobBType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_MS_5AX_ROB_B*)
+		Description : McMS5ARBDescType; (*Description of the mechanical system*)
+		CoordinatesNames : McMS5ARBCoorNameType; (*Coordinates names*)
+		WireFrameModel : McMS5ARBWFrmMdlType; (*Wire frame model of mechanical system*)
+		DynamicModel : McMSDynMdlType; (*Dynamic model of the mechanical system*)
+		Couplings : McMS5ARBCplgType; (*Couplings between selected axes and the joint axis*)
+		JointAxesPositionLimits : McMSJnt5AxPosLimType; (*Position limits for joint axis*)
+	END_STRUCT;
 	McMS6ARADescEnum :
 		( (*Description selector setting*)
 		mcMS6ARAD_STD := 0 (*Standard - Standard description*)

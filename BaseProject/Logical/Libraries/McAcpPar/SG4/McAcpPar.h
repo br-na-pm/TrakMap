@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McAcpPar 5.14.2 */
+/* McAcpPar 5.15.1 */
 
 #ifndef _MCACPPAR_
 #define _MCACPPAR_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McAcpPar_VERSION
-#define _McAcpPar_VERSION 5.14.2
+#define _McAcpPar_VERSION 5.15.1
 #endif
 
 #include <bur/plctypes.h>
@@ -534,6 +534,7 @@ extern "C"
  #define mcACPPAR_DIO_IN1 5648U
  #define mcACPPAR_DIO_OUT 5640U
  #define mcACPPAR_DIO_IN 5632U
+ #define mcACPPAR_MPGEN_JERK 5272U
  #define mcACPPAR_MPGEN_MA_S2 5264U
  #define mcACPPAR_MPGEN_MA_S1 5256U
  #define mcACPPAR_MPGEN_MA_S_IV 5248U
@@ -588,6 +589,8 @@ extern "C"
  #define mcACPPAR_LOGIC_IN2_PARID 3088U
  #define mcACPPAR_LOGIC_IN1_PARID 3080U
  #define mcACPPAR_LOGIC_MODE 3072U
+ #define mcACPPAR_MOTOR_TEMPMODEL_REF_TAU 1707U
+ #define mcACPPAR_MOTOR_TEMPMODEL_REF_OFF 1706U
  #define mcACPPAR_GEARBOX_TORQ_LIM 1696U
  #define mcACPPAR_MOTOR_GEAR_SPEED_MAX 1695U
  #define mcACPPAR_MOTOR_GEAR_TORQ_MAX 1694U
@@ -658,6 +661,7 @@ extern "C"
  #define mcACPPAR_FFCTRL_FRICTION_C0 1595U
  #define mcACPPAR_ENCOD2_DPOS_ACT 1594U
  #define mcACPPAR_ENCOD_DPOS_ACT 1593U
+ #define mcACPPAR_VCTRL_COMMUTATION_MODE 1588U
  #define mcACPPAR_UFCTRL_TLIM_TN 1586U
  #define mcACPPAR_FBCTRL_SPEED_KV 1585U
  #define mcACPPAR_ENCOD2_LINE_RESISTANCE 1584U
@@ -2394,6 +2398,7 @@ extern "C"
  _GLOBAL_CONST unsigned short mcACPPAR_DIO_IN1;
  _GLOBAL_CONST unsigned short mcACPPAR_DIO_OUT;
  _GLOBAL_CONST unsigned short mcACPPAR_DIO_IN;
+ _GLOBAL_CONST unsigned short mcACPPAR_MPGEN_JERK;
  _GLOBAL_CONST unsigned short mcACPPAR_MPGEN_MA_S2;
  _GLOBAL_CONST unsigned short mcACPPAR_MPGEN_MA_S1;
  _GLOBAL_CONST unsigned short mcACPPAR_MPGEN_MA_S_IV;
@@ -2448,6 +2453,8 @@ extern "C"
  _GLOBAL_CONST unsigned short mcACPPAR_LOGIC_IN2_PARID;
  _GLOBAL_CONST unsigned short mcACPPAR_LOGIC_IN1_PARID;
  _GLOBAL_CONST unsigned short mcACPPAR_LOGIC_MODE;
+ _GLOBAL_CONST unsigned short mcACPPAR_MOTOR_TEMPMODEL_REF_TAU;
+ _GLOBAL_CONST unsigned short mcACPPAR_MOTOR_TEMPMODEL_REF_OFF;
  _GLOBAL_CONST unsigned short mcACPPAR_GEARBOX_TORQ_LIM;
  _GLOBAL_CONST unsigned short mcACPPAR_MOTOR_GEAR_SPEED_MAX;
  _GLOBAL_CONST unsigned short mcACPPAR_MOTOR_GEAR_TORQ_MAX;
@@ -2518,6 +2525,7 @@ extern "C"
  _GLOBAL_CONST unsigned short mcACPPAR_FFCTRL_FRICTION_C0;
  _GLOBAL_CONST unsigned short mcACPPAR_ENCOD2_DPOS_ACT;
  _GLOBAL_CONST unsigned short mcACPPAR_ENCOD_DPOS_ACT;
+ _GLOBAL_CONST unsigned short mcACPPAR_VCTRL_COMMUTATION_MODE;
  _GLOBAL_CONST unsigned short mcACPPAR_UFCTRL_TLIM_TN;
  _GLOBAL_CONST unsigned short mcACPPAR_FBCTRL_SPEED_KV;
  _GLOBAL_CONST unsigned short mcACPPAR_ENCOD2_LINE_RESISTANCE;

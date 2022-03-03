@@ -174,7 +174,7 @@ TYPE
 	McPathGenMonElemAxTorquesType : STRUCT (*Monitoring Element: Torques*)
 		Torques : ARRAY [0..9] OF LREAL; (**)
 	END_STRUCT;
-
+	
 	McPathGenMonElemBasicMonType : STRUCT (*Monitoring Element: Basic monitor*)
 		CurrentProgram : McPathGenMonElemCurrentPrgType; (**)
 		LineNumber : UDINT; (**)

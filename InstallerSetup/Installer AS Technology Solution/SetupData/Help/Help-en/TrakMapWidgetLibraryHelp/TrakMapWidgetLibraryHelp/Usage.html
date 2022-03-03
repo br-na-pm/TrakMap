@@ -45,13 +45,14 @@
 <p class="rvps2"><span class="rvts14">- Working Acopos Trak Project and layout (project compiles and can succesfully power on the assembly and move shuttles)</span></p>
 <p class="rvps2"><span class="rvts14">- Automatically generated SVG from the SVGData file device </span></p>
 <p class="rvps2"><span class="rvts14">- 5.13+ MpMotion Version</span></p>
+<p class="rvps9"><span class="rvts14">The python script only supports versions 5.13-5.15. After generating an SVG in a supported version, then the user can upgrade their project to a newer version.</span></p>
 <p class="rvps2"><span class="rvts14"><br/></span></p>
 <p class="rvps2"><span class="rvts22">Import the TrakMap Technology Solution</span></p>
 <p class="rvps2"><span class="rvts14">Place the provided technology solution in the Automation Studio technology solutions folder (BrAutomationInstallationFolder)/(AutomationStudioVersion)/AS/TechnologySolutions. In your project, select the root node in the logical view, in the toolbox select to add a Technology Solution package and select the TrakMap application package that appears.</span></p>
 <p class="rvps2"><span class="rvts14"><br/></span></p>
 <p class="rvps2"><span class="rvts22">Running the TrakMapImporter program</span></p>
 <p class="rvps2"><span class="rvts12">We have created a simple tool to help assist in the parsing of the SVG and other steps needed to use the trak map.</span></p>
-<p class="rvps2"><span class="rvts12">Download and run the provided </span><a class="rvts21" href="../../../technologysolutions/ts_trackmapwidgetlibrary/TrakMapImporter.exe">.exe</a></p>
+<p class="rvps2"><span class="rvts12">Download and run the provided </span><a class="rvts21" href="../../../technologysolutions/ts_trakmapwidgetlibrary/TrakMapImporter.exe">.exe</a></p>
 <p class="rvps2"><span class="rvts12"><br/></span></p>
 <p class="rvps2"><span class="rvts12">There is a prompt for 4 inputs:</span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: decimal;">
@@ -98,7 +99,7 @@
 <p class="rvps2"><span class="rvts15">Paper Widget</span></p>
 <p class="rvps2"><span class="rvts12">You'll need to add a paper widget to your HMI content page you wish to show the trak map on. </span></p>
 <p class="rvps2"><span class="rvts12"><br/></span></p>
-<p class="rvps2"><span class="rvts12">Once added to your content, to the paper widget, select the SvgFilePath to be the generated SVG from the previous step, map the paperCore variable SvgTransform and SvgContent variables from the TrakDiag task.</span></p>
+<p class="rvps2"><span class="rvts12">Once added to your content, to the paper widget, select the SvgFilePath to be the generated SVG from the previous step (this SVG must be placed in the Logical\mappView\Resources\Media folder), map the paperCore variable SvgTransform and SvgContent variables from the TrakDiag task.</span></p>
 <p class="rvps2"><span class="rvts12">The Trak paper widget uses the color List property of the paper widget for the segment status colors during operation. The default color values could be the following: </span></p>
 <p class="rvps2"><span class="rvts12"><br/></span></p>
 <p class="rvps2"><span class="rvts12">#C9C9C9,#FF0000,#00FF00,#FFFF80</span></p>
@@ -175,10 +176,10 @@
 <p class="rvps2"><span class="rvts14"></span><br/><span class="rvts24">&lt;</span><span class="rvts25">SnippetsSets</span><span class="rvts24">&gt;</span><br/><span class="rvts25"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts25">&lt;SnippetsSet</span><span class="rvts26">&nbsp;</span><span class="rvts27">refId</span><span class="rvts24">="</span><span class="rvts28">TrakMapSnippets</span><span class="rvts24">"/&gt;</span><br/><span class="rvts24">&lt;/</span><span class="rvts25">SnippetsSets</span><span class="rvts24">&gt;</span></p>
 <p class="rvps2"><span class="rvts24"><br/></span></p>
 <p class="rvps2"><span class="rvts15">Theme Definitions</span></p>
-<p class="rvps2"><span class="rvts12">The custom widget utilizes some custom themes for the toggle buttons present. You can use your own themes should you like, or you can add the provided style file to your existing theme for styling.</span></p>
+<p class="rvps2"><span class="rvts12">The custom widget utilizes some custom themes for the toggle buttons present. You can use your own themes should you like, or you can add the provided style file to your existing theme for styling. The provided .style file will not work alone; it must be added into an existing theme.</span></p>
 <p class="rvps2"><span class="rvts14"><br/></span></p>
 <p class="rvps2"><span class="rvts15">Text Files</span></p>
-<p class="rvps2"><span class="rvts12">In the provided files there are the text files. These can be included to populate the error texts, segment statuses, and shuttle statuses in the status widget. Add the provided text files located in the Widget Library Resources package to the text definition for the project.</span></p>
+<p class="rvps2"><span class="rvts12">In the provided files there are the text files. These can be included to populate the error texts, segment statuses, and shuttle statuses in the status widget. Add the provided text files located in the Widget Library Resources package to the text definition for the project (Configuration View&gt;TextSystem&gt;___.textconfig).</span></p>
 <p class="rvps2"><span class="rvts12"><br/></span></p>
 <p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem6.png"></p>
 <p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem5.png"></p>

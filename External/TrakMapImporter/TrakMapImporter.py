@@ -1,3 +1,4 @@
+from tabnanny import verbose
 import PySimpleGUI as sg
 import os.path
 import argparse
@@ -5,6 +6,8 @@ from pathlib import Path
 
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
+
+VERSION_NUMBER = '1.02.9'
 
 class TrakMap:
     def __init__(self,inputSVG):
@@ -117,7 +120,7 @@ def CreateLayout():
 def main() -> None:
     
     layout = CreateLayout()
-    window = sg.Window("TrakMap Builder 1.2", layout)
+    window = sg.Window("TrakMap Builder {ver}".format(ver = VERSION_NUMBER), layout)
 
     while True:
         val = {}

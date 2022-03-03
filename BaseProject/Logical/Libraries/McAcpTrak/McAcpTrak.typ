@@ -231,7 +231,9 @@ TYPE
 		mcACPTRAK_SH_ERROR_NOGRIPPER,
 		mcACPTRAK_SH_ERROR_COMMAND,
 		mcACPTRAK_SH_ERROR_SEGMENT,
-		mcACPTRAK_SH_ERROR_ASSEMBLY
+		mcACPTRAK_SH_ERROR_ASSEMBLY,
+		mcACPTRAK_SH_ERROR_INVALIDMOVE,
+		mcACPTRAK_SH_ERROR_COUPLING
 	);
 
 	McAcpTrakSegTypeEnum :
@@ -277,6 +279,7 @@ TYPE
 		SectorLength : LREAL; 					(*length of the reference sector*)
 		Orientation : McDirectionEnum; 			(*defines the orientation of the shuttle on reference sector*)
 		Velocity : REAL; 						(*current velocity*)
+		SegmentPosition : McAcpTrakSegPositionType; (* Segment position of the shuttle *)
 		MovementType : McAcpTrakShMovementTypeEnum; (*type of movement*)
 		CtrlParSetLeft : USINT;					(*active controller parameter set of the left side of the shuttle*)
 		CtrlParSetRight : USINT;				(*active controller parameter set of the right side of the shuttle*)
@@ -409,6 +412,12 @@ TYPE
 		Width : LREAL; (*symmetric width relative to the shuttle center point*)
 	END_STRUCT;
 
+	McAcpTrakShSizeInfoType	: STRUCT
+		ExtentToFront : LREAL; (*extent from the center point of the magnet plate to the front of the shuttle*)
+		ExtentToBack : LREAL; (*extent from the center point of the magnet plate to the back of the shuttle*)
+		Width : LREAL; (*symmetric width relative to the shuttle center point*)
+	END_STRUCT;
+
 	McAcpTrakShuttleMonData : STRUCT (*Shuttles*)
 		Available : BOOL;
 		Position : McPosType;
@@ -449,6 +458,25 @@ TYPE
 		PowerOn : BOOL; (*Controller is switched on*)
 		StartupCount : UDINT; (*Number of times the segment was started up since the last PLC start*)
 		CommunicationState : McCommunicationStateEnum; (*State of network communication*)
+	END_STRUCT;
+
+	McAcpTrakSegErrorReasonEnum :
+	(
+		mcACPTRAK_SEG_ERROR_NONE,
+		mcACPTRAK_SEG_ERROR_UNSPECIFIED,
+		mcACPTRAK_SEG_ERROR_NOGRIPPER,
+		mcACPTRAK_SEG_ERROR_COMMAND,
+		mcACPTRAK_SEG_ERROR_SEGMENT,
+		mcACPTRAK_SEG_ERROR_ASSEMBLY
+	);
+
+	McAcpTrakSegErrorGripperInfoType : STRUCT
+		Shuttle : McAxisType; (*the error shuttle*)
+	END_STRUCT;
+
+	McAcpTrakSegErrorInfoType : STRUCT
+		Reason : McAcpTrakSegErrorReasonEnum; (*reason for the error*)
+		GripperErrorInfo : McAcpTrakSegErrorGripperInfoType; (*information about an error where no gripper could be allocated*)
 	END_STRUCT;
 
 	McAcpTrakTrgPointGetInfoType : STRUCT
@@ -507,13 +535,14 @@ TYPE
 
 	McAcpTrakAdvSecAddShWithMovType : STRUCT
 		MoveCmd :  McAcpTrakMoveCmdEnum; (*Specifies the movement type for the shuttle*)
-		Position : LREAL; 		(*target position for the motion*)
-		Velocity : REAL; 		(*maximum velocity*)
+		Position : LREAL; 			(*target position for the motion*)
+		Velocity : REAL; 			(*maximum velocity*)
 		Acceleration : REAL; 		(*maximum acceleration*)
 		Deceleration : REAL; 		(*maximum deceleration*)
-		Jerk : REAL; 			(*maximum jerk*)	
+		Jerk : REAL; 				(*maximum jerk*)
+		Direction : McDirectionEnum; (*movement direction*)
 	END_STRUCT;
-	
+
 	 McAcpTrakSecAddShWithMovInfoType : STRUCT
 	 	PLCopenState : McAxisPLCopenStateEnum; (*PLCopen state*)
 	END_STRUCT;
@@ -529,12 +558,50 @@ TYPE
 		ReadyForPowerOn : BOOL; (*the controllers of all segments of the assembly are ready to be switched on*)
 		PowerOn : BOOL; (*the controllers of all segments of the assembly are switched on*)
 		StartupCount : UDINT; (*number of completed switch-on operations of the assembly*)
+	 	SegmentsInDisabledCount : UINT; (*number of segments in state Disabled*)
+	 	SegmentsInStoppingCount : UINT; (*number of segments in state Stopping*)
+	 	SegmentsInErrorStopCount : UINT; (*number of segments in state ErrorStop*)
 	 	ShuttlesCount : UINT; (*number of shuttles on the assembly*)
 	 	ShuttlesInStandstillCount : UINT; (*number of shuttles without active movement command*)
 	 	ShuttlesInDisabledCount : UINT; (*number of shuttles in state Disabled*)
 	 	ShuttlesInStoppingCount : UINT; (*number of shuttles in state Stopping*)
 	 	ShuttlesInErrorStopCount : UINT; (*number of shuttles in state ErrorStop*)
 	 END_STRUCT;
+
+	McAcpTrakAsmErrorReasonEnum :
+	(
+		mcACPTRAK_ASM_ERROR_NONE,
+		mcACPTRAK_ASM_ERROR_UNSPECIFIED,
+		mcACPTRAK_ASM_ERROR_ENCDIFF,
+		mcACPTRAK_ASM_ERROR_NOGRIPPER,
+		mcACPTRAK_ASM_ERROR_COMMAND,
+		mcACPTRAK_ASM_ERROR_SEGMENT,
+		mcACPTRAK_ASM_ERROR_UNOBSERVABLE
+	);
+
+	McAcpTrakAsmErrorEncdiffInfoType : STRUCT
+		Difference : LREAL; (*the difference between the encoder positions*)
+		LowPosition : McAcpTrakSegPositionType; (*the shuttle's segment position that implies, after translation to the shuttle's sector, to the lowest sector position*)
+		HighPosition : McAcpTrakSegPositionType; (*the shuttle's segment position that implies, after translation to the shuttle's sector, to the highest sector position*)
+	END_STRUCT;
+
+	McAcpTrakAsmErrorGripperInfoType : STRUCT
+		Shuttle : McAxisType; (*the error shuttle*)
+		Segment : McSegmentType; (*the segment where the shuttle could not allocate a gripper*)
+		SegmentName : STRING[32]; (*the name of the segment where the shuttle could not allocate a gripper*)
+	END_STRUCT;
+
+	McAcpTrakAsmErrorSegmentInfoType : STRUCT
+		Segment : McSegmentType; (*the segment whose error triggered the shuttle error*)
+		SegmentName : STRING[32]; (*the name of the segment whose error triggered the shuttle error*)
+	END_STRUCT;
+
+	McAcpTrakAsmErrorInfoType : STRUCT
+		Reason : McAcpTrakAsmErrorReasonEnum; (*reason for the error*)
+		EncdiffErrorInfo : McAcpTrakAsmErrorEncdiffInfoType; (*information about a encoder discrepancy error*)
+		GripperErrorInfo : McAcpTrakAsmErrorGripperInfoType; (*information about a error where no gripper could be allocated*)
+		SegmentErrorInfo : McAcpTrakAsmErrorSegmentInfoType; (*information about a segment error*)
+	END_STRUCT;
 
 	McAcpTrakGetShuttleModeEnum :
 	(
@@ -548,7 +615,17 @@ TYPE
 		mcACPTRAK_GET_SH_ERROR_NOGRIPPER, (*get shuttles in state error stop with reason 'no gripper available'*)
 		mcACPTRAK_GET_SH_ERROR_COMMAND, (*get shuttles in state error stop with reason user command*)
 		mcACPTRAK_GET_SH_ERROR_SEGMENT, (*get shuttles in state error stop with reason segment failure*)
-		mcACPTRAK_GET_SH_ERROR_ASSEMBLY (*get shuttles in state error stop with reason assembly error stop*)
+		mcACPTRAK_GET_SH_ERROR_ASSEMBLY, (*get shuttles in state error stop with reason assembly error stop*)
+		mcACPTRAK_GET_SH_ERROR_INVMOV, (*get shuttles in state error stop with reason invalid move*)
+		mcACPTRAK_GET_SH_ERROR_COUPLING (*get shuttles in state error stop with reason coupling*)
+	);
+
+	McAcpTrakGetSegmentModeEnum :
+	(
+		mcACPTRAK_GET_SEG_ALL := 0, (*get all segments*)
+		mcACPTRAK_GET_SEG_DISABLED, (*get segments in state disabled*)
+		mcACPTRAK_GET_SEG_STOPPING, (*get segments in state stopping*)
+		mcACPTRAK_GET_SEG_ERRORSTOP (*get segments in state error stop*)
 	);
 
 	McAcpTrakAdvAsmGetShParType : STRUCT
@@ -557,6 +634,10 @@ TYPE
 
 	McAcpTrakAsmGetShAddInfoType : STRUCT
 		ShuttleID : UINT; (* Unique shuttle index on the assembly.*)
+	END_STRUCT;
+
+	McAcpTrakAdvAsmGetSegParType : STRUCT
+		SelectionMode : McAcpTrakGetSegmentModeEnum; (*Selector for the segments to output*)
 	END_STRUCT;
 
 	McAcpTrakAdvSecGetShParType : STRUCT

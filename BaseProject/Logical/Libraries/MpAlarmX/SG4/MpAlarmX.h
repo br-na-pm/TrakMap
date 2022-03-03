@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpAlarmX 5.14.0 */
+/* MpAlarmX 5.15.0 */
 
 #ifndef _MPALARMX_
 #define _MPALARMX_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpAlarmX_VERSION
-#define _MpAlarmX_VERSION 5.14.0
+#define _MpAlarmX_VERSION 5.15.0
 #endif
 
 #include <bur/plctypes.h>
@@ -92,6 +92,7 @@ typedef enum MpAlarmXErrorEnum
 	mpALARMX_ERR_MPLINK_CORRUPT = -1064239099,
 	mpALARMX_ERR_MPLINK_IN_USE = -1064239098,
 	mpALARMX_ERR_CONFIG_NULL = -1064239096,
+	mpALARMX_ERR_CONFIG_NO_PV = -1064239095,
 	mpALARMX_ERR_CONFIG_INVALID = -1064239091,
 	mpALARMX_ERR_NAME_NULL = -1064116224,
 	mpALARMX_ERR_NAME_EMPTY = -1064116223,

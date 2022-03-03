@@ -215,13 +215,6 @@ span.rvts37
  font-family: 'Courier New', 'Courier', monospace;
  color: #008000;
 }
-span.rvts38
-{
- font-size: 9pt;
- font-family: 'Verdana', 'Geneva', sans-serif;
- font-weight: bold;
- color: #ff0000;
-}
 /* ========== Para Styles ========== */
 p,ul,ol /* Paragraph Style */
 {
@@ -285,7 +278,24 @@ p,ul,ol /* Paragraph Style */
 }
 .rvps9
 {
+ border-color: #ff0000;
+ border-style: solid;
+ border-width: 3px;
+ background: #c0c0c0;
+ background-color: rgba(192,192,192,0.5);
+}
+.rvps10
+{
  text-indent: 48px;
+}
+.rvps11
+{
+ border-color: #6699ff;
+ border-style: solid;
+ border-width: 3px;
+ background: #eeeeee;
+ padding: 8px 8px 8px 8px;
+ margin: 22px 0px 12px 0px;
 }
 /* ========== Lists ========== */
 .list0 {text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: decimal;}

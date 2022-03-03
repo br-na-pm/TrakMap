@@ -17,4 +17,5 @@ VAR
 	TrakDiag : TrkDiagStatusType;
 	DiagFbs : DiagFbsType;
 	SegIndex : USINT;
+	TEST_Transform : STRING[1000000];
 END_VAR

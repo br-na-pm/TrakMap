@@ -55,6 +55,7 @@
           <Variable Name="ID" />
           <Variable Name="Color" />
         </Variable>
+        <Variable Name="TEST_Transform" />
       </Task>
     </Module>
   </DefaultView>

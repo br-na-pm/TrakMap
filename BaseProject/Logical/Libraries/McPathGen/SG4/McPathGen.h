@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McPathGen 5.14.2 */
+/* McPathGen 5.15.1 */
 
 #ifndef _MCPATHGEN_
 #define _MCPATHGEN_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McPathGen_VERSION
-#define _McPathGen_VERSION 5.14.2
+#define _McPathGen_VERSION 5.15.1
 #endif
 
 #include <bur/plctypes.h>
@@ -685,6 +685,14 @@ typedef enum McMS5ARAWFrmMdlEnum
 {	mcMS5ARAWFM_STD = 0
 } McMS5ARAWFrmMdlEnum;
 
+typedef enum McMS5ARBDescEnum
+{	mcMS5ARBD_STD = 0
+} McMS5ARBDescEnum;
+
+typedef enum McMS5ARBWFrmMdlEnum
+{	mcMS5ARBWFM_STD = 0
+} McMS5ARBWFrmMdlEnum;
+
 typedef enum McMS6ARADescEnum
 {	mcMS6ARAD_STD = 0
 } McMS6ARADescEnum;
@@ -732,10 +740,15 @@ typedef struct McPathGenErrorStructType
 {	double ActualError;
 } McPathGenErrorStructType;
 
+typedef struct McPathGenEstimatedCalcTimeType
+{	double Time;
+} McPathGenEstimatedCalcTimeType;
+
 typedef struct McPathGenTrackingInfoType
 {	struct McPathGenTrackedObjectType TrackedObject;
 	struct McPathGenTrackedFrameType TrackedFrame;
 	struct McPathGenErrorStructType ErrorStruct;
+	struct McPathGenEstimatedCalcTimeType EstimatedCalculationTime;
 } McPathGenTrackingInfoType;
 
 typedef struct McPathGenMonElemFeedReductType
@@ -3435,6 +3448,66 @@ typedef struct McCfgMS5AxRobAType
 	struct McMS5ARACplgType Couplings;
 	struct McMSJnt5AxPosLimType JointAxesPositionLimits;
 } McCfgMS5AxRobAType;
+
+typedef struct McMS5ARBDSDimType
+{	struct McCfgTransXYZType TranslationFromBaseToQ1;
+	struct McCfgTransXYZType TranslationFromQ1ToQ2;
+	struct McCfgTransXYZType TranslationFromQ2ToQ3;
+	struct McCfgTransXYZType TranslationFromQ3ToQ4;
+	struct McCfgTransXYZType TranslationFromQ4ToQ5;
+	struct McCfgTransXYZType TranslationFromQ5ToFlange;
+} McMS5ARBDSDimType;
+
+typedef struct McMS5ARBDSType
+{	struct McMS5ARBDSDimType Dimensions;
+	struct McMSMdl5ZeroPosOffType ModelZeroPositionOffsets;
+	struct McMSMdl5CntDirType ModelCountDirections;
+} McMS5ARBDSType;
+
+typedef struct McMS5ARBDescType
+{	enum McMS5ARBDescEnum Type;
+	struct McMS5ARBDSType Standard;
+} McMS5ARBDescType;
+
+typedef struct McMS5ARBCoorNameCmnType
+{	plcstring XCoordinateName[251];
+	plcstring YCoordinateName[251];
+	plcstring ZCoordinateName[251];
+	plcstring BCoordinateName[251];
+	plcstring CCoordinateName[251];
+} McMS5ARBCoorNameCmnType;
+
+typedef struct McMS5ARBCoorNameType
+{	enum McMSCNEnum Type;
+	struct McMS5ARBCoorNameCmnType Common;
+} McMS5ARBCoorNameType;
+
+typedef struct McMS5ARBWFrmMdlStdType
+{	struct McMSFrmMdlStdEdgeType Q1ToQ2;
+	struct McMSFrmMdlStdEdgeType Q2ToQ3;
+	struct McMSFrmMdlStdEdgeType Q3ToQ4;
+	struct McMSFrmMdlStdEdgeType Q4ToQ5;
+	struct McMSFrmMdlStdEdgeType Q5ToFlange;
+	struct McMSFrmMdlStdEdgeType FlangeToTCP;
+} McMS5ARBWFrmMdlStdType;
+
+typedef struct McMS5ARBWFrmMdlType
+{	enum McMS5ARBWFrmMdlEnum Type;
+	struct McMS5ARBWFrmMdlStdType Standard;
+} McMS5ARBWFrmMdlType;
+
+typedef struct McMS5ARBCplgType
+{	struct McCfgUnboundedArrayType LinearCoupling;
+} McMS5ARBCplgType;
+
+typedef struct McCfgMS5AxRobBType
+{	struct McMS5ARBDescType Description;
+	struct McMS5ARBCoorNameType CoordinatesNames;
+	struct McMS5ARBWFrmMdlType WireFrameModel;
+	struct McMSDynMdlType DynamicModel;
+	struct McMS5ARBCplgType Couplings;
+	struct McMSJnt5AxPosLimType JointAxesPositionLimits;
+} McCfgMS5AxRobBType;
 
 typedef struct McMS6ARADSDimType
 {	struct McCfgTransXYZType TranslationFromBaseToQ1;
