@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McPathGen 5.16.2 */
+/* McPathGen 5.15.1 */
 
 #ifndef _MCPATHGEN_
 #define _MCPATHGEN_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McPathGen_VERSION
-#define _McPathGen_VERSION 5.16.2
+#define _McPathGen_VERSION 5.15.1
 #endif
 
 #include <bur/plctypes.h>
@@ -89,11 +89,6 @@ typedef enum McPathGenMonElemFeedReductEnum
 	mcPATHGEN_FR_ACTIVE
 } McPathGenMonElemFeedReductEnum;
 
-typedef enum McAGPGSubtEnum
-{	mcAGPGS_GEN = 0,
-	mcAGPGS_ABB_ROB = 1
-} McAGPGSubtEnum;
-
 typedef enum McAGPGLicEnum
 {	mcAGPGL_SNG = 0,
 	mcAGPGL_FLT = 1
@@ -128,15 +123,6 @@ typedef enum McAGPGTPBBuffTimeEnum
 {	mcAGPGTPBBT_USR_DEF = 0,
 	mcAGPGTPBBT_AUT = 1
 } McAGPGTPBBuffTimeEnum;
-
-typedef enum McAGPGMiscNonMoveLimEnum
-{	mcAGPGMNML_NOT_USE = 0,
-	mcAGPGMNML_USE = 1
-} McAGPGMiscNonMoveLimEnum;
-
-typedef enum McAGPGMNMLUADEnum
-{	mcAGPGMNMLUAD_DELAYED_EXE = 0
-} McAGPGMNMLUADEnum;
 
 typedef enum McAGFPRGIPSIntrplTypEnum
 {	mcAGFPRGIPSIT_RPD_LIN = 0,
@@ -588,11 +574,6 @@ typedef enum McMSDynMdlEnum
 {	mcMSDM_DYNPARTABLE = 0
 } McMSDynMdlEnum;
 
-typedef enum McMS4ASAMonPtEnum
-{	mcMS4ASAMP_NOT_USE = 0,
-	mcMS4ASAMP_STD = 1
-} McMS4ASAMonPtEnum;
-
 typedef enum McMS2ADADescEnum
 {	mcMS2ADAD_STD = 0
 } McMS2ADADescEnum;
@@ -647,15 +628,6 @@ typedef enum McMS4ADADescEnum
 typedef enum McMS4ADAWFrmMdlEnum
 {	mcMS4ADAWFM_STD = 0
 } McMS4ADAWFrmMdlEnum;
-
-typedef enum McMSDynLimEnum
-{	mcMSDL_DYNPARTABLES = 0
-} McMSDynLimEnum;
-
-typedef enum McMSDeltaWrkRngEnum
-{	mcMSDWR_NOT_USE = 0,
-	mcMSDWR_STD = 1
-} McMSDeltaWrkRngEnum;
 
 typedef enum McMS4ADBDescEnum
 {	mcMS4ADBD_STD = 0
@@ -911,14 +883,6 @@ typedef struct McPathGenMonElemAxTorquesType
 {	double Torques[10];
 } McPathGenMonElemAxTorquesType;
 
-typedef struct McPathGenMonElemGBTorquesType
-{	double Torques[10];
-} McPathGenMonElemGBTorquesType;
-
-typedef struct McPathGenMonElemCSLoadsType
-{	double Loads[250];
-} McPathGenMonElemCSLoadsType;
-
 typedef struct McPathGenMonElemBasicMonType
 {	struct McPathGenMonElemCurrentPrgType CurrentProgram;
 	unsigned long LineNumber;
@@ -1166,34 +1130,14 @@ typedef struct McAGPGTrajPlanType
 	struct McAGPGTPBType Basic;
 } McAGPGTrajPlanType;
 
-typedef struct McAGPGMNMLUADType
-{	enum McAGPGMNMLUADEnum Type;
-} McAGPGMNMLUADType;
-
-typedef struct McAGPGMiscNonMoveLimUseType
-{	unsigned long Count;
-	struct McAGPGMNMLUADType Action;
-} McAGPGMiscNonMoveLimUseType;
-
-typedef struct McAGPGMiscNonMoveLimType
-{	enum McAGPGMiscNonMoveLimEnum Type;
-	struct McAGPGMiscNonMoveLimUseType Used;
-} McAGPGMiscNonMoveLimType;
-
-typedef struct McAGPGMiscType
-{	struct McAGPGMiscNonMoveLimType NonMovementsLimit;
-} McAGPGMiscType;
-
 typedef struct McAGPGBSType
 {	struct McAGPGModalDatBxType ModalDataBehaviour;
 	struct McAGPGGeoPlanType GeometryPlanning;
 	struct McAGPGTrajPlanType TrajectoryPlanning;
-	struct McAGPGMiscType Miscellaneous;
 } McAGPGBSType;
 
 typedef struct McCfgAxGrpPathGenType
-{	enum McAGPGSubtEnum Subtype;
-	enum McPTCEnum ProcessingTaskClass;
+{	enum McPTCEnum ProcessingTaskClass;
 	enum McAGPGLicEnum License;
 	struct McAGPGPAType PhysicalAxes;
 	struct McAGPGMSType MechanicalSystem;
@@ -2605,10 +2549,6 @@ typedef struct McMS4ASACplgType
 {	struct McCfgUnboundedArrayType LinearCoupling;
 } McMS4ASACplgType;
 
-typedef struct McMS4ASAMonPtType
-{	enum McMS4ASAMonPtEnum Type;
-} McMS4ASAMonPtType;
-
 typedef struct McCfgMS4AxScaraAType
 {	struct McMS4ASADescType Description;
 	struct McMS4ASACoorNameType CoordinatesNames;
@@ -2617,7 +2557,6 @@ typedef struct McCfgMS4AxScaraAType
 	struct McMSDynMdlType DynamicModel;
 	struct McMS4ASACplgType Couplings;
 	struct McMSJnt4AxPosLimType JointAxesPositionLimits;
-	struct McMS4ASAMonPtType MonitoringPoints;
 } McCfgMS4AxScaraAType;
 
 typedef struct McMS2ADADSDBPltArmLinkPtType
@@ -3014,34 +2953,9 @@ typedef struct McMS4ADAWFrmMdlType
 	struct McMS4ADAWFrmMdlStdType Standard;
 } McMS4ADAWFrmMdlType;
 
-typedef struct McMSDynLimDynParTablesType
-{	struct McCfgReferenceType GearboxLimitsTableReference;
-	struct McCfgReferenceType CrossSecLimTableReference;
-} McMSDynLimDynParTablesType;
-
-typedef struct McMSDynLimType
-{	enum McMSDynLimEnum Type;
-	struct McMSDynLimDynParTablesType DynParTables;
-} McMSDynLimType;
-
 typedef struct McMS4ADACplgType
 {	struct McCfgUnboundedArrayType LinearCoupling;
 } McMS4ADACplgType;
-
-typedef struct McMSDeltaWrkRngStdType
-{	double BaseToTop;
-	double TopHeight;
-	double MiddleHeight;
-	double BottomHeight;
-	double TopRadius;
-	double MiddleRadius;
-	double BottomRadius;
-} McMSDeltaWrkRngStdType;
-
-typedef struct McMSDeltaWrkRngType
-{	enum McMSDeltaWrkRngEnum Type;
-	struct McMSDeltaWrkRngStdType Standard;
-} McMSDeltaWrkRngType;
 
 typedef struct McCfgMS4AxDeltaAType
 {	struct McMS4ADADescType Description;
@@ -3049,10 +2963,8 @@ typedef struct McCfgMS4AxDeltaAType
 	struct McMSTCPOType TCPOrientation;
 	struct McMS4ADAWFrmMdlType WireFrameModel;
 	struct McMSDynMdlType DynamicModel;
-	struct McMSDynLimType DynamicLimits;
 	struct McMS4ADACplgType Couplings;
 	struct McMSJnt4AxPosLimType JointAxesPositionLimits;
-	struct McMSDeltaWrkRngType WorkingRange;
 } McCfgMS4AxDeltaAType;
 
 typedef struct McMS4ADBDSDBPltType
@@ -3131,7 +3043,6 @@ typedef struct McCfgMS4AxDeltaBType
 	struct McMSDynMdlType DynamicModel;
 	struct McMS4ADBCplgType Couplings;
 	struct McMSJnt4AxPosLimType JointAxesPositionLimits;
-	struct McMSDeltaWrkRngType WorkingRange;
 } McCfgMS4AxDeltaBType;
 
 typedef struct McMS4ADCDSDBPArmLinkPtType
@@ -3217,7 +3128,6 @@ typedef struct McCfgMS4AxDeltaCType
 	struct McMSDynMdlType DynamicModel;
 	struct McMS4ADCCplgType Couplings;
 	struct McMSJnt4AxPosLimType JointAxesPositionLimits;
-	struct McMSDeltaWrkRngType WorkingRange;
 } McCfgMS4AxDeltaCType;
 
 typedef struct McMS5ADADSDimBasePltType
@@ -3296,7 +3206,6 @@ typedef struct McCfgMS5AxDeltaAType
 	struct McMSDynMdlType DynamicModel;
 	struct McMS5ADACplgType Couplings;
 	struct McMSJnt5AxPosLimType JointAxesPositionLimits;
-	struct McMSDeltaWrkRngType WorkingRange;
 } McCfgMS5AxDeltaAType;
 
 typedef struct McMS3ARADSDimType
@@ -3659,7 +3568,6 @@ typedef struct McCfgMS6AxRobAType
 	struct McMS6ARACoorNameType CoordinatesNames;
 	struct McMS6ARAWFrmMdlType WireFrameModel;
 	struct McMSDynMdlType DynamicModel;
-	struct McMSDynLimType DynamicLimits;
 	struct McMS6ARACplgType Couplings;
 	struct McMSJnt6AxPosLimType JointAxesPositionLimits;
 } McCfgMS6AxRobAType;

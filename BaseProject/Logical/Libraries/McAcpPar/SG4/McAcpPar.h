@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McAcpPar 5.16.2 */
+/* McAcpPar 5.15.1 */
 
 #ifndef _MCACPPAR_
 #define _MCACPPAR_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McAcpPar_VERSION
-#define _McAcpPar_VERSION 5.16.2
+#define _McAcpPar_VERSION 5.15.1
 #endif
 
 #include <bur/plctypes.h>
@@ -829,8 +829,6 @@ extern "C"
  #define mcACPPAR_ENCOD2_DIAG_ID 1360U
  #define mcACPPAR_OBS_POS2_PARA_B1_PARID 1358U
  #define mcACPPAR_OBS_POS2_PARA_B0_PARID 1357U
- #define mcACPPAR_PIDENT_TRACE_VAR4 1356U
- #define mcACPPAR_PIDENT_TRACE_VAR3 1355U
  #define mcACPPAR_OBS_MODE_BITS 1354U
  #define mcACPPAR_OBS_POS1_PARA_A2 1353U
  #define mcACPPAR_OBS_POS1_PARA_A1 1352U
@@ -2695,8 +2693,6 @@ extern "C"
  _GLOBAL_CONST unsigned short mcACPPAR_ENCOD2_DIAG_ID;
  _GLOBAL_CONST unsigned short mcACPPAR_OBS_POS2_PARA_B1_PARID;
  _GLOBAL_CONST unsigned short mcACPPAR_OBS_POS2_PARA_B0_PARID;
- _GLOBAL_CONST unsigned short mcACPPAR_PIDENT_TRACE_VAR4;
- _GLOBAL_CONST unsigned short mcACPPAR_PIDENT_TRACE_VAR3;
  _GLOBAL_CONST unsigned short mcACPPAR_OBS_MODE_BITS;
  _GLOBAL_CONST unsigned short mcACPPAR_OBS_POS1_PARA_A2;
  _GLOBAL_CONST unsigned short mcACPPAR_OBS_POS1_PARA_A1;

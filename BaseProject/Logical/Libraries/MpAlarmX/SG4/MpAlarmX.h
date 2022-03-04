@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpAlarmX 5.16.1 */
+/* MpAlarmX 5.15.0 */
 
 #ifndef _MPALARMX_
 #define _MPALARMX_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpAlarmX_VERSION
-#define _MpAlarmX_VERSION 5.16.1
+#define _MpAlarmX_VERSION 5.15.0
 #endif
 
 #include <bur/plctypes.h>
@@ -136,10 +136,6 @@ typedef struct MpAlarmXAcknowledgeAllInfoType
 {	unsigned long UnacknowledgedAlarms;
 	struct MpAlarmXDiagType Diag;
 } MpAlarmXAcknowledgeAllInfoType;
-
-typedef struct MpAlarmXControlInfoType
-{	struct MpAlarmXDiagType Diag;
-} MpAlarmXControlInfoType;
 
 typedef struct MpAlarmXListUIBacktraceType
 {	unsigned long RecordID[5];
@@ -281,8 +277,6 @@ typedef struct MpAlarmXBehaviorType
 	enum MpAlarmXAcknowledgeConfigEnum Acknowledge;
 	plcbit MultipleInstances;
 	plcbit ReactionUntilAcknowledged;
-	plcbit Retain;
-	plcbit Async;
 	struct MpAlarmXHistoryReportType HistoryReport;
 	struct MpAlarmXUpdateBehaviorType DataUpdate;
 } MpAlarmXBehaviorType;
@@ -467,31 +461,6 @@ typedef struct MpAlarmXAcknowledgeAll
 	plcbit CommandDone;
 } MpAlarmXAcknowledgeAll_typ;
 
-typedef struct MpAlarmXAlarmControl
-{
-	/* VAR_INPUT (analog) */
-	struct MpComIdentType* MpLink;
-	plcstring (*Name);
-	unsigned long ID;
-	/* VAR_OUTPUT (analog) */
-	signed long StatusID;
-	unsigned long InstanceID;
-	struct MpAlarmXControlInfoType Info;
-	/* VAR (analog) */
-	struct MpComInternalDataType Internal;
-	/* VAR_INPUT (digital) */
-	plcbit Enable;
-	plcbit ErrorReset;
-	plcbit Set;
-	plcbit Reset;
-	plcbit Acknowledge;
-	/* VAR_OUTPUT (digital) */
-	plcbit Active;
-	plcbit Error;
-	plcbit CommandBusy;
-	plcbit CommandDone;
-} MpAlarmXAlarmControl_typ;
-
 
 
 /* Prototyping of functions and function blocks */
@@ -503,7 +472,6 @@ _BUR_PUBLIC void MpAlarmXConfigAlarm(struct MpAlarmXConfigAlarm* inst);
 _BUR_PUBLIC void MpAlarmXConfigMapping(struct MpAlarmXConfigMapping* inst);
 _BUR_PUBLIC void MpAlarmXQuery(struct MpAlarmXQuery* inst);
 _BUR_PUBLIC void MpAlarmXAcknowledgeAll(struct MpAlarmXAcknowledgeAll* inst);
-_BUR_PUBLIC void MpAlarmXAlarmControl(struct MpAlarmXAlarmControl* inst);
 _BUR_PUBLIC plcbit MpAlarmXCheckState(struct MpComIdentType* MpLink, plcstring* Name, enum MpAlarmXStateEnum State);
 _BUR_PUBLIC plcbit MpAlarmXCheckStateID(struct MpComIdentType* MpLink, unsigned long InstanceID, enum MpAlarmXStateEnum State);
 _BUR_PUBLIC plcbit MpAlarmXCheckReaction(struct MpComIdentType* MpLink, plcstring* Name);

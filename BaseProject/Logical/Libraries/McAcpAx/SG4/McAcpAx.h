@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McAcpAx 5.16.2 */
+/* McAcpAx 5.15.1 */
 
 #ifndef _MCACPAX_
 #define _MCACPAX_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McAcpAx_VERSION
-#define _McAcpAx_VERSION 5.16.2
+#define _McAcpAx_VERSION 5.15.1
 #endif
 
 #include <bur/plctypes.h>
@@ -89,8 +89,7 @@ typedef enum McAcpAxBrakeTestModeEnum
 
 typedef enum McAcpAxAxisTypeEnum
 {	mcACPAX_AXIS_REAL,
-	mcACPAX_AXIS_VIRTUAL,
-	mcACPAX_AXIS_EXT_ENC
+	mcACPAX_AXIS_VIRTUAL
 } McAcpAxAxisTypeEnum;
 
 typedef enum McAcpAxProductFamilyEnum
@@ -169,11 +168,6 @@ typedef enum McAcpAxAutoTuneMotorModeEnum
 	mcACPAX_ATM_TEST = 12
 } McAcpAxAutoTuneMotorModeEnum;
 
-typedef enum McAcpAxLoadModelIdentModeEnum
-{	mcACPAX_MODEL_IDENT_CLOSED_LOOP = 0,
-	mcACPAX_MODEL_IDENT_OPEN_LOOP = 1
-} McAcpAxLoadModelIdentModeEnum;
-
 typedef enum McAcpAxAutoTuneMotPhasModeEnum
 {	mcACPAX_ATMP_SATURATION = 30,
 	mcACPAX_ATMP_STEPPER = 31,
@@ -187,13 +181,6 @@ typedef enum McAcpAxSimulationModeEnum
 	mcACPAX_SIMULATION_2MASS,
 	mcACPAX_SIMULATION_SET_GEN_ONLY
 } McAcpAxSimulationModeEnum;
-
-typedef enum McAcpAxFeedbackModeEnum
-{	mcACPAX_FBCTRL_MODE_STANDARD = 0,
-	mcACPAX_FBCTRL_MODE_1MASS_MODEL = 4,
-	mcACPAX_FBCTRL_MODE_2MASS_MODEL = 3,
-	mcACPAX_FBCTRL_MODE_2ENC_SPEED = 5
-} McAcpAxFeedbackModeEnum;
 
 typedef enum McMSMotEnum
 {	mcMSM_DEF = 0
@@ -261,8 +248,7 @@ typedef enum McMMTMCSBCalcMethEnum
 
 typedef enum McMMTMCSBCMRefTmpEnum
 {	mcMMTMCSBCMRT_MOT_TMP_SENS = 0,
-	mcMMTMCSBCMRT_NOM_AMB_TMP = 1,
-	mcMMTMCSBCMRT_ENC_TMP_SENS = 2
+	mcMMTMCSBCMRT_NOM_AMB_TMP = 1
 } McMMTMCSBCMRefTmpEnum;
 
 typedef enum McMSBrkEnum
@@ -366,7 +352,6 @@ typedef enum McAELTwoEncPosEncCmnScCntDirEnum
 typedef enum McACModEnum
 {	mcACM_POS_CTRL = 0,
 	mcACM_POS_CTRL_TORQ_FF = 1,
-	mcACM_POS_CTRL_MDL_BASED = 3,
 	mcACM_V_FREQ_CTRL = 2
 } McACModEnum;
 
@@ -391,19 +376,6 @@ typedef enum McACMPCFFFFwdEnum
 {	mcACMPCFFFF_STD = 0,
 	mcACMPCFFFF_CYC_VAL_FROM_AX_GRP = 1
 } McACMPCFFFFwdEnum;
-
-typedef enum McACMPCMBCFFEnum
-{	mcACMPCMBCFF_STD = 0,
-	mcACMPCMBCFF_PRED_SPD = 1,
-	mcACMPCMBCFF_TWO_MASS_MDL_BASED = 2
-} McACMPCMBCFFEnum;
-
-typedef enum McACMPCMBCFdbkEnum
-{	mcACMPCMBCF_STD = 0,
-	mcACMPCMBCF_ONE_MASS_MDL_BASED = 1,
-	mcACMPCMBCF_TWO_MASS_MDL_BASED = 2,
-	mcACMPCMBCF_TWO_ENC_SPD_BASED = 3
-} McACMPCMBCFdbkEnum;
 
 typedef enum McACMVFCVFTypEnum
 {	mcACMVFCVFT_LIN = 129,
@@ -955,44 +927,6 @@ typedef enum McAVHHomeModEnum
 	mcAVHHM_NOT_USE = 100
 } McAVHHomeModEnum;
 
-typedef enum McAEEAExtEncAxEnum
-{	mcAEEAEEA_NOT_USE = 0,
-	mcAEEAEEA_USE = 1
-} McAEEAExtEncAxEnum;
-
-typedef enum McAEEAUseEncLinkEnum
-{	mcAEEAUEL_ONE_ENC = 0
-} McAEEAUseEncLinkEnum;
-
-typedef enum McAEEAUseEncLinkOneEncPosEncEnum
-{	mcAEEAUELOEPE_ENC_X41 = 0,
-	mcAEEAUELOEPE_ENC_SS1X41X = 1,
-	mcAEEAUELOEPE_ENC_X42 = 2,
-	mcAEEAUELOEPE_ENC_SS1X42X = 3,
-	mcAEEAUELOEPE_ENC_X43 = 4,
-	mcAEEAUELOEPE_ENC_SS1X43X = 5,
-	mcAEEAUELOEPE_ENC_SS1X11 = 6,
-	mcAEEAUELOEPE_ENC_SS2X11 = 7,
-	mcAEEAUELOEPE_ENC_SS3X11 = 8,
-	mcAEEAUELOEPE_ENC_SS4X11 = 9
-} McAEEAUseEncLinkOneEncPosEncEnum;
-
-typedef enum McAEEAUELOneEncPosFltrEnum
-{	mcAEEAUELOEPF_EXTPOL_AND_DIST = 0
-} McAEEAUELOneEncPosFltrEnum;
-
-typedef enum McAEEAHModEnum
-{	mcAEEAHM_DIR = 0,
-	mcAEEAHM_ABS = 4,
-	mcAEEAHM_RES_POS = 10,
-	mcAEEAHM_NOT_USE = 100
-} McAEEAHModEnum;
-
-typedef enum McAEEAHModDirRefPEnum
-{	mcAEEAHMDRP_NOT_USE = 0,
-	mcAEEAHMDRP_USE = 1
-} McAEEAHModDirRefPEnum;
-
 typedef struct McAcpAxLoopFilterLowPassType
 {	float CutOffFrequency;
 } McAcpAxLoopFilterLowPassType;
@@ -1058,36 +992,6 @@ typedef struct McAcpAxAdvCtrlParType
 	struct McAcpAxLoopFilterParType LoopFilter3;
 } McAcpAxAdvCtrlParType;
 
-typedef struct McAcpAxPosCtrlParType
-{	float ProportionalGain;
-	float IntegrationTime;
-	float PredictionTime;
-	float TotalDelayTime;
-} McAcpAxPosCtrlParType;
-
-typedef struct McAcpAxSpeedCtrlParType
-{	float ProportionalGain;
-	float IntegrationTime;
-	float FilterTime;
-} McAcpAxSpeedCtrlParType;
-
-typedef struct McAcpAxFeedForwardParType
-{	float TorqueLoad;
-	float TorquePositive;
-	float TorqueNegative;
-	float SpeedTorqueFactor;
-	float Inertia;
-	float AccelerationFilterTime;
-} McAcpAxFeedForwardParType;
-
-typedef struct McAcpAxCtrlParType
-{	enum McAcpAxCtrlModeEnum Mode;
-	struct McAcpAxPosCtrlParType PositionController;
-	struct McAcpAxSpeedCtrlParType SpeedController;
-	struct McAcpAxFeedForwardParType FeedForward;
-	enum McAcpAxCtrlParSelectEnum ParameterSelector;
-} McAcpAxCtrlParType;
-
 typedef struct McAcpAxAutoTuneFeedFwdType
 {	enum McDirectionEnum Direction;
 	enum McAcpAxAutoTuneOrientationEnum Orientation;
@@ -1098,6 +1002,15 @@ typedef struct McAcpAxAutoTuneFeedFwdType
 	float MaxCurrentPercent;
 	float MaxVelocityPercent;
 } McAcpAxAutoTuneFeedFwdType;
+
+typedef struct McAcpAxFeedForwardParType
+{	float TorqueLoad;
+	float TorquePositive;
+	float TorqueNegative;
+	float SpeedTorqueFactor;
+	float Inertia;
+	float AccelerationFilterTime;
+} McAcpAxFeedForwardParType;
 
 typedef struct McAcpAxAutoTuneFeedFwdOutType
 {	float Quality;
@@ -1216,10 +1129,18 @@ typedef struct McAcpAxModuleInfoType
 	enum McAcpAxSimulationOnPlcEnum AcoposSimulationOnPlc;
 } McAcpAxModuleInfoType;
 
-typedef struct McAcpAxFeedbackParType
-{	float SpeedMixRatio;
-	float SpeedProportionalGain;
-} McAcpAxFeedbackParType;
+typedef struct McAcpAxPosCtrlParType
+{	float ProportionalGain;
+	float IntegrationTime;
+	float PredictionTime;
+	float TotalDelayTime;
+} McAcpAxPosCtrlParType;
+
+typedef struct McAcpAxSpeedCtrlParType
+{	float ProportionalGain;
+	float IntegrationTime;
+	float FilterTime;
+} McAcpAxSpeedCtrlParType;
 
 typedef struct McAcpAxAutoTuneExSignalType
 {	enum McAcpAxAutoTuneExSignalEnum SignalType;
@@ -1358,87 +1279,6 @@ typedef struct McACMPCFFType
 	struct McACLFType LoopFilters;
 } McACMPCFFType;
 
-typedef struct McACMPCMBCPosType
-{	float ProportionalGain;
-	float IntegrationTime;
-	float TotalDelayTime;
-} McACMPCMBCPosType;
-
-typedef struct McACMPCMBCFFStdType
-{	float TorqueLoad;
-	float TorquePositive;
-	float TorqueNegative;
-	float SpeedTorqueFactor;
-	float Inertia;
-	float AccelerationFilterTime;
-} McACMPCMBCFFStdType;
-
-typedef struct McACMPCMBCFFPredSpdType
-{	float PredictionTime;
-} McACMPCMBCFFPredSpdType;
-
-typedef struct McACMPCMBCFFTwoMassMdlBasedType
-{	float TorqueLoad;
-	float TorquePositive;
-	float TorqueNegative;
-	float AccelerationFilterTime;
-} McACMPCMBCFFTwoMassMdlBasedType;
-
-typedef struct McACMPCMBCFFType
-{	enum McACMPCMBCFFEnum Type;
-	struct McACMPCMBCFFStdType Standard;
-	struct McACMPCMBCFFPredSpdType PredictiveSpeed;
-	struct McACMPCMBCFFTwoMassMdlBasedType TwoMassModelBased;
-} McACMPCMBCFFType;
-
-typedef struct McACMPCMBCFdbkOneMassMdlBsdType
-{	float SpeedMixingFactor;
-	float SpeedProportionalGain;
-} McACMPCMBCFdbkOneMassMdlBsdType;
-
-typedef struct McACMPCMBCFdbkTwoMassMdlBsdType
-{	float SpeedMixingFactor;
-	float SpeedProportionalGain;
-} McACMPCMBCFdbkTwoMassMdlBsdType;
-
-typedef struct McACMPCMBCFdbkTwoEncSpdBasedType
-{	float SpeedMixingFactor;
-	float SpeedProportionalGain;
-} McACMPCMBCFdbkTwoEncSpdBasedType;
-
-typedef struct McACMPCMBCFdbkType
-{	enum McACMPCMBCFdbkEnum Type;
-	struct McACMPCMBCFdbkOneMassMdlBsdType OneMassModelBased;
-	struct McACMPCMBCFdbkTwoMassMdlBsdType TwoMassModelBased;
-	struct McACMPCMBCFdbkTwoEncSpdBasedType TwoEncoderSpeedBased;
-} McACMPCMBCFdbkType;
-
-typedef struct McACMPCMBCMdlMass1Type
-{	float Inertia;
-	float ViscousFriction;
-} McACMPCMBCMdlMass1Type;
-
-typedef struct McACMPCMBCMdlMass2Type
-{	float Inertia;
-	float ViscousFriction;
-	float Stiffness;
-	float Damping;
-} McACMPCMBCMdlMass2Type;
-
-typedef struct McACMPCMBCMdlType
-{	struct McACMPCMBCMdlMass1Type Mass1;
-	struct McACMPCMBCMdlMass2Type Mass2;
-} McACMPCMBCMdlType;
-
-typedef struct McACMPCMBCType
-{	struct McACMPCMBCPosType Position;
-	struct McACSCType Speed;
-	struct McACMPCMBCFFType Feedforward;
-	struct McACMPCMBCFdbkType Feedback;
-	struct McACMPCMBCMdlType Model;
-	struct McACLFType LoopFilters;
-} McACMPCMBCType;
-
 typedef struct McACMVFCVFAutCfgNotUseType
 {	float BoostVoltage;
 	float RatedVoltage;
@@ -1465,7 +1305,6 @@ typedef struct McACModType
 {	enum McACModEnum Type;
 	struct McACMPCType PositionController;
 	struct McACMPCFFType PositionControllerTorqueFf;
-	struct McACMPCMBCType PositionControllerModelBased;
 	struct McACMVFCType VoltageFrequencyControl;
 } McACModType;
 
@@ -1485,7 +1324,6 @@ typedef struct McAcpAxAutoTuneSpeedCtrlOutType
 	float FilterTime;
 	struct McAcpAxLoopFilterParType LoopFilter1;
 	float PhaseCrossoverFrequency;
-	struct McAcpAxFeedbackParType Feedback;
 	struct McCfgAcpCtrlType Parameters;
 } McAcpAxAutoTuneSpeedCtrlOutType;
 
@@ -1513,31 +1351,12 @@ typedef struct McAcpAxAutoTuneLoopFiltersType
 	enum McAcpAxLoopFilterModeEnum LoopFilter3Mode;
 } McAcpAxAutoTuneLoopFiltersType;
 
-typedef struct McAcpAxLoadModelMass1Type
-{	float Inertia;
-	float ViscousFriction;
-} McAcpAxLoadModelMass1Type;
-
-typedef struct McAcpAxLoadModelMass2Type
-{	float Inertia;
-	float ViscousFriction;
-	float Stiffness;
-	float Damping;
-} McAcpAxLoadModelMass2Type;
-
-typedef struct McAcpAxLoadModelType
-{	struct McAcpAxLoadModelMass1Type Mass1;
-	struct McAcpAxLoadModelMass2Type Mass2;
-} McAcpAxLoadModelType;
-
 typedef struct McAcpAxAdvAutoTuneSpeedCtrlType
-{	enum McAcpAxFeedbackModeEnum FeedbackMode;
-	enum McAcpAxLoopFilterModeEnum LoopFilter1Mode;
+{	enum McAcpAxLoopFilterModeEnum LoopFilter1Mode;
 	enum McAcpAxFilterTimeModeEnum FilterTimeMode;
 	enum McAcpAxIntegrationTimeModeEnum IntegrationTimeMode;
 	enum McAcpAxAutoTuneOperatPointEnum OperatingPoint;
 	float Velocity;
-	float MaxVelocityPercent;
 	float Acceleration;
 	float MaxProportionalGain;
 	float ProportionalGainPercent;
@@ -1545,7 +1364,6 @@ typedef struct McAcpAxAdvAutoTuneSpeedCtrlType
 	float InertiaEstimationLowerFrequency;
 	float InertiaEstimationUpperFrequency;
 	struct McAcpAxAutoTuneExSignalType ExcitationSignal;
-	struct McAcpAxLoadModelType LoadModel;
 } McAcpAxAdvAutoTuneSpeedCtrlType;
 
 typedef struct McAcpAxAdvAutoTuneLoopFilterType
@@ -1642,14 +1460,8 @@ typedef struct McMMTmpSensType
 	struct McMMTSThrmSwType Thermoswitches;
 } McMMTmpSensType;
 
-typedef struct McMMTMCSBCMRefTmpEncTmpSensType
-{	float TemperatureOffset;
-	float TimeConstant;
-} McMMTMCSBCMRefTmpEncTmpSensType;
-
 typedef struct McMMTMCSBCMRefTmpType
 {	enum McMMTMCSBCMRefTmpEnum Type;
-	struct McMMTMCSBCMRefTmpEncTmpSensType EncoderTemperatureSensor;
 } McMMTMCSBCMRefTmpType;
 
 typedef struct McMMTMCSBCMSecOrdType
@@ -2050,17 +1862,6 @@ typedef struct McAcpAxAutoTuneMotPhasOutType
 	float CommutationOffset;
 } McAcpAxAutoTuneMotPhasOutType;
 
-typedef struct McAcpAxAdvAutoTuneLoadModelType
-{	enum McAcpAxLoadModelIdentModeEnum IdentMode;
-	struct McAcpAxAutoTuneExSignalType ExcitationSignal;
-} McAcpAxAdvAutoTuneLoadModelType;
-
-typedef struct McAcpAxAutoTuneLoadModelOutType
-{	float Quality;
-	struct McAcpAxLoadModelType LoadModel;
-	struct McCfgAcpCtrlType Parameters;
-} McAcpAxAutoTuneLoadModelOutType;
-
 typedef struct McAcpAxAdvCamAutSetParType
 {	enum McCamAutParLockCmdEnum ParLock;
 } McAcpAxAdvCamAutSetParType;
@@ -2188,6 +1989,14 @@ typedef struct McAcpAxAdvOffsetParType
 	unsigned short PosVelocityTriggerParID;
 	unsigned short NegVelocityTriggerParID;
 } McAcpAxAdvOffsetParType;
+
+typedef struct McAcpAxCtrlParType
+{	enum McAcpAxCtrlModeEnum Mode;
+	struct McAcpAxPosCtrlParType PositionController;
+	struct McAcpAxSpeedCtrlParType SpeedController;
+	struct McAcpAxFeedForwardParType FeedForward;
+	enum McAcpAxCtrlParSelectEnum ParameterSelector;
+} McAcpAxCtrlParType;
 
 typedef struct McAcpAxAdvAutoTuneFeedFwdType
 {	struct McAcpAxAutoTuneExSignalType ExcitationSignal;
@@ -2332,20 +2141,6 @@ typedef struct McAHModDistCMarksCorrType
 	enum McAHModKeepDirEnum KeepDirection;
 } McAHModDistCMarksCorrType;
 
-typedef struct McAHModBlkRefPNotUseType
-{	double MinimumReturnDistance;
-} McAHModBlkRefPNotUseType;
-
-typedef struct McAHModBlkRefPUseType
-{	double ReferencePulseBlockingDistance;
-} McAHModBlkRefPUseType;
-
-typedef struct McAHModBlkRefPType
-{	enum McAHModRefPEnum Type;
-	struct McAHModBlkRefPNotUseType NotUsed;
-	struct McAHModBlkRefPUseType Used;
-} McAHModBlkRefPType;
-
 typedef struct McAHModBlkTorqType
 {	double Position;
 	float StartVelocity;
@@ -2353,7 +2148,7 @@ typedef struct McAHModBlkTorqType
 	float Acceleration;
 	enum McAHModStartDirEnum StartDirection;
 	enum McAHModHomeDirEnum HomingDirection;
-	struct McAHModBlkRefPType ReferencePulse;
+	struct McAHModRefPType ReferencePulse;
 	float TorqueLimit;
 	double PositionErrorStopLimit;
 } McAHModBlkTorqType;
@@ -2365,7 +2160,7 @@ typedef struct McAHModBlkLagErrType
 	float Acceleration;
 	enum McAHModStartDirEnum StartDirection;
 	enum McAHModHomeDirEnum HomingDirection;
-	struct McAHModBlkRefPType ReferencePulse;
+	struct McAHModRefPType ReferencePulse;
 	float TorqueLimit;
 	double PositionErrorStopLimit;
 	double BlockDetectionPositionError;
@@ -3075,89 +2870,27 @@ typedef struct McCfgAcpChFeatType
 {	struct McACFChFeatType ChannelFeatures;
 } McCfgAcpChFeatType;
 
-typedef struct McAEEAUseEncLinkOneEncPosEncType
-{	enum McAEEAUseEncLinkOneEncPosEncEnum Type;
-} McAEEAUseEncLinkOneEncPosEncType;
-
-typedef struct McAEEAUELOEPosFltrExtpolDistType
-{	float PositionFilterTimeConstant;
-	float ExtrapolationTime;
-} McAEEAUELOEPosFltrExtpolDistType;
-
-typedef struct McAEEAUELOneEncPosFltrType
-{	enum McAEEAUELOneEncPosFltrEnum Type;
-	struct McAEEAUELOEPosFltrExtpolDistType ExtrapolationAndDisturbance;
-} McAEEAUELOneEncPosFltrType;
-
-typedef struct McAEEAUseEncLinkOneEncType
-{	struct McAEEAUseEncLinkOneEncPosEncType PositionEncoder;
-	struct McAEEAUELOneEncPosFltrType PositionFilter;
-} McAEEAUseEncLinkOneEncType;
-
-typedef struct McAEEAUseEncLinkType
-{	enum McAEEAUseEncLinkEnum Type;
-	struct McAEEAUseEncLinkOneEncType OneEncoder;
-} McAEEAUseEncLinkType;
-
-typedef struct McAEEAHModDirRefPType
-{	enum McAEEAHModDirRefPEnum Type;
-} McAEEAHModDirRefPType;
-
-typedef struct McAEEAHModDirType
-{	double Position;
-	struct McAEEAHModDirRefPType ReferencePulse;
-} McAEEAHModDirType;
-
-typedef struct McAEEAHModAbsType
-{	double Position;
-} McAEEAHModAbsType;
-
-typedef struct McAEEAHModType
-{	enum McAEEAHModEnum Type;
-	struct McAEEAHModDirType Direct;
-	struct McAEEAHModAbsType Absolute;
-} McAEEAHModType;
-
-typedef struct McAEEAHType
-{	struct McAEEAHModType Mode;
-	plcstring RestorePositionVariable[251];
-} McAEEAHType;
-
-typedef struct McAEEAExtEncAxUseType
-{	struct McCfgReferenceType AxisReference;
-	struct McAEEAUseEncLinkType EncoderLink;
-	struct McAMEType MechanicalElements;
-	struct McAEEAHType Homing;
-} McAEEAExtEncAxUseType;
-
-typedef struct McAEEAExtEncAxType
-{	enum McAEEAExtEncAxEnum Type;
-	struct McAEEAExtEncAxUseType Used;
-} McAEEAExtEncAxType;
-
-typedef struct McCfgAcpExtEncAxType
-{	struct McAEEAExtEncAxType ExternalEncoderAxis;
-} McCfgAcpExtEncAxType;
-
-typedef struct McCfgAcpExtEncAxRefType
-{	struct McCfgReferenceType AxisReference;
-} McCfgAcpExtEncAxRefType;
-
-typedef struct McCfgAcpExtEncAxEncLinkType
-{	struct McAEEAUseEncLinkType EncoderLink;
-} McCfgAcpExtEncAxEncLinkType;
-
-typedef struct McCfgAcpExtEncAxMechElmType
-{	struct McAMEType MechanicalElements;
-} McCfgAcpExtEncAxMechElmType;
-
-typedef struct McCfgAcpExtEncAxHomeType
-{	struct McAEEAHType Homing;
-} McCfgAcpExtEncAxHomeType;
-
 typedef struct McCfgAxFeatAcpParTblType
 {	plcstring ACOPOSParameterTableReference[251];
 } McCfgAxFeatAcpParTblType;
+
+typedef struct MC_BR_ControllerSetPar_AcpAx
+{
+	/* VAR_INPUT (analog) */
+	struct McAxisType* Axis;
+	struct McAcpAxCtrlParType Parameters;
+	struct McAcpAxAdvCtrlParType AdvancedParameters;
+	/* VAR_OUTPUT (analog) */
+	signed long ErrorID;
+	/* VAR (analog) */
+	struct McInternalType Internal;
+	/* VAR_INPUT (digital) */
+	plcbit Execute;
+	/* VAR_OUTPUT (digital) */
+	plcbit Done;
+	plcbit Busy;
+	plcbit Error;
+} MC_BR_ControllerSetPar_AcpAx_typ;
 
 typedef struct MC_BR_AutoTuneFeedForward_AcpAx
 {
@@ -3587,26 +3320,6 @@ typedef struct MC_BR_AutoTuneMotorPhasing_AcpAx
 	plcbit Error;
 } MC_BR_AutoTuneMotorPhasing_AcpAx_typ;
 
-typedef struct MC_BR_AutoTuneLoadModel_AcpAx
-{
-	/* VAR_INPUT (analog) */
-	struct McAxisType* Axis;
-	struct McAcpAxAutoTuneParType Parameters;
-	struct McAcpAxAdvAutoTuneLoadModelType AdvancedParameters;
-	/* VAR_OUTPUT (analog) */
-	signed long ErrorID;
-	struct McAcpAxAutoTuneLoadModelOutType Output;
-	/* VAR (analog) */
-	struct McInternalType Internal;
-	/* VAR_INPUT (digital) */
-	plcbit Execute;
-	/* VAR_OUTPUT (digital) */
-	plcbit Done;
-	plcbit Busy;
-	plcbit CommandAborted;
-	plcbit Error;
-} MC_BR_AutoTuneLoadModel_AcpAx_typ;
-
 typedef struct MC_BR_CamAutomatSetPar_AcpAx
 {
 	/* VAR_INPUT (analog) */
@@ -3809,6 +3522,7 @@ typedef struct MC_BR_ApsmPowerOff_AcpAx
 
 
 /* Prototyping of functions and function blocks */
+_BUR_PUBLIC void MC_BR_ControllerSetPar_AcpAx(struct MC_BR_ControllerSetPar_AcpAx* inst);
 _BUR_PUBLIC void MC_BR_AutoTuneFeedForward_AcpAx(struct MC_BR_AutoTuneFeedForward_AcpAx* inst);
 _BUR_PUBLIC void MC_BR_InitHome_AcpAx(struct MC_BR_InitHome_AcpAx* inst);
 _BUR_PUBLIC void MC_BR_ProcessParID_AcpAx(struct MC_BR_ProcessParID_AcpAx* inst);
@@ -3830,7 +3544,6 @@ _BUR_PUBLIC void MC_BR_AutoTuneTest_AcpAx(struct MC_BR_AutoTuneTest_AcpAx* inst)
 _BUR_PUBLIC void MC_BR_AutoTuneInductMotor_AcpAx(struct MC_BR_AutoTuneInductMotor_AcpAx* inst);
 _BUR_PUBLIC void MC_BR_AutoTuneSyncMotor_AcpAx(struct MC_BR_AutoTuneSyncMotor_AcpAx* inst);
 _BUR_PUBLIC void MC_BR_AutoTuneMotorPhasing_AcpAx(struct MC_BR_AutoTuneMotorPhasing_AcpAx* inst);
-_BUR_PUBLIC void MC_BR_AutoTuneLoadModel_AcpAx(struct MC_BR_AutoTuneLoadModel_AcpAx* inst);
 _BUR_PUBLIC void MC_BR_CamAutomatSetPar_AcpAx(struct MC_BR_CamAutomatSetPar_AcpAx* inst);
 _BUR_PUBLIC void MC_BR_CamAutomatGetPar_AcpAx(struct MC_BR_CamAutomatGetPar_AcpAx* inst);
 _BUR_PUBLIC void MC_BR_PhasingVelocity_AcpAx(struct MC_BR_PhasingVelocity_AcpAx* inst);

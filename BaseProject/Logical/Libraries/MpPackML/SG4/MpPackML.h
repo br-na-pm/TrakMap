@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpPackML 5.16.1 */
+/* MpPackML 5.15.0 */
 
 #ifndef _MPPACKML_
 #define _MPPACKML_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpPackML_VERSION
-#define _MpPackML_VERSION 5.16.1
+#define _MpPackML_VERSION 5.15.0
 #endif
 
 #include <bur/plctypes.h>

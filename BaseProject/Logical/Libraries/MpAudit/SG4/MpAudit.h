@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpAudit 5.16.1 */
+/* MpAudit 5.15.0 */
 
 #ifndef _MPAUDIT_
 #define _MPAUDIT_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpAudit_VERSION
-#define _MpAudit_VERSION 5.16.1
+#define _MpAudit_VERSION 5.15.0
 #endif
 
 #include <bur/plctypes.h>

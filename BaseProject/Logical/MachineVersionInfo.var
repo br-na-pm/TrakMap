@@ -1,4 +1,0 @@
-VAR
-	MachineSoftwareVersion : STRING[80] := 'development-1.0.0-72-fa9de2c';
-	MachineLastRevisionDate : DATE_AND_TIME := DT#2022-02-03-15:34;
-END_VAR

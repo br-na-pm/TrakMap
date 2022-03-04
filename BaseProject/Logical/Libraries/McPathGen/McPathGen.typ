@@ -175,14 +175,6 @@ TYPE
 		Torques : ARRAY [0..9] OF LREAL; (**)
 	END_STRUCT;
 	
-	McPathGenMonElemGBTorquesType : STRUCT (*Monitoring Element: Gearbox torques*)
-		Torques : ARRAY [0..9] OF LREAL; (**)
-	END_STRUCT;
-
-	McPathGenMonElemCSLoadsType : STRUCT (*Monitoring Element: Cross section loads*)
-		Loads : ARRAY [0..249] OF LREAL; (**)
-	END_STRUCT;	
-
 	McPathGenMonElemBasicMonType : STRUCT (*Monitoring Element: Basic monitor*)
 		CurrentProgram : McPathGenMonElemCurrentPrgType; (**)
 		LineNumber : UDINT; (**)

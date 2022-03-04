@@ -54,7 +54,6 @@ TYPE
 		StartupCount : UDINT; (*Number of times the drive was started up since the last PLC start*)
 		AutoTuneDone : BOOL;
 		AutoTuneQuality : REAL;
-		HardwareInfo : McHardwareInfoType;
 	END_STRUCT;
 	MpAxisDiagExtType : 	STRUCT 
 		StatusID : MpAxisStatusIDType; (*StatusID information*)
@@ -137,10 +136,6 @@ Parameters left at default values disable the associated optional functions.*)
 *)
 		Diag : MpAxisDiagExtType; (*Diagnostic structure for the status ID*)
 		Recovery : MpAxisRecoveryInfoType; (*Recovery command related information*)
-		ActiveSignal1 : BOOL; (*Signal1 status*)
-		ActiveSignal2 : BOOL; (*Signal2 status*)
-		ActiveSignal3 : BOOL; (*Signal3 status*)
-		ActiveSignal4 : BOOL; (*Signal4 status*)
 	END_STRUCT;
 	MpAxisCamSequencerParType : 	STRUCT 
 		Deceleration : REAL := 0.0; (*Deceleration for Halting CamAutomat in case of sequence end [Measurement units/s²]*)
@@ -248,7 +243,6 @@ Parameters left at default values disable the associated optional functions.*)
 		Deceleration : REAL; (* Maximum deceleration [Measurement units/s²]*)
 		Jerk : REAL; (* Maximum jerk [Measurement units/s³]*)
 		Options : McAdvCamAutPrepRestartParType; (* Recovery optional parameters*)
-		MasterPositionOffset : LREAL; (*Master position offset used only for Recovery with no CamAutomat used in background*)
 	END_STRUCT;
 	MpAxisCouplingRecoveryParType : 	STRUCT 
 		Mode : McCamAutPrepRestartModeEnum; (* Mode of repositioning*)
@@ -257,7 +251,6 @@ Parameters left at default values disable the associated optional functions.*)
 		Deceleration : REAL; (* Maximum deceleration [Measurement units/s²]*)
 		Jerk : REAL; (* Maximum jerk [Measurement units/s³]*)
 		Options : McAdvCamAutPrepRestartParType; (* Recovery optional parameters*)
-		MasterPositionOffset : LREAL; (*Master position offset used only for Recovery with no CamAutomat used in background*)
 	END_STRUCT;
 	MpAxisSequenceSetModeEnum : 
 		(

@@ -44,7 +44,8 @@
 <p class="rvps2"><span class="rvts19">Requirements:</span></p>
 <p class="rvps2"><span class="rvts14">- Working Acopos Trak Project and layout (project compiles and can succesfully power on the assembly and move shuttles)</span></p>
 <p class="rvps2"><span class="rvts14">- Automatically generated SVG from the SVGData file device </span></p>
-<p class="rvps2"><span class="rvts14">- 5.16+ MpMotion Version</span></p>
+<p class="rvps2"><span class="rvts14">- 5.13+ MpMotion Version</span></p>
+<p class="rvps9"><span class="rvts14">The python script only supports versions 5.13-5.15. After generating an SVG in a supported version, then the user can upgrade their project to a newer version.</span></p>
 <p class="rvps2"><span class="rvts14"><br/></span></p>
 <p class="rvps2"><span class="rvts22">Import the TrakMap Technology Solution</span></p>
 <p class="rvps2"><span class="rvts14">Place the provided technology solution in the Automation Studio technology solutions folder (BrAutomationInstallationFolder)/(AutomationStudioVersion)/AS/TechnologySolutions. In your project, select the root node in the logical view, in the toolbox select to add a Technology Solution package and select the TrakMap application package that appears.</span></p>
@@ -71,7 +72,7 @@
 <p class="rvps2"><span class="rvts14"><br/></span></p>
 <p class="rvps2"><span class="rvts14">Before deploying, be sure to correctly set the Assembly and ShuttleMon values of the paperCore FUB in the intialization routine of the TrakDiag task. For example:</span></p>
 <p class="rvps2"><span class="rvts14"><br/></span></p>
-<p class="rvps2"><span class="rvts33"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts33">paperCore.Assembly</span><span class="rvts34">&nbsp;</span><span class="rvts35">:=</span><span class="rvts34">&nbsp;</span><span class="rvts32">ADR</span><span class="rvts35">(gSampleTrak);</span><br/><span class="rvts35"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts35">paperCore.ShuttleMon</span><span class="rvts34">&nbsp;</span><span class="rvts35">:=</span><span class="rvts34">&nbsp;</span><span class="rvts32">ADR</span><span class="rvts35">(gShuttleMon);</span></p>
+<p class="rvps2"><span class="rvts32"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts32">paperCore.Assembly</span><span class="rvts33">&nbsp;</span><span class="rvts34">:=</span><span class="rvts33">&nbsp;</span><span class="rvts31">ADR</span><span class="rvts34">(gSampleTrak);</span><br/><span class="rvts34"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts34">paperCore.ShuttleMon</span><span class="rvts33">&nbsp;</span><span class="rvts34">:=</span><span class="rvts33">&nbsp;</span><span class="rvts31">ADR</span><span class="rvts34">(gShuttleMon);</span></p>
 <h5 class="rvps8"><span class="rvts0"><span class="rvts23">Deploy to your Software Configuration</span></span></h5>
 <p class="rvps2"><span class="rvts14">To your project add the trak paper library and the </span><span class="rvts19">TrakDiag</span><span class="rvts14">&nbsp;task. The TrakDiag task is the task that automatically implements the TrakPaper Core function block and supporting function blocks. The TrakDiag task must be added to the cyclic 8 task class (or a large idle time task class)</span></p>
 <p class="rvps2"><span class="rvts14"><br/></span></p>
@@ -87,16 +88,18 @@
 <p class="rvps2"><span class="rvts14">You'll need to enable the following local variables in OPC-UA for the TrakDiag task (make sure to set the variables to be automatic enable).</span></p>
 <p class="rvps2"><span class="rvts14"><br/></span></p>
 <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: decimal;">
-<li value="1" style="margin-left: 0px" class="rvps5"><span class="rvts0"><span class="rvts14">TrakDiag:clickedSegment </span></span></li>
-<li value="2" style="margin-left: 0px" class="rvps5"><span class="rvts0"><span class="rvts14">TrakDiag:clickId </span></span></li>
-<li value="3" style="margin-left: 0px" class="rvps5"><span class="rvts0"><span class="rvts14">TrakDiag:paperCore.SvgTransform </span></span></li>
-<li value="4" style="margin-left: 0px" class="rvps5"><span class="rvts0"><span class="rvts14">TrakDiag:paperCore.SvgContent </span></span></li>
+<li value="1" style="margin-left: 0px" class="rvps5"><span class="rvts0"><span class="rvts14">TrakDiag:paperCore.SvgTransform </span></span></li>
+<li value="2" style="margin-left: 0px" class="rvps5"><span class="rvts0"><span class="rvts14">TrakDiag:paperCore.SvgContent </span></span></li>
+<li value="3" style="margin-left: 0px" class="rvps5"><span class="rvts0"><span class="rvts14">TrakDiag:paperCore.ClickData</span></span></li>
+<li value="4" style="margin-left: 0px" class="rvps5"><span class="rvts0"><span class="rvts14">TrakDiag:ShuttleUserData</span></span></li>
+<li value="5" style="margin-left: 0px" class="rvps5"><span class="rvts0"><span class="rvts14">TrakDiag:paperCore.ClickID</span></span></li>
+<li value="6" style="margin-left: 0px" class="rvps5"><span class="rvts0"><span class="rvts14">TrakDiag:paperCore.ReadClickID</span></span></li>
 </ol>
 <p class="rvps2"><span class="rvts14"><br/></span></p>
 <p class="rvps2"><span class="rvts15">Paper Widget</span></p>
 <p class="rvps2"><span class="rvts12">You'll need to add a paper widget to your HMI content page you wish to show the trak map on. </span></p>
 <p class="rvps2"><span class="rvts12"><br/></span></p>
-<p class="rvps2"><span class="rvts12">Once added to your content, to the paper widget, select the SvgFilePath to be the generated SVG from the previous step, map the paperCore variable SvgTransform and SvgContent variables from the TrakDiag task.</span></p>
+<p class="rvps2"><span class="rvts12">Once added to your content, to the paper widget, select the SvgFilePath to be the generated SVG from the previous step (this SVG must be placed in the Logical\mappView\Resources\Media folder), map the paperCore variable SvgTransform and SvgContent variables from the TrakDiag task.</span></p>
 <p class="rvps2"><span class="rvts12">The Trak paper widget uses the color List property of the paper widget for the segment status colors during operation. The default color values could be the following: </span></p>
 <p class="rvps2"><span class="rvts12"><br/></span></p>
 <p class="rvps2"><span class="rvts12">#C9C9C9,#FF0000,#00FF00,#FFFF80</span></p>
@@ -138,13 +141,33 @@
 </div>
 <p class="rvps2"><span class="rvts12"><br/></span></p>
 <p class="rvps2"><span class="rvts12">Custom styling is possible by changing the color at the defined index.</span></p>
-<p class="rvps2"><span class="rvts12">In order to use the segment details, the </span><span class="rvts20">clickID</span><span class="rvts12">&nbsp;property must be set for the Paper Widget. This can be done by using the below code block in an event binding and setting the </span><span class="rvts20">contentRefId</span><span class="rvts12">&nbsp;and </span><span class="rvts20">widgetRefId</span><span class="rvts12">&nbsp;correctly</span></p>
-<p class="rvps7"><span class="rvts12"></span><br/><span class="rvts29">&nbsp; &nbsp; </span><span class="rvts24">&lt;</span><span class="rvts25">EventBinding</span><span class="rvts26">&nbsp;</span><span class="rvts27">id</span><span class="rvts24">="</span><span class="rvts28">content_trakmap.paperTrakMap.Click</span><span class="rvts24">"&gt;</span><br/><span class="rvts29">&nbsp; &nbsp; &nbsp; </span><span class="rvts24">&lt;</span><span class="rvts25">Source</span><span class="rvts26">&nbsp;</span><span class="rvts27">xsi:type</span><span class="rvts24">="</span><span class="rvts28">widgets.brease.Paper.Event</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts27">contentRefId</span><span class="rvts24">="</span><span class="rvts28">trakmapContent</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts27">widgetRefId</span><span class="rvts24">="</span><span class="rvts28">paperTrakMap</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts27">event</span><span class="rvts24">="</span><span class="rvts28">Click</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts24">/&gt;</span><br/><span class="rvts29">&nbsp; &nbsp; &nbsp; </span><span class="rvts24">&lt;</span><span class="rvts25">EventHandler</span><span class="rvts24">&gt;</span><br/><span class="rvts29">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="rvts24">&lt;</span><span class="rvts25">Action</span><span class="rvts24">&gt;</span><br/><span class="rvts29">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="rvts24">&lt;</span><span class="rvts25">Target</span><span class="rvts26">&nbsp;</span><span class="rvts27">xsi:type</span><span class="rvts24">="</span><span class="rvts28">opcUa.NodeAction</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts27">refId</span><span class="rvts24">="</span><span class="rvts28">::TrakDiag:clickId</span><span class="rvts24">"&gt;</span><br/><span class="rvts29">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="rvts24">&lt;</span><span class="rvts25">Method</span><span class="rvts26">&nbsp;</span><span class="rvts27">xsi:type</span><span class="rvts24">="</span><span class="rvts28">opcUa.NodeAction.SetValueString</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts27">value</span><span class="rvts24">="</span><span class="rvts28">= elementId</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts24">/&gt;</span><br/><span class="rvts29">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="rvts24">&lt;/</span><span class="rvts25">Target</span><span class="rvts24">&gt;</span><br/><span class="rvts29">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="rvts24">&lt;/</span><span class="rvts25">Action</span><span class="rvts24">&gt;</span><br/><span class="rvts29">&nbsp; &nbsp; &nbsp; </span><span class="rvts24">&lt;/</span><span class="rvts25">EventHandler</span><span class="rvts24">&gt;</span><br/><span class="rvts29">&nbsp; &nbsp; </span><span class="rvts24">&lt;/</span><span class="rvts25">EventBinding</span><span class="rvts24">&gt;</span></p>
+<p class="rvps2"><span class="rvts12">In order to use the segment details, the </span><span class="rvts20">clickID</span><span class="rvts12">&nbsp;and </span><span class="rvts20">ReadClickID</span><span class="rvts12">&nbsp; property must be set for the Paper Widget. This can be done by using the below code block in an event binding and setting the </span><span class="rvts20">contentRefId</span><span class="rvts12">&nbsp;and </span><span class="rvts20">widgetRefId</span><span class="rvts12">&nbsp;correctly. On a click, this event binding passes the </span><span class="rvts14">ClickID</span><span class="rvts12">&nbsp;to the paper core, and it commands the paper core to read the </span><span class="rvts14">ClickID</span><span class="rvts12">&nbsp;and refresh the ClickData.</span></p>
+<p class="rvps7"><span class="rvts12"></span><br/><span class="rvts29">&nbsp; &nbsp;&nbsp;</span><span class="rvts24">&nbsp; &lt;EventBinding id="content_trakmap.paperTrakMap.Click"&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &lt;Source xsi:type="widgets.brease.Paper.Event" contentRefId="trakmapContent" widgetRefId="paperTrakMap" event="Click" /&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &lt;EventHandler&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp; &lt;Sequence&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Step order="0"&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Action&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::TrakDiag:paperCore.ClickID"&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Method xsi:type="opcUa.NodeAction.SetValueString" value="= elementId" /&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/Target&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/Action&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/Step&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Step order="1"&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Action&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::TrakDiag:paperCore.ReadClickID"&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" /&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/Target&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/Action&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/Step&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp; &lt;/Sequence&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &nbsp; &lt;/EventHandler&gt;</span></p>
+<p class="rvps7"><span class="rvts24">&nbsp; &nbsp; &lt;/EventBinding&gt;</span></p>
 <p class="rvps2"><span class="rvts15"><br/></span></p>
-<p class="rvps2"><span class="rvts15">Custom Status Widget</span></p>
-<p class="rvps2"><span class="rvts12">To use the custom widget, after importing that technology solution you will need to "Build Widget Library" in Automation Studio, Project-&gt;"Build Widget Library". </span></p>
+<p class="rvps2"><span class="rvts15">Custom Segment Status Widget</span></p>
+<p class="rvps2"><span class="rvts12">To use the custom segment status widget, after importing that technology solution you will need to "Build Widget Library" in Automation Studio, Project-&gt;"Build Widget Library". </span></p>
 <p class="rvps2"><span class="rvts12"><br/></span></p>
-<p class="rvps2"><span class="rvts12">Add the SegmentStatus widget into your content wherever you desire. Connect the TrakDiag:clickedSegment</span><span class="rvts12">&nbsp;variable to the widget. </span></p>
+<p class="rvps2"><span class="rvts12">Add the SegmentStatus widget into your content wherever you desire. Connect the TrakDiag:paperCore.ClickData.Segment.Data variable to the widget. Also, connect the TrakDiag:paperCore.ClickData.Segment.Valid vairable to the visible property of the widget.</span></p>
 <p class="rvps2"><span class="rvts24"><br/></span></p>
 <p class="rvps2"><span class="rvts12">Additionally, you will need to connect the status snippets to the custom widget. Using the below code block in your content binding and set the </span><span class="rvts20">contentRefId </span><span class="rvts12">and </span><span class="rvts20">widgetRefId </span><span class="rvts12">correctly</span></p>
 <p class="rvps2"><span class="rvts24"></span><br/><span class="rvts24">&lt;</span><span class="rvts25">Binding</span><span class="rvts26">&nbsp;</span><span class="rvts27">mode</span><span class="rvts24">="</span><span class="rvts28">oneWay</span><span class="rvts24">"&gt;</span><br/><span class="rvts24"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts24">&lt;</span><span class="rvts25">Source</span><span class="rvts26">&nbsp;</span><span class="rvts27">xsi:type</span><span class="rvts24">="</span><span class="rvts28">opcUa</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts27">refId</span><span class="rvts24">="::</span><span class="rvts28">TrakDiag:clickedSegment.Status.ErrorCode</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts27">attribute</span><span class="rvts24">="</span><span class="rvts28">value</span><span class="rvts24">"/&gt;</span><br/><span class="rvts24"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts24">&lt;</span><span class="rvts25">Target</span><span class="rvts26">&nbsp;</span><span class="rvts27">xsi:type</span><span class="rvts24">="</span><span class="rvts28">snippet</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts27">refId</span><span class="rvts24">="</span><span class="rvts28">SnippetSegError</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts27">attribute</span><span class="rvts24">="</span><span class="rvts28">value</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts24">/&gt;</span><br/><span class="rvts24">&lt;/</span><span class="rvts25">Binding</span><span class="rvts24">&gt;</span><br/><span class="rvts24">&lt;</span><span class="rvts25">Binding</span><span class="rvts26">&nbsp;</span><span class="rvts27">mode</span><span class="rvts24">="</span><span class="rvts28">oneWay</span><span class="rvts24">"&gt;</span><br/><span class="rvts24"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts24">&lt;</span><span class="rvts25">Source</span><span class="rvts26">&nbsp;</span><span class="rvts27">xsi:type</span><span class="rvts24">="</span><span class="rvts28">snippet</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts27">refId</span><span class="rvts24">="</span><span class="rvts28">SnippetSegError</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts27">attribute</span><span class="rvts24">="</span><span class="rvts28">value</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts24">/&gt;</span><br/><span class="rvts24"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts24">&lt;</span><span class="rvts25">Target</span><span class="rvts26">&nbsp;</span><span class="rvts27">xsi:type</span><span class="rvts24">="</span><span class="rvts28">brease</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts27">contentRefId</span><span class="rvts24">="</span><span class="rvts28">segmentDetailsContent</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts27">widgetRefId</span><span class="rvts24">="</span><span class="rvts28">SegmentStatus1</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts27">attribute</span><span class="rvts24">="</span><span class="rvts28">segErrorText</span><span class="rvts24">"</span><span class="rvts26">&nbsp;</span><span class="rvts24">/&gt;</span><br/><span class="rvts24">&lt;/</span><span class="rvts25">Binding</span><span class="rvts24">&gt;</span></p>
@@ -153,79 +176,19 @@
 <p class="rvps2"><span class="rvts14"></span><br/><span class="rvts24">&lt;</span><span class="rvts25">SnippetsSets</span><span class="rvts24">&gt;</span><br/><span class="rvts25"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts25">&lt;SnippetsSet</span><span class="rvts26">&nbsp;</span><span class="rvts27">refId</span><span class="rvts24">="</span><span class="rvts28">TrakMapSnippets</span><span class="rvts24">"/&gt;</span><br/><span class="rvts24">&lt;/</span><span class="rvts25">SnippetsSets</span><span class="rvts24">&gt;</span></p>
 <p class="rvps2"><span class="rvts24"><br/></span></p>
 <p class="rvps2"><span class="rvts15">Theme Definitions</span></p>
-<p class="rvps2"><span class="rvts12">The custom widget utilizes some custom themes for the toggle buttons present. You can use your own themes should you like, or you can add the provided style file to your existing theme for styling.</span></p>
+<p class="rvps2"><span class="rvts12">The custom widget utilizes some custom themes for the toggle buttons present. You can use your own themes should you like, or you can add the provided style file to your existing theme for styling. The provided .style file will not work alone; it must be added into an existing theme.</span></p>
 <p class="rvps2"><span class="rvts14"><br/></span></p>
 <p class="rvps2"><span class="rvts15">Text Files</span></p>
-<p class="rvps2"><span class="rvts12">In the provided files there are the text files. These can be included to populate the error texts and segment statuses in the status widget. Add the provided text files located in the Widget Library Resources package to the text definition for the project.</span></p>
-<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/TextFileDefinitions.png"></p>
+<p class="rvps2"><span class="rvts12">In the provided files there are the text files. These can be included to populate the error texts, segment statuses, and shuttle statuses in the status widget. Add the provided text files located in the Widget Library Resources package to the text definition for the project (Configuration View&gt;TextSystem&gt;___.textconfig).</span></p>
+<p class="rvps2"><span class="rvts12"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem6.png"></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem5.png"></p>
 <p class="rvps2"><span class="rvts24"><br/></span></p>
 <p class="rvps2"><span class="rvts22"><br/></span></p>
 <p class="rvps2"><span class="rvts22">Optional Features</span></p>
 <p class="rvps2"><span class="rvts15"><br/></span></p>
-<p class="rvps2"><span class="rvts15">Enabling Shuttles</span></p>
-<p class="rvps2"><span class="rvts12">To enable shuttles, a few actions will need to be taken to ensure proper functionality:</span></p>
-<p class="rvps2"><span class="rvts12"><br/></span></p>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: decimal;">
-<li value="1" style="margin-left: 0px" class="rvps5"><span class="rvts0"><span class="rvts14">Update the TrakDiag:paperCore.SvgTransform binding to use a fast sampling rate. This is done in the source of the binding:</span></span></li>
-</ol>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<p class="rvps2"><span class="rvts33"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts33"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts31">&lt;Binding</span><span class="rvts34">&nbsp;</span><span class="rvts30">mode</span><span class="rvts31">=</span><span class="rvts32">"twoWay"</span><span class="rvts31">&gt;</span><br/><span class="rvts35"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts35"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts35"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts31">&lt;Source</span><span class="rvts34">&nbsp;</span><span class="rvts30">xsi:type</span><span class="rvts31">=</span><span class="rvts32">"opcUa"</span><span class="rvts34">&nbsp;</span><span class="rvts30">refId</span><span class="rvts31">=</span><span class="rvts32">"::TrakDiag:paperCore.SvgTransform"</span><span class="rvts34">&nbsp;</span><span class="rvts30">attribute</span><span class="rvts31">=</span><span class="rvts32">"value"</span><span class="rvts34">&nbsp;</span><span class="rvts30">samplingRate</span><span class="rvts31">=</span><span class="rvts32">"fast"</span><span class="rvts31">/&gt;</span><br/><span class="rvts35"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts35"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts35"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts31">&lt;Target</span><span class="rvts34">&nbsp;</span><span class="rvts30">xsi:type</span><span class="rvts31">=</span><span class="rvts32">"brease"</span><span class="rvts34">&nbsp;</span><span class="rvts30">contentRefId</span><span class="rvts31">=</span><span class="rvts32">"trakmapContent"</span><span class="rvts34">&nbsp;</span><span class="rvts30">widgetRefId</span><span class="rvts31">=</span><span class="rvts32">"paperTrakMap"</span><span class="rvts34">&nbsp;</span><span class="rvts30">attribute</span><span class="rvts31">=</span><span class="rvts32">"transform"</span><span class="rvts34">&nbsp;</span><span class="rvts31">/&gt;</span><br/><span class="rvts35"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts35"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts31">&lt;/Binding&gt;</span></p>
-<p class="rvps2"><span class="rvts31"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
-<p class="rvps2"><span class="rvts31"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts14">It is recommended to use the default fast sampling rate of 100ms found in the Config.mappviewcfg file. </span></p>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: decimal;">
-<li value="2" style="margin-left: 0px" class="rvps5"><span class="rvts0"><span class="rvts14">Enable Shuttles through the paperCore FUB by setting </span></span><span class="rvts0"><span class="rvts33">paperOptions.Shuttle.Enabled </span></span><span class="rvts0"><span class="rvts14">to TRUE</span></span></li>
-<li value="3" style="margin-left: 0px" class="rvps5"><span class="rvts0"><span class="rvts14">Set your maximum shuttle count in the library to match the assembly configuration</span></span></li>
-</ol>
-<h1 class="rvps5"><img alt="" style="padding : 1px;" src="lib/NewItem1.png"></h1>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<p class="rvps2"><span class="rvts14">After completing these steps, shuttles should show on the paper widget in a similar way to SceneViewer</span></p>
-<p class="rvps2"><span class="rvts14"><br/></span></p>
-<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/TrakMapWithNonColoredShuttles.png"></p>
-<p class="rvps2"><span class="rvts14"><br/></span></p>
-<p class="rvps2"><span class="rvts15">Enabling Shuttle Color</span></p>
-<p class="rvps2"><span class="rvts14">To enable shuttle color, </span><span class="rvts12">a few actions will need to be taken to ensure proper functionality:</span></p>
-<p class="rvps2"><span class="rvts12"><br/></span></p>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: decimal;">
-<li value="1" style="margin-left: 0px" class="rvps5"><span class="rvts0"><span class="rvts14">The included TrkPaperColorEnum in the TrkPaper library must be used in the Shuttle User Data.</span></span></li>
-</ol>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<h1 class="rvps5"><img alt="" style="padding : 1px;" src="lib/TrakPaperColorEnumeration.png"></h1>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: decimal;">
-<li value="2" style="margin-left: 0px" class="rvps5"><span class="rvts0"><span class="rvts14">The colorList of the paper widget must be appended to for the correct colors to show. The paper core function block uses static index values to color. The first 4 values of the colorList will still be used for the segments. The default values for the shuttle color could be the following: </span></span></li>
-</ol>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14">#808080,#0000CD,#FF0000,#228B22,#FFFF00,#FFA500,#FFFFFF,#000000,#ff9794,#800080 </span></span></h1>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: decimal;">
-<li value="3" style="margin-left: 0px" class="rvps5"><span class="rvts0"><span class="rvts14">Enable Shuttle Color through the paperCore FUB by setting </span></span><span class="rvts0"><span class="rvts33">paperOptions.Color.Enabled </span></span><span class="rvts0"><span class="rvts14">to TRUE</span></span></li>
-<li value="4" style="margin-left: 0px" class="rvps5"><span class="rvts0"><span class="rvts14">Set the color offset for the paperCore FUB to grab the correct color value from the Shuttle User Data. Here is an example Shuttle Data struct:</span></span></li>
-</ol>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<h1 class="rvps5"><img alt="" style="padding : 1px;" src="lib/ShuttleUserDataType.png"></h1>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<p class="rvps9"><span class="rvts14">As this example structure has the Color offset by the ID variable, we need to inform the paper core of this offset. And here is the offset needed to get the correct color value:</span></p>
-<p class="rvps9"><span class="rvts33"><br/></span></p>
-<p class="rvps9"><span class="rvts33">paperOptions.Color.Offset</span><span class="rvts34">&nbsp;</span><span class="rvts35">:=</span><span class="rvts34">&nbsp;</span><span class="rvts32">SIZEOF</span><span class="rvts35">(</span><span class="rvts31">UDINT</span><span class="rvts35">);</span></p>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14">As a note, the typical behavior for ordering variables within a structure applies here. Even though the sample Shuttle User Data has a UINT before the Color variable, a UDINT offset (4 Bytes) is needed since the variables are word-aligned. </span></span><span class="rvts0"><span class="rvts19">An improper offset will cause the colors to not work!!!</span></span></h1>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<h1 class="rvps5"><span class="rvts0"><span class="rvts14"><br/></span></span></h1>
-<p class="rvps2"><span class="rvts14">After completing the above steps, shuttles should now have color enabled</span></p>
-<p class="rvps2"><span class="rvts14"><br/></span></p>
-<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/TrakMapShuttlesWithColor.png"></p>
-<h5 class="rvps8"><span class="rvts0"><span class="rvts37">Shuttle Preformance</span></span></h5>
-<p class="rvps2"><span class="rvts36">It is important to note, the TrakPaper widget can not and will not be able to replace the speed and precision of shuttle movements that exist inside Scene Viewer. That being said, there are some things you can do to try and increase the preformance out of the system:</span></p>
-<p class="rvps2"><span class="rvts36">1. Tweak the transition time inside the paper core</span></p>
-<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Shuttle Transition Time.png"></p>
-<p class="rvps2"><span class="rvts36">Increasing this value above the default of 100 to 200 will help for large shuttle count systems. The trade off here is that the shuttle may not follow it's exact path at higher speeds and changing directins (diverts, curves etc)</span></p>
-<p class="rvps2"><span class="rvts36">2. Lower the maximum shuttle count. The library loops through the # of shuttles defined inside the constant of the library. Lowering this value if possible will decrease the load and therefore increase the animation quality of the system.</span></p>
-<p class="rvps2"><span class="rvts36"><br/></span></p>
-<p class="rvps2"><span class="rvts14"><br/></span></p>
+<p class="rvps2"><span class="rvts35"><br/></span></p>
+<p class="rvps2"><span class="rvts30"><br/></span></p>
 <p></p>
 
 	</div>
