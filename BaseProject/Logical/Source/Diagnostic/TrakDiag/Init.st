@@ -1,6 +1,5 @@
 
 PROGRAM _INIT
-	TEST_Transform;
 	SegDefinition;
 	
 	paperCore.SegmentCount := TrakDiag.Seg.SegCount;
