@@ -7,7 +7,7 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
-VERSION_NUMBER = '1.02.9'
+VERSION_NUMBER = '1.02.0'
 
 class TrakMap:
     def __init__(self,inputSVG):
