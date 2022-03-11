@@ -173,7 +173,7 @@ pipeline {
             }
             when
             {
-                branch 'release/*'
+                branch 'release'
             }
             steps {
                 bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - Releases\\Releases\\$TAG\\\" /y"
@@ -185,7 +185,7 @@ pipeline {
             {
                 anyOf {
                     branch 'feature/*'
-                    branch 'develop'
+                    branch 'development'
                 }
             }
             steps {
