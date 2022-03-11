@@ -72,7 +72,7 @@ pipeline {
                 powershell(returnStdout: true, script:  "python \"$ProjectBuilderScripts\\ASProjectCompile.py\" --project \"$PROJECT_DIR\" --configuration TestConfig");
             }
         }
-        stage('Run Unit Tests') {
+        /*stage('Run Unit Tests') {
             when
             {
                 branch 'release*'
@@ -84,7 +84,7 @@ pipeline {
                 powershell(returnStdout: true, script:  "python \"$ProjectBuilderScripts\\RunUnitTests.py\" --test all --output \"$PROJECT_DIR\\TestResults\"");
                 powershell(returnStdout: true, script:  "python \"$ProjectBuilderScripts\\StopArSim.py\" --simulationDirectory \"$PROJECT_DIR\\ArSim\"");
             }
-        }
+        }*/
         stage('Export Libraries') {
             when { expression { return false } }
             environment {
@@ -192,35 +192,6 @@ pipeline {
                 bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - Releases\\Dev\\$BRANCH_NAME\\\" /y"
             }
         }
-        /*
-        stage('Deploy Release')
-        {
-            environment {
-                TAG = Tag()
-            }
-            when
-            {
-                branch 'release/*'
-            }
-            steps {
-                bat "xcopy \"ReleaseBuilder\\InstallerSetup\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\NA Product Management - mapp Framework\\Releases\\$TAG\\\" /y"
-                bat "xcopy \"ReleaseBuilder\\InstallerSetup\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\mapp Framework Prototype Testers - General\\Releases\\$TAG\\\" /y"
-            }
-        }
-        stage('Deploy Feature')
-        {
-            when
-            {
-                anyOf {
-                    branch 'feature/*'
-                    branch 'develop'
-                }
-            }
-            steps {
-                bat "xcopy \"ReleaseBuilder\\InstallerSetup\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\NA Product Management - mapp Framework\\Releases\\$BRANCH_NAME\\\" /y"
-            }
-        }
-        */
     }
     post {
          success {
