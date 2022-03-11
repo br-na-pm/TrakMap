@@ -75,7 +75,7 @@ pipeline {
         stage('Run Unit Tests') {
             when
             {
-                branch 'release/*'
+                branch 'release*'
             }
             steps {
                 powershell(returnStdout: true, script:  "python \"$ProjectBuilderScripts\\ASProjectCompile.py\" --project \"$PROJECT_DIR\" --configuration TS_UnitTest");
