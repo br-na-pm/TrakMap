@@ -192,7 +192,6 @@ pipeline {
                 bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - Releases\\Dev\\$BRANCH_NAME\\\" /y"
             }
         }
-        }
         /*
         stage('Deploy Release')
         {
