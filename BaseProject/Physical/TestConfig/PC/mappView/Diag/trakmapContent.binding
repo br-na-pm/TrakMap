@@ -43,22 +43,14 @@
 		</Binding>
 	
 
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="NS6|String|Diag::TrakDiag:paperCore.SvgTransform" attribute="value" />
-<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="TextOutput1" attribute="value" />
-</Binding>
-
-
-
-
-
-
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="NS6|String|Diag::TrakDiag:TEST_Transform" attribute="value" />
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="NS6|String|Diag::TrakDiag:TEST_Transform" attribute="value" />
 <Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="TextInput1" attribute="value" />
 </Binding>
+
+
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="NS6|String|Diag::TrakDiag:TEST_Transform" attribute="value" />
+<Source xsi:type="opcUa" refId="NS6|String|Diag::TrakDiag:paperCore.SvgTransform" attribute="value" />
 <Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="paperTrakMap" attribute="transform" />
 </Binding>
 </Bindings>

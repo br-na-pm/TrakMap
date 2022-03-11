@@ -13,5 +13,6 @@
     <Object Type="File">TrakMap.svg</Object>
     <Object Type="File">TrakMapLogo.svg</Object>
     <Object Type="File">TrakMapLogo.png</Object>
+    <Object Type="File">TrakMapExample.svg</Object>
   </Objects>
 </Package>
