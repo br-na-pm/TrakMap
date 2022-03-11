@@ -13,7 +13,7 @@ PROGRAM _CYCLIC
 	 
 						
 	MpPackMLStateIsActive(gMainModule,mpPACKML_STATE_EXECUTE,1);					
-	
+	gTrakSystem;
 END_PROGRAM
 
 PROGRAM _EXIT

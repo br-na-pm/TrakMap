@@ -3,16 +3,6 @@
 <Package SubType="MediaPackage" PackageType="MediaPackage" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="Package">SymbolLib</Object>
-    <Object Type="File">AnimWidgetWinder.html</Object>
-    <Object Type="File">AnimWidgetLaser.html</Object>
-    <Object Type="File">AnimWidgetWelder1.html</Object>
-    <Object Type="File">AnimWidgetWelder2.html</Object>
-    <Object Type="Package">SVG</Object>
-    <Object Type="Package">Logbook</Object>
-    <Object Type="File">SampleTrakMap.svg</Object>
-    <Object Type="File">TrakMap.svg</Object>
-    <Object Type="File">TrakMapLogo.svg</Object>
-    <Object Type="File">TrakMapLogo.png</Object>
     <Object Type="File">TrakMapExample.svg</Object>
   </Objects>
 </Package>

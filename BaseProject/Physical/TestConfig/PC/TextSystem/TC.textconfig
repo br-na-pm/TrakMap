@@ -14,25 +14,15 @@
       <Property ID="TargetFile[1]" Value="Source.Assembly.AsmInfo.tmx" />
       <Property ID="TargetFile[2]" Value="Source.Assembly.AsmWarning.tmx" />
       <Property ID="TargetFile[3]" Value="Source.Assembly.AsmAlarm.tmx" />
-      <Property ID="TargetFile[4]" Value="Source.ReusableSource.ReusableInfo.tmx" />
-      <Property ID="TargetFile[5]" Value="Source.ReusableSource.ReusableWarning.tmx" />
-      <Property ID="TargetFile[6]" Value="Source.ReusableSource.ReusableAlarm.tmx" />
-      <Property ID="TargetFile[7]" Value="mappView.Resources.Texts.Header.tmx" />
-      <Property ID="TargetFile[8]" Value="mappView.Resources.Texts.StateTexts.tmx" />
-      <Property ID="TargetFile[9]" Value="mappView.Widgets.TrakMap.Resources.Texts.TrakErrorsIDs.tmx" />
-      <Property ID="TargetFile[10]" Value="mappView.Widgets.TrakMap.Resources.Texts.SegComStateText.tmx" />
-      <Property ID="TargetFile[11]" Value="Source.EMx.EMxInfo.tmx" />
-      <Property ID="TargetFile[12]" Value="Source.EMx.EMxWarning.tmx" />
-      <Property ID="TargetFile[13]" Value="Source.EMx.EMxAlarm.tmx" />
-      <Property ID="TargetFile[14]" Value="Source.Diagnostic.DiagInfo.tmx" />
-      <Property ID="TargetFile[15]" Value="Source.Diagnostic.DiagWarning.tmx" />
-      <Property ID="TargetFile[16]" Value="Source.Diagnostic.DiagAlarm.tmx" />
-      <Property ID="TargetFile[17]" Value="Source.Diagnostic.DiagError.tmx" />
-      <Property ID="TargetFile[18]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleStateText.tmx" />
-      <Property ID="TargetFile[19]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleErrorReasonText.tmx" />
-      <Property ID="TargetFile[20]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleOrientationText.tmx" />
-      <Property ID="TargetFile[21]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleMovementTypeText.tmx" />
-      <Property ID="TargetFile[22]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleColorText.tmx" />
+      <Property ID="TargetFile[4]" Value="mappView.Resources.Texts.Header.tmx" />
+      <Property ID="TargetFile[5]" Value="mappView.Resources.Texts.StateTexts.tmx" />
+      <Property ID="TargetFile[6]" Value="mappView.Widgets.TrakMap.Resources.Texts.TrakErrorsIDs.tmx" />
+      <Property ID="TargetFile[7]" Value="mappView.Widgets.TrakMap.Resources.Texts.SegComStateText.tmx" />
+      <Property ID="TargetFile[8]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleStateText.tmx" />
+      <Property ID="TargetFile[9]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleErrorReasonText.tmx" />
+      <Property ID="TargetFile[10]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleOrientationText.tmx" />
+      <Property ID="TargetFile[11]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleMovementTypeText.tmx" />
+      <Property ID="TargetFile[12]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleColorText.tmx" />
     </Group>
   </Element>
 </Configuration>

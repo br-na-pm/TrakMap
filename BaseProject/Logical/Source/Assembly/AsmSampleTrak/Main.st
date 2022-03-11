@@ -227,11 +227,11 @@ PROGRAM _CYCLIC
 	END_CASE // Assembly state machine
 	
 	// Call all mapp Trak function blocks
-	fbAsmReadStatus(Assembly := ADR(TrakInterface.SampleTrak), Enable := TRUE); // Always enable to reduce logger entries
-	fbAsmReadInfo(Assembly := ADR(TrakInterface.SampleTrak), Enable := TRUE); // Always enable to reduce logger entries
-	fbAsmPowerOn(Assembly := ADR(TrakInterface.SampleTrak));
-	fbAsmPowerOff(Assembly := ADR(TrakInterface.SampleTrak));
-	fbAsmReset(Assembly := ADR(TrakInterface.SampleTrak));
+	fbAsmReadStatus(Assembly := ADR(gSampleTrak), Enable := TRUE); // Always enable to reduce logger entries
+	fbAsmReadInfo(Assembly := ADR(gSampleTrak), Enable := TRUE); // Always enable to reduce logger entries
+	fbAsmPowerOn(Assembly := ADR(gSampleTrak));
+	fbAsmPowerOff(Assembly := ADR(gSampleTrak));
+	fbAsmReset(Assembly := ADR(gSampleTrak));
 	fbSecAddShuttle();
 	fbSecAddShuttle.Execute := FALSE;
 	

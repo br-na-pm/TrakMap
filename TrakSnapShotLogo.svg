@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   viewBox="-0.735577 -0.745 100.00001 99.999998"
+   id="svg1077"
+   width="100"
+   height="100"
+   sodipodi:docname="TrakSnapShotLogo.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   inkscape:export-filename="C:\projects\TFP\TrakSnapshotLogo.png"
+   inkscape:export-xdpi="288.95999"
+   inkscape:export-ydpi="288.95999">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     id="namedview152"
+     showgrid="false"
+     inkscape:zoom="11.08"
+     inkscape:cx="29.1359"
+     inkscape:cy="52.951412"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g2045"
+     inkscape:document-rotation="0"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata1081">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs11">
+    <marker
+       id="secArrow-blue"
+       markerWidth="3"
+       markerHeight="4"
+       refX="3"
+       refY="2"
+       orient="auto">
+      <path
+         d="M 3,2 0,4 V 0 l 3,2"
+         fill="#0000ff"
+         style="fill-opacity:0.5;stroke:none"
+         id="path2" />
+    </marker>
+    <marker
+       id="secArrow-seagreen"
+       markerWidth="3"
+       markerHeight="4"
+       refX="3"
+       refY="2"
+       orient="auto">
+      <path
+         d="M 3,2 0,4 V 0 l 3,2"
+         fill="#2e8b57"
+         style="fill-opacity:0.5;stroke:none"
+         id="path5" />
+    </marker>
+    <marker
+       id="secArrow-orange"
+       markerWidth="3"
+       markerHeight="4"
+       refX="3"
+       refY="2"
+       orient="auto">
+      <path
+         d="M 3,2 0,4 V 0 l 3,2"
+         fill="#ffa500"
+         style="fill-opacity:0.5;stroke:none"
+         id="path8" />
+    </marker>
+  </defs>
+  <g
+     id="g1900"
+     transform="matrix(25.418168,0,0,25.418168,15.727376,55.205452)"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
+    <g
+       id="g2045">
+      <g
+         id="g21"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="-0.599495,-0.170952 -0.612317,-0.198061 -0.507477,-0.241486 -0.403514,-0.137523 -0.446939,-0.0326832 -0.474048,-0.0455047 -0.49977,-0.0609216 -0.523856,-0.0787854 -0.546076,-0.0989241 -0.566215,-0.121144 -0.584078,-0.14523 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon13" />
+        <polyline
+           points="-0.446939,-0.0326832 -0.474048,-0.0455047 -0.49977,-0.0609216 -0.523856,-0.0787854 -0.546076,-0.0989241 -0.566215,-0.121144 -0.584078,-0.14523 -0.599495,-0.170952 -0.612317,-0.198061 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline15" />
+        <polygon
+           points="-0.462182,-0.10041 -0.456732,-0.0613047 -0.430676,-0.124208 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon17" />
+        <text
+           x="-0.53432494"
+           y="-0.11067504"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text19">0</text>
+      </g>
+      <g
+         id="g31"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="-0.622419,-0.226296 -0.629706,-0.255385 -0.634106,-0.285048 -0.635577,-0.315 -0.634106,-0.344952 -0.629706,-0.374615 -0.622419,-0.403704 -0.612317,-0.431939 -0.507477,-0.388514 -0.507477,-0.241486 -0.612317,-0.198061 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon23" />
+        <polyline
+           points="-0.612317,-0.198061 -0.622419,-0.226296 -0.629706,-0.255385 -0.634106,-0.285048 -0.635577,-0.315 -0.634106,-0.344952 -0.629706,-0.374615 -0.622419,-0.403704 -0.612317,-0.431939 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline25" />
+      </g>
+      <g
+         id="g41"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="-0.599495,-0.459048 -0.584078,-0.48477 -0.566215,-0.508856 -0.546076,-0.531076 -0.523856,-0.551215 -0.49977,-0.569078 -0.474048,-0.584495 -0.446939,-0.597317 -0.403514,-0.492477 -0.507477,-0.388514 -0.612317,-0.431939 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon33" />
+        <polyline
+           points="-0.612317,-0.431939 -0.599495,-0.459048 -0.584078,-0.48477 -0.566215,-0.508856 -0.546076,-0.531076 -0.523856,-0.551215 -0.49977,-0.569078 -0.474048,-0.584495 -0.446939,-0.597317 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline35" />
+        <polygon
+           points="-0.54459,-0.447182 -0.583695,-0.441732 -0.520792,-0.415676 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon37" />
+        <text
+           x="-0.53432494"
+           y="-0.46258634"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text39">2</text>
+      </g>
+      <g
+         id="g51"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="-0.112661,-0.63 -0.0563303,-0.63 -5.55112e-17,-0.63 -1.02474e-16,-0.536 -0.410967,-0.510472 -0.446939,-0.597317 -0.393297,-0.614306 -0.337778,-0.623635 -0.281624,-0.627955 -0.225319,-0.629554 -0.168991,-0.629958 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon43" />
+        <polyline
+           points="-0.446939,-0.597317 -0.393297,-0.614306 -0.337778,-0.623635 -0.281624,-0.627955 -0.225319,-0.629554 -0.168991,-0.629958 -0.112661,-0.63 -0.0563303,-0.63 -5.55112e-17,-0.63 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline45" />
+        <polygon
+           points="-0.391998,-0.569202 -0.421267,-0.587602 -0.399684,-0.535495 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon47" />
+        <text
+           x="-0.24814309"
+           y="-0.5590592"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text49">3</text>
+      </g>
+      <g
+         id="g61"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="-5.55112e-17,-0.63 0.0825,-0.63 0.165,-0.63 0.2475,-0.63 0.33,-0.63 0.4125,-0.63 0.495,-0.63 0.5775,-0.63 0.66,-0.63 0.66,-0.536 -9.72555e-17,-0.536 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon53" />
+        <polyline
+           points="-5.55112e-17,-0.63 0.0825,-0.63 0.165,-0.63 0.2475,-0.63 0.33,-0.63 0.4125,-0.63 0.495,-0.63 0.5775,-0.63 0.66,-0.63 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline55" />
+        <polygon
+           points="0.04,-0.583 0.02,-0.6112 0.02,-0.5548 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon57" />
+        <text
+           x="0.30649999"
+           y="-0.55949998"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text59">4</text>
+      </g>
+      <g
+         id="g71"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="0.9075,-0.63 0.99,-0.63 1.0725,-0.63 1.155,-0.63 1.2375,-0.63 1.32,-0.63 1.32,-0.536 0.66,-0.536 0.66,-0.63 0.7425,-0.63 0.825,-0.63 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon63" />
+        <polyline
+           points="0.66,-0.63 0.7425,-0.63 0.825,-0.63 0.9075,-0.63 0.99,-0.63 1.0725,-0.63 1.155,-0.63 1.2375,-0.63 1.32,-0.63 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline65" />
+        <polygon
+           points="0.68,-0.6112 0.68,-0.5548 0.7,-0.583 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon67" />
+        <text
+           x="0.96649998"
+           y="-0.55949998"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text69">5</text>
+      </g>
+      <g
+         id="g81"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="1.7325,-0.63 1.815,-0.63 1.8975,-0.63 1.98,-0.63 1.98,-0.536 1.32,-0.536 1.32,-0.63 1.4025,-0.63 1.485,-0.63 1.5675,-0.63 1.65,-0.63 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon73" />
+        <polyline
+           points="1.32,-0.63 1.4025,-0.63 1.485,-0.63 1.5675,-0.63 1.65,-0.63 1.7325,-0.63 1.815,-0.63 1.8975,-0.63 1.98,-0.63 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline75" />
+        <polygon
+           points="1.36,-0.583 1.34,-0.6112 1.34,-0.5548 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon77" />
+        <text
+           x="1.6265"
+           y="-0.55949998"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text79">6</text>
+      </g>
+      <g
+         id="g91"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="2.2275,-0.63 2.31,-0.63 2.3925,-0.63 2.475,-0.63 2.5575,-0.63 2.64,-0.63 2.64,-0.536 1.98,-0.536 1.98,-0.63 2.0625,-0.63 2.145,-0.63 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon83" />
+        <polyline
+           points="1.98,-0.63 2.0625,-0.63 2.145,-0.63 2.2275,-0.63 2.31,-0.63 2.3925,-0.63 2.475,-0.63 2.5575,-0.63 2.64,-0.63 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline85" />
+        <polygon
+           points="2,-0.6112 2,-0.5548 2.02,-0.583 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon87" />
+        <text
+           x="2.2865"
+           y="-0.55949998"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text89">7</text>
+      </g>
+      <g
+         id="g101"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="2.64,-0.63 2.69633,-0.63 2.75266,-0.63 2.80899,-0.629958 2.86532,-0.629554 2.92162,-0.627955 2.97778,-0.623635 3.0333,-0.614306 3.08694,-0.597317 3.05097,-0.510472 2.64,-0.536 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon93" />
+        <polyline
+           points="2.64,-0.63 2.69633,-0.63 2.75266,-0.63 2.80899,-0.629958 2.86532,-0.629554 2.92162,-0.627955 2.97778,-0.623635 3.0333,-0.614306 3.08694,-0.597317 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline95" />
+        <polygon
+           points="2.66,-0.5548 2.68,-0.583 2.66,-0.6112 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon97" />
+        <text
+           x="2.8411431"
+           y="-0.5590592"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text99">8</text>
+      </g>
+      <g
+         id="g111"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="3.2395,-0.459048 3.25232,-0.431939 3.14748,-0.388514 3.04351,-0.492477 3.08694,-0.597317 3.11405,-0.584495 3.13977,-0.569078 3.16386,-0.551215 3.18608,-0.531076 3.20621,-0.508856 3.22408,-0.48477 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon103" />
+        <polyline
+           points="3.08694,-0.597317 3.11405,-0.584495 3.13977,-0.569078 3.16386,-0.551215 3.18608,-0.531076 3.20621,-0.508856 3.22408,-0.48477 3.2395,-0.459048 3.25232,-0.431939 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline105" />
+        <polygon
+           points="3.09673,-0.568695 3.07068,-0.505792 3.10218,-0.52959 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon107" />
+        <text
+           x="3.1175864"
+           y="-0.46258634"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text109">9</text>
+      </g>
+      <g
+         id="g121"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="3.27411,-0.344952 3.27558,-0.315 3.27411,-0.285048 3.26971,-0.255385 3.26242,-0.226296 3.25232,-0.198061 3.14748,-0.241486 3.14748,-0.388514 3.25232,-0.431939 3.26242,-0.403704 3.26971,-0.374615 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon113" />
+        <polyline
+           points="3.25232,-0.431939 3.26242,-0.403704 3.26971,-0.374615 3.27411,-0.344952 3.27558,-0.315 3.27411,-0.285048 3.26971,-0.255385 3.26242,-0.226296 3.25232,-0.198061 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline115" />
+        <polygon
+           points="3.2152,-0.373271 3.239,-0.404777 3.1761,-0.378721 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon117" />
+        <text
+           x="3.1904695"
+           y="-0.28663069"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text119">10</text>
+      </g>
+      <g
+         id="g131"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="3.14748,-0.241486 3.25232,-0.198061 3.2395,-0.170952 3.22408,-0.14523 3.20621,-0.121144 3.18608,-0.0989241 3.16386,-0.0787854 3.13977,-0.0609216 3.11405,-0.0455047 3.08694,-0.0326832 3.04351,-0.137523 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon123" />
+        <polyline
+           points="3.25232,-0.198061 3.2395,-0.170952 3.22408,-0.14523 3.20621,-0.121144 3.18608,-0.0989241 3.16386,-0.0787854 3.13977,-0.0609216 3.11405,-0.0455047 3.08694,-0.0326832 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline125" />
+        <polygon
+           points="3.16079,-0.214324 3.18459,-0.182818 3.2237,-0.188268 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon127" />
+        <text
+           x="3.1175864"
+           y="-0.11067504"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text129">11</text>
+      </g>
+      <g
+         id="g141"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="2.75266,-3.66468e-08 2.69633,-1.249e-16 2.64,-1.38778e-16 2.64,-0.094 3.05097,-0.119528 3.08694,-0.0326832 3.0333,-0.0156938 2.97778,-0.00636481 2.92162,-0.00204461 2.86532,-0.000445667 2.80899,-4.17485e-05 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon133" />
+        <polyline
+           points="3.08694,-0.0326832 3.0333,-0.0156938 2.97778,-0.00636481 2.92162,-0.00204461 2.86532,-0.000445667 2.80899,-4.17485e-05 2.75266,-3.66468e-08 2.69633,-1.249e-16 2.64,-1.38778e-16 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline135" />
+        <polygon
+           points="3.06127,-0.0423985 3.03968,-0.0945053 3.032,-0.0607982 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon137" />
+        <text
+           x="2.8411431"
+           y="-0.023940803"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text139">12</text>
+      </g>
+      <g
+         id="g151"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="2.0625,-4.16334e-16 1.98,-4.16334e-16 1.98,-0.094 2.64,-0.094 2.64,-4.16334e-16 2.5575,-4.16334e-16 2.475,-4.16334e-16 2.3925,-4.16334e-16 2.31,-4.16334e-16 2.2275,-4.16334e-16 2.145,-4.16334e-16 "
+           style="fill:#2ae406;stroke:#a9a9a9;stroke-width:0.005;fill-opacity:1"
+           id="polygon143" />
+        <polyline
+           points="2.64,-4.16334e-16 2.5575,-4.16334e-16 2.475,-4.16334e-16 2.3925,-4.16334e-16 2.31,-4.16334e-16 2.2275,-4.16334e-16 2.145,-4.16334e-16 2.0625,-4.16334e-16 1.98,-4.16334e-16 "
+           style="fill:#2ae406;stroke:#000000;stroke-width:0.01;fill-opacity:1"
+           id="polyline145" />
+        <polygon
+           points="2.6,-0.047 2.62,-0.0188 2.62,-0.0752 "
+           style="fill:#2ae406;stroke-width:0;fill-opacity:1"
+           id="polygon147" />
+        <text
+           x="2.2865"
+           y="-0.023499999"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text149">13</text>
+      </g>
+      <polygon
+         points="1.4025,-3.05311e-16 1.32,-3.05311e-16 1.32,-0.094 1.98,-0.094 1.98,-3.05311e-16 1.8975,-3.05311e-16 1.815,-3.05311e-16 1.7325,-3.05311e-16 1.65,-3.05311e-16 1.5675,-3.05311e-16 1.485,-3.05311e-16 "
+         style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+         id="polygon153"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999" />
+      <polyline
+         points="1.98,-3.05311e-16 1.8975,-3.05311e-16 1.815,-3.05311e-16 1.7325,-3.05311e-16 1.65,-3.05311e-16 1.5675,-3.05311e-16 1.485,-3.05311e-16 1.4025,-3.05311e-16 1.32,-3.05311e-16 "
+         style="fill:#eeeeee;stroke:#000000;stroke-width:0.01"
+         id="polyline155"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999" />
+      <g
+         id="g171"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="1.0725,-8.32667e-17 0.99,-8.32667e-17 0.9075,-8.32667e-17 0.825,-8.32667e-17 0.7425,-8.32667e-17 0.66,-8.32667e-17 0.66,-0.094 1.32,-0.094 1.32,-8.32667e-17 1.2375,-8.32667e-17 1.155,-8.32667e-17 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon163" />
+        <polyline
+           points="1.32,-8.32667e-17 1.2375,-8.32667e-17 1.155,-8.32667e-17 1.0725,-8.32667e-17 0.99,-8.32667e-17 0.9075,-8.32667e-17 0.825,-8.32667e-17 0.7425,-8.32667e-17 0.66,-8.32667e-17 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline165" />
+        <polygon
+           points="1.3,-0.0188 1.3,-0.0752 1.28,-0.047 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon167" />
+        <text
+           x="0.96649998"
+           y="-0.023499999"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text169">15</text>
+      </g>
+      <g
+         id="g181"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="0,-2.77556e-17 0,-0.094 0.66,-0.094 0.66,-2.77556e-17 0.5775,-2.77556e-17 0.495,-2.77556e-17 0.4125,-2.77556e-17 0.33,-2.77556e-17 0.2475,-2.77556e-17 0.165,-2.77556e-17 0.0825,-2.77556e-17 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon173" />
+        <polyline
+           points="0.66,-2.77556e-17 0.5775,-2.77556e-17 0.495,-2.77556e-17 0.4125,-2.77556e-17 0.33,-2.77556e-17 0.2475,-2.77556e-17 0.165,-2.77556e-17 0.0825,-2.77556e-17 0,-2.77556e-17 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline175" />
+        <polygon
+           points="0.64,-0.0188 0.64,-0.0752 0.62,-0.047 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon177" />
+        <text
+           x="0.30649999"
+           y="-0.023499999"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text179">16</text>
+      </g>
+      <g
+         id="g191"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="0,0 -0.0563303,0 -0.112661,-3.66468e-08 -0.168991,-4.17485e-05 -0.225319,-0.000445667 -0.281624,-0.00204461 -0.337778,-0.00636481 -0.393297,-0.0156938 -0.446939,-0.0326832 -0.410967,-0.119528 0,-0.094 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon183" />
+        <polyline
+           points="0,-0 -0.0563303,-0 -0.112661,-3.66468e-08 -0.168991,-4.17485e-05 -0.225319,-0.000445667 -0.281624,-0.00204461 -0.337778,-0.00636481 -0.393297,-0.0156938 -0.446939,-0.0326832 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline185" />
+        <polygon
+           points="-0.02,-0.0188 -0.02,-0.0752 -0.04,-0.047 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon187" />
+        <text
+           x="-0.24814309"
+           y="-0.023940803"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text189">17</text>
+      </g>
+      <g
+         id="g201"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="1.54423,0.0304457 1.60054,0.0320446 1.65669,0.0363648 1.71221,0.0456938 1.76585,0.0626832 1.72988,0.149528 1.31891,0.124 1.31891,0.03 1.37525,0.03 1.43158,0.03 1.48791,0.0300417 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon193" />
+        <polyline
+           points="1.31891,0.03 1.37525,0.03 1.43158,0.03 1.48791,0.0300417 1.54423,0.0304457 1.60054,0.0320446 1.65669,0.0363648 1.71221,0.0456938 1.76585,0.0626832 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline195" />
+        <polygon
+           points="1.33891,0.0488 1.33891,0.1052 1.35891,0.077 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon197" />
+        <text
+           x="1.520058"
+           y="0.1009408"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text199">18</text>
+      </g>
+      <g
+         id="g211"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="1.81868,0.0909216 1.84277,0.108785 1.86499,0.128924 1.88513,0.151144 1.90299,0.17523 1.91841,0.200952 1.93123,0.228061 1.82639,0.271486 1.72243,0.167523 1.76585,0.0626832 1.79296,0.0755047 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon203" />
+        <polyline
+           points="1.76585,0.0626832 1.79296,0.0755047 1.81868,0.0909216 1.84277,0.108785 1.86499,0.128924 1.88513,0.151144 1.90299,0.17523 1.91841,0.200952 1.93123,0.228061 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline205" />
+        <polygon
+           points="1.74959,0.154208 1.7811,0.13041 1.77565,0.0913047 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon207" />
+        <text
+           x="1.7965014"
+           y="0.19741365"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text209">19</text>
+      </g>
+      <g
+         id="g221"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="1.93123,0.228061 1.94133,0.256296 1.94862,0.285385 1.95302,0.315048 1.95449,0.345 1.95302,0.374952 1.94862,0.404615 1.94133,0.433704 1.93123,0.461939 1.82639,0.418514 1.82639,0.271486 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon213" />
+        <polyline
+           points="1.93123,0.228061 1.94133,0.256296 1.94862,0.285385 1.95302,0.315048 1.95449,0.345 1.95302,0.374952 1.94862,0.404615 1.94133,0.433704 1.93123,0.461939 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline215" />
+        <polygon
+           points="1.89412,0.286729 1.91792,0.255223 1.85501,0.281279 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon217" />
+        <text
+           x="1.8693845"
+           y="0.37336931"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text219">20</text>
+      </g>
+      <g
+         id="g231"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="1.72243,0.522477 1.82639,0.418514 1.93123,0.461939 1.91841,0.489048 1.90299,0.51477 1.88513,0.538856 1.86499,0.561076 1.84277,0.581215 1.81868,0.599078 1.79296,0.614495 1.76585,0.627317 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon223" />
+        <polyline
+           points="1.93123,0.461939 1.91841,0.489048 1.90299,0.51477 1.88513,0.538856 1.86499,0.561076 1.84277,0.581215 1.81868,0.599078 1.79296,0.614495 1.76585,0.627317 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline225" />
+        <polygon
+           points="1.90261,0.471732 1.83971,0.445676 1.8635,0.477182 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon227" />
+        <text
+           x="1.7965014"
+           y="0.54932499"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text229">21</text>
+      </g>
+      <g
+         id="g241"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="1.37525,0.66 1.31891,0.66 1.31891,0.566 1.72988,0.540472 1.76585,0.627317 1.71221,0.644306 1.65669,0.653635 1.60054,0.657955 1.54423,0.659554 1.48791,0.659958 1.43158,0.66 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon233" />
+        <polyline
+           points="1.76585,0.627317 1.71221,0.644306 1.65669,0.653635 1.60054,0.657955 1.54423,0.659554 1.48791,0.659958 1.43158,0.66 1.37525,0.66 1.31891,0.66 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline235" />
+        <polygon
+           points="1.7186,0.565495 1.71091,0.599202 1.74018,0.617602 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon237" />
+        <text
+           x="1.520058"
+           y="0.63605922"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text239">22</text>
+      </g>
+      <g
+         id="g251"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="1.03729,0.657955 0.981137,0.653635 0.925618,0.644306 0.871976,0.627317 0.907948,0.540472 1.31891,0.566 1.31891,0.66 1.26258,0.66 1.20625,0.66 1.14992,0.659958 1.0936,0.659554 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon243" />
+        <polyline
+           points="1.31891,0.66 1.26258,0.66 1.20625,0.66 1.14992,0.659958 1.0936,0.659554 1.03729,0.657955 0.981137,0.653635 0.925618,0.644306 0.871976,0.627317 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline245" />
+        <polygon
+           points="1.27891,0.613 1.29891,0.6412 1.29891,0.5848 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon247" />
+        <text
+           x="1.0707719"
+           y="0.63605922"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text249">23</text>
+      </g>
+      <g
+         id="g261"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="0.795059,0.581215 0.772839,0.561076 0.7527,0.538856 0.734837,0.51477 0.71942,0.489048 0.706598,0.461939 0.811438,0.418514 0.915401,0.522477 0.871976,0.627317 0.844867,0.614495 0.819145,0.599078 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon253" />
+        <polyline
+           points="0.871976,0.627317 0.844867,0.614495 0.819145,0.599078 0.795059,0.581215 0.772839,0.561076 0.7527,0.538856 0.734837,0.51477 0.71942,0.489048 0.706598,0.461939 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline255" />
+        <polygon
+           points="0.862183,0.598695 0.888239,0.535792 0.856733,0.55959 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon257" />
+        <text
+           x="0.78459007"
+           y="0.54932499"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text259">24</text>
+      </g>
+      <g
+         id="g271"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="0.696496,0.433704 0.689209,0.404615 0.684809,0.374952 0.683338,0.345 0.684809,0.315048 0.689209,0.285385 0.696496,0.256296 0.706598,0.228061 0.811438,0.271486 0.811438,0.418514 0.706598,0.461939 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon263" />
+        <polyline
+           points="0.706598,0.461939 0.696496,0.433704 0.689209,0.404615 0.684809,0.374952 0.683338,0.345 0.684809,0.315048 0.689209,0.285385 0.696496,0.256296 0.706598,0.228061 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline265" />
+        <polygon
+           points="0.782816,0.408721 0.743711,0.403271 0.719912,0.434777 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon267" />
+        <text
+           x="0.71170682"
+           y="0.37336931"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text269">25</text>
+      </g>
+      <g
+         id="g281"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="0.811438,0.271486 0.706598,0.228061 0.71942,0.200952 0.734837,0.17523 0.7527,0.151144 0.772839,0.128924 0.795059,0.108785 0.819145,0.0909216 0.844867,0.0755047 0.871976,0.0626832 0.915401,0.167523 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon273" />
+        <polyline
+           points="0.706598,0.228061 0.71942,0.200952 0.734837,0.17523 0.7527,0.151144 0.772839,0.128924 0.795059,0.108785 0.819145,0.0909216 0.844867,0.0755047 0.871976,0.0626832 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline275" />
+        <polygon
+           points="0.774325,0.212818 0.73522,0.218268 0.798123,0.244324 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon277" />
+        <text
+           x="0.78459007"
+           y="0.19741365"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text279">26</text>
+      </g>
+      <g
+         id="g291"
+         style="fill:#2ae406;fill-opacity:1"
+         inkscape:export-xdpi="288.95999"
+         inkscape:export-ydpi="288.95999">
+        <polygon
+           points="1.20625,0.03 1.26258,0.03 1.31891,0.03 1.31891,0.124 0.907948,0.149528 0.871976,0.0626832 0.925618,0.0456938 0.981137,0.0363648 1.03729,0.0320446 1.0936,0.0304457 1.14992,0.0300417 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.005"
+           id="polygon283" />
+        <polyline
+           points="0.871976,0.0626832 0.925618,0.0456938 0.981137,0.0363648 1.03729,0.0320446 1.0936,0.0304457 1.14992,0.0300417 1.20625,0.03 1.26258,0.03 1.31891,0.03 "
+           style="fill:#2ae406;fill-opacity:1;stroke:#000000;stroke-width:0.01"
+           id="polyline285" />
+        <polygon
+           points="0.926917,0.0907982 0.897648,0.0723985 0.919231,0.124505 "
+           style="fill:#2ae406;fill-opacity:1;stroke-width:0"
+           id="polygon287" />
+        <text
+           x="1.0707719"
+           y="0.1009408"
+           font-size="0.05px"
+           style="fill:#2ae406;fill-opacity:1"
+           id="text289">27</text>
+      </g>
+      <path
+         clip-rule="evenodd"
+         d="M 2.7865127,0.59513695 H 2.160609 c -0.036385,0 -0.065885,-0.0295 -0.065885,-0.065885 v -0.362365 c 0,-0.0363846 0.0295,-0.0658846 0.065885,-0.0658846 H 2.17708 v 0 c 0,-0.0181844 0.014758,-0.0329424 0.032942,-0.0329424 h 0.032942 c 0.018184,0 0.032942,0.014758 0.032942,0.0329424 h 0.032942 c 0,0 0.01853,-0.00206 0.032942,-0.0164712 l 0.032942,-0.0329424 c 0,0 0.012864,-0.0164712 0.032942,-0.0164712 h 0.1317692 c 0.02161,0 0.032942,0.0164712 0.032942,0.0164712 l 0.032942,0.0329424 c 0.014412,0.0144122 0.032942,0.0164712 0.032942,0.0164712 h 0.1482403 c 0.036385,0 0.065885,0.0294997 0.065885,0.0658846 v 0.3623654 c 0,0.036385 -0.0295,0.065885 -0.065885,0.065885 z m 0.032942,-0.42825 c 0,-0.0181844 -0.014758,-0.0329424 -0.032942,-0.0329424 l -0.1518804,-2.141e-4 c -0.00502,-5.4427e-4 -0.031114,-0.004431 -0.052592,-0.0259092 l -0.035083,-0.0350834 -0.00171,-0.002487 c -1.64e-5,-1.65e-5 -0.00257,-0.00219 -0.0058,-0.00219 H 2.4076761 c -0.00252,0 -0.00618,0.002931 -0.00698,0.003806 l -0.00124,0.001583 -0.034375,0.0343587 c -0.021495,0.0214948 -0.047585,0.0253657 -0.052593,0.0259092 l -0.068372,9.881e-5 c -3.953e-4,3.294e-5 -7.746e-4,1.3179e-4 -0.00115,1.3179e-4 h -0.032942 c -2.306e-4,0 -4.27e-4,-6.59e-5 -6.573e-4,-6.59e-5 l -0.048755,6.59e-5 c -0.018184,0 -0.032942,0.014758 -0.032942,0.0329424 v 0.362365 c 0,0.018184 0.014758,0.032942 0.032942,0.032942 H 2.786516 c 0.018184,0 0.032942,-0.014758 0.032942,-0.032942 z m -0.3458938,0.3623654 c -0.1000622,0 -0.1811826,-0.08112 -0.1811826,-0.1811827 0,-0.1000623 0.08112,-0.1811827 0.1811826,-0.1811827 0.1000623,0 0.1811828,0.0811204 0.1811828,0.1811827 0,0.1000623 -0.08112,0.1811827 -0.1811828,0.1811827 z m 0,-0.32942308 c -0.081878,0 -0.1482403,0.0663623 -0.1482403,0.14824038 0,0.081878 0.066362,0.1482404 0.1482403,0.1482404 0.081878,0 0.1482404,-0.066362 0.1482404,-0.1482404 0,-0.081878 -0.066362,-0.14824038 -0.1482404,-0.14824038 z m 0,0.23059618 c -0.045493,0 -0.082356,-0.036862 -0.082356,-0.082356 0,-0.045493 0.036862,-0.082356 0.082356,-0.082356 0.045493,0 0.082356,0.036862 0.082356,0.082356 0,0.045493 -0.036862,0.082356 -0.082356,0.082356 z m 0,-0.1317693 c -0.027276,0 -0.049413,0.022137 -0.049413,0.049413 0,0.027293 0.022137,0.049413 0.049413,0.049413 0.027293,0 0.049413,-0.022121 0.049413,-0.049413 0,-0.027276 -0.022121,-0.049413 -0.049413,-0.049413 z M 2.2429647,0.23277155 h -0.065885 c -0.00911,0 -0.016471,-0.00736 -0.016471,-0.016471 v -0.0329425 c 0,-0.009092 0.00736,-0.0164712 0.016471,-0.0164712 h 0.065885 c 0.00911,0 0.016471,0.007379 0.016471,0.0164712 v 0.0329424 c 0,0.00911 -0.00736,0.016471 -0.016471,0.0164711 z"
+         fill-rule="evenodd"
+         id="path1036"
+         style="stroke-width:0.0164711" />
+    </g>
+  </g>
+  <g
+     id="g177"
+     transform="matrix(0.99668933,0,0,0.99668933,-1.1736296,0.67749534)"
+     inkscape:export-xdpi="288.95999"
+     inkscape:export-ydpi="288.95999">
+    <circle
+       cx="90.057091"
+       cy="27.216757"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       id="circle2"
+       style="stroke-width:0.0495677"
+       r="10.146484" />
+    <circle
+       cx="90.057091"
+       cy="27.068052"
+       fill="#ffffff"
+       stroke="#000000"
+       stroke-miterlimit="10"
+       id="circle4"
+       style="stroke-width:0.0495677"
+       r="9.0113869" />
+    <circle
+       cx="85.030937"
+       cy="27.073011"
+       id="circle6"
+       style="stroke-width:0.0495677"
+       r="1.561379" />
+    <circle
+       cx="90.08683"
+       cy="27.221716"
+       id="circle8"
+       style="stroke-width:0.0495677"
+       r="1.561379" />
+    <circle
+       cx="95.093155"
+       cy="27.172144"
+       id="circle10"
+       style="stroke-width:0.0495677"
+       r="1.561379" />
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:10.8734px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.447903;stroke-miterlimit:4;stroke-dasharray:none"
+     x="3.4600549"
+     y="61.054249"
+     id="text181"
+     transform="scale(1.2149822,0.82305734)"
+     inkscape:export-xdpi="288.95999"
+     inkscape:export-ydpi="288.95999"><tspan
+       sodipodi:role="line"
+       id="tspan179"
+       x="3.4600549"
+       y="61.054249"
+       style="font-size:10.8734px;stroke-width:0.447903;stroke-miterlimit:4;stroke-dasharray:none">TrakSnapShot</tspan></text>
+</svg>

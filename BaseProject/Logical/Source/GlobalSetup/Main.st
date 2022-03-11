@@ -2,7 +2,6 @@
 PROGRAM _INIT
 	(* Call global variables until they are use somewhere else *)
 	gSampleTrak;
-	gTrakModule;
 	gSampleTrak_SectorTrakA;
 	gSampleTrak_SectorTrakB;
 	gSampleTrak_SectorTrakAll;
