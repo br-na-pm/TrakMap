@@ -11,7 +11,7 @@ def Version() {
     catch (err){
     }
 
-    if (branch.matches("release/(.*)")) {
+    if (branch.matches("release(.*)")) {
         echo "Release Branch";
         return "$tag.$count";
     }
@@ -48,7 +48,7 @@ def Branch(){
 pipeline {
     agent any 
     triggers {
-        cron(Branch().matches('release/*') ? '50 8 * * *' : '')
+        cron(Branch().matches('release*') ? '50 8 * * *' : '')
     }
 
     environment {
