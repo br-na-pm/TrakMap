@@ -171,12 +171,6 @@ pipeline {
             environment {
                 TAG = Tag()
             }
-            steps {
-                bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - Releases\\Dev\\$TAG\\\" /y"
-            }
-            environment {
-                TAG = Tag()
-            }
             when
             {
                 branch 'release/*'
