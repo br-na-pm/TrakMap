@@ -166,7 +166,7 @@ pipeline {
                 powershell(returnStdout: true, script: "& 'C:\\Program Files (x86)\\NSIS\\makensis.exe' '$INSTALLER_SETUP\\Installer AS Technology Solution\\SetupTechnologySolutionComplete.nsi'");
             }
         }
-            stage('Deploy Release')
+        stage('Deploy Release')
         {
             environment {
                 TAG = Tag()
@@ -174,6 +174,30 @@ pipeline {
             steps {
                 bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - Releases\\Dev\\$TAG\\\" /y"
             }
+            environment {
+                TAG = Tag()
+            }
+            when
+            {
+                branch 'release/*'
+            }
+            steps {
+                bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - Releases\\Releases\\$TAG\\\" /y"
+            }
+        }
+        stage('Deploy Feature')
+        {
+            when
+            {
+                anyOf {
+                    branch 'feature/*'
+                    branch 'develop'
+                }
+            }
+            steps {
+                bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - Releases\\Dev\\$BRANCH_NAME\\\" /y"
+            }
+        }
         }
         /*
         stage('Deploy Release')
