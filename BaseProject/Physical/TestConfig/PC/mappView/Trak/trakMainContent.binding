@@ -28,10 +28,7 @@
 <Source xsi:type="opcUa" refId="::AsGlobalPV:gTrakSystem.Asm.Cmd.ErrorReset" attribute="value" />
 <Target xsi:type="brease" contentRefId="trakMainContent" widgetRefId="MomentaryPushButton1" attribute="value" />
 </Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::AsGlobalPV:gTrakSystem.Asm.Status.PowerOn" attribute="value" />
-<Target xsi:type="brease" contentRefId="trakMainContent" widgetRefId="ToggleSwitch1" attribute="value" />
-</Binding>
+
 <Binding mode="oneWay">
 <Source xsi:type="opcUa" refId="::AsGlobalPV:gTrakSystem.Asm.Status.PowerOn" attribute="value" />
 <Target xsi:type="brease" contentRefId="trakMainContent" widgetRefId="ToggleButton10" attribute="value" />
@@ -51,6 +48,10 @@
 <Binding mode="oneWay">
 <Source xsi:type="opcUa" refId="::AsGlobalPV:gTrakSystem.Asm.Status.ReadyForPowerOn" attribute="value" />
 <Target xsi:type="brease" contentRefId="trakMainContent" widgetRefId="ToggleButton5" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gTrakSystem.Asm.Cmd.Power" attribute="value" />
+<Target xsi:type="brease" contentRefId="trakMainContent" widgetRefId="ToggleSwitch1" attribute="value" />
 </Binding>
 </Bindings>
 </BindingsSet>
