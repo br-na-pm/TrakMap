@@ -9,6 +9,18 @@ from xml.dom import minidom
 
 VERSION_NUMBER = '1.02.0'
 
+DEV_MODE = True
+if DEV_MODE:
+    defaultTextSvg = "C:/ACPTrakScenes/gAssembly_1.svg"
+    defaultTextOuputFolder = "C:/ACPTrakScenes/"
+    defaultTextOutput = "Trakmap.svg"
+    defaultTextSegDefine = "C:/Projects/test-trak-oldmap/Logical/Source/Diagnostic/TrakDiag/SegDefinition.st"
+else:
+    defaultTextSvg = ""
+    defaultTextOuputFolder = ""
+    defaultTextOutput = ""
+    defaultTextSegDefine = ""
+
 class TrakMap:
     def __init__(self,inputSVG):
         self._inputSVG = inputSVG
@@ -28,25 +40,24 @@ class TrakMap:
         self.viewBox = self.root.attrib['viewBox'].split(' ')
         
         self.segList = []
+
         for group in self.root.findall('./{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g'):
-            group_text = group.find('{http://www.w3.org/2000/svg}text')
+            group_text = group.find('{http://www.w3.org/2000/svg}polygon')
             if group_text != None:
-                txt = group_text.text
-                if txt.find(' (') >= 0: # Remove the (NN XX) from the ID
-                    txt = txt[:txt.find(' (')]
-                self.segList.append(txt)
+                segmentRefFromId = group_text.get('id')
+                self.segList.append(segmentRefFromId)
                 id_num = 0
                 idStr = 'psg'
                 for polygon in group.findall('{http://www.w3.org/2000/svg}polygon'):
                     if id_num != 0:
                         idStr = 'bsg'
-                    polygon.set('id', idStr + txt)
+                    polygon.set('id', idStr + segmentRefFromId)
                     id_num += 1
                 idStr = 'psg'
                 for polyline in group.findall('{http://www.w3.org/2000/svg}polyline'):
-                    polyline.set('id', idStr + txt)
+                    polyline.set('id', idStr + segmentRefFromId)
                     id_num += 1
-                group_text.set('id', 'tsg' + txt)
+                group_text.set('id', 'tsg' + segmentRefFromId)
     
     def writeTrakMapSVG(self,FilePath):
         if not FilePath.endswith(".svg"):
@@ -89,21 +100,22 @@ def CreateLayout():
     file_list_column = [
         [
             sg.Text("Input SVG file"),
-            sg.In(size=(100, 1), enable_events=True, key="-Input SVG-"),
+            sg.In(size=(100, 1), enable_events=True, key="-Input SVG-", default_text = defaultTextSvg),
             sg.FileBrowse(file_types=(("Scaleable Vector Graphics", "*.svg"),))
+
         ],
         [
             sg.Text("Output Folder Path"),
-            sg.In(size=(100, 1), enable_events=True, key="-OutputPath-"),
+            sg.In(size=(100, 1), enable_events=True, key="-OutputPath-", default_text = defaultTextOuputFolder),
             sg.FolderBrowse()
         ],
         [
             sg.Text("Output SVG name"),
-            sg.In(size=(100, 1), enable_events=True, key="-Output SVG-")
+            sg.In(size=(100, 1), enable_events=True, key="-Output SVG-", default_text = defaultTextOutput)
         ],
         [
             sg.Text("TrakDiag SegDefine Action"),
-            sg.In(size=(100, 1), enable_events=True, key="-TrakDiagAction-"),
+            sg.In(size=(100, 1), enable_events=True, key="-TrakDiagAction-", default_text = defaultTextSegDefine),
             sg.FileBrowse(file_types=(("Structured Text", "*.st"),))
         ],
         [
