@@ -34,6 +34,7 @@ class TrakMap:
 
     def svgParse(self):
         ET.register_namespace('', "http://www.w3.org/2000/svg")
+        
         tree = ET.parse(self._inputSvgPath)
         self.root = tree.getroot()
         
@@ -41,23 +42,58 @@ class TrakMap:
         
         self.segList = []
 
-        for group in self.root.findall('./{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g'):
-            group_text = group.find('{http://www.w3.org/2000/svg}polygon')
+        for gggroup in self.root.findall('./{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g'):
+            #Search for segments inside <svg><g><g><g>
+            group_text = gggroup.find('{http://www.w3.org/2000/svg}polygon')
             if group_text != None:
                 segmentRefFromId = group_text.get('id')
                 self.segList.append(segmentRefFromId)
                 id_num = 0
                 idStr = 'psg'
-                for polygon in group.findall('{http://www.w3.org/2000/svg}polygon'):
+                for polygon in gggroup.findall('{http://www.w3.org/2000/svg}polygon'):
                     if id_num != 0:
                         idStr = 'bsg'
                     polygon.set('id', idStr + segmentRefFromId)
                     id_num += 1
                 idStr = 'psg'
-                for polyline in group.findall('{http://www.w3.org/2000/svg}polyline'):
+                for polyline in gggroup.findall('{http://www.w3.org/2000/svg}polyline'):
                     polyline.set('id', idStr + segmentRefFromId)
                     id_num += 1
                 group_text.set('id', 'tsg' + segmentRefFromId)
+            #Also look for id="segtable" and remove it
+            if(gggroup.get('id') == 'segtable'):
+                gggroup.clear()
+        # Clear out unnecessary elements
+        for ggroup in self.root.findall('./{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g'):
+            if(ggroup.get('id') in ['sector', 'triggerpoint', 'trpttable', 'sectortable', 'workspace']):
+                ggroup.clear()
+
+            tickmarkGroup = ggroup.find('{http://www.w3.org/2000/svg}polyline')
+            if(tickmarkGroup != None):
+                if(tickmarkGroup.get('stroke') in ['lightgrey', 'darkorange']):
+                    ggroup.clear()
+            
+
+
+    def svgParseLists(self):
+        ET.register_namespace('', "http://www.w3.org/2000/svg")
+        
+        tree = ET.parse(self._inputSvgPath)
+        self.rootList = tree.getroot()
+
+        for gggroup in self.root.findall('./{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g'):
+            if(gggroup.get('id') != 'segtable'):
+                gggroup.clear()
+
+        # Clear out unnecessary elements
+        for ggroup in self.root.findall('./{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g'):
+            if(ggroup.get('id') in ['sector', 'triggerpoint', 'workspace']):
+                ggroup.clear()
+
+            tickmarkGroup = ggroup.find('{http://www.w3.org/2000/svg}polyline')
+            if(tickmarkGroup != None):
+                if(tickmarkGroup.get('stroke') in ['lightgrey', 'darkorange']):
+                    ggroup.clear()    
     
     def writeTrakMapSVG(self,FilePath):
         if not FilePath.endswith(".svg"):
