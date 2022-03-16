@@ -31,6 +31,7 @@ class TrakMap:
         self._assemblyName = self._inputSvgPath.stem
         
         self.svgParse()
+        self.svgParseLists()
 
     def svgParse(self):
         ET.register_namespace('', "http://www.w3.org/2000/svg")
@@ -81,12 +82,14 @@ class TrakMap:
         tree = ET.parse(self._inputSvgPath)
         self.rootList = tree.getroot()
 
-        for gggroup in self.root.findall('./{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g'):
+        for gggroup in self.rootList.findall('./{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g'):
             if(gggroup.get('id') != 'segtable'):
                 gggroup.clear()
+            else:
+                break
 
         # Clear out unnecessary elements
-        for ggroup in self.root.findall('./{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g'):
+        for ggroup in self.rootList.findall('./{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g'):
             if(ggroup.get('id') in ['sector', 'triggerpoint', 'workspace']):
                 ggroup.clear()
 
@@ -102,7 +105,15 @@ class TrakMap:
         with open(FilePath, 'w') as file:
             file.write(xmlstr)
         #print('{input} file successfully prepared and output to {output}'.format(input = inputPath, output = outputPath))
-       
+
+    def writeTrakListSVG(self,FilePath):
+        if not FilePath.endswith(".svg"):
+            FilePath += ".svg"
+        xmlstr = minidom.parseString(ET.tostring(self.rootList)).toprettyxml(indent = "    ")
+        with open(FilePath, 'w') as file:
+            file.write(xmlstr)
+        #print('{input} file successfully prepared and output to {output}'.format(input = inputPath, output = outputPath))
+
     def exportSegDefine(self,FilePath):
         path = Path(FilePath)
         with open(path, 'w') as file:
@@ -182,6 +193,7 @@ def main() -> None:
             else:
                 trakMap = TrakMap(values["-Input SVG-"])
                 trakMap.writeTrakMapSVG(values["-OutputPath-"]+"/"+values["-Output SVG-"])
+                trakMap.writeTrakListSVG(values["-OutputPath-"]+"/SegList"+values["-Output SVG-"])
                 trakMap.exportSegDefine(values["-TrakDiagAction-"])
                 sg.Popup("Files Prepared successfully")
 
