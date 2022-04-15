@@ -1,3 +1,4 @@
+from math import ceil
 from tabnanny import verbose
 import PySimpleGUI as sg
 import os.path
@@ -58,10 +59,18 @@ class TrakMap:
         minimumDim = Point()
         maximumDim = Point()
 
+        
+        segmentCount = 0
+        sectorCount = 0
+        ppCount = 0
+        removeCount = 0
+
+
         for gggroup in self.root.findall('./{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g'):
             #Search for segments inside <svg><g><g><g>
             SegmentPolygon = gggroup.find('{http://www.w3.org/2000/svg}polygon')
             if SegmentPolygon != None:
+                segmentCount += 1;
                 segmentRefFromId = SegmentPolygon.get('id')
                 self.segList.append(segmentRefFromId)
                 polygon_num = 0
@@ -111,23 +120,41 @@ class TrakMap:
                     polyline.set('id', 'tsg' + segmentRefFromId)  
 
             #Also look for id="segtable" and remove it
-            if(gggroup.get('id') == 'segtable'):
-                gggroup.clear()
+            if(gggroup.get('id') == 'segtable' or removeCount > 0):
+                if(gggroup.get('id') == 'segtable'):
+                    removeCount = ceil(segmentCount / 20.0)
+                removeCount -= 1
+                self.root.find('./{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g').remove(gggroup)
+                #gggroup.clear()
+            
         # Clear out unnecessary elements
         for ggroup in self.root.findall('./{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g'):
-            if(ggroup.get('id') in ['sector', 'triggerpoint', 'trpttable', 'sectortable', 'workspace']):
-                ggroup.clear()
+            #Count number of each type so we know how many tables to kill (this is slow but meh)
+            if(ggroup.get('id') == 'sector'):
+                sectorCount += 1
+            if(ggroup.get('id') == 'triggerpoint'):
+                ppCount += 1
+        removeCount = 0
+        for ggroup in self.root.findall('./{http://www.w3.org/2000/svg}g/{http://www.w3.org/2000/svg}g'):
+            if(ggroup.get('id') in ['sector', 'triggerpoint', 'trpttable', 'sectortable', 'workspace'] or removeCount>0):
+                if ggroup.get('id') == 'sectortable':
+                    removeCount = ceil(sectorCount / 20.0)
+                if ggroup.get('id') == 'trpttable':
+                    removeCount = ceil(ppCount / 20.0)
+
+                if removeCount>0:
+                    removeCount -= 1
+                #ggroup.clear()
+                self.root.find('./{http://www.w3.org/2000/svg}g').remove(ggroup)
 
             tickmarkGroup = ggroup.find('{http://www.w3.org/2000/svg}polyline')
             if(tickmarkGroup != None):
-                if(tickmarkGroup.get('stroke') in ['lightgrey', 'darkorange']):
-                    ggroup.clear()
+                if(tickmarkGroup.get('stroke') in ['lightgrey', 'darkorange','purple']):
+                    self.root.find('./{http://www.w3.org/2000/svg}g').remove(ggroup)
+                    #ggroup.clear()
     
 
-        
-        
         #Set Viewbox based on calculated maximums
-
         self.viewBox = self.root.attrib['viewBox'].split(' ')
 
         self.viewBox[0] = self.viewBox[0]                               #min-x
@@ -243,11 +270,12 @@ def CreateLayout():
             sg.In(size=(100, 1), enable_events=True, key="-TrakDiagAction-", default_text = defaultTextSegDefine),
             sg.FileBrowse(file_types=(("Structured Text", "*.st"),))
         ],
+        #remove visible for generation option checkboxes
         [
-            sg.Text("List File Generation Options"),
-            sg.Checkbox("Segment List", key="-SegListGen-", default=True),
-            sg.Checkbox("Sector List", key="-SecListGen-"),
-            sg.Checkbox("Process Point List", key="-PPListGen-")
+           sg.Text("List File Generation Options", visible=False),
+            sg.Checkbox("Segment List", key="-SegListGen-", default=True, visible=False),
+            sg.Checkbox("Sector List", key="-SecListGen-", visible=False),
+            sg.Checkbox("Process Point List", key="-PPListGen-", visible=False)
         ],
         [
             sg.Button(button_text="Generate TrakMap Files",key="-Generate-")
