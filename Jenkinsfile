@@ -46,11 +46,6 @@ def Branch(){
 }
 
 pipeline {
-    agent any 
-    triggers {
-        cron(Branch().matches('release*') ? '50 8 * * *' : '')
-    }
-
     environment {
         PROJECT_DIR = "$WORKSPACE\\BaseProject";
         INSTALLER_SETUP = "$WORKSPACE\\InstallerSetup";
