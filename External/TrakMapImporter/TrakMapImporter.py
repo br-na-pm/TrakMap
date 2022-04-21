@@ -18,7 +18,7 @@ VBL_POS_MINY = 0.0
 
 
 
-DEV_MODE = True
+DEV_MODE = False
 if DEV_MODE:
     defaultTextSvg = "C:/ACPTrakScenes/gAssembly_1.svg"
     defaultTextOuputFolder = "C:/ACPTrakScenes/"
