@@ -2,7 +2,6 @@
 #include <bur/plctypes.h>
 #include <stdint.h>
 #include <AsBrStr.h>
-#include <asstring.h>
 
 #define TRUE 1
 #define FALSE 0
