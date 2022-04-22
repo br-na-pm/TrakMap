@@ -8,7 +8,7 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
-VERSION_NUMBER = '1.02.0'
+VERSION_NUMBER = '1.02.9'
 
 VB_MARGIN_HEIGHT = 0.23
 VB_MARGIN_MINY = 0.02
