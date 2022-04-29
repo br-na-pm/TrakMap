@@ -5,10 +5,6 @@
 			<Source xsi:type="opcUa" refId="NS6|String|Diag::TrakDiag:paperCore.ClickData.Segment.Data.Status.ErrorCode" attribute="value" />
 			<Target xsi:type="snippet" refId="SnippetSegError" attribute="value" />
 		</Binding>
-		<Binding mode="oneWay">
-			<Source xsi:type="snippet" refId="SnippetSegError" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="SegmentStatus1" attribute="segErrorText" />
-		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::TrakDiag:paperCore.SvgContent" attribute="value" />
 			<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="paperTrakMap" attribute="svgContent" />

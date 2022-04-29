@@ -2,8 +2,8 @@
 <Content id="trakmapContent" height="810" width="1080" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
     <Widget xsi:type="widgets.brease.Paper" id="paperTrakMap" top="200" left="0" width="780" height="588" zIndex="0" colorList="#c9c9c9,#FF0000,#00FF00,#FFFF80,#808080,#0000CD,#FF0000,#228B22,#FFFF00,#FFA500,#FFFFFF,#000000,#ff9794,#800080 " svgFilePath="Media/TrakMapExample.svg" borderStyle="none" />
-    <Widget xsi:type="widgets.TrakMap.SegmentStatus" id="SegmentStatus1" top="0" left="10" zIndex="1" />
-    <Widget xsi:type="widgets.TrakMap.ShuttleStatus" id="ShuttleStatus1" top="20" left="0" zIndex="2" />
+    <Widget xsi:type="widgets.TrakMap.ShuttleStatus" id="ShuttleStatus1" top="105" left="0" zIndex="2" />
     <Widget xsi:type="widgets.TrakMap.ShuttleUserDataExample" id="ShuttleUserDataExample1" top="140" left="840" width="200" zIndex="3" />
+    <Widget xsi:type="widgets.TrakMap.SegmentStatus" id="SegmentStatus1" top="0" left="110" zIndex="1" />
   </Widgets>
 </Content>

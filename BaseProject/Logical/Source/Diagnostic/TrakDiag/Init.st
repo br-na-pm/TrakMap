@@ -19,5 +19,5 @@ PROGRAM _INIT
 	paperOptions.Color.Offset := SIZEOF(UDINT);
 	paperOptions.Segment.Enabled := TRUE;
 	paperOptions.Shuttle.Enabled := TRUE;
-	paperOptions.Color.Enabled := TRUE;
+	paperOptions.Color.Enabled := FALSE;
 END_PROGRAM
