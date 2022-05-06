@@ -175,7 +175,7 @@ pipeline {
                 branch 'release'
             }
             steps {
-                bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - Releases\\Releases\\$TAG\\\" /y"
+                bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Releases\\$TAG\\\" /y"
             }
         }
         stage('Deploy Feature')
@@ -188,7 +188,7 @@ pipeline {
                 }
             }
             steps {
-                bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - Releases\\Dev\\$BRANCH_NAME\\\" /y"
+                bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Dev\\$BRANCH_NAME\\\" /y"
             }
         }
     }
