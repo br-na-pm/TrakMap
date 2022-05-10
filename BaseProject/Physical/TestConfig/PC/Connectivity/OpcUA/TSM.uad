@@ -38,6 +38,12 @@
         <Variable Name="SortConfiguration" />
         <Variable Name="TriggerTestAlarm" />
       </Task>
+      <Task Name="TrakDiag">
+        <Variable Name="TrakDiag" AutomaticEnable="True" />
+        <Variable Name="paperCore" AutomaticEnable="True" />
+        <Variable Name="paperOptions" AutomaticEnable="True" />
+        <Variable Name="ShuttleUserData" AutomaticEnable="True" />
+      </Task>
     </Module>
   </DefaultView>
 </OpcUaSource>

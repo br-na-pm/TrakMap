@@ -1,6 +1,5 @@
 VAR
 	MC_BR_ShCopyUserData_AcpTrak_0 : MC_BR_ShCopyUserData_AcpTrak;
-	ShuttleUserData : ShuttleUserDataType;
 	ErrorCodeIDInfo : ARRAY[0..NUM_SEG] OF McAcpTrakSegProcessParIDType;
 	SegWarningCmdIDInfo : McAcpTrakSegProcessParIDType;
 	SegErrorCheck : ARRAY[0..NUM_SEG] OF SegErrorCheckType;
@@ -17,4 +16,8 @@ VAR
 	TrakDiag : TrkDiagStatusType;
 	DiagFbs : DiagFbsType;
 	SegIndex : USINT;
+END_VAR
+(******************* BE SURE TO CHANGE THIS TO MATCH YOUR OWN USER DATA TYPE!!! This is just set for the moment as an example user data type that likely won't exist in your project!*)
+VAR
+	ShuttleUserData : ShuttleUserDataType;
 END_VAR

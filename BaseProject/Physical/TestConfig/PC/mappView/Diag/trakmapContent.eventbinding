@@ -7,14 +7,14 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::TrakDiag:paperCore.ClickID">
+              <Target xsi:type="opcUa.NodeAction" refId="::TrakDiag:paperCore.ClickID">
                 <Method xsi:type="opcUa.NodeAction.SetValueString" value="= elementId" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="NS6|String|Diag::TrakDiag:paperCore.ReadClickID">
+              <Target xsi:type="opcUa.NodeAction" refId="::TrakDiag:paperCore.ReadClickID">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>

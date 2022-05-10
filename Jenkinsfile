@@ -46,11 +46,14 @@ def Branch(){
 }
 
 pipeline {
+    agent any 
+    
     environment {
         PROJECT_DIR = "$WORKSPACE\\BaseProject";
         INSTALLER_SETUP = "$WORKSPACE\\InstallerSetup";
         TECHNOLOGY_SOLUTION = "$INSTALLER_SETUP\\Installer AS Technology Solution\\TechnologySolution";
         HELP_LOCATION = "$WORKSPACE\\External";
+        HELP_NAME = "TrakMapWidgetLibrary";
         HELP_FILE = "TrakMapHelp.hnd";
         HELP_OUTPUT = "..\\InstallerSetup\\Installer AS Technology Solution\\SetupData\\Help";
     }
@@ -58,6 +61,7 @@ pipeline {
         stage('Install Dependencies')
         {
             steps {
+                powershell(returnStdout: true, script: "python -m pip install --upgrade pip");
                 powershell(returnStdout: true, script: "pip install pysimplegui");
                 powershell(returnStdout: true, script: "pip install pyinstaller");
             }
@@ -109,7 +113,7 @@ pipeline {
                     Exception caughtException = null
                     catchError(buildResult: 'SUCCESS', stageResult: 'ABORTED') { 
                         try { 
-                            powershell(returnStdout: true, script: "python \"$ProjectBuilderScripts\\BuildHelp.py\" --project \"$HELP_LOCATION\" --name $HELP_FILE --output \"$HELP_OUTPUT\"");
+                            powershell(returnStdout: true, script: "python \"$ProjectBuilderScripts\\BuildHelp.py\" --project \"$HELP_LOCATION\" --file $HELP_FILE --name $HELP_NAME --output \"$HELP_OUTPUT\"");
                         } catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException e) {
                             error "Caught ${e.toString()}" 
                         } catch (Throwable e) {
@@ -171,7 +175,7 @@ pipeline {
                 branch 'release'
             }
             steps {
-                bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - Releases\\Releases\\$TAG\\\" /y"
+                bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Releases\\$TAG\\\" /y"
             }
         }
         stage('Deploy Feature')
@@ -184,7 +188,7 @@ pipeline {
                 }
             }
             steps {
-                bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - Releases\\Dev\\$BRANCH_NAME\\\" /y"
+                bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Dev\\$BRANCH_NAME\\\" /y"
             }
         }
     }

@@ -1,65 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BindingsSet id="trakmapContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Bindings>	
-		
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="NS6|String|Diag::TrakDiag:paperCore.SvgContent" attribute="value" />
+			<Source xsi:type="opcUa" refId="::TrakDiag:paperCore.SvgContent" attribute="value" />
 			<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="paperTrakMap" attribute="svgContent" />
 		</Binding>
-		
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::TrakDiag:paperCore.SvgTransform" attribute="value" />
+			<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="paperTrakMap" attribute="transform" />
+		</Binding>
 		<Binding mode="oneWay">
-			<Source xsi:type="opcUa" refId="NS6|String|Diag::TrakDiag:paperCore.ClickData.Segment.Data.Status.ErrorCode" attribute="value" />
-			<Target xsi:type="snippet" refId="SnippetSegError" attribute="value" />
-		</Binding>
-		<Binding mode="oneWay">
-			<Source xsi:type="snippet" refId="SnippetSegError" attribute="value" />
-			<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="SegmentStatus1" attribute="segErrorText" />
-		</Binding>
-		
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUaComplexObject" refId="NS6|String|Diag::TrakDiag:paperCore.ClickData.Segment.Data" />
-			<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="SegmentStatus1" attribute="statusStructure" />
-		</Binding>
-		
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUaComplexObject" refId="NS6|String|Diag::TrakDiag:paperCore.ClickData.Shuttle.Data.ShInfo" />
-			<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="ShuttleStatus1" attribute="statusStructure" />
-		</Binding>
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="NS6|String|Diag::TrakDiag:paperCore.ClickData.Shuttle.Valid" attribute="value" />
+			<Source xsi:type="opcUa" refId="::TrakDiag:paperCore.ClickData.Shuttle.Valid" attribute="value" />
 			<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="ShuttleStatus1" attribute="visible" />
 		</Binding>
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="NS6|String|Diag::TrakDiag:paperCore.ClickData.Segment.Valid" attribute="value" />
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUaComplexObject" refId="::TrakDiag:paperCore.ClickData.Shuttle.Data.ShInfo" />
+			<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="ShuttleStatus1" attribute="statusStructure" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::TrakDiag:paperCore.ClickData.Segment.Valid" attribute="value" />
 			<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="SegmentStatus1" attribute="visible" />
 		</Binding>
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUaComplexObject" refId="NS6|String|Diag::TrakDiag:ShuttleUserData" />
-			<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="ShuttleUserDataExample1" attribute="userData" />
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUaComplexObject" refId="::TrakDiag:paperCore.ClickData.Segment.Data" />
+			<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="SegmentStatus1" attribute="statusStructure" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="NS6|String|Diag::TrakDiag:paperCore.ClickData.Shuttle.Valid" attribute="value" />
+			<Source xsi:type="opcUa" refId="::TrakDiag:paperCore.ClickData.Shuttle.Valid" attribute="value" />
 			<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="ShuttleUserDataExample1" attribute="visible" />
 		</Binding>
-	
-
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="NS6|String|Diag::TrakDiag:paperCore.SvgTransform" attribute="value" />
-<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="TextOutput1" attribute="value" />
-</Binding>
-
-
-
-
-
-
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="NS6|String|Diag::TrakDiag:TEST_Transform" attribute="value" />
-<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="TextInput1" attribute="value" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="NS6|String|Diag::TrakDiag:TEST_Transform" attribute="value" />
-<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="paperTrakMap" attribute="transform" />
-</Binding>
-</Bindings>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUaComplexObject" refId="::TrakDiag:ShuttleUserData" />
+			<Target xsi:type="brease" contentRefId="trakmapContent" widgetRefId="ShuttleUserDataExample1" attribute="userData" />
+		</Binding>
+	</Bindings>
 </BindingsSet> 

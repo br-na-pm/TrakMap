@@ -10,14 +10,14 @@ PROGRAM _INIT
 	
 	(****** Change variables to match your project **********)
 	
-	paperCore.Assembly := ADR(DiagInterface.SampleTrak);
-	paperCore.ShuttleMon := ADR(DiagInterface.ShuttleMon);
+	paperCore.Assembly := ADR(gSampleTrak);
+	paperCore.ShuttleMon := ADR(gSampleTrakMon);
 		
 	
 	(****************************** Change options here ***********************)
 	
 	paperOptions.Color.Offset := SIZEOF(UDINT);
 	paperOptions.Segment.Enabled := TRUE;
-	paperOptions.Shuttle.Enabled := FALSE;
+	paperOptions.Shuttle.Enabled := TRUE;
 	paperOptions.Color.Enabled := FALSE;
 END_PROGRAM

@@ -8,7 +8,7 @@
       <Property ID="IPAddress" Value="127.0.0.1" />
       <Property ID="Port" Value="4840" />
       <Property ID="EndpointUrl" />
-      <Property ID="DefaultNamespace" Value="http://br-automation.com/OpcUa/PLC/PV/" />
+      <Property ID="DefaultNamespace" Value="urn:B&amp;R/pv/" />
       <Selector ID="ConnectionPolicy" Value="1" />
       <Selector ID="SecurityPolicy" Value="None" />
       <Selector ID="MessageSecurityMode" Value="1" />

@@ -2,8 +2,11 @@
 <?AutomationStudio FileVersion="4.9"?>
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Cyclic#1">
+    <Task Name="ShuttleIni" Source="Source.Assembly.SubModule1.ShuttleInit.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="GlobalSetu" Source="Source.GlobalSetup.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="AsmSampleT" Source="Source.Assembly.AsmSampleTrak.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="TSM" Source="Source.TSM.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="AsmConfig" Source="Source.Assembly.AsmConfig.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2">
     <Task Name="TSMMain" Source="Source.TSMMain.prg" Memory="UserROM" Language="IEC" Debugging="true" />
@@ -15,7 +18,9 @@
   <TaskClass Name="Cyclic#5" />
   <TaskClass Name="Cyclic#6" />
   <TaskClass Name="Cyclic#7" />
-  <TaskClass Name="Cyclic#8" />
+  <TaskClass Name="Cyclic#8">
+    <Task Name="TrakDiag" Source="Source.Diagnostic.TrakDiag.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+  </TaskClass>
   <DataObjects>
     <DataObject Name="McAcpSys" Source="" Memory="UserROM" Language="Binary" />
   </DataObjects>

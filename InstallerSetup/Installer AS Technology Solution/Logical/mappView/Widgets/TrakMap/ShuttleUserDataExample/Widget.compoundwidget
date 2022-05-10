@@ -3,7 +3,7 @@
   <Widgets>
 	
 		<Widget xsi:type="widgets.brease.Label" 		id="lblShuttleID" 			top="0" left="10" width="100" 		zIndex="1" text="Shuttle Color" />
-		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtShuttleColor" 		top="35" left="90"  width="200" 		zIndex="2" value="$IAT/SHUTTLECOLOR.0" />	
+		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtShuttleColor" 		top="35" left="10"  width="200" 		zIndex="2" value="$IAT/SHUTTLECOLOR.0" />	
 		<Widget xsi:type="widgets.brease.ImageList" 	id="numInShuttleColor" 			top="0" left="0" width="1" height="1" 	zIndex="3" imageList="['']"  visible="false" />
 		<Widget xsi:type="widgets.brease.ImageList" 	id="numInShuttleID" 			top="0" left="0" width="1" height="1" 	zIndex="4" imageList="['']"  visible="false" />
 	</Widgets> 

@@ -3,8 +3,6 @@ PROGRAM _INIT
 	(* Insert code here *)
 	ModuleName := 'TrakModule';
 	
-	gRecipeXml_TrakModule;
-	gTrakModule;
 	 
 END_PROGRAM
 

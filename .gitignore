@@ -44,3 +44,4 @@ BaseProject/Diagnosis/
 External/**/build/**
 External/**/dist/**
 BaseProject/Physical/SingleSegment/
+BaseProject/debug.log

@@ -1,6 +1,0 @@
-VAR
-	FilterConfiguration : STRING[1000] := '';
-	SortConfiguration : STRING[1000] := '';
-	HistoryFilter : STRING[2000] := '';
-	HistorySort : STRING[2000] := '';
-END_VAR

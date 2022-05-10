@@ -2,7 +2,6 @@
 #include <bur/plctypes.h>
 #include <stdint.h>
 #include <AsBrStr.h>
-#include <asstring.h>
 
 #define TRUE 1
 #define FALSE 0
@@ -106,7 +105,7 @@ char* currSegIdent){
 		
 	//{"select":"#Segment","fill":1"}
 	for (i = 0; i < SegmentCount; i++){
-		if(segList[i].Status.ErrorCode > 0){
+		if(segList[i].Status.ErrorCode > 0 || (!segList[i].Status.PowerOn && segList[i].Status.SegmentErrorStop)){
 			fillIndex = trkPAPER_SEG_STYLE_ERROR; //Segment Style Color index	
 		}
 		else if(!segList[i].Status.CommunicationReady || !segList[i].Status.ReadyForPowerOn){
