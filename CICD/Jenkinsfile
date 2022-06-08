@@ -61,14 +61,14 @@ pipeline {
         stage('Install Dependencies')
         {
             steps {
-                powershell(returnStdout: true, script: "python -m pip install --upgrade pip");
+                powershell(returnStdout: true, script: "py -m pip install --upgrade pip");
                 powershell(returnStdout: true, script: "pip install pysimplegui");
                 powershell(returnStdout: true, script: "pip install pyinstaller");
             }
         }
         stage('Build AS') {
             steps {
-                powershell(returnStdout: true, script:  "python \"$ProjectBuilderScripts\\ASProjectCompile.py\" --project \"$PROJECT_DIR\" --configuration TestConfig");
+                powershell(returnStdout: true, script:  "py \"$ProjectBuilderScripts\\ASProjectCompile.py\" --project \"$PROJECT_DIR\" --configuration TestConfig");
             }
         }
         /*stage('Run Unit Tests') {
