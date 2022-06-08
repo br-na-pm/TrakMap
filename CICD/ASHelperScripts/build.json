@@ -1,0 +1,52 @@
+[
+    {
+        "command" : "ASProjectCompile.py",
+        "args" : [
+                    "--project ${projectDir}\\MachineWVD",
+                    "--configuration all",
+                    "--maxwarnings 0"
+                ]
+    },
+    {
+        "command" : "ModuleOk.py",
+        "args" : [
+                    "--project ${projectDir}\\MachineWVD",
+                    "--configuration Config1",
+                    "--output Error"
+        ]
+    },
+    {
+        "command" : "IOVariableName.py",
+        "args" : [
+                    "--project ${projectDir}\\MachineWVD",
+                    "--configuration Config1"
+        ]
+    },
+    {
+        "command" : "CreateArSimInstallation.py",
+        "args" : [
+                    "--project ${projectDir}\\MachineWVD",
+                    "--configuration TS_UnitTest_Sample",
+                    "--simulationDirectory ${projectDir}\\ArSim"
+        ]
+    },
+    {
+        "command" : "StartArSim.py",
+        "args" : [
+                    "--simulationDirectory ${projectDir}\\ArSim"
+        ]
+    },
+    {
+        "command" : "RunUnitTests.py",
+        "args" : [
+                    "--test all",
+                    "--output ${projectDir}\\TestResults"
+        ]
+    },
+    {
+        "command" : "StopArSim.py",
+        "args" : [
+                    "--simulationDirectory ${projectDir}\\ArSim"
+        ]
+    }
+]
