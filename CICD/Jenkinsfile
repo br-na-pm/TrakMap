@@ -69,10 +69,11 @@ pipeline {
         }
         stage('Build AS') {
             steps {
-                echo 'Build'
-                def buildResult = powershell(returnStdout: true, script:  "python \"$BUILD_SCRIPTS\\ASProjectCompile.py\" --project \"$PROJECT_DIR\" --configuration TestConfig");
-                if (buildResult == '3') {
-                    echo 'AS Build Error'
+                script {
+                    def buildResult = powershell(returnStdout: true, script:  "python \"$BUILD_SCRIPTS\\ASProjectCompile.py\" --project \"$PROJECT_DIR\" --configuration TestConfig");
+                    if (buildResult == '3') {
+                        echo 'AS Build Error'
+                    }
                 }
             }
         }
