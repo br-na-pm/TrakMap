@@ -44,6 +44,8 @@ def Compile(Project, Configuration):
                                 )
             result = subprocess.run(cleanCommand, cwd=__projectPath, capture_output=True, text=True)
 
+            print(cleanCommand)
+
             buildCommand = (__compileAsPath + r'\Bin-en\BR.AS.Build.exe'
                                 + ' "' + __projectPath + '\\' + Project.projectName + '"'
                                 + ' -buildMode "Build"'
@@ -51,7 +53,8 @@ def Compile(Project, Configuration):
                                 )
             result = subprocess.run(buildCommand, cwd=__projectPath, capture_output=True, text=True)
 
-            #print(result.stdout)
+            print(buildCommand)
+            print(result.stdout)
             errors = 0
             warnings = 0
             output = result.stdout.splitlines()
