@@ -70,7 +70,10 @@ pipeline {
         stage('Build AS') {
             steps {
                 echo 'Build'
-                powershell(returnStdout: true, script:  "python \"$BUILD_SCRIPTS\\ASProjectCompile.py\" --project \"$PROJECT_DIR\" --configuration TestConfig");
+                def buildResult = powershell(returnStdout: true, script:  "python \"$BUILD_SCRIPTS\\ASProjectCompile.py\" --project \"$PROJECT_DIR\" --configuration TestConfig");
+                if (buildResult == '3') {
+                    echo 'AS Build Error'
+                }
             }
         }
         /*stage('Run Unit Tests') {
@@ -101,6 +104,7 @@ pipeline {
             }
             steps {
                 powershell(returnStdout: true, script:  "pyinstaller \"External\\TrakMapImporter\\TrakMapImporter.py\" --onefile --clean --distpath \"InstallerSetup\\Installer AS Technology Solution\\SetupData\\Help\\Help-en\\TrakMapWidgetLibraryHelp\" ");
+                
             }
         }
         stage('Build Help') {
