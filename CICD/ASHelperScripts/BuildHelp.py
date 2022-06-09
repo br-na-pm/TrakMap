@@ -9,7 +9,7 @@ from DirUtils import CreateDirectory, removeDir, CleanDirectory
 homeDir = ''
 
 def FixHelpNDocRegistry():
-    aKey = winreg.OpenKey(winreg.HKEY_CURRENT_USER, r'SOFTWARE\IBE Software\HelpNDoc\V6', 0, winreg.KEY_ALL_ACCESS)
+    aKey = winreg.OpenKey(winreg.HKEY_CURRENT_USER, r'SOFTWARE\IBE Software\HelpNDoc\V7', 0, winreg.KEY_ALL_ACCESS)
     userTemplate = winreg.QueryValueEx(aKey, 'UserPathTemplates')[0]
     print(userTemplate)
     if (userTemplate == ''):
@@ -32,7 +32,7 @@ def BuildHelp(projectDir, fileName, outputDir, name, language) -> bool:
     CreateDirectory(rf'{projectDir}\{outputDir}\Help-{language}\{name}Help')
     CreateDirectory(rf'{projectDir}\{outputDir}\Help-{language}\{name}Help\{name}Help')
     CleanDirectory(rf'{projectDir}\{outputDir}\Help-{language}\{name}Help\{name}Help')
-    buildCmd = r'C:\Program Files (x86)\IBE Software\HelpNDoc 6\hnd6.exe'
+    buildCmd = r'C:\Program Files (x86)\IBE Software\HelpNDoc 7\hnd7.exe'
     if (name.endswith('.hnd')):
         name = name.replace('.hnd', '')
     if (fileName.endswith('.hnd')):
