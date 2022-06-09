@@ -56,6 +56,7 @@ pipeline {
         HELP_NAME = "TrakMapWidgetLibrary";
         HELP_FILE = "TrakMapHelp.hnd";
         HELP_OUTPUT = "..\\InstallerSetup\\Installer AS Technology Solution\\SetupData\\Help";
+        BUILD_SCRIPTS = "$WORKSPACE\\CICD\\ASHelperScripts";
     }
     stages {
         stage('Install Dependencies')
@@ -68,7 +69,8 @@ pipeline {
         }
         stage('Build AS') {
             steps {
-                powershell(returnStdout: true, script:  "python \"$ProjectBuilderScripts\\ASProjectCompile.py\" --project \"$PROJECT_DIR\" --configuration TestConfig");
+                echo 'Build'
+                powershell(returnStdout: true, script:  "python \"$BUILD_SCRIPTS\\ASProjectCompile.py\" --project \"$PROJECT_DIR\" --configuration TestConfig");
             }
         }
         /*stage('Run Unit Tests') {
