@@ -4,8 +4,6 @@
 Var nsiPVI_OptionsFileName
 Var nsiPVI_ErrorText
 
-!insertmacro MUI_LANGUAGE "English"
-!insertmacro MUI_LANGUAGE "German"
 
 ; Text resources for section text (component selection)
 LangString ARsimShortText ${LANG_GERMAN} "ARsim Starter Projekt"

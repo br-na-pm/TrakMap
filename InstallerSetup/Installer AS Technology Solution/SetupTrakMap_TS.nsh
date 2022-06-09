@@ -26,6 +26,7 @@
 !define AS_VERSION_SELECTION_PAGE
 !define ON_INIT_EXTENSION
 !define COMPONENTS_PAGE
+!include "StandardSetup.nsh"
 
 
 !endif
