@@ -196,32 +196,32 @@ pipeline {
                 powershell(returnStdout: true, script: "& 'C:\\Program Files (x86)\\NSIS\\makensis.exe' '$INSTALLER_SETUP\\Installer AS Technology Solution\\SetupTechnologySolutionComplete.nsi'");
             }
         }
-        stage('Deploy Release')
-        {
-            environment {
-                TAG = Tag()
-            }
-            when
-            {
-                branch 'release'
-            }
-            steps {
-                //bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Releases\\$TAG\\\" /y"
-            }
-        }
-        stage('Deploy Feature')
-        {
-            when
-            {
-                anyOf {
-                    branch 'feature/*'
-                    branch 'development'
-                }
-            }
-            steps {
-                //bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Dev\\$BRANCH_NAME\\\" /y"
-            }
-        }
+        // stage('Deploy Release')
+        // {
+        //     environment {
+        //         TAG = Tag()
+        //     }
+        //     when
+        //     {
+        //         branch 'release'
+        //     }
+        //     steps {
+        //         bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Releases\\$TAG\\\" /y"
+        //     }
+        // }
+        // stage('Deploy Feature')
+        // {
+        //     when
+        //     {
+        //         anyOf {
+        //             branch 'feature/*'
+        //             branch 'development'
+        //         }
+        //     }
+        //     steps {
+        //         bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Dev\\$BRANCH_NAME\\\" /y"
+        //     }
+        // }
     }
     post {
          success {
