@@ -72,7 +72,7 @@ pipeline {
         HELP_OUTPUT = "..\\InstallerSetup\\Installer AS Technology Solution\\SetupData\\Help";
         BUILD_SCRIPTS = "$WORKSPACE\\CICD\\ASHelperScripts";
         
-        EXPORT_CONFIG_DIR = "$WORKSPACE\\CICD\\ExportConfigurations"
+        EXPORT_CONFIG_DIR = "$WORKSPACE\\CICD"
     }
     stages {
         stage('Install Dependencies')
