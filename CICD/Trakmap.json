@@ -11,24 +11,23 @@
     ],
     "mapp":
     [
-        "Physical\\TestConfig\\mappView\\"
 
     ],
     "files" :
     [
-        "Logical\\BuildVersion"
+        "Logical\\Source\\Diagnostic\\TrakDiag"
     ],
     "mappViewfiles" :
     [
         "Logical\\Project.language",
         "Logical\\mappView\\Widgets\\TrakMap",
-        "Physical\\ArSim\\PC\\Connectivity\\OpcUA\\TSM.uad"
+        "Physical\\TestConfig\\PC\\Connectivity\\OpcUA\\TSM.uad"
     ],
     "physical":
     {
         "deployTasks" :
         [
-            "Source.BuildVer.prg"
+            "Source.Diagnostic.TrakDiag.prg"
         ],
         "fileDevices":
         [],
