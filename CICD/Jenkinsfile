@@ -96,7 +96,7 @@ pipeline {
                 EXPORT_NAME = 'TrakMap'
             }
             steps {
-                powershell(returnStdout: true, script: "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_CONFIG_DIR\\Trakmap.json\" --output \"$EXPORT_DIR\" --physical \"Physical\\TestConfig\"");
+                powershell(returnStdout: true, script: "python \"$BUILD_SCRIPTS\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_CONFIG_DIR\\Trakmap.json\" --output \"$EXPORT_DIR\" --physical \"Physical\\TestConfig\"");
             }
         }
         /*stage('Run Unit Tests') {
