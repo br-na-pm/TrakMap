@@ -104,11 +104,11 @@ LangString mappFrameworkProductName ${LANG_GERMAN} "mappFramework"
 !insertmacro VariableForSection "TrakMapEnd"
 
 Section # Remove old
-	SetOutPath "$INSTDIR\${ProductNameShort}"
-	RMDir /r "$INSTDIR\${ProductNameShort}"
+	;SetOutPath "$INSTDIR\${ProductNameShort}"
+	;RMDir /r "$INSTDIR\${ProductNameShort}"
 
-	SetOutPath "$VersionBaseFolder\AS\TechnologySolutions\TrakMap"
-	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\TrakMap\V1.0.9.001"
+	;SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\TrakMap"
+	;RMDir /r "$VersionBaseFolder\AS\TechnologyPackages\TrakMap\V1.0.9.001"
 SectionEnd
 
 ; Dummy section for the start of the root group
@@ -128,13 +128,26 @@ Section "$(TrakMapBaseShortText)" TrakMapBase
 ;	SetOutPath "$INSTDIR\${ProductNameShort}\ImporterProgram"
 ;	File /r "SetupData\ImporterProgram\*.*"
 
-	!insertmacro InstallHelp "$VersionBaseFolder" "SetupData\Help"
+	;!insertmacro InstallHelp "$VersionBaseFolder" "SetupData\Help"
 
 ;	SetOutPath "$VersionBaseFolder\Samples"
 ;	File /r "Sample\*.*"
 
-	SetOutPath "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}"
+	SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\${ProductNameShort}"
 	File /r "TechnologySolution\*.*"
+
+	FindFirst $0 $1 "$VersionBaseFolder\AS\TechnologyPackages\$(ProductNameShort)\*.*.*"
+	Var /GLOBAL frameworkPath
+    loop:
+		StrCmp $1 "" done
+		StrCpy $frameworkPath $1
+        ;RMDir /r "$VersionBaseFolder\AS\TechnologyPackages\${ProductNameShort}\$1"
+        FindNext $0 $1
+        Goto loop
+    done:
+		SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\$(ProductNameShort)\$frameworkPath\Framework"
+		File /r "..\build\*.zip"
+    FindClose $0
 
 ;	SetOutPath "$INSTDIR\AS\Library"
 ;	File /r "Compiled Library\*.*"
@@ -155,46 +168,6 @@ SectionEnd
 ;	SetOutPath "$INSTDIR\AS\Library"
 ;	File /r "Compiled Library\*.*"
 ;SectionEnd
-
-Section "$(BuildVersionBaseShortText)" TrakMapFramework
-
-	;!insertmacro WaitForProcessToClose "BuildVersion2.exe" "mappView Import Tool"
-
-;	SetOutPath "$INSTDIR\${ProductNameShort}"
-;	File /r "SetupData\BuildVersionLogo.ico"
-;	File /r "SetupData\Launch Simulation.exe"
-;	File /r "SetupData\VisuKioskMode.exe"
-
-;	SetOutPath "$INSTDIR\${ProductNameShort}\ImporterProgram"
-;	File /r "SetupData\ImporterProgram\*.*"
-
-	;!insertmacro InstallHelp "$VersionBaseFolder" "SetupData\Help"
-
-;	SetOutPath "$VersionBaseFolder\Samples"
-;	File /r "Sample\*.*"
-
-	SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\$(mappFrameworkProductName)"
-    FindFirst $0 $1 "$VersionBaseFolder\AS\TechnologyPackages\$(mappFrameworkProductName)\*.*.*"
-	Var /GLOBAL frameworkPath
-    loop:
-		StrCmp $1 "" done
-		StrCpy $frameworkPath $1
-        ;RMDir /r "$VersionBaseFolder\AS\TechnologyPackages\${ProductNameShort}\$1"
-        FindNext $0 $1
-        Goto loop
-    done:
-		SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\$(mappFrameworkProductName)\$frameworkPath\Framework"
-		File /r "..\build\*.zip"
-    FindClose $0
-	
-	;File /r "build\*.zip"
-	;SetOutPath "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}"
-	;File /r "TechnologySolution\*.*"
-
-;	SetOutPath "$INSTDIR\AS\Library"
-;	File /r "Compiled Library\*.*"
-
-SectionEnd
 
 
 ; Dummy section for the end of the root group
