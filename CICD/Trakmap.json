@@ -1,0 +1,37 @@
+{
+    "libraries" :
+    [
+        "brdkSTR",
+        "TrkDiag",
+        "TrkPaper"
+    ],
+    "compileLibraries" :
+    [
+        
+    ],
+    "mapp":
+    [
+        "Physical\\TestConfig\\mappView\\"
+
+    ],
+    "files" :
+    [
+        "Logical\\BuildVersion"
+    ],
+    "mappViewfiles" :
+    [
+        "Logical\\Project.language",
+        "Logical\\mappView\\Widgets\\TrakMap",
+        "Physical\\ArSim\\PC\\Connectivity\\OpcUA\\TSM.uad"
+    ],
+    "physical":
+    {
+        "deployTasks" :
+        [
+            "Source.BuildVer.prg"
+        ],
+        "fileDevices":
+        [],
+        "enableOpcUa" : true
+    }
+}
