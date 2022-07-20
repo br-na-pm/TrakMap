@@ -32,6 +32,8 @@ def Tag() {
     return "$tag";
 }
 
+
+
 def Branch(){
     echo "Branch";
     def branch = "";
@@ -45,6 +47,18 @@ def Branch(){
     return "$branch";
 }
 
+def ExportName(){
+    def exportName = "";
+    def tag = "";
+    tag = Version();
+    echo "Export Name";
+
+    exportName = "TrakMap_" + tag + ".zip";
+    echo "$exportName";
+    return "$exportName";
+}
+
+
 pipeline {
     agent any 
     
@@ -57,6 +71,8 @@ pipeline {
         HELP_FILE = "TrakMapHelp.hnd";
         HELP_OUTPUT = "..\\InstallerSetup\\Installer AS Technology Solution\\SetupData\\Help";
         BUILD_SCRIPTS = "$WORKSPACE\\CICD\\ASHelperScripts";
+        
+        EXPORT_CONFIG_DIR = "$WORKSPACE\\CICD\\ExportConfigurations"
     }
     stages {
         stage('Install Dependencies')
@@ -69,12 +85,17 @@ pipeline {
         }
         stage('Build AS') {
             steps {
-                script {
-                    def buildResult = powershell(returnStdout: true, script:  "python -u \"$BUILD_SCRIPTS\\ASProjectCompile.py\" --project \"$PROJECT_DIR\" --configuration TestConfig");
-                    if (buildResult == 'Build Result = 3') {
-                        echo 'AS Build Error'
-                    }
-                }
+                powershell(returnStdout: true, script:  "python -u \"$BUILD_SCRIPTS\\ASProjectCompile.py\" --project \"$PROJECT_DIR\" --configuration TestConfig"); 
+                
+            }
+        }
+        stage('Create Framework Export') {
+            environment {
+                VERSION = Version()
+                EXPORT_NAME = 'TrakMap'
+            }
+            steps {
+                powershell(returnStdout: true, script: "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_CONFIG_DIR\\Trakmap.json\" --output \"$EXPORT_DIR\" --physical \"Physical\\TestConfig\"");
             }
         }
         /*stage('Run Unit Tests') {
@@ -132,7 +153,10 @@ pipeline {
                     }
                 }
             }
+
+            
         }
+
         stage('Create Technology Solution') {
             environment {
                 VERSION = Version()
@@ -182,7 +206,7 @@ pipeline {
                 branch 'release'
             }
             steps {
-                bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Releases\\$TAG\\\" /y"
+                //bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Releases\\$TAG\\\" /y"
             }
         }
         stage('Deploy Feature')
@@ -195,7 +219,7 @@ pipeline {
                 }
             }
             steps {
-                bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Dev\\$BRANCH_NAME\\\" /y"
+                //bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Dev\\$BRANCH_NAME\\\" /y"
             }
         }
     }
