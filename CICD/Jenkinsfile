@@ -73,7 +73,7 @@ pipeline {
         BUILD_SCRIPTS = "$WORKSPACE\\CICD\\ASHelperScripts";
         
         EXPORT_CONFIG_DIR = "$WORKSPACE\\CICD"
-        EXPORT_DIR = "$WORKSPACE\\Exported"
+        EXPORT_DIR = "$WORKSPACE\\CICD\\build"
     }
     stages {
         stage('Install Dependencies')

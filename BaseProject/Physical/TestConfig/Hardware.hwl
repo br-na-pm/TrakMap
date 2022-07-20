@@ -2,7 +2,7 @@
 <?AutomationStudio FileVersion="4.9"?>
 <BR.AS.HardwareTopology>
   <TimeStamps>
-    <TimeStamp LogicalPath="TestConfig.Hardware.hw" LastWriteTime="11/01/2021 14:16:04" />
+    <TimeStamp LogicalPath="TestConfig.Hardware.hw" LastWriteTime="06/10/2022 09:25:29" />
   </TimeStamps>
   <Modules>
     <Module Name="SegAA_7" Type="8F1I01.AA66.xxxx-1" X="484" Y="569" />
@@ -50,7 +50,8 @@
     <Module Name="SegBB_15" Type="8F1I01.BB4B.xxxx-1" X="973.5" Y="753" RotationAngle="270" />
     <Module Name="SegBB_14" Type="8F1I01.BB4B.xxxx-1" X="915" Y="669" RotationAngle="225" />
     <Module Name="SegAB_13" Type="8F1I01.AB2B.xxxx-1" X="759" Y="660" RotationAngle="180" />
-    <Module Name="6PPT50.101E-16A" Type="6PPT50.101E-16A" X="-86.59497" Y="816" />
+    <Module Name="8BVP0220HW00.000-1" Type="8BVP0220HW00.000-1" X="1148.34521" Y="87.0999756" />
+    <Module Name="8BAC0120.000-1" Type="8BAC0120.000-1" X="1167.94519" Y="262.099976" />
   </Modules>
   <Links>
     <Link From="5LS182.6-2" To="X20BC8083" FromPort="IF1" ToPort="PLK1" IsRoutedByUser="False">
@@ -342,15 +343,17 @@
       <Point X="938" Y="536" />
       <Point X="938" Y="536" />
     </Link>
-    <Link From="6PPT50.101E-16A" To="5PC910.SX02-00" FromPort="ETH1" ToPort="IF3" IsRoutedByUser="False">
-      <Point X="2.60498047" Y="953" />
-      <Point X="2.60498047" Y="953" />
-      <Point X="2.60498047" Y="958" />
-      <Point X="2.60498047" Y="965" />
-      <Point X="115.5" Y="965" />
-      <Point X="115.5" Y="298" />
-      <Point X="115.5" Y="293" />
-      <Point X="115.5" Y="293" />
+    <Link From="8BVP0220HW00.000-1" To="5LS182.6-2" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
+      <Point X="1160.24524" Y="94.0999756" />
+      <Point X="1160.24524" Y="94.0999756" />
+      <Point X="1148.24524" Y="94.0999756" />
+      <Point X="1135" Y="94.0999756" />
+      <Point X="1135" Y="322" />
+      <Point X="305" Y="322" />
+      <Point X="305" Y="166" />
+      <Point X="215" Y="166" />
+      <Point X="205" Y="166" />
+      <Point X="205" Y="166" />
     </Link>
   </Links>
   <InfoElements />
