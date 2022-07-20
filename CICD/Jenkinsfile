@@ -99,6 +99,8 @@ pipeline {
                 powershell(returnStdout: true, script: "python \"$BUILD_SCRIPTS\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_CONFIG_DIR\\Trakmap.json\" --output \"$EXPORT_DIR\" --physical \"Physical\\TestConfig\"");
             }
         }
+
+        
         /*stage('Run Unit Tests') {
             when
             {
@@ -112,7 +114,7 @@ pipeline {
                 powershell(returnStdout: true, script:  "python \"$ProjectBuilderScripts\\StopArSim.py\" --simulationDirectory \"$PROJECT_DIR\\ArSim\"");
             }
         }*/
-        stage('Export Libraries') {
+        /*stage('Export Libraries') {
             when { expression { return false } }
             environment {
                 VERSION = Version()
@@ -129,7 +131,7 @@ pipeline {
                 powershell(returnStdout: true, script:  "pyinstaller \"External\\TrakMapImporter\\TrakMapImporter.py\" --onefile --clean --distpath \"InstallerSetup\\Installer AS Technology Solution\\SetupData\\Help\\Help-en\\TrakMapWidgetLibraryHelp\" ");
                 
             }
-        }
+        }*/
         stage('Build Help') {
             environment {
                 VERSION = Version()
@@ -158,7 +160,7 @@ pipeline {
             
         }
 
-        stage('Create Technology Solution') {
+        /*stage('Create Technology Solution') {
             environment {
                 VERSION = Version()
             }
@@ -188,6 +190,7 @@ pipeline {
                 powershell(returnStdout: true, script: "Compress-Archive -Path \"$VERSION\\*\"  -DestinationPath \"$TECHNOLOGY_SOLUTION\\$VERSION\\${env.JOB_BASE_NAME}.zip\"");
             }
         }
+        */
         stage('Create Installer') {
             environment {
                 VERSION = Version()
