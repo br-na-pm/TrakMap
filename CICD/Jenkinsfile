@@ -196,7 +196,7 @@ pipeline {
                 VERSION = Version()
             }
             steps {
-                powershell(returnStdout: true, script: "python \"$BUILD_SCRIPTS\\UpdateInstallerVersion.py\" --project \"$INSTALLER_SETUP\\InstallerSetup\" --name TrakMap --version $VERSION");
+                powershell(returnStdout: true, script: "python \"$BUILD_SCRIPTS\\UpdateInstallerVersion.py\" --project \"$INSTALLER_SETUP\" --name TrakMap --version $VERSION");
                 powershell(returnStdout: true, script: "& 'C:\\Program Files (x86)\\NSIS\\makensis.exe' '$INSTALLER_SETUP\\InstallerSetup\\SetupTechnologySolutionComplete.nsi'");
             }
         }
