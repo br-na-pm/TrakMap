@@ -136,6 +136,7 @@ Section "$(TrakMapBaseShortText)" TrakMapBase
 	SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\${ProductNameShort}"
 	;File /r "TechnologySolution\*.*"
 
+
 	FindFirst $0 $1 "$VersionBaseFolder\AS\TechnologyPackages\$(ProductNameShort)\*.*.*"
 	Var /GLOBAL frameworkPath
     loop:
