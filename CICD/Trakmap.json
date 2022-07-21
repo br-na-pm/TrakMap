@@ -21,7 +21,7 @@
     [
         "Logical\\Project.language",
         "Logical\\mappView\\Widgets\\TrakMap",
-        "Physical\\TestConfig\\PC\\Connectivity\\OpcUA\\TSM.uad"
+        "Physical\\BuildConfig\\PC\\Connectivity\\OpcUA\\TSM.uad"
     ],
     "physical":
     {

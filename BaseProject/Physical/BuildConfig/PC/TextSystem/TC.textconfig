@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="TextConfig" Type="TextConfig">
+    <Group ID="Languages">
+      <Property ID="UserDefaultLanguage" Value="en" />
+      <Property ID="UserFallbackLanguage" Value="en" />
+      <Group ID="TargetLanguages">
+        <Property ID="TargetLanguage[1]" Value="en" />
+        <Property ID="TargetLanguage[2]" Value="de" />
+      </Group>
+    </Group>
+    <Group ID="TargetFiles">
+      <Property ID="TargetFile[1]" Value="Source.Assembly.AsmInfo.tmx" />
+      <Property ID="TargetFile[2]" Value="Source.Assembly.AsmWarning.tmx" />
+      <Property ID="TargetFile[3]" Value="Source.Assembly.AsmAlarm.tmx" />
+      <Property ID="TargetFile[4]" Value="mappView.Resources.Texts.Header.tmx" />
+      <Property ID="TargetFile[5]" Value="mappView.Resources.Texts.StateTexts.tmx" />
+      <Property ID="TargetFile[6]" Value="mappView.Widgets.TrakMap.Resources.Texts.SegComStateText.tmx" />
+      <Property ID="TargetFile[7]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleStateText.tmx" />
+      <Property ID="TargetFile[8]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleErrorReasonText.tmx" />
+      <Property ID="TargetFile[9]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleOrientationText.tmx" />
+      <Property ID="TargetFile[10]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleMovementTypeText.tmx" />
+      <Property ID="TargetFile[11]" Value="mappView.Widgets.TrakMap.Resources.Texts.ShuttleColorText.tmx" />
+    </Group>
+  </Element>
+</Configuration>

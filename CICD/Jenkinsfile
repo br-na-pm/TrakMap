@@ -86,7 +86,7 @@ pipeline {
         }
         stage('Build AS') {
             steps {
-                powershell(returnStdout: true, script:  "python -u \"$BUILD_SCRIPTS\\ASProjectCompile.py\" --project \"$PROJECT_DIR\" --configuration TestConfig"); 
+                powershell(returnStdout: true, script:  "python -u \"$BUILD_SCRIPTS\\ASProjectCompile.py\" --project \"$PROJECT_DIR\" --configuration BuildConfig"); 
                 
             }
         }
@@ -96,42 +96,10 @@ pipeline {
                 EXPORT_NAME = 'TrakMap'
             }
             steps {
-                powershell(returnStdout: true, script: "python \"$BUILD_SCRIPTS\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_CONFIG_DIR\\Trakmap.json\" --output \"$EXPORT_DIR\" --physical \"Physical\\TestConfig\"");
+                powershell(returnStdout: true, script: "python \"$BUILD_SCRIPTS\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_CONFIG_DIR\\Trakmap.json\" --output \"$EXPORT_DIR\" --physical \"Physical\\BuildConfig\"");
             }
         }
 
-        
-        /*stage('Run Unit Tests') {
-            when
-            {
-                branch 'release*'
-            }
-            steps {
-                powershell(returnStdout: true, script:  "python \"$ProjectBuilderScripts\\ASProjectCompile.py\" --project \"$PROJECT_DIR\" --configuration TS_UnitTest");
-                powershell(returnStdout: true, script:  "python \"$ProjectBuilderScripts\\CreateArSimInstallation.py\" --project \"$PROJECT_DIR\" --configuration TS_UnitTest --simulationDirectory \"$PROJECT_DIR\\ArSim\"");
-                powershell(returnStdout: true, script:  "python \"$ProjectBuilderScripts\\StartArSim.py\" --simulationDirectory \"$PROJECT_DIR\\ArSim\"");
-                powershell(returnStdout: true, script:  "python \"$ProjectBuilderScripts\\RunUnitTests.py\" --test all --output \"$PROJECT_DIR\\TestResults\"");
-                powershell(returnStdout: true, script:  "python \"$ProjectBuilderScripts\\StopArSim.py\" --simulationDirectory \"$PROJECT_DIR\\ArSim\"");
-            }
-        }*/
-        /*stage('Export Libraries') {
-            when { expression { return false } }
-            environment {
-                VERSION = Version()
-            }
-            steps {
-                powershell(returnStdout: true, script:  "python \"$BUILD_SCRIPTS\\LibraryBuild.py\" --project \"$PROJECT_DIR\" --config \"TestConfig\" --library \"TrakDiag\" --directory \"$INSTALLER_SETUP\\Installer AS Technology Solution\\Compiled Library\"");
-            }
-        }
-        stage('Build TrakMap Importer') {
-            environment {
-                VERSION = Version()
-            }
-            steps {
-                powershell(returnStdout: true, script:  "pyinstaller \"External\\TrakMapImporter\\TrakMapImporter.py\" --onefile --clean --distpath \"InstallerSetup\\Installer AS Technology Solution\\SetupData\\Help\\Help-en\\TrakMapWidgetLibraryHelp\" ");
-                
-            }
-        }*/
         stage('Build Help') {
             environment {
                 VERSION = Version()
@@ -160,37 +128,6 @@ pipeline {
             
         }
 
-        /*stage('Create Technology Solution') {
-            environment {
-                VERSION = Version()
-            }
-            steps {
-                writeFile file: "${env.JOB_BASE_NAME}.json", text: '''{
-                    "libraries" :
-                    [
-                        "brdkSTR",
-                        "snprintf",
-                        "TrkDiag",
-                        "TrkPaper"
-                    ],
-                    "files" :
-                    [
-                        "Logical\\\\Source\\\\Diagnostic\\\\TrakDiag",
-                        "Logical\\\\mappView\\\\Resources\\\\Themes\\\\BuRThemeFlat2",
-                        "Logical\\\\mappView\\\\Widgets\\\\TrakMap"
-                    ]
-                }'''
-
-                dir("$VERSION"){ deleteDir(); }
-                dir("$TECHNOLOGY_SOLUTION"){ deleteDir(); }
-                powershell(returnStdout: true, script: "python \"$BUILD_SCRIPTS\\Export.py\" --project \"$PROJECT_DIR\" --output \"$VERSION\" --physical \"Physical\\TestConfig\" --config \"${env.JOB_BASE_NAME}.json\" --zip \"False\"");
-                powershell(returnStdout: true, script: "Copy-Item \"$INSTALLER_SETUP\\Installer AS Technology Solution\\AdvancedExport.xml\" -Destination \"$VERSION\"");
-                powershell(returnStdout: true, script: "Copy-Item \"$INSTALLER_SETUP\\Installer AS Technology Solution\\Image.png\" -Destination \"$VERSION\"");
-                powershell(returnStdout: true, script: "New-Item -Path '$TECHNOLOGY_SOLUTION\\$VERSION\\' -ItemType Directory");
-                powershell(returnStdout: true, script: "Compress-Archive -Path \"$VERSION\\*\"  -DestinationPath \"$TECHNOLOGY_SOLUTION\\$VERSION\\${env.JOB_BASE_NAME}.zip\"");
-            }
-        }
-        */
         stage('Create Installer') {
             environment {
                 VERSION = Version()

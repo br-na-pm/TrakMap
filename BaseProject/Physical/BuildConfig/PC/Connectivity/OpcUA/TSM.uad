@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="7" ArVersion="C4.90">
+  <NamespaceUris>
+    <Uri>http://br-automation.com/OpcUa/PLC/PV/EM3/</Uri>
+    <Uri>http://br-automation.com/OpcUa/PLC/PV/EMx/</Uri>
+    <Uri>http://br-automation.com/OpcUa/PLC/PV/TrakModule/</Uri>
+    <Uri>http://br-automation.com/OpcUa/PLC/PV/EM2/</Uri>
+  </NamespaceUris>
+  <Aliases>
+    <ACLAliases>
+      <ACL Id="1">
+        <ACE RoleId="3" RoleName="HMI" Access="0x005F" />
+        <ACE RoleId="2" RoleName="Everyone" Access="0x005F" />
+        <ACE RoleId="1" RoleName="Administrators" Access="0x017F" />
+      </ACL>
+      <ACL Id="2">
+        <ACE RoleId="3" RoleName="HMI" Access="0x005F" />
+        <ACE RoleId="1" RoleName="Administrators" Access="0x017F" />
+        <ACE RoleId="2" RoleName="Everyone" Access="0x007F" />
+      </ACL>
+    </ACLAliases>
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases />
+  </Aliases>
+  <DefaultView AclId="2">
+    <Module Name="&lt;Default&gt;">
+      <GlobalVariables Name="Global Variables">
+        <Variable Name="MachineLastRevisionDate" />
+        <Variable Name="MachineSoftwareVersion" />
+        <Variable Name="gTrakSystem" AutomaticEnable="True" />
+      </GlobalVariables>
+      <Task Name="TSMAlarm">
+        <Variable Name="FilterConfiguration" />
+        <Variable Name="HistoryFilter" />
+        <Variable Name="HistorySort" />
+        <Variable Name="SortConfiguration" />
+        <Variable Name="TriggerTestAlarm" />
+      </Task>
+      <Task Name="TrakDiag">
+        <Variable Name="TrakDiag" AutomaticEnable="True" />
+        <Variable Name="paperCore" AutomaticEnable="True" />
+        <Variable Name="paperOptions" AutomaticEnable="True" />
+        <Variable Name="ShuttleUserData" AutomaticEnable="True" />
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>

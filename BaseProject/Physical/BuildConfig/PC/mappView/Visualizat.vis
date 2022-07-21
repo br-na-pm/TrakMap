@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<vdef:Visualization id="Framework" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
+	<StartPage pageRefId="MainPage" />
+	<Pages>
+		<Page refId="MainPage"/>
+	</Pages>
+	<Navigations>
+		<!--<Navigation refId="" />-->
+	</Navigations>  
+	<BindingsSets>
+		<!--General-->
+		<BindingsSet refId="headerContent_binding" />
+		<!--Trak ASM-->
+		<BindingsSet refId="trakMainContent_binding" />
+		<BindingsSet refId="trakContent_binding" />
+		<BindingsSet refId="trakmapContent_binding" />
+	</BindingsSets>
+	<EventBindingsSets>
+		<!--General-->
+		<EventBindingsSet refId="loadContent_eventbinding" />	
+		<EventBindingsSet refId="headerContent_eventbinding" />
+		<EventBindingsSet refId="trakmapContent_eventbinding" />
+	</EventBindingsSets>
+	<Dialogs>
+	</Dialogs>
+	<Contents>
+		<Content refId="navigationContent" />
+		<Content refId="trakMainContent" />
+		<Content refId="trakmapContent" />
+		<Content refId="allTrakContent" />
+	</Contents>
+  <SnippetsSets>
+    <SnippetsSet refId="snippetsForStates"/>
+	<SnippetsSet refId="TrakMapSnippets"/>
+  </SnippetsSets>
+  <ExpressionsSets>
+    <!--<ExpressionsSet refId=""/>-->
+  </ExpressionsSets>
+  <VariablesSets>
+    <VariablesSet refId="sessionVariables" />
+  </VariablesSets>
+  <StartTheme themeRefId="BuRThemeFlat1" />
+  <Themes>
+    <Theme refId="BuRThemeFlat1"/>
+	<Theme refId="BuRThemeFlat2"/>
+  </Themes>
+  <Configurations>
+  	<Configuration key="zoom" value="true" />
+    <Configuration key="activityCount" value="false" />
+	<Configuration key="bootColor" value="#FFFFFF" />
+	<Configuration key="bootLogo" value="Media/SymbolLib/Symbols/Framework.svg" />
+	  <Gestures>
+		  <!--<SystemGesture1 touchPoints="2" />
+		  <SystemGesture2 touchPoints="2" />
+		  <SystemGesture3 touchPoints="2" />-->
+	  </Gestures>
+    <VirtualKeyboards>
+      <!--<InputProcessing onKeyDown="true" />-->
+    </VirtualKeyboards> 
+  </Configurations>
+
+</vdef:Visualization>
