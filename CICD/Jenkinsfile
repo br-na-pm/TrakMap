@@ -64,7 +64,7 @@ pipeline {
     
     environment {
         PROJECT_DIR = "$WORKSPACE\\BaseProject";
-        INSTALLER_SETUP = "$WORKSPACE\\InstallerSetup";
+        INSTALLER_SETUP = "$WORKSPACE\\CICD\\InstallerSetup";
         TECHNOLOGY_SOLUTION = "$INSTALLER_SETUP\\Installer AS Technology Solution\\TechnologySolution";
         HELP_LOCATION = "$WORKSPACE\\External";
         HELP_NAME = "TrakMapWidgetLibrary";
@@ -196,8 +196,8 @@ pipeline {
                 VERSION = Version()
             }
             steps {
-                powershell(returnStdout: true, script: "python \"$BUILD_SCRIPTS\\UpdateInstallerVersion.py\" --project \"$INSTALLER_SETUP\\Installer AS Technology Solution\" --name TrakMap --version $VERSION");
-                powershell(returnStdout: true, script: "& 'C:\\Program Files (x86)\\NSIS\\makensis.exe' '$INSTALLER_SETUP\\Installer AS Technology Solution\\SetupTechnologySolutionComplete.nsi'");
+                powershell(returnStdout: true, script: "python \"$BUILD_SCRIPTS\\UpdateInstallerVersion.py\" --project \"$INSTALLER_SETUP\\InstallerSetup\" --name TrakMap --version $VERSION");
+                powershell(returnStdout: true, script: "& 'C:\\Program Files (x86)\\NSIS\\makensis.exe' '$INSTALLER_SETUP\\InstallerSetup\\SetupTechnologySolutionComplete.nsi'");
             }
         }
         // stage('Deploy Release')
