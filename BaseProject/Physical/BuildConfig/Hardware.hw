@@ -38,11 +38,11 @@
   <Module Name="PC" Type="5PC900.TS17-00" Version="2.1.0.0">
     <Connection Connector="SY" TargetModule="5PC910.SX02-00" TargetConnector="SY1" />
     <Parameter ID="ConfigurationID" Value="BaseProject_TestConfig" />
+    <Parameter ID="ConfigVersion" Value="1.2.0" />
     <Parameter ID="UserPartitionSize" Value="1024" />
     <Parameter ID="Simulation" Value="1" />
     <Parameter ID="VolatileGlobalPvSize" Value="2000000" />
-    <Parameter ID="TimerDeviceType" Value="EPLX2X" />
-    <Parameter ID="TimerDevice" Value="5LS182.6-2.IF1" />
+    <Parameter ID="SystemTick" Value="400" />
     <Parameter ID="IdleTaskClass" Value="3" />
     <Parameter ID="TaskClassIdleTime" Value="2400" />
     <Parameter ID="XLinkUseDefault" Value="0" />

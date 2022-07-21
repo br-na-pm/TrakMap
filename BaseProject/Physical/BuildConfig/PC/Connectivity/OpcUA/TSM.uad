@@ -31,13 +31,6 @@
         <Variable Name="MachineSoftwareVersion" />
         <Variable Name="gTrakSystem" AutomaticEnable="True" />
       </GlobalVariables>
-      <Task Name="TSMAlarm">
-        <Variable Name="FilterConfiguration" />
-        <Variable Name="HistoryFilter" />
-        <Variable Name="HistorySort" />
-        <Variable Name="SortConfiguration" />
-        <Variable Name="TriggerTestAlarm" />
-      </Task>
       <Task Name="TrakDiag">
         <Variable Name="TrakDiag" AutomaticEnable="True" />
         <Variable Name="paperCore" AutomaticEnable="True" />
