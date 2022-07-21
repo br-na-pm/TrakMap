@@ -26,11 +26,6 @@
   </Aliases>
   <DefaultView AclId="2">
     <Module Name="&lt;Default&gt;">
-      <GlobalVariables Name="Global Variables">
-        <Variable Name="MachineLastRevisionDate" />
-        <Variable Name="MachineSoftwareVersion" />
-        <Variable Name="gTrakSystem" AutomaticEnable="True" />
-      </GlobalVariables>
       <Task Name="TrakDiag">
         <Variable Name="TrakDiag" AutomaticEnable="True" />
         <Variable Name="paperCore" AutomaticEnable="True" />
