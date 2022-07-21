@@ -69,7 +69,7 @@ pipeline {
         HELP_LOCATION = "$WORKSPACE\\External";
         HELP_NAME = "TrakMapWidgetLibrary";
         HELP_FILE = "TrakMapHelp.hnd";
-        HELP_OUTPUT = "..\\InstallerSetup\\Installer AS Technology Solution\\SetupData\\Help";
+        HELP_OUTPUT = "..\\CICD\\build\\Installer AS Technology Solution\\SetupData\\Help";
         BUILD_SCRIPTS = "$WORKSPACE\\CICD\\ASHelperScripts";
         
         EXPORT_CONFIG_DIR = "$WORKSPACE\\CICD"
