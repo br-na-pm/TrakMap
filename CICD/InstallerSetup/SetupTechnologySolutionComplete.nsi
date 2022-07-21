@@ -4,6 +4,9 @@
 Var nsiPVI_OptionsFileName
 Var nsiPVI_ErrorText
 
+LangString mappFrameworkProductName ${LANG_ENGLISH} "mappFramework"
+LangString mappFrameworkProductName ${LANG_GERMAN} "mappFramework"
+
 
 ; Text resources for section text (component selection)
 LangString ARsimShortText ${LANG_GERMAN} "ARsim Starter Projekt"
@@ -133,10 +136,8 @@ Section "$(TrakMapBaseShortText)" TrakMapBase
 ;	SetOutPath "$VersionBaseFolder\Samples"
 ;	File /r "Sample\*.*"
 
-	SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\${ProductNameShort}"
-	;File /r "TechnologySolution\*.*"
-
-	FindFirst $0 $1 "$VersionBaseFolder\AS\TechnologyPackages\$(ProductNameShort)\*.*.*"
+	SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\${mappFrameworkProductName}"
+	FindFirst $0 $1 "$VersionBaseFolder\AS\TechnologyPackages\$(mappFrameworkProductName)\*.*.*"
 	Var /GLOBAL frameworkPath
     loop:
 		StrCmp $1 "" done
@@ -145,7 +146,7 @@ Section "$(TrakMapBaseShortText)" TrakMapBase
         FindNext $0 $1
         Goto loop
     done:
-		SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\$(ProductNameShort)\$frameworkPath\Framework"
+		SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\$(mappFrameworkProductName)\$frameworkPath\Framework"
 		File /r "..\build\*.zip"
     FindClose $0
 
