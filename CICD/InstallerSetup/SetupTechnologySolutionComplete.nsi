@@ -131,7 +131,7 @@ Section "$(TrakMapBaseShortText)" TrakMapBase
 ;	SetOutPath "$INSTDIR\${ProductNameShort}\ImporterProgram"
 ;	File /r "SetupData\ImporterProgram\*.*"
 
-	!insertmacro InstallHelp "$VersionBaseFolder" "Help"
+	!insertmacro InstallHelp "$VersionBaseFolder" "..\build\Help"
 
 ;	SetOutPath "$VersionBaseFolder\Samples"
 ;	File /r "Sample\*.*"
