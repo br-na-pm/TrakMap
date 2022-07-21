@@ -146,7 +146,7 @@ Section "$(TrakMapBaseShortText)" TrakMapBase
         Goto loop
     done:
 		SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\$(ProductNameShort)\$frameworkPath\Framework"
-		File /r "..\..\Exported\*.zip"
+		File /r "..\build\*.zip"
     FindClose $0
 
 ;	SetOutPath "$INSTDIR\AS\Library"
