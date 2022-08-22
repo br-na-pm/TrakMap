@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Help>
-	<Section Text="Trak Map Widget Library" File="TrakMapHelp\Overview.html" Id="4d2b9add-5c59-47f6-8c88-177509b9683e">
-  		<Page Text="Usage" File="TrakMapHelp\Usage.html" Id="024820c8-3733-4570-8d3d-d6be11e56719"/>
-		<Page Text="Optional Features" File="TrakMapHelp\OptionalFeatures.html" Id="95a896a5-8fde-42f6-9b53-ad405bc3392c"/>
+	<Section Text="mapp Trak" File="mappFrameworkHelp\Overview.html" Id="4d2b9add-5c59-47f6-8c88-177509b9683e">
+  		<Page Text="Usage" File="mappFrameworkHelp\Usage.html" Id="024820c8-3733-4570-8d3d-d6be11e56719"/>
+		<Page Text="Optional Features" File="mappFrameworkHelp\OptionalFeatures.html" Id="95a896a5-8fde-42f6-9b53-ad405bc3392c"/>
   	</Section>
 </Help>
