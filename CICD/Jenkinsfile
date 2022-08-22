@@ -68,7 +68,7 @@ pipeline {
         TECHNOLOGY_SOLUTION = "$INSTALLER_SETUP\\Installer AS Technology Solution\\TechnologySolution";
         HELP_LOCATION = "$WORKSPACE\\External";
         HELP_NAME = "mappFramework";
-        HELP_FILE = "TrakMapHelp.hnd";
+        HELP_FILE = "mappFrameworkHelp.hnd";
         HELP_OUTPUT = "..\\CICD\\build\\Help";
         BUILD_SCRIPTS = "$WORKSPACE\\CICD\\ASHelperScripts";
         
