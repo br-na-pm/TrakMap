@@ -4,8 +4,8 @@
 Var nsiPVI_OptionsFileName
 Var nsiPVI_ErrorText
 
-LangString mappFrameworkProductName ${LANG_ENGLISH} "mappFramework"
-LangString mappFrameworkProductName ${LANG_GERMAN} "mappFramework"
+LangString mappFrameworkProductName ${LANG_ENGLISH} "Trakmap"
+LangString mappFrameworkProductName ${LANG_GERMAN} "Trakmap"
 
 
 ; Text resources for section text (component selection)
@@ -82,8 +82,6 @@ LangString PanelEndShortText ${LANG_ENGLISH} "Panel end"
 LangString PanelEndLongText ${LANG_GERMAN} "Panel Ende"
 LangString PanelEndLongText ${LANG_ENGLISH} "Panel end"
 
-LangString mappFrameworkProductName ${LANG_ENGLISH} "mappFramework"
-LangString mappFrameworkProductName ${LANG_GERMAN} "mappFramework"
 
 
 ; Variable declarationen for sections
@@ -136,8 +134,8 @@ Section "$(TrakMapBaseShortText)" TrakMapBase
 ;	SetOutPath "$VersionBaseFolder\Samples"
 ;	File /r "Sample\*.*"
 
-	SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\$(mappFrameworkProductName)"
-	FindFirst $0 $1 "$VersionBaseFolder\AS\TechnologyPackages\$(mappFrameworkProductName)\*.*.*"
+	SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\$(ProductNameShort)"
+	FindFirst $0 $1 "$VersionBaseFolder\AS\TechnologyPackages\$(ProductNameShort)\*.*.*"
 	Var /GLOBAL frameworkPath
     loop:
 		StrCmp $1 "" done
@@ -155,10 +153,10 @@ Section "$(TrakMapBaseShortText)" TrakMapBase
     done:
 		${If} $output == 2
 			DetailPrint "Installing Pre 1.1"
-			SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\$(mappFrameworkProductName)\$frameworkPath\Framework\"
+			SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\$(ProductNameShort)\$frameworkPath\Framework\"
 		${Else}
 			DetailPrint "Installing Post 1.1"
-			SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\$(mappFrameworkProductName)\$frameworkPath\Framework\$(FrameworkExportCategory)"
+			SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\$(ProductNameShort)\$frameworkPath\Framework\$(FrameworkExportCategory)"
 		${EndIf}
 		File /r "..\build\*.zip"
     FindClose $0
