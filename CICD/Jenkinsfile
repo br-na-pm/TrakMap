@@ -104,7 +104,7 @@ pipeline {
                 VERSION = Version()
             }
             steps {
-                powershell(returnStdout: true, script:  "pyinstaller \"External\\TrakMapImporter\\TrakMapImporter.py\" --onefile --clean --distpath \"$HELP_OUTPUT\\Help-en\\TrakMapHelp\" ");
+                powershell(returnStdout: true, script:  "pyinstaller \"External\\TrakMapImporter\\TrakMapImporter.py\" --onefile --clean --distpath \"$HELP_OUTPUT\\Help-en\\TrakMapHelp\\TrakMapHelp\" ");          
             }
         }
 
