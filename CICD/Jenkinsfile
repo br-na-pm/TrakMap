@@ -69,7 +69,7 @@ pipeline {
         HELP_LOCATION = "$WORKSPACE\\External";
         HELP_NAME = "trakmap";
         HELP_FILE = "trakmapHelp.hnd";
-        HELP_OUTPUT = "$WORKSPACE\\CICD\\build\\Help";
+        HELP_OUTPUT = "..\\CICD\\build\\Help";
         BUILD_SCRIPTS = "$WORKSPACE\\CICD\\ASHelperScripts";
         
         EXPORT_CONFIG_DIR = "$WORKSPACE\\CICD"
@@ -104,7 +104,7 @@ pipeline {
                 VERSION = Version()
             }
             steps {
-                powershell(returnStdout: true, script:  "pyinstaller \"External\\TrakMapImporter\\TrakMapImporter.py\" --onefile --clean --distpath \"$HELP_OUTPUT\\Help-en\\TrakMapHelp\\TrakMapHelp\" ");          
+                powershell(returnStdout: true, script:  "pyinstaller \"External\\TrakMapImporter\\TrakMapImporter.py\" --onefile --clean --distpath \"$HELP_OUTPUT\\Help-en\\TrakMapHelp\" ");
             }
         }
 
