@@ -9,5 +9,6 @@
     <Object Type="Package">Scene</Object>
     <Object Type="Package">UserData</Object>
     <Object Type="Package">mappView</Object>
+    <Object Type="File">Project.language</Object>
   </Objects>
 </Package>
