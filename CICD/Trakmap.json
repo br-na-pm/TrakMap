@@ -3,7 +3,9 @@
     [
         "brdkSTR",
         "TrkDiag",
-        "TrkPaper"
+        "TrkPaper",
+        "McAcpPar",
+        "snfprint"
     ],
     "compileLibraries" :
     [

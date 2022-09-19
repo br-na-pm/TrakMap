@@ -58,7 +58,7 @@ if __name__ == '__main__':
     homeDir = Path.home()
     # if the build is running as the system (Jenkins) then change the home dir so that the installer is copied to the correct directory
     if homeDir.name.endswith('systemprofile'):
-        homeDir = r'C:\Users\pickeringc'
+        homeDir = r'C:\Users\buchananw'
     print(homeDir)
     if os.path.isdir(rf'{args.project}\Documentation\Templates'):
         UpdateTemplate(rf'{args.project}\Documentation\Templates')

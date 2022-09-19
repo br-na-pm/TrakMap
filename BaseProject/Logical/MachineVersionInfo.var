@@ -1,4 +1,0 @@
-VAR
-	MachineSoftwareVersion : STRING[80] := 'dev-FWimporter-1.2.0-80-23721ca';
-	MachineLastRevisionDate : DATE_AND_TIME := DT#2022-07-21-11:17;
-END_VAR
