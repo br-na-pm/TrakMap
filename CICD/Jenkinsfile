@@ -70,7 +70,9 @@ pipeline {
         HELP_NAME = "trakmap";
         HELP_FILE = "trakmapHelp.hnd";
         HELP_OUTPUT = "..\\CICD\\build\\Help";
-        BUILD_SCRIPTS = "$WORKSPACE\\CICD\\ASHelperScripts";
+        //BUILD_SCRIPTS = "$WORKSPACE\\CICD\\ASHelperScripts";
+
+        BUILD_SCRIPTS = "$ProjectBuilderScripts"
         
         EXPORT_CONFIG_DIR = "$WORKSPACE\\CICD"
         EXPORT_DIR = "$WORKSPACE\\CICD\\build"
