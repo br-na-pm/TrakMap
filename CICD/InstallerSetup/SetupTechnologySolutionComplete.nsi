@@ -153,10 +153,10 @@ Section "$(TrakMapBaseShortText)" TrakMapBase
     done:
 		${If} $output == 2
 			DetailPrint "Installing Pre 1.1"
-			SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\$(ProductNameShort)\$frameworkPath\Framework\"
+			SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\mappFramework\$frameworkPath\Framework\"
 		${Else}
 			DetailPrint "Installing Post 1.1"
-			SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\$(ProductNameShort)\$frameworkPath\Framework\$(FrameworkExportCategory)"
+			SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\mappFramework\$frameworkPath\Framework\$(FrameworkExportCategory)"
 		${EndIf}
 		File /r "..\build\*.zip"
     FindClose $0
