@@ -134,8 +134,8 @@ Section "$(TrakMapBaseShortText)" TrakMapBase
 ;	SetOutPath "$VersionBaseFolder\Samples"
 ;	File /r "Sample\*.*"
 
-	SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\$(ProductNameShort)"
-	FindFirst $0 $1 "$VersionBaseFolder\AS\TechnologyPackages\$(ProductNameShort)\*.*.*"
+	SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\mappFramework"
+	FindFirst $0 $1 "$VersionBaseFolder\AS\TechnologyPackages\mappFramework\*.*.*"
 	Var /GLOBAL frameworkPath
     loop:
 		StrCmp $1 "" done
