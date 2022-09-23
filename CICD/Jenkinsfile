@@ -147,32 +147,32 @@ pipeline {
                 powershell(returnStdout: true, script: "& '$MakeNsis' '$INSTALLER_SETUP\\SetupTechnologySolutionComplete.nsi'");
             }
         }
-        // stage('Deploy Release')
-        // {
-        //     environment {
-        //         TAG = Tag()
-        //     }
-        //     when
-        //     {
-        //         branch 'release'
-        //     }
-        //     steps {
-        //         bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Releases\\$TAG\\\" /y"
-        //     }
-        // }
-        // stage('Deploy Feature')
-        // {
-        //     when
-        //     {
-        //         anyOf {
-        //             branch 'feature/*'
-        //             branch 'development'
-        //         }
-        //     }
-        //     steps {
-        //         bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Dev\\$BRANCH_NAME\\\" /y"
-        //     }
-        // }
+        stage('Deploy Release')
+        {
+            environment {
+                TAG = Tag()
+            }
+            when
+            {
+                branch 'release'
+            }
+            steps {
+                bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Releases\\$TAG\\\" /y"
+            }
+        }
+        stage('Deploy Feature')
+        {
+            when
+            {
+                anyOf {
+                    branch 'feature/*'
+                    branch 'development'
+                }
+            }
+            steps {
+               bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Dev\\$BRANCH_NAME\\\" /y"
+             }
+         }
     }
     post {
          success {
