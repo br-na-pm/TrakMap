@@ -167,6 +167,7 @@ pipeline {
                 anyOf {
                     branch 'feature/*'
                     branch 'development'
+                    branch 'dev-FWimporter'
                 }
             }
             steps {
