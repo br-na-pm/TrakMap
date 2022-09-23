@@ -171,7 +171,7 @@ pipeline {
                 }
             }
             steps {
-               bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Dev\\$BRANCH_NAME\\\" /y"
+               bat "xcopy \"CICD\\InstallerSetup\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Dev\\$BRANCH_NAME\\\" /y"
              }
          }
     }
