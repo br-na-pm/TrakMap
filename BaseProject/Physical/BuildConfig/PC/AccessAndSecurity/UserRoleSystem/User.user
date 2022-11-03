@@ -7,12 +7,6 @@
       <Property ID="Role[1]" Value="Everyone" />
     </Group>
   </Element>
-  <Element ID="Support" Type="User">
-    <Property ID="UserID" Value="2" />
-    <Group ID="Roles">
-      <Property ID="Role[1]" Value="HMI" />
-    </Group>
-  </Element>
   <Element ID="Admin" Type="User">
     <Property ID="UserID" Value="3" />
     <Group ID="Roles">

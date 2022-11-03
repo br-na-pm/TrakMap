@@ -7,7 +7,4 @@
   <Element ID="Everyone" Type="Role">
     <Property ID="RoleID" Value="2" />
   </Element>
-  <Element ID="HMI" Type="Role">
-    <Property ID="RoleID" Value="3" />
-  </Element>
 </Configuration>

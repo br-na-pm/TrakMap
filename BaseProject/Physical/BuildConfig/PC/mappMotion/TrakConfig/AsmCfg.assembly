@@ -30,7 +30,7 @@
           <Group ID="Orientation">
             <Property ID="Angle1" Value="0.0" />
             <Property ID="Angle2" Value="0.0" />
-            <Property ID="Angle3" Value="180" />
+            <Property ID="Angle3" Value="0.0" />
           </Group>
         </Selector>
       </Group>
@@ -60,6 +60,7 @@
     </Group>
     <Group ID="CommonSegmentSettings">
       <Property ID="SegmentSimulationOnPLC" Value="Off" />
+      <Property ID="ElongationCompensation" Value="Inactive" />
       <Selector ID="StopReaction" Value="InductionHalt" />
       <Selector ID="SpeedFilter" Value="Lowpass">
         <Property ID="FilterTime" Value="0.0008" />

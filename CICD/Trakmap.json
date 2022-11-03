@@ -5,11 +5,11 @@
         "TrkDiag",
         "TrkPaper",
         "McAcpPar",
-        "snfprint"
+        "AsIODiag"
     ],
     "compileLibraries" :
     [
-        
+        "snfprint"        
     ],
     "mapp":
     [
@@ -17,7 +17,8 @@
     ],
     "files" :
     [
-        "Logical\\Source\\Diagnostic\\TrakDiag"
+        "Logical\\Source\\Diagnostic\\TrakDiag",
+        "Logical\\Project.language"
     ],
     "mappViewfiles" :
     [

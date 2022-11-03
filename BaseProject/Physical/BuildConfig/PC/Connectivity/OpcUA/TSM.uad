@@ -10,12 +10,10 @@
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
-        <ACE RoleId="3" RoleName="HMI" Access="0x005F" />
         <ACE RoleId="2" RoleName="Everyone" Access="0x005F" />
         <ACE RoleId="1" RoleName="Administrators" Access="0x017F" />
       </ACL>
       <ACL Id="2">
-        <ACE RoleId="3" RoleName="HMI" Access="0x005F" />
         <ACE RoleId="1" RoleName="Administrators" Access="0x017F" />
         <ACE RoleId="2" RoleName="Everyone" Access="0x007F" />
       </ACL>

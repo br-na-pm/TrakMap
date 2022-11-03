@@ -23,6 +23,8 @@ LangString TrakMapShortText ${LANG_ENGLISH} "${ProductNameShort} ${Version}"
 LangString TrakMapLongText ${LANG_GERMAN} "${ProductNameLong} ${Version}"
 LangString TrakMapLongText ${LANG_ENGLISH} "${ProductNameLong} ${Version}"
 
+LangString FrameworkExportCategory ${LANG_ENGLISH} "Motion"
+
 LangString TrakMapBaseShortText ${LANG_GERMAN} "Solution Hauptpaket"
 LangString TrakMapBaseShortText ${LANG_ENGLISH} "Solution main package"
 LangString TrakMapBaseLongText ${LANG_GERMAN} "Trak Map Widget - Technology Solution / Hilfe"
