@@ -9,7 +9,7 @@
     ],
     "compileLibraries" :
     [
-        "snfprint"        
+        "snprintf"        
     ],
     "mapp":
     [
@@ -24,6 +24,8 @@
     [
         "Logical\\Project.language",
         "Logical\\mappView\\Widgets\\TrakMap",
+        "Logical\\mappView\\Widgets\\Resources\\Themes\\BuRThemeFlat2",
+        "Logical\\mappView\\Widgets\\Resources\\Themes\\BuRThemeFlat1",
         "Physical\\BuildConfig\\PC\\Connectivity\\OpcUA\\TSM.uad"
     ],
     "physical":
