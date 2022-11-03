@@ -9,7 +9,7 @@
     ],
     "compileLibraries" :
     [
-             
+        "Logical\\Libraries\\snprintf"
     ],
     "mapp":
     [
@@ -18,8 +18,7 @@
     "files" :
     [
         "Logical\\Source\\Diagnostic\\TrakDiag",
-        "Logical\\Project.language",
-        "Logical\\Libraries\\snprintf"   
+        "Logical\\Project.language"
     ],
     "mappViewfiles" :
     [
