@@ -421,7 +421,7 @@ void TrkPaperCore(struct TrkPaperCore* inst)
 				inst->Error = TRUE;
 				inst->Internal.State = trkPAPER_CORE_ERROR;
 			}
-			else if(inst->Internal.Fbs.TrkPaperShuttleClickInfo.ErrorID != trkPAPER_SH_INFO_ERR_OK){
+			else if (inst->Internal.Fbs.TrkPaperShuttleClickInfo.Error){
 				inst->ErrorID = trkPAPER_CORE_ERR_SH_INFO;
 				inst->Error = TRUE;
 				inst->Internal.State = trkPAPER_CORE_ERROR;

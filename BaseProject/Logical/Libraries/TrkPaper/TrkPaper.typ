@@ -19,6 +19,7 @@ TYPE
 	END_STRUCT;
 	TrkPaperCoreAxisLookupType : 	STRUCT  (*Lookup table datatype*)
 		Present : BOOL; (*Axis is present and a valid reference exists*)
+		ShuttleID : UINT;
 		Axis : McAxisType; (*Axis information*)
 	END_STRUCT;
 	TrkPaperCoreColorOptionType : 	STRUCT  (*Shuttle Color Option*)
@@ -153,7 +154,7 @@ TYPE
 		trkPAPER_SH_INFO_ERR_INVLID_AXIS := -43000, (*Invalid input assembly reference*)
 		trkPAPER_SH_INFO_ERR_SH_CNT_EXCD := -44000, (*Maximum shuttle count exceeded. Need to increase max shuttle count constant*)
 		trkPAPER_SH_INFO_ERR_INVALID_ASM := -45000,
-		trkPAPER_SH_INFO_ERR_BAD_SH_READ := -46000
+		trkPAPER_SH_INFO_WRN_BAD_SH_READ := -46000
 		);
 	TrkPaperSegClickInfoErrorEnum : 
 		( (*Error Enumeration*)
@@ -171,7 +172,6 @@ TYPE
 		trkPAPER_SH_CLICK_INFO_RUN,
 		trkPAPER_SH_CLICK_GET_NEXT,
 		trkPAPER_SH_CLICK_GET_SH,
-		trkPAPER_SH_CLICK_INFO_READ,
 		trkPAPER_SH_BUILD_TABLE (*Error present on the FB*)
 		);
 	TrkPaperSegClickInfoStatesEnum : 
@@ -185,6 +185,7 @@ TYPE
 		State : TrkPaperShClickInfoStatesEnum; (*State of execution*)
 		CoreInt : REFERENCE TO TrkPaperCoreInternalType; (*Internal data for the Core function block*)
 		TrakPower : BOOL;
+		UpdateLookupTable : BOOL;
 		Fbs : TrkPaperShClickInfoFbTyps;
 		Axes : ARRAY[0..trkPAPER_MAX_SHUTLE_ARRAY]OF TrkPaperCoreAxisLookupType; (*Axis Lookup table based on the current Shuttle Index*)
 		ShuttleCount : USINT;
