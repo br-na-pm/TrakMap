@@ -157,7 +157,7 @@ pipeline {
                 branch 'release'
             }
             steps {
-                bat "xcopy \"InstallerSetup\\Installer AS Technology Solution\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Releases\\$TAG\\\" /y"
+                bat "xcopy \"CICD\\InstallerSetup\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\Team Orange - TS-TrackMap\\Releases\\Releases\\$TAG\\\" /y"
             }
         }
         stage('Deploy Feature')
