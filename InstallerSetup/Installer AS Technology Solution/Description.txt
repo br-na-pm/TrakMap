@@ -1,1 +1,0 @@
-The TrakMap Technology Solution provides a conveneint wrapper to automatically build the SVG strings for an entire AcpTrak system to use inside a MpView Paper Widget. The library utilizes the prebuilt SVG from MpMotion (post-processed) in combination with AcpTrak Status Function blocks to build a simple drop in widget to show the status of an AcpTrak system.

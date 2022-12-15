@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.9.2.46 FileVersion="4.9"?>
+<Hardware xmlns="http://br-automation.co.at/AS/Hardware">
+  <Module Name="5PC910.SX02-00" Type="5PC910.SX02-00" Version="2.0.1.0">
+    <Connector Name="IF1">
+      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+    </Connector>
+    <Connector Name="IF3">
+      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+      <Parameter ID="ActivateDevice" Value="1" />
+      <Parameter ID="HostName" Value="atldemo2019" />
+      <Parameter ID="Mode" Value="DHCP Server" />
+    </Connector>
+    <Connector Name="IF4">
+      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+      <Parameter ID="ActivateDevice" Value="1" />
+      <Parameter ID="HostName" Value="atldemo2019" />
+      <Parameter ID="Mode" Value="Manual" />
+      <Parameter ID="InternetAddress" Value="10.1.13.45" />
+      <Parameter ID="SubnetMask" Value="255.255.255.0" />
+    </Connector>
+    <Connector Name="IF5">
+      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+    </Connector>
+    <Connector Name="IF6">
+      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+    </Connector>
+    <Connector Name="IF7">
+      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+    </Connector>
+    <Connector Name="IF8">
+      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+    </Connector>
+    <Connector Name="IF9">
+      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+    </Connector>
+  </Module>
+  <Module Name="PC" Type="5PC900.TS17-00" Version="2.1.0.0">
+    <Connection Connector="SY" TargetModule="5PC910.SX02-00" TargetConnector="SY1" />
+    <Parameter ID="ConfigurationID" Value="BaseProject_TestConfig" />
+    <Parameter ID="ConfigVersion" Value="1.2.0" />
+    <Parameter ID="UserPartitionSize" Value="1024" />
+    <Parameter ID="Simulation" Value="1" />
+    <Parameter ID="VolatileGlobalPvSize" Value="2000000" />
+    <Parameter ID="SystemTick" Value="400" />
+    <Parameter ID="IdleTaskClass" Value="3" />
+    <Parameter ID="TaskClassIdleTime" Value="2400" />
+    <Parameter ID="XLinkUseDefault" Value="0" />
+    <Parameter ID="XLinkDuration" Value="800" />
+    <Parameter ID="Cyclic1Duration" Value="800" />
+    <Parameter ID="Cyclic1Tolerance" Value="0" />
+    <Parameter ID="Cyclic1Stack" Value="256000" />
+    <Parameter ID="Cyclic1Output" Value="1" />
+    <Parameter ID="Cyclic2Duration" Value="16000" />
+    <Parameter ID="Cyclic2Tolerance" Value="32000" />
+    <Parameter ID="Cyclic2Stack" Value="32000" />
+    <Parameter ID="Cyclic3Duration" Value="49600" />
+    <Parameter ID="Cyclic3Tolerance" Value="49600" />
+    <Parameter ID="Cyclic8Duration" Value="9600" />
+    <Group ID="FileDevice1" />
+    <Parameter ID="FileDeviceName1" Value="SvgData" />
+    <Parameter ID="FileDevicePath1" Value=" ../../../../Logical/Scene/" />
+    <Group ID="FileDevice2" />
+    <Parameter ID="FileDeviceName2" Value="User" />
+    <Parameter ID="FileDevicePath2" Value="F:\" />
+    <Group ID="FileDevice3" />
+    <Parameter ID="FileDeviceName3" Value="Config" />
+    <Parameter ID="FileDevicePath3" Value="F:\Config\" />
+    <Group ID="FileDevice4" />
+    <Parameter ID="FileDeviceName4" Value="SegTraceSim" />
+    <Parameter ID="FileDevicePath4" Value="../../../../Logical/UserData/SegTrace" />
+    <Group ID="FileDevice5" />
+    <Parameter ID="FileDeviceName5" Value="SegTrace" />
+    <Parameter ID="FileDevicePath5" Value="F:/SegTrace" />
+    <Group ID="FtpUser1" />
+    <Parameter ID="FtpUsername1" Value="FTP" />
+    <Parameter ID="FtpUserPassword1" Value="T9zhCndb3U+RGv/CzHF4XnaM0UkBa3EbnmIr44HqX4c=" Description="ftpaccess" />
+    <Parameter ID="FtpUserSalt1" Value="Ims2GQYk" />
+    <Parameter ID="FTPAccessRight1" Value="0" />
+    <Parameter ID="ActivateOpcUa" Value="1" />
+    <Parameter ID="OpcUaInformationModels_PV_Version" Value="1" />
+  </Module>
+</Hardware>

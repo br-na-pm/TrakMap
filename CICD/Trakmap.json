@@ -1,0 +1,43 @@
+{
+    "libraries" :
+    [
+        "brdkSTR",
+        "TrkDiag",
+        "TrkPaper",
+        "McAcpPar",
+        "AsIODiag",
+        "snprintf",
+        "AsBrStr"
+    ],
+    "compileLibraries" :
+    [
+        "Logical\\Libraries\\snprintf"
+    ],
+    "mapp":
+    [
+
+    ],
+    "files" :
+    [
+        "Logical\\Source\\Diagnostic\\TrakDiag",
+        "Logical\\Project.language"
+    ],
+    "mappViewfiles" :
+    [
+        "Logical\\Project.language",
+        "Logical\\mappView\\Widgets\\TrakMap",
+        "Logical\\mappView\\Resources\\Themes\\BuRThemeFlat2",
+        "Logical\\mappView\\Resources\\Themes\\BuRThemeFlat1",
+        "Physical\\BuildConfig\\PC\\Connectivity\\OpcUA\\TSM.uad"
+    ],
+    "physical":
+    {
+        "deployTasks" :
+        [
+            "Source.Diagnostic.TrakDiag.prg"
+        ],
+        "fileDevices":
+        [],
+        "enableOpcUa" : true
+    }
+}

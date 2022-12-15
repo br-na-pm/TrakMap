@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gPackMLCore" Type="mppackmlcore">
+    <Group ID="Operation">
+      <Property ID="Mode" Value="0" />
+    </Group>
+    <Group ID="Modes">
+      <Group ID="Mode[1]">
+        <Property ID="ModeID" Value="1" />
+        <Property ID="Name" Value="Production" />
+      </Group>
+    </Group>
+    <Group ID="Unit">
+      <Property ID="StartupActiveMode" Value="1" />
+    </Group>
+    <Group ID="UnitModes">
+      <Group ID="Mode[1]">
+        <Property ID="ModeID" Value="1" />
+      </Group>
+    </Group>
+    <Selector ID="Alarms" Value="MpAlarmX" />
+  </Element>
+</Configuration>

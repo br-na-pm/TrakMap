@@ -22,24 +22,18 @@ DINT ShuttleLookup(struct TrkPaperCoreAxisLookupType* Axes,
 struct MC_BR_ShReadInfo_AcpTrak* ShReadInfo){
 	
 	USINT ShuttleIndex;
-
+	USINT i;
+	
 	ShuttleIndex = atoi((uintptr_t)ShuttleID);
 	
-	if (ShuttleIndex >= trkPAPER_MAX_SHUTTLE_COUNT){
-		return trkPAPER_SH_INFO_ERR_SH_CNT_EXCD;
-	}
-	
-	if (Axes[ShuttleIndex].Present){
-		
-		Data->Axis = Axes[ShuttleIndex].Axis;
-			
-		return trkPAPER_SH_INFO_ERR_OK;
-		
-	}else{
-		return trkPAPER_SH_INFO_ERR_INVLID_AXIS;
-		
-	}
 
+	for (i = 0; i < trkPAPER_MAX_SHUTTLE_COUNT; i++){
+		if (Axes[i].ShuttleID == ShuttleIndex){
+			ShReadInfo->Axis =(uintptr_t)&Axes[i].Axis;	
+			return FALSE;				
+		}
+			
+		}	return TRUE;
 }
 
 
@@ -66,16 +60,13 @@ void TrkPaperShuttleClickInfo(struct TrkPaperShuttleClickInfo* inst)
 					}
 					else{
 						inst->Active = TRUE;
-						
 						inst->Internal.Fbs.AsmGetShuttle.Assembly = inst->Internal.CoreInt->Assembly;
-						
 						inst->Internal.State = trkPAPER_SH_CLICK_INFO_WAIT;
 					}
 				}
 			}
 			break;
-		
-		
+
 		
 		case trkPAPER_SH_CLICK_INFO_WAIT:
 			
@@ -89,9 +80,7 @@ void TrkPaperShuttleClickInfo(struct TrkPaperShuttleClickInfo* inst)
 		case trkPAPER_SH_CLICK_INFO_RUN:
 			
 			//Cyclicly read shuttle data
-			inst->Data.ShInfo = inst->Internal.Fbs.ShReadInfo.ShuttleInfo;
-			
-			if(!inst->Internal.CoreInt->TrakStatus->Asm.PowerOn || inst->Internal.ShuttleCount != inst->Internal.CoreInt->TrakStatus->Asm.ShuttlesCount){
+			if(!inst->Internal.CoreInt->TrakStatus->Asm.PowerOn){
 				inst->Internal.State = trkPAPER_SH_CLICK_INFO_WAIT;
 				inst->Internal.Fbs.ShReadInfo.Enable = FALSE;
 				inst->Valid = FALSE;
@@ -107,8 +96,16 @@ void TrkPaperShuttleClickInfo(struct TrkPaperShuttleClickInfo* inst)
 				inst->Update = FALSE;
 				inst->Internal.State = trkPAPER_SH_CLICK_INFO_LOOKUP;
 				inst->Internal.Fbs.ShReadInfo.Enable = FALSE;
+				inst->ErrorID = trkPAPER_SH_INFO_ERR_OK;
 			}
-			
+			else if (inst->Internal.Fbs.ShReadInfo.Error) {
+				inst->Valid = FALSE;
+				inst->ErrorID = trkPAPER_SH_INFO_WRN_BAD_SH_READ;
+			}	
+			else if(inst->Internal.Fbs.ShReadInfo.Valid){
+				inst->Valid = TRUE;
+				inst->Data.ShInfo = inst->Internal.Fbs.ShReadInfo.ShuttleInfo;
+			}
 			break;
 		
 		case trkPAPER_SH_BUILD_TABLE:
@@ -129,30 +126,37 @@ void TrkPaperShuttleClickInfo(struct TrkPaperShuttleClickInfo* inst)
 				inst->Internal.State = trkPAPER_SH_CLICK_INFO_ERROR;
 			}
 			else if(inst->Internal.Fbs.AsmGetShuttle.Valid){
-				if(inst->Internal.Fbs.AsmGetShuttle.TotalCount >= trkPAPER_MAX_SHUTTLE_COUNT 
-				|| inst->Internal.Fbs.AsmGetShuttle.AdditionalInfo.ShuttleID >= trkPAPER_MAX_SHUTTLE_COUNT){
-					
+				if(inst->Internal.Fbs.AsmGetShuttle.TotalCount >= trkPAPER_MAX_SHUTTLE_COUNT ){			
 					inst->Error = TRUE;
-					inst->ErrorID = trkPAPER_SH_INFO_ERR_SH_CNT_EXCD;
-					
+					inst->ErrorID = trkPAPER_SH_INFO_ERR_SH_CNT_EXCD;		
 					inst->Internal.State = trkPAPER_SH_CLICK_INFO_ERROR;
 				}
-				else{
-					inst->Internal.Axes[inst->Internal.Fbs.AsmGetShuttle.AdditionalInfo.ShuttleID].Present = TRUE;
-					inst->Internal.Axes[inst->Internal.Fbs.AsmGetShuttle.AdditionalInfo.ShuttleID].Axis = inst->Internal.Fbs.AsmGetShuttle.Axis;
-					inst->Internal.Fbs.AsmGetShuttle.Next = FALSE;
-					inst->Internal.ShuttleCount++;
-					
-					if(inst->Internal.Fbs.AsmGetShuttle.RemainingCount == 0){
-						//Done populating the lookup array, moving on
-						inst->Internal.Fbs.AsmGetShuttle.Enable = FALSE;
-						inst->Internal.State = trkPAPER_SH_CLICK_INFO_RUN;
-					}
+				//Populate Axes table for shuttle 
+				inst->Internal.Axes[inst->Internal.ShuttleCount].Present = TRUE;
+				inst->Internal.Axes[inst->Internal.ShuttleCount].Axis = inst->Internal.Fbs.AsmGetShuttle.Axis;
+				inst->Internal.Axes[inst->Internal.ShuttleCount].ShuttleID = inst->Internal.Fbs.AsmGetShuttle.AdditionalInfo.ShuttleID;
+				inst->Internal.Fbs.AsmGetShuttle.Next = FALSE;
+				inst->Internal.ShuttleCount++;
+								
+				
+				if(inst->Internal.Fbs.AsmGetShuttle.RemainingCount == 0 ){
+					//Done populating the lookup table, moving on
+					inst->Internal.Fbs.AsmGetShuttle.Enable = FALSE;
+					if (inst->Internal.UpdateLookupTable ) {
+						inst->Internal.State =trkPAPER_SH_CLICK_INFO_LOOKUP; 
+						inst->ErrorID = trkPAPER_SH_INFO_ERR_OK;
+						inst->Internal.UpdateLookupTable = FALSE;
+					} 
 					else{
-						inst->Internal.State = trkPAPER_SH_CLICK_GET_NEXT;
+						inst->Internal.State = trkPAPER_SH_CLICK_INFO_RUN;	
 					}
 				}
+				else{
+					//move to next shuttle 
+					inst->Internal.State = trkPAPER_SH_CLICK_GET_NEXT;
+				}
 			}
+	
 			break;
 		
 		case trkPAPER_SH_CLICK_GET_NEXT:
@@ -165,34 +169,18 @@ void TrkPaperShuttleClickInfo(struct TrkPaperShuttleClickInfo* inst)
 		case trkPAPER_SH_CLICK_INFO_LOOKUP:
 			
 			//Shuttle Lookup
-			inst->ErrorID = ShuttleLookup(inst->Internal.Axes, inst->Ident, &inst->Data, &inst->Internal.Fbs.ShReadInfo);
-			
-			
-			
-			if(inst->ErrorID != trkPAPER_SH_INFO_ERR_OK){
-				inst->Error = TRUE;
-				inst->Internal.State = trkPAPER_SH_CLICK_INFO_ERROR;
+			inst->Internal.UpdateLookupTable = ShuttleLookup(inst->Internal.Axes, inst->Ident, &inst->Data, &inst->Internal.Fbs.ShReadInfo);
+		
+			/*remake table if shuttle is not found*/
+			if(inst->Internal.UpdateLookupTable){
+				inst->Internal.State = trkPAPER_SH_BUILD_TABLE;
 			}
 			else{
-				inst->Internal.Fbs.ShReadInfo.Axis = &inst->Data.Axis;
 				inst->Internal.Fbs.ShReadInfo.Enable = TRUE;
-				inst->Internal.State = trkPAPER_SH_CLICK_INFO_READ;	
+				inst->Internal.State = trkPAPER_SH_CLICK_INFO_RUN;	
 			}
 			break;
 		
-		case trkPAPER_SH_CLICK_INFO_READ:
-			
-			if(inst->Internal.Fbs.ShReadInfo.Error){
-				inst->Error = TRUE;
-				inst->ErrorID = trkPAPER_SH_INFO_ERR_BAD_SH_READ;
-				
-				inst->Internal.State = trkPAPER_SH_CLICK_INFO_ERROR;
-			}else if(inst->Internal.Fbs.ShReadInfo.Valid){
-				inst->Valid = TRUE;
-				inst->Internal.State = trkPAPER_SH_CLICK_INFO_RUN;
-			}
-			
-			break;
 			
 		case trkPAPER_SH_CLICK_INFO_RESET:
 			inst->Error = FALSE;

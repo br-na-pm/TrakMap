@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<CompoundWidget id="ShuttleStatus" width="1060" height="100" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Widgets>
+<CompoundWidget id="ShuttleStatus" width="900" height="100" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Widgets>
 	
-		<Widget xsi:type="widgets.brease.Label" 		id="lblShuttleID" 			top="0" left="10" width="100" 		zIndex="1" text="ShuttleID" />
-		 <Widget xsi:type="widgets.brease.NumericOutput" id="numOutShuttleID" 		top="0" left="110" width="60" 		zIndex="2" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" />
-		<Widget xsi:type="widgets.brease.Label" 		id="lblShuttleState" 		top="35" left="10" width="100" 		zIndex="3" text="ShuttleState" />
-		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtShuttleState" 		top="35" left="90"  width="200" 		zIndex="4" value="$IAT/SHUTTLESTATE.0" />	
-		<Widget xsi:type="widgets.brease.Label" 		id="lblErrorCode" 			top="70" left="10" width="100" 		zIndex="5" text="ErrorReason" /> 
-		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtErrorReason" 		top="70" left="90"  width="200" 		zIndex="6" value="$IAT/SHUTTLEERRORSTATE.0"/>
-		<Widget xsi:type="widgets.brease.Label" 		id="lblPosition" 			top="0" left="300" width="100" 			zIndex="7" text="Position" />
-		<Widget xsi:type="widgets.brease.NumericOutput" id="numOutPosition" 		top="0" left="400" width="100" 		zIndex="8" format="{'metric':{'decimalPlaces':3,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':3,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':3,'minimumIntegerDigits':1}}" />
-		<Widget xsi:type="widgets.brease.Label" 		id="lblSector" 				top="35" left="300" width="100" 			zIndex="9" text="Sector" />
-		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtSector" 				top="35" left="400"  width="210" 		zIndex="10" />
-		<Widget xsi:type="widgets.brease.Label" 		id="lblVelocity" 			top="70" left="300" width="100" 			zIndex="11" text="Velocity" />
-		<Widget xsi:type="widgets.brease.NumericOutput" id="numOutVelocity" 		top="70" left="400" width="100" 		zIndex="12" format="{'metric':{'decimalPlaces':3,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':3,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':3,'minimumIntegerDigits':1}}" />
-		<Widget xsi:type="widgets.brease.Label" 		id="lblOrientation" 		top="0" left="620" width="100" 			zIndex="13" text="Orientation" />
-		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtOrientation" 		top="0" left="720"  width="250" 		zIndex="14" value="$IAT/SHORIENTATIONSTATE.0"/>  
-		<Widget xsi:type="widgets.brease.Label" 		id="lblMovementType" 		top="35" left="620" width="100" 			zIndex="15" text="Movement Type" />
-		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtMovementType" 		top="35" left="720"  width="250" 		zIndex="16" value="$IAT/SHMOVESTATE.0"/>
+		<Widget xsi:type="widgets.brease.Label" 		id="lblShuttleID" 			top="0" left="10" width="100" 		zIndex="1" text="ShuttleID" fontSize="16px"  bold= "true" />
+		 <Widget xsi:type="widgets.brease.NumericOutput" id="numOutShuttleID" 		top="0" left="110" width="190" 		zIndex="2" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" fontSize="16px" bold= "true" textAlign= "left" />
+		<Widget xsi:type="widgets.brease.Label" 		id="lblShuttleState" 		top="35" left="10" width="100" 		zIndex="3" text="ShuttleState" fontSize="14px"   />
+		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtShuttleState" 		top="35" left="110"  width="190" 		zIndex="4" value="$IAT/SHUTTLESTATE.0" fontSize="14px"   />	
+		<Widget xsi:type="widgets.brease.Label" 		id="lblErrorCode" 			top="70" left="10" width="100" 		zIndex="5" text="ErrorReason"  fontSize="14px"  /> 
+		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtErrorReason" 		top="70" left="110"  width="190" 		zIndex="6" value="$IAT/SHUTTLEERRORSTATE.0" fontSize="14px"  />
+		<Widget xsi:type="widgets.brease.Label" 		id="lblPosition" 			top="0" left="300" width="75" 			zIndex="7" text="Position" fontSize="14px"   />
+		<Widget xsi:type="widgets.brease.NumericOutput" id="numOutPosition" 		top="0" left="375" width="140" 	zIndex="8" format="{'metric':{'decimalPlaces':3,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':3,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':3,'minimumIntegerDigits':1}}" fontSize="14px" textAlign= "left"  />
+		<Widget xsi:type="widgets.brease.Label" 		id="lblSector" 				top="35" left="300" width="75" 			zIndex="9" text="Sector" fontSize="14px"   />
+		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtSector" 				top="35" left="375" width="140" 		zIndex="10" fontSize="14px"   />
+		<Widget xsi:type="widgets.brease.Label" 		id="lblVelocity" 			top="70" left="300" width="75" 			zIndex="11" text="Velocity"  fontSize="14px"  />
+		<Widget xsi:type="widgets.brease.NumericOutput" id="numOutVelocity" 		top="70" left="375" width="140" 		zIndex="12" format="{'metric':{'decimalPlaces':3,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':3,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':3,'minimumIntegerDigits':1}}" fontSize="14px" textAlign= "left"  />
+		<Widget xsi:type="widgets.brease.Label" 		id="lblOrientation" 		top="0" left="515" width="110" 			zIndex="13" text="Orientation" fontSize="14px"   />
+		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtOrientation" 		top="0" left="625"  width="250" 		zIndex="14" value="$IAT/SHORIENTATIONSTATE.0" fontSize="14px"   />  
+		<Widget xsi:type="widgets.brease.Label" 		id="lblMovementType" 		top="35" left="515" width="110"  			zIndex="15" text="Movement Type" fontSize="14px" />
+		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtMovementType" 		top="35" left="625"  width="250" 		zIndex="16" value="$IAT/SHMOVESTATE.0" fontSize="14px"/>
 		<Widget xsi:type="widgets.brease.ImageList" 	id="numInShuttleState" 			top="0" left="0" width="1" height="1" 	zIndex="17" imageList="['']"  visible="false" />
 		<Widget xsi:type="widgets.brease.ImageList" 	id="numInShuttleErrorState" 			top="0" left="0" width="1" height="1" 	zIndex="18" imageList="['']"  visible="false" />
 		<Widget xsi:type="widgets.brease.ImageList" 	id="numInShuttleOrientationState" 			top="0" left="0" width="1" height="1" 	zIndex="19" imageList="['']"  visible="false" />
@@ -37,7 +37,6 @@
       </Mappings>
     </Property>
 	   -->
-	
 
 
 	<Property xsi:type="StructureBindableProperty" name="statusStructure" type="McAcpTrakShInfoType" category="Data" readOnly="true" required="false">

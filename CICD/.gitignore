@@ -1,0 +1,6 @@
+MachineWVD/Temp/
+MachineWVD/Diagnosis/
+*.set
+MachineWVD/Binaries/
+*.isopen
+ASHelperScripts/__pycache__/
