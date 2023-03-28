@@ -60,7 +60,9 @@ def ExportName(){
 
 
 pipeline {
-    agent any 
+    agent {
+        label 'windows'
+    }
     
     environment {
         PROJECT_DIR = "$WORKSPACE\\BaseProject";
