@@ -61,8 +61,8 @@ def ExportName(){
 
 pipeline {
     agent {
-        label 'windows'
-    }
+        label 'windows'
+     }
     
     environment {
         PROJECT_DIR = "$WORKSPACE\\BaseProject";
@@ -90,8 +90,7 @@ pipeline {
         }
         stage('Build AS') {
             steps {
-                powershell(returnStdout: true, script:  "python -u \"$BUILD_SCRIPTS\\ASProjectCompile.py\" --project \"$PROJECT_DIR\" --configuration BuildConfig"); 
-                
+                BuildASProject(project: "$PROJECT_DIR", configuration: 'BuildConfig', max_warnings: -1);
             }
         }
         stage('Create Framework Export') {
@@ -100,8 +99,8 @@ pipeline {
                 EXPORT_NAME = 'TrakMap'
             }
             steps {
-                powershell(returnStdout: true, script: "python \"$BUILD_SCRIPTS\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_CONFIG_DIR\\Trakmap.json\" --output \"$EXPORT_DIR\" --physical \"Physical\\BuildConfig\"");
-            }
+                FrameworkExport(project: "$PROJECT_DIR", config: "$EXPORT_CONFIG_DIR\\Trakmap.json", output: "$EXPORT_DIR", physical: "Physical\\BuildConfig");
+                }
         }
          stage('Build TrakMap Importer') {
             environment {
@@ -124,7 +123,7 @@ pipeline {
                     Exception caughtException = null
                     catchError(buildResult: 'SUCCESS', stageResult: 'ABORTED') { 
                         try { 
-                            powershell(returnStdout: true, script: "python \"$BUILD_SCRIPTS\\BuildHelp.py\" --project \"$HELP_LOCATION\" --file $HELP_FILE --name $HELP_NAME --output \"$HELP_OUTPUT\"");
+                            BuildHelpNDoc(file: "$HELP_LOCATION\\$HELP_FILE", type: "HTML", output: "$HELP_OUTPUT");
                         } catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException e) {
                             error "Caught ${e.toString()}" 
                         } catch (Throwable e) {

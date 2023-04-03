@@ -6,7 +6,8 @@
         "TrkPaper",
         "McAcpPar",
         "AsIODiag",
-        "AsBrStr"
+        "AsBrStr",
+        "snprintf"
     ],
     "compileLibraries" :
     [
